@@ -1,501 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ashwin Kalaichandran - Senior DevOps Engineer with 7+ years of experience in cloud platforms, automation, and CI/CD pipelines">
-    <meta name="keywords" content="DevOps, Cloud, AWS, Kubernetes, Terraform, CI/CD, Python, Jenkins, Cognizant, Medtronic">
-    <meta name="author" content="Ashwin Kalaichandran">
-    <title>Ashwin Kalaichandran - Senior DevOps Engineer | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jennifer J. David - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --primary: #6C5CE7;
+    --secondary: #A29BFE;
+    --accent: #FD79A8;
+    --background: #F8F9FA;
+    --text: #2D3436;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: clamp(16px, 2.5vw, 18px);
+    font-weight: 400;
+    line-height: 1.7;
+    color: #2c2c2c;
+    background: #ffffff;
+    overflow-x: hidden;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: clamp(60px, 8vh, 70px);
+    background: var(--primary);
+    padding: 0 clamp(20px, 5vw, 60px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+  }
+  nav * {
+    color: #ffffff !important;
+  }
+  nav .logo {
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  nav .nav-links {
+    display: inline-flex;
+    gap: clamp(15px, 3vw, 30px);
+    font-size: clamp(12px, 1.8vw, 14px);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  nav .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  nav .nav-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  #intro {
+    min-height: clamp(500px, 80vh, 100vh);
+    padding: clamp(60px, 10vw, 100px) clamp(30px, 8vw, 80px);
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  #intro, #intro * {
+    color: #ffffff !important;
+  }
+  #intro .greeting {
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 15px;
+    opacity: 0.95;
+  }
+  #intro .name {
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    margin: 0 auto 20px;
+  }
+  #intro .title {
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+  }
+  main {
+    margin-top: clamp(60px, 8vh, 70px);
+    padding-top: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  section {
+    padding: clamp(60px, 10vw, 100px) clamp(30px, 8vw, 80px);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    opacity: 1 !important;
+    background: #ffffff;
+    color: #2c2c2c;
+  }
+  section:nth-of-type(even) {
+    background: #f5f5f5;
+  }
+  section h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: clamp(30px, 5vw, 50px);
+    color: #1a1a1a !important;
+    text-align: center;
+  }
+  section h2 {
+    font-size: clamp(18px, 3vw, 22px);
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #2c2c2c !important;
+  }
+  section p, section li, section span {
+    color: #2c2c2c !important;
+    font-size: clamp(15px, 2vw, 17px);
+    line-height: 1.7;
+  }
+  .animate-on-scroll:not(.visible) {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .animate-on-scroll {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Layout grid for experience and summary blocks */
+  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(30px, 5vw, 50px);
+    width: 100%;
+  }
+  .content-block {
+    padding: clamp(20px, 4vw, 30px);
+    border-left: 4px solid var(--accent);
+    background: transparent;
+  }
+  .content-block h3 {
+    color: #1a1a1a !important;
+    font-weight: 600;
+    margin-top: 0;
+  }
+  .content-block .date {
+    color: #5a5a5a !important;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  /* Skills section */
+  #skills .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  .skill-card {
+    padding: 20px 24px;
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-left: 4px solid var(--accent);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+  .skill-name {
+    font-size: clamp(14px, 2vw, 16px);
+    font-weight: 600;
+    color: #1a1a1a !important;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .progress-bar-container {
+    width: 100%;
+    height: 6px;
+    background: #e8e8e8;
+    margin-top: 12px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    animation: fillBar 1.5s ease-out forwards;
+    width: 0;
+  }
+  @keyframes fillBar {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  /* Buttons */
+  button {
+    border: 2px solid var(--primary);
+    background: transparent;
+    padding: clamp(12px, 2vw, 15px) clamp(25px, 4vw, 35px);
+    font-size: clamp(12px, 1.8vw, 14px);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--primary);
+  }
+  button:hover {
+    background: var(--primary);
+    color: white;
+  }
+  footer {
+    padding: clamp(40px, 6vw, 60px) clamp(30px, 8vw, 80px);
+    background: #2e3141;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    font-size: clamp(11px, 1.5vw, 13px);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    nav .nav-links {
+      font-size: 11px;
+      letter-spacing: 0.03em;
+    }
+    #skills .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    section {
+      padding: 40px 20px;
+    }
+    #skills .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 </head>
 <body>
-    <!-- Header Navigation -->
-    <header class="header" role="banner">
-        <nav class="nav container" aria-label="Main Navigation">
-            <div class="nav__brand">
-                <a href="#home" class="nav__logo">AK</a>
-            </div>
-            <ul class="nav__menu" id="nav-menu">
-                <li class="nav__item">
-                    <a href="#home" class="nav__link active">Home</a>
-                </li>
-                <li class="nav__item">
-                    <a href="#about" class="nav__link">About</a>
-                </li>
-                <li class="nav__item">
-                    <a href="#experience" class="nav__link">Experience</a>
-                </li>
-                <li class="nav__item">
-                    <a href="#skills" class="nav__link">Skills</a>
-                </li>
-                <li class="nav__item">
-                    <a href="#projects" class="nav__link">Projects</a>
-                </li>
-                <li class="nav__item">
-                    <a href="#contact" class="nav__link">Contact</a>
-                </li>
-            </ul>
-            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="nav__toggle-line"></span>
-                <span class="nav__toggle-line"></span>
-                <span class="nav__toggle-line"></span>
-            </button>
-        </nav>
-    </header>
+<nav id="navbar" role="navigation" aria-label="Primary Navigation">
+  <div class="logo" tabindex="0">Jennifer J. David</div>
+  <div class="nav-links">
+    <a href="#summary" tabindex="0">Summary</a>
+    <a href="#experience" tabindex="0">Experience</a>
+    <a href="#skills" tabindex="0">Skills</a>
+    <a href="#education" tabindex="0">Education</a>
+  </div>
+</nav>
+<main>
+  <section id="intro" role="banner" aria-label="Introduction">
+    <div>
+      <div class="greeting">Hello, I'm</div>
+      <h1 class="name" tabindex="0">Jennifer J. David</h1>
+      <div class="title" tabindex="0">Senior Technical Writer &amp; Information Developer</div>
+    </div>
+  </section>
 
-    <!-- Main Content -->
-    <main class="main">
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="container">
-                <div class="hero__content">
-                    <div class="hero__text">
-                        <h1 class="hero__title">Ashwin Kalaichandran</h1>
-                        <h2 class="hero__subtitle">Senior DevOps Engineer</h2>
-                        <p class="hero__description">
-                            7+ years of expertise in deploying and maintaining scalable DevOps ecosystems with end-to-end delivery pipelines across cloud and on-premise platforms. Specialized in DevSecOps with a Shift Left mindset.
-                        </p>
-                        <div class="hero__stats">
-                            <div class="stat">
-                                <span class="stat__number">7+</span>
-                                <span class="stat__label">Years Experience</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat__number">50+</span>
-                                <span class="stat__label">Projects Delivered</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat__number">99.9%</span>
-                                <span class="stat__label">System Uptime</span>
-                            </div>
-                        </div>
-                        <div class="hero__cta">
-                            <a href="#contact" class="btn btn--primary">Get In Touch</a>
-                            <a href="#experience" class="btn btn--outline">View Experience</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <section id="summary" class="animate-on-scroll" role="region" aria-labelledby="summary-heading">
+    <h1 id="summary-heading">Summary</h1>
+    <p><strong>Experienced Senior Technical Writer and Technical Lead</strong> specializing in cloud platforms, SaaS, BAAS, and Agile/Non-Agile project methodologies. Skilled in content management tools including Markdown, HTML, PanDoc, Docker, FrameMaker, RoboHelp, and Adobe Acrobat. Proficient in programming languages and API documentation.</p>
+    <p>Strong background in requirement analysis, user story creation, documentation management with Jira, and stakeholder communication. Experienced in technical information security and compliance assessments.</p>
+  </section>
 
-        <!-- About Section -->
-        <section class="about" id="about">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about__content">
-                    <div class="about__text">
-                        <p>
-                            DevOps Engineer with 7 years of experience in deploying and maintaining scalable DevOps ecosystem with end-to-end delivery pipelines across cloud and on-prem platforms. I adhere to the first principles of DevSecOps with a Shift Left mindset.
-                        </p>
-                        <p>
-                            Proven track record of delivery optimization by striking the right balance between velocity, quality and cost. Integrated various security tools in CICD pipelines. Agile way of working as a Product Owner. Avid learner who adapts to the ever-changing technology landscape.
-                        </p>
-                    </div>
-                    <div class="about__info">
-                        <div class="about__info-item">
-                            <div class="info-icon">📍</div>
-                            <div class="info-content">
-                                <strong>Location</strong>
-                                <span>Bengaluru, India</span>
-                            </div>
-                        </div>
-                        <div class="about__info-item">
-                            <div class="info-icon">💼</div>
-                            <div class="info-content">
-                                <strong>Experience</strong>
-                                <span>7+ Years</span>
-                            </div>
-                        </div>
-                        <div class="about__info-item">
-                            <div class="info-icon">🎯</div>
-                            <div class="info-content">
-                                <strong>Specialization</strong>
-                                <span>DevOps & Cloud Architecture</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <section id="experience" class="animate-on-scroll" role="region" aria-labelledby="experience-heading">
+    <h1 id="experience-heading">Work Experience</h1>
+    <div class="grid-layout">
+      <article class="content-block" tabindex="0" aria-label="Work experience at HCL Technologies Ltd">
+        <h3>HCL Technologies Ltd</h3>
+        <div class="date">Nov 2019 - Dec 2024</div>
+        <p>Technical Writing/Sr Information Developer/Technical Lead on cloud platforms such as SaaS and BAAS using Java/.NET technologies. Developed technical content for Actian-BaaS project managed on AWS Cloud. Expert in content management tools including Markdown, HTML, PanDoc, Docker, FrameMaker, Adobe Acrobat, RoboHelp, Photoshop, Microsoft Office, SnagIT, and Adobe Captivate.</p>
+        <p>Responsibilities included requirement analysis, information gathering, Scrum participation, user story creation and management on Jira, and documentation of FRS and user manuals.</p>
+        <p>Previous experience includes Lead Technical Writer role at Facebook.</p>
+        <p>Completed training on SDLC, Agile, DevOps, and ITAO. Developed skills as Technical Information Security Officer (TISO) and managed Information Security Compliance assessments.</p>
+      </article>
 
-        <!-- Experience Section -->
-        <section class="experience" id="experience">
-            <div class="container">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="experience__timeline">
-                    <article class="experience__item">
-                        <div class="experience__marker">
-                            <div class="marker-dot"></div>
-                        </div>
-                        <div class="experience__content">
-                            <div class="experience__header">
-                                <h3 class="experience__role">Product Owner & Senior DevOps Engineer</h3>
-                                <h4 class="experience__company">Automotive Technology Solutions</h4>
-                                <div class="experience__meta">
-                                    <span class="experience__duration">2022 - Present</span>
-                                    <span class="experience__location">Bengaluru, India</span>
-                                </div>
-                            </div>
-                            <div class="experience__details">
-                                <h5>Key Responsibilities:</h5>
-                                <ul class="experience__responsibilities">
-                                    <li>Served as Product Owner for an automotive project, collected project requirements, designed system architecture including branching strategies</li>
-                                    <li>Allocated AWS resources and collaborated on planning with Scrum Masters for cross-functional teams</li>
-                                    <li>Managed Kubernetes deployments and automated AWS infrastructure provisioning (EC2, EKS, S3, VPC, IAM) using Terraform and CloudFormation</li>
-                                    <li>Built CI/CD pipelines in Jenkins and GitHub Actions, integrating Git, Maven, JFrog, and Docker to streamline microservices deployment</li>
-                                    <li>Enforced merge gate policies through CI tools to ensure only verified code merged into release branches</li>
-                                </ul>
-                                <h5>Key Achievements:</h5>
-                                <ul class="experience__achievements">
-                                    <li>Reduced deployment time by 70% through infrastructure automation</li>
-                                    <li>Improved system reliability and uptime to 99.9%</li>
-                                    <li>Implemented security scanning that identified and resolved 200+ vulnerabilities</li>
-                                    <li>Accelerated new project onboarding by 3x with reusable Jenkins shared libraries</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
+      <article class="content-block" tabindex="0" aria-label="Work experience at ITC Infotech India Ltd">
+        <h3>ITC Infotech India Ltd (Deputed at Lowes, India)</h3>
+        <div class="date">Apr 2018 - Present</div>
+        <p>Technical Writer for Digital Platform team developing microservice onboarding platform using DevOps culture. Utilized tools such as Drone (CI), Spinnaker (CD), Kubernetes, Docker, and Spring Boot.</p>
+        <p>Created documentation using Hugo and Markdown integrated with CI/CD pipelines. Managed version control with Git/Bitbucket.</p>
+      </article>
 
-                    <article class="experience__item">
-                        <div class="experience__marker">
-                            <div class="marker-dot"></div>
-                        </div>
-                        <div class="experience__content">
-                            <div class="experience__header">
-                                <h3 class="experience__role">Senior DevOps Engineer</h3>
-                                <h4 class="experience__company">Cognizant Technology Solutions</h4>
-                                <div class="experience__meta">
-                                    <span class="experience__duration">2020 - 2022</span>
-                                    <span class="experience__location">Bengaluru, India</span>
-                                </div>
-                            </div>
-                            <div class="experience__details">
-                                <h5>Key Responsibilities:</h5>
-                                <ul class="experience__responsibilities">
-                                    <li>Designed and implemented CI/CD pipelines for enterprise clients across banking and healthcare domains</li>
-                                    <li>Managed multi-cloud infrastructure deployments on AWS and Azure for large-scale applications</li>
-                                    <li>Collaborated with development teams to integrate DevSecOps practices and security scanning tools</li>
-                                    <li>Automated infrastructure provisioning using Terraform and ARM templates for client projects</li>
-                                    <li>Provided 24/7 production support for critical client applications with SLA compliance of 99.8%</li>
-                                </ul>
-                                <h5>Key Achievements:</h5>
-                                <ul class="experience__achievements">
-                                    <li>Successfully migrated 15+ legacy applications to cloud platforms</li>
-                                    <li>Reduced infrastructure costs by 40% through optimization and automation</li>
-                                    <li>Achieved zero-downtime deployments for critical banking applications</li>
-                                    <li>Implemented comprehensive monitoring solutions across 50+ client services</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
+      <article class="content-block" tabindex="0" aria-label="Work experience at Indegene Lifesystems Pvt Ltd">
+        <h3>Indegene Lifesystems Pvt Ltd</h3>
+        <div class="date">Jun 2015 - May 2017</div>
+        <p>Technical Writer for healthcare and life sciences projects including Indegene-ipace, creating user and admin manuals, technical and product feature documents. Worked with Contentful CMS for API projects involving JSON scripts.</p>
+        <p>Tools: Microsoft Office 2013, Adobe Captivate 5.5, FrameMaker 11, Acrobat 11, RoboHelp 11, Contentful CMS.</p>
+      </article>
 
-                    <article class="experience__item">
-                        <div class="experience__marker">
-                            <div class="marker-dot"></div>
-                        </div>
-                        <div class="experience__content">
-                            <div class="experience__header">
-                                <h3 class="experience__role">DevOps Engineer</h3>
-                                <h4 class="experience__company">Medtronic (Healthcare Technology)</h4>
-                                <div class="experience__meta">
-                                    <span class="experience__duration">2018 - 2020</span>
-                                    <span class="experience__location">Bengaluru, India</span>
-                                </div>
-                            </div>
-                            <div class="experience__details">
-                                <h5>Key Responsibilities:</h5>
-                                <ul class="experience__responsibilities">
-                                    <li>Developed and maintained CI/CD pipelines for medical device software applications</li>
-                                    <li>Ensured compliance with FDA regulations and healthcare industry standards for software deployment</li>
-                                    <li>Implemented automated testing and validation processes for medical device software</li>
-                                    <li>Managed containerized applications using Docker and Kubernetes in regulated environments</li>
-                                    <li>Collaborated with quality assurance teams to implement automated testing in deployment pipelines</li>
-                                </ul>
-                                <h5>Key Achievements:</h5>
-                                <ul class="experience__achievements">
-                                    <li>Maintained 99.8% system uptime for critical medical device applications</li>
-                                    <li>Reduced software validation time by 60% through automated testing integration</li>
-                                    <li>Successfully passed all FDA compliance audits for software deployment processes</li>
-                                    <li>Automated 80% of routine provisioning and validation tasks</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+      <article class="content-block" tabindex="0" aria-label="Work experience at Honeywell Technology Solutions">
+        <h3>Honeywell Technology Solutions (via Datamatics Vista)</h3>
+        <div class="date">Jun 2014</div>
+        <p>Developed Quick Installation Guide content for Honeywell Digital Suite (HDS) Infrastructure. Tools used included Microsoft Office 2007, Adobe Captivate 5.5, FrameMaker 11, Acrobat 11, RoboHelp 11.</p>
+      </article>
 
-        <!-- Skills Section -->
-        <section class="skills" id="skills">
-            <div class="container">
-                <h2 class="section-title">Technical Expertise</h2>
-                <div class="skills__grid">
-                    <div class="skill-category">
-                        <div class="skill-category__icon">💻</div>
-                        <h3 class="skill-category__title">Programming Languages</h3>
-                        <div class="skill-category__items">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Shell Scripting</span>
-                            <span class="skill-tag">Groovy</span>
-                        </div>
-                    </div>
+      <article class="content-block" tabindex="0" aria-label="Work experience at IBM India">
+        <h3>IBM India Software Labs</h3>
+        <div class="date">Sept 2013</div>
+        <p>Worked on IBM Tealeaf OMS projects including Item and Pricing and Process Modeling. Created demos and simulations using Adobe Captivate 5.5 and documented demo scripts for global audiences.</p>
+        <p>Tools: Adobe Captivate 5.5, FrameMaker 11, Acrobat 11, RoboHelp 11.</p>
+      </article>
 
-                    <div class="skill-category">
-                        <div class="skill-category__icon">☁️</div>
-                        <h3 class="skill-category__title">Cloud & Infrastructure</h3>
-                        <div class="skill-category__items">
-                            <span class="skill-tag">AWS EC2</span>
-                            <span class="skill-tag">EKS</span>
-                            <span class="skill-tag">Lambda</span>
-                            <span class="skill-tag">RDS</span>
-                            <span class="skill-tag">S3</span>
-                            <span class="skill-tag">VPC</span>
-                            <span class="skill-tag">IAM</span>
-                            <span class="skill-tag">Terraform</span>
-                            <span class="skill-tag">CloudFormation</span>
-                        </div>
-                    </div>
+      <article class="content-block" tabindex="0" aria-label="Work experience at ILANTUS Technologies">
+        <h3>ILANTUS Technologies</h3>
+        <div class="date">Jan 2013 - Mar [Year Removed]</div>
+        <p>Documented guides for Federation Express and Password Express products including user, admin, installation, and developer guides. Created video/demo scripts.</p>
+      </article>
 
-                    <div class="skill-category">
-                        <div class="skill-category__icon">📦</div>
-                        <h3 class="skill-category__title">Containerization</h3>
-                        <div class="skill-category__items">
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Kubernetes</span>
-                        </div>
-                    </div>
+      <article class="content-block" tabindex="0" aria-label="Work experience at ZeOmega Integrated HealthCare Management">
+        <h3>ZeOmega Integrated HealthCare Management</h3>
+        <div class="date">Apr 2011 - Jan 2012</div>
+        <p>Documented user guides, training manuals, technical notes, online help, FRSs, glossaries, release notes, and checklists for Jiva Integrated Healthcare Management Software.</p>
+        <p>Responsibilities included creating manuals for intake, nurse/supervisor, utilization management, disease management, reports, billing, appeals, and more. Used SnagIT, Photoshop, and Visio for image design.</p>
+      </article>
 
-                    <div class="skill-category">
-                        <div class="skill-category__icon">🔄</div>
-                        <h3 class="skill-category__title">CI/CD & DevOps Tools</h3>
-                        <div class="skill-category__items">
-                            <span class="skill-tag">Jenkins</span>
-                            <span class="skill-tag">GitHub Actions</span>
-                            <span class="skill-tag">Maven</span>
-                            <span class="skill-tag">JFrog</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Gerrit</span>
-                            <span class="skill-tag">Apache Ant</span>
-                        </div>
-                    </div>
+      <article class="content-block" tabindex="0" aria-label="Work experience at Lionbridge Technologies">
+        <h3>Lionbridge Technologies (Deputed to HP Bangalore)</h3>
+        <div class="date">Dec 2009 - Nov 2010</div>
+        <p>Documented user guides, installation/configuration guides, release notes, technical notes, and online help for HP Client Automation (HPCA) products. Worked in Agile methodology and collaborated with US-based product teams.</p>
+        <p>Tools: FrameMaker 10.0, Web Works Publisher, Visio, Photoshop, SnagIT, Microsoft Word, UNIX command-line documentation.</p>
+      </article>
+    </div>
+  </section>
 
-                    <div class="skill-category">
-                        <div class="skill-category__icon">🔍</div>
-                        <h3 class="skill-category__title">Monitoring & Security</h3>
-                        <div class="skill-category__items">
-                            <span class="skill-tag">Datadog</span>
-                            <span class="skill-tag">Grafana</span>
-                            <span class="skill-tag">AWS CloudWatch</span>
-                            <span class="skill-tag">Trivy</span>
-                            <span class="skill-tag">BlackDuck</span>
-                            <span class="skill-tag">SonarQube</span>
-                            <span class="skill-tag">Coverity</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-category__icon">📊</div>
-                        <h3 class="skill-category__title">Project Management</h3>
-                        <div class="skill-category__items">
-                            <span class="skill-tag">Jira</span>
-                            <span class="skill-tag">Agile/Scrum</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="projects" id="projects">
-            <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="projects__grid">
-                    <article class="project-card">
-                        <div class="project-card__header">
-                            <h3 class="project-card__title">Multi-Cloud Infrastructure Automation</h3>
-                        </div>
-                        <div class="project-card__content">
-                            <p class="project-card__description">
-                                Comprehensive Terraform-based infrastructure automation platform supporting AWS and Azure deployments with integrated security scanning
-                            </p>
-                            <div class="project-card__technologies">
-                                <span class="tech-tag">Terraform</span>
-                                <span class="tech-tag">AWS</span>
-                                <span class="tech-tag">Azure</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Jenkins</span>
-                                <span class="tech-tag">Trivy</span>
-                            </div>
-                            <ul class="project-card__highlights">
-                                <li>Automated provisioning across multiple cloud platforms</li>
-                                <li>Integrated comprehensive security scanning and compliance checks</li>
-                                <li>Reduced manual setup time from weeks to hours</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-card__header">
-                            <h3 class="project-card__title">Enterprise CI/CD Pipeline Framework</h3>
-                        </div>
-                        <div class="project-card__content">
-                            <p class="project-card__description">
-                                Scalable Jenkins and GitHub Actions pipeline framework for microservices with automated testing, security scanning, and deployment
-                            </p>
-                            <div class="project-card__technologies">
-                                <span class="tech-tag">Jenkins</span>
-                                <span class="tech-tag">GitHub Actions</span>
-                                <span class="tech-tag">Kubernetes</span>
-                                <span class="tech-tag">Docker</span>
-                                <span class="tech-tag">Maven</span>
-                                <span class="tech-tag">Groovy</span>
-                            </div>
-                            <ul class="project-card__highlights">
-                                <li>Standardized deployment process across 20+ applications</li>
-                                <li>Implemented automated merge gate policies and testing</li>
-                                <li>Achieved 99.9% deployment success rate</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-card__header">
-                            <h3 class="project-card__title">Healthcare Software Deployment Pipeline</h3>
-                        </div>
-                        <div class="project-card__content">
-                            <p class="project-card__description">
-                                FDA-compliant deployment pipeline for medical device software with comprehensive validation and compliance reporting
-                            </p>
-                            <div class="project-card__technologies">
-                                <span class="tech-tag">Jenkins</span>
-                                <span class="tech-tag">Docker</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Compliance Tools</span>
-                                <span class="tech-tag">Automated Testing</span>
-                            </div>
-                            <ul class="project-card__highlights">
-                                <li>Full FDA regulatory compliance</li>
-                                <li>Automated validation and testing processes</li>
-                                <li>Zero compliance audit failures</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-card__header">
-                            <h3 class="project-card__title">Monitoring and Observability Platform</h3>
-                        </div>
-                        <div class="project-card__content">
-                            <p class="project-card__description">
-                                Enterprise-grade monitoring solution with Grafana dashboards, alerting, and automated incident response
-                            </p>
-                            <div class="project-card__technologies">
-                                <span class="tech-tag">Grafana</span>
-                                <span class="tech-tag">Datadog</span>
-                                <span class="tech-tag">AWS CloudWatch</span>
-                                <span class="tech-tag">Prometheus</span>
-                                <span class="tech-tag">Python</span>
-                            </div>
-                            <ul class="project-card__highlights">
-                                <li>Comprehensive monitoring across 100+ services</li>
-                                <li>Proactive alerting and automated incident response</li>
-                                <li>Reduced mean time to recovery by 50%</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact__content">
-                    <div class="contact__info">
-                        <h3>Let's Connect</h3>
-                        <p>I'm always interested in discussing new opportunities, innovative projects, and ways to optimize DevOps processes.</p>
-                        <div class="contact__details">
-                            <div class="contact__item">
-                                <div class="contact__icon">📧</div>
-                                <div class="contact__text">
-                                    <strong>Email:</strong>
-                                    <a href="mailto:ashwin.kalaichandran@gmail.com">ashwin.kalaichandran@gmail.com</a>
-                                </div>
-                            </div>
-                            <div class="contact__item">
-                                <div class="contact__icon">📱</div>
-                                <div class="contact__text">
-                                    <strong>Phone:</strong>
-                                    <a href="tel:+916381259486">+91 6381259486</a>
-                                </div>
-                            </div>
-                            <div class="contact__item">
-                                <div class="contact__icon">📍</div>
-                                <div class="contact__text">
-                                    <strong>Location:</strong>
-                                    <span>Bengaluru, India</span>
-                                </div>
-                            </div>
-                            <div class="contact__item">
-                                <div class="contact__icon">💼</div>
-                                <div class="contact__text">
-                                    <strong>LinkedIn:</strong>
-                                    <a href="https://linkedin.com/in/ashwin-kalaichandran" target="_blank">linkedin.com/in/ashwin-kalaichandran</a>
-                                </div>
-                            </div>
-                            <div class="contact__item">
-                                <div class="contact__icon">🐙</div>
-                                <div class="contact__text">
-                                    <strong>GitHub:</strong>
-                                    <a href="https://github.com/ashwin-devops" target="_blank">github.com/ashwin-devops</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <form class="contact__form" id="contact-form" novalidate>
-                        <div class="form-group">
-                            <label for="name" class="form-label">Name *</label>
-                            <input type="text" id="name" name="name" class="form-control" required aria-describedby="name-error">
-                            <span class="error-message" id="name-error"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email *</label>
-                            <input type="email" id="email" name="email" class="form-control" required aria-describedby="email-error">
-                            <span class="error-message" id="email-error"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Subject *</label>
-                            <input type="text" id="subject" name="subject" class="form-control" required aria-describedby="subject-error">
-                            <span class="error-message" id="subject-error"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message *</label>
-                            <textarea id="message" name="message" rows="5" class="form-control" required aria-describedby="message-error"></textarea>
-                            <span class="error-message" id="message-error"></span>
-                        </div>
-                        <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
-                        <div class="form-status" id="form-status"></div>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <p>&copy; 2025 Ashwin Kalaichandran. All rights reserved.</p>
-                <p>Senior DevOps Engineer | Cloud Architect | Automation Specialist</p>
-            </div>
+  <section id="skills" class="animate-on-scroll" role="region" aria-labelledby="skills-heading">
+    <h1 id="skills-heading">Skills &amp; Technical Proficiency</h1>
+    <div class="skills-grid" aria-label="Skills with proficiency bars">
+      <div class="skill-card" tabindex="0">
+        <div class="skill-name">Technical Writing</div>
+        <div class="progress-bar-container" aria-hidden="true">
+          <div class="progress-fill" style="animation-delay: 0s;"></div>
         </div>
-    </footer>
+      </div>
+      <div class="skill-card" tabindex="0">
+        <div class="skill-name">Cloud Platforms (AWS, SaaS, BAAS)</div>
+        <div class="progress-bar-container" aria-hidden="true">
+          <div class="progress-fill" style="animation-delay: 0.1s;"></div>
+        </div>
+      </div>
+      <div class="skill-card" tabindex="0">
+        <div class="skill-name">Markdown &amp; Hugo</div>
+        <div class="progress-bar-container" aria-hidden="true">
+          <div class="progress-fill" style="animation-delay: 0.2s;"></div>
+        </div>
+      </div>
+      <div class="skill-card" tabindex="0">
+        <div class="skill-name">CI/CD Tools (Drone, Spinnaker)</div>
+        <div class="progress-bar-container" aria-hidden="true">
+          <div class="progress-fill" style="animation-delay: 0.3s;"></div>
+        </div>
+      </div>
+      <div class="skill-card" tabindex="0">
+        <div class="skill-name">Content Management (FrameMaker, RoboHelp)</div>
+        <div class="progress-bar-container" aria-hidden="true">
+          <div class="progress-fill" style="animation-delay: 0.4s;"></div>
+        </div>
+      </div>
+      <div class="skill-card" tabindex="0">
+        <div class="skill-name">Programming (Java, .NET, C#)</div>
+        <div class="progress-bar-container" aria-hidden="true">
+          <div class="progress-fill" style="animation-delay: 0.5s;"></div>
+        </div>
+      </div>
+      <div class="skill-card" tabindex="0">
+        <div class="skill-name">Image Editing (Photoshop, SnagIT)</div>
+        <div class="progress-bar-container" aria-hidden="true">
+          <div class="progress-fill" style="animation-delay: 0.6s;"></div>
+        </div>
+      </div>
+      <div class="skill-card" tabindex="0">
+        <div class="skill-name">API Documentation (JSON, XML)</div>
+        <div class="progress-bar-container" aria-hidden="true">
+          <div class="progress-fill" style="animation-delay: 0.7s;"></div>
+        </div>
+      </div>
+      <div class="skill-card" tabindex="0">
+        <div class="skill-name">Information Security Compliance</div>
+        <div class="progress-bar-container" aria-hidden="true">
+          <div class="progress-fill" style="animation-delay: 0.8s;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="app.js"></script>
+  <section id="education" class="animate-on-scroll" role="region" aria-labelledby="education-heading">
+    <h1 id="education-heading">Education</h1>
+    <div class="grid-layout">
+      <article class="content-block" tabindex="0" aria-label="Bachelor in Computer Applications">
+        <h3>Bachelor in Computer Applications (BCA)</h3>
+        <div class="date">2004 - 2007</div>
+        <p>Dr. Kamalaben Gambhirchand Shah College of Computer Science, Mumbai</p>
+        <p><strong>Final Year Project:</strong> BCA Admission System and Fee Break-up for Dr. B. M. N. College of Home Science. Developed GUI using Visual Basic and Microsoft Access as backend to manage student admission records and fee information.</p>
+      </article>
+      <article class="content-block" tabindex="0" aria-label="Fatima High School">
+        <h3>Fatima High School</h3>
+        <div class="date">March 2002</div>
+        <p>Mumbai</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="personal" class="animate-on-scroll" role="region" aria-labelledby="personal-heading">
+    <h1 id="personal-heading">Personal Details &amp; Traits</h1>
+    <p><strong>Date of Birth:</strong> 9th November</p>
+    <p><strong>Civil Status:</strong> Single</p>
+    <p><strong>Languages:</strong> English, Hindi, Marathi, Tamil</p>
+    <p><strong>Nationality:</strong> Indian</p>
+    <h2>Personal Traits</h2>
+    <ul>
+      <li>Excellent interpersonal, verbal &amp; written communication skills</li>
+      <li>Goal oriented, dedicated, passion to succeed</li>
+      <li>Good team worker</li>
+      <li>Quick learner</li>
+      <li>Analytical skills</li>
+      <li>Responsible, innovative, dependable</li>
+    </ul>
+  </section>
+</main>
+<footer role="contentinfo">
+  &copy; 2025 Jennifer J. David. All rights reserved.
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('.animate-on-scroll');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  sections.forEach(section => observer.observe(section));
+});
+</script>
 </body>
 </html>
