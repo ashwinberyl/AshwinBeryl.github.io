@@ -16,17 +16,21 @@ function initThemeToggle() {
     const toggle = document.getElementById('theme-toggle');
     const html = document.documentElement;
 
-    // Load saved preference
+    // Load saved preference (default is light — no attribute needed)
     const saved = localStorage.getItem('theme');
-    if (saved) {
-        html.setAttribute('data-theme', saved);
+    if (saved === 'dark') {
+        html.setAttribute('data-theme', 'dark');
     }
 
     toggle.addEventListener('click', () => {
-        const current = html.getAttribute('data-theme');
-        const next = current === 'light' ? 'dark' : 'light';
-        html.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+            html.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            html.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
     });
 }
 
