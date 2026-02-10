@@ -1,460 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Jennifer J. David - Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --primary: #6C5CE7;
-    --secondary: #A29BFE;
-    --accent: #FD79A8;
-    --background: #F8F9FA;
-    --text: #2D3436;
-  }
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: clamp(16px, 2.5vw, 18px);
-    font-weight: 400;
-    line-height: 1.7;
-    color: #2c2c2c;
-    background: #ffffff;
-    overflow-x: hidden;
-  }
-  nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: clamp(60px, 8vh, 70px);
-    background: var(--primary);
-    padding: 0 clamp(20px, 5vw, 60px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1000;
-  }
-  nav * {
-    color: #ffffff !important;
-  }
-  nav .logo {
-    font-size: clamp(16px, 2.5vw, 20px);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  nav .nav-links {
-    display: inline-flex;
-    gap: clamp(15px, 3vw, 30px);
-    font-size: clamp(12px, 1.8vw, 14px);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  nav .nav-links a {
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    cursor: pointer;
-  }
-  nav .nav-links a:hover {
-    color: #ffffff;
-    text-decoration: underline;
-  }
-  #intro {
-    min-height: clamp(500px, 80vh, 100vh);
-    padding: clamp(60px, 10vw, 100px) clamp(30px, 8vw, 80px);
-    background: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  #intro, #intro * {
-    color: #ffffff !important;
-  }
-  #intro .greeting {
-    font-size: clamp(16px, 2.5vw, 20px);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 15px;
-    opacity: 0.95;
-  }
-  #intro .name {
-    font-size: clamp(32px, 6vw, 56px);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    line-height: 1.2;
-    margin: 0 auto 20px;
-  }
-  #intro .title {
-    font-size: clamp(18px, 3vw, 24px);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    opacity: 0.9;
-  }
-  main {
-    margin-top: clamp(60px, 8vh, 70px);
-    padding-top: 0;
-    width: 100%;
-    max-width: 100%;
-  }
-  section {
-    padding: clamp(60px, 10vw, 100px) clamp(30px, 8vw, 80px);
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    opacity: 1 !important;
-    background: #ffffff;
-    color: #2c2c2c;
-  }
-  section:nth-of-type(even) {
-    background: #f5f5f5;
-  }
-  section h1 {
-    font-size: clamp(28px, 5vw, 42px);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: clamp(30px, 5vw, 50px);
-    color: #1a1a1a !important;
-    text-align: center;
-  }
-  section h2 {
-    font-size: clamp(18px, 3vw, 22px);
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #2c2c2c !important;
-  }
-  section p, section li, section span {
-    color: #2c2c2c !important;
-    font-size: clamp(15px, 2vw, 17px);
-    line-height: 1.7;
-  }
-  .animate-on-scroll:not(.visible) {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  .animate-on-scroll {
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  /* Layout grid for experience and summary blocks */
-  .grid-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    gap: clamp(30px, 5vw, 50px);
-    width: 100%;
-  }
-  .content-block {
-    padding: clamp(20px, 4vw, 30px);
-    border-left: 4px solid var(--accent);
-    background: transparent;
-  }
-  .content-block h3 {
-    color: #1a1a1a !important;
-    font-weight: 600;
-    margin-top: 0;
-  }
-  .content-block .date {
-    color: #5a5a5a !important;
-    font-style: italic;
-    margin-bottom: 10px;
-  }
-  /* Skills section */
-  #skills .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 20px;
-  }
-  .skill-card {
-    padding: 20px 24px;
-    background: #ffffff;
-    border: 2px solid #e0e0e0;
-    border-left: 4px solid var(--accent);
-    position: relative;
-    transition: all 0.3s ease;
-  }
-  .skill-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  }
-  .skill-name {
-    font-size: clamp(14px, 2vw, 16px);
-    font-weight: 600;
-    color: #1a1a1a !important;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-  .progress-bar-container {
-    width: 100%;
-    height: 6px;
-    background: #e8e8e8;
-    margin-top: 12px;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), var(--primary));
-    animation: fillBar 1.5s ease-out forwards;
-    width: 0;
-  }
-  @keyframes fillBar {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-  /* Buttons */
-  button {
-    border: 2px solid var(--primary);
-    background: transparent;
-    padding: clamp(12px, 2vw, 15px) clamp(25px, 4vw, 35px);
-    font-size: clamp(12px, 1.8vw, 14px);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    transition: all 0.3s;
-    color: var(--primary);
-  }
-  button:hover {
-    background: var(--primary);
-    color: white;
-  }
-  footer {
-    padding: clamp(40px, 6vw, 60px) clamp(30px, 8vw, 80px);
-    background: #2e3141;
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    font-size: clamp(11px, 1.5vw, 13px);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    nav .nav-links {
-      font-size: 11px;
-      letter-spacing: 0.03em;
-    }
-    #skills .skills-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (max-width: 480px) {
-    section {
-      padding: 40px 20px;
-    }
-    #skills .skills-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Ashwin Kalaichandran — DevSecOps Platform Engineer | 8 years | AWS, Kubernetes, CI/CD">
+    <title>Ashwin Kalaichandran — DevSecOps Platform Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-<nav id="navbar" role="navigation" aria-label="Primary Navigation">
-  <div class="logo" tabindex="0">Jennifer J. David</div>
-  <div class="nav-links">
-    <a href="#summary" tabindex="0">Summary</a>
-    <a href="#experience" tabindex="0">Experience</a>
-    <a href="#skills" tabindex="0">Skills</a>
-    <a href="#education" tabindex="0">Education</a>
-  </div>
-</nav>
-<main>
-  <section id="intro" role="banner" aria-label="Introduction">
-    <div>
-      <div class="greeting">Hello, I'm</div>
-      <h1 class="name" tabindex="0">Jennifer J. David</h1>
-      <div class="title" tabindex="0">Senior Technical Writer &amp; Information Developer</div>
-    </div>
-  </section>
+    <!-- Scroll Progress -->
+    <div id="progress-bar"></div>
 
-  <section id="summary" class="animate-on-scroll" role="region" aria-labelledby="summary-heading">
-    <h1 id="summary-heading">Summary</h1>
-    <p><strong>Experienced Senior Technical Writer and Technical Lead</strong> specializing in cloud platforms, SaaS, BAAS, and Agile/Non-Agile project methodologies. Skilled in content management tools including Markdown, HTML, PanDoc, Docker, FrameMaker, RoboHelp, and Adobe Acrobat. Proficient in programming languages and API documentation.</p>
-    <p>Strong background in requirement analysis, user story creation, documentation management with Jira, and stakeholder communication. Experienced in technical information security and compliance assessments.</p>
-  </section>
-
-  <section id="experience" class="animate-on-scroll" role="region" aria-labelledby="experience-heading">
-    <h1 id="experience-heading">Work Experience</h1>
-    <div class="grid-layout">
-      <article class="content-block" tabindex="0" aria-label="Work experience at HCL Technologies Ltd">
-        <h3>HCL Technologies Ltd</h3>
-        <div class="date">Nov 2019 - Dec 2024</div>
-        <p>Technical Writing/Sr Information Developer/Technical Lead on cloud platforms such as SaaS and BAAS using Java/.NET technologies. Developed technical content for Actian-BaaS project managed on AWS Cloud. Expert in content management tools including Markdown, HTML, PanDoc, Docker, FrameMaker, Adobe Acrobat, RoboHelp, Photoshop, Microsoft Office, SnagIT, and Adobe Captivate.</p>
-        <p>Responsibilities included requirement analysis, information gathering, Scrum participation, user story creation and management on Jira, and documentation of FRS and user manuals.</p>
-        <p>Previous experience includes Lead Technical Writer role at Facebook.</p>
-        <p>Completed training on SDLC, Agile, DevOps, and ITAO. Developed skills as Technical Information Security Officer (TISO) and managed Information Security Compliance assessments.</p>
-      </article>
-
-      <article class="content-block" tabindex="0" aria-label="Work experience at ITC Infotech India Ltd">
-        <h3>ITC Infotech India Ltd (Deputed at Lowes, India)</h3>
-        <div class="date">Apr 2018 - Present</div>
-        <p>Technical Writer for Digital Platform team developing microservice onboarding platform using DevOps culture. Utilized tools such as Drone (CI), Spinnaker (CD), Kubernetes, Docker, and Spring Boot.</p>
-        <p>Created documentation using Hugo and Markdown integrated with CI/CD pipelines. Managed version control with Git/Bitbucket.</p>
-      </article>
-
-      <article class="content-block" tabindex="0" aria-label="Work experience at Indegene Lifesystems Pvt Ltd">
-        <h3>Indegene Lifesystems Pvt Ltd</h3>
-        <div class="date">Jun 2015 - May 2017</div>
-        <p>Technical Writer for healthcare and life sciences projects including Indegene-ipace, creating user and admin manuals, technical and product feature documents. Worked with Contentful CMS for API projects involving JSON scripts.</p>
-        <p>Tools: Microsoft Office 2013, Adobe Captivate 5.5, FrameMaker 11, Acrobat 11, RoboHelp 11, Contentful CMS.</p>
-      </article>
-
-      <article class="content-block" tabindex="0" aria-label="Work experience at Honeywell Technology Solutions">
-        <h3>Honeywell Technology Solutions (via Datamatics Vista)</h3>
-        <div class="date">Jun 2014</div>
-        <p>Developed Quick Installation Guide content for Honeywell Digital Suite (HDS) Infrastructure. Tools used included Microsoft Office 2007, Adobe Captivate 5.5, FrameMaker 11, Acrobat 11, RoboHelp 11.</p>
-      </article>
-
-      <article class="content-block" tabindex="0" aria-label="Work experience at IBM India">
-        <h3>IBM India Software Labs</h3>
-        <div class="date">Sept 2013</div>
-        <p>Worked on IBM Tealeaf OMS projects including Item and Pricing and Process Modeling. Created demos and simulations using Adobe Captivate 5.5 and documented demo scripts for global audiences.</p>
-        <p>Tools: Adobe Captivate 5.5, FrameMaker 11, Acrobat 11, RoboHelp 11.</p>
-      </article>
-
-      <article class="content-block" tabindex="0" aria-label="Work experience at ILANTUS Technologies">
-        <h3>ILANTUS Technologies</h3>
-        <div class="date">Jan 2013 - Mar [Year Removed]</div>
-        <p>Documented guides for Federation Express and Password Express products including user, admin, installation, and developer guides. Created video/demo scripts.</p>
-      </article>
-
-      <article class="content-block" tabindex="0" aria-label="Work experience at ZeOmega Integrated HealthCare Management">
-        <h3>ZeOmega Integrated HealthCare Management</h3>
-        <div class="date">Apr 2011 - Jan 2012</div>
-        <p>Documented user guides, training manuals, technical notes, online help, FRSs, glossaries, release notes, and checklists for Jiva Integrated Healthcare Management Software.</p>
-        <p>Responsibilities included creating manuals for intake, nurse/supervisor, utilization management, disease management, reports, billing, appeals, and more. Used SnagIT, Photoshop, and Visio for image design.</p>
-      </article>
-
-      <article class="content-block" tabindex="0" aria-label="Work experience at Lionbridge Technologies">
-        <h3>Lionbridge Technologies (Deputed to HP Bangalore)</h3>
-        <div class="date">Dec 2009 - Nov 2010</div>
-        <p>Documented user guides, installation/configuration guides, release notes, technical notes, and online help for HP Client Automation (HPCA) products. Worked in Agile methodology and collaborated with US-based product teams.</p>
-        <p>Tools: FrameMaker 10.0, Web Works Publisher, Visio, Photoshop, SnagIT, Microsoft Word, UNIX command-line documentation.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="skills" class="animate-on-scroll" role="region" aria-labelledby="skills-heading">
-    <h1 id="skills-heading">Skills &amp; Technical Proficiency</h1>
-    <div class="skills-grid" aria-label="Skills with proficiency bars">
-      <div class="skill-card" tabindex="0">
-        <div class="skill-name">Technical Writing</div>
-        <div class="progress-bar-container" aria-hidden="true">
-          <div class="progress-fill" style="animation-delay: 0s;"></div>
+    <!-- Navigation -->
+    <nav id="nav">
+        <div class="nav-inner">
+            <a href="#hero" class="logo">AK<span class="logo-dot">.</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#impact">Impact</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <button id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+                <a href="#contact" class="nav-cta">Let's Talk</a>
+            </div>
         </div>
-      </div>
-      <div class="skill-card" tabindex="0">
-        <div class="skill-name">Cloud Platforms (AWS, SaaS, BAAS)</div>
-        <div class="progress-bar-container" aria-hidden="true">
-          <div class="progress-fill" style="animation-delay: 0.1s;"></div>
-        </div>
-      </div>
-      <div class="skill-card" tabindex="0">
-        <div class="skill-name">Markdown &amp; Hugo</div>
-        <div class="progress-bar-container" aria-hidden="true">
-          <div class="progress-fill" style="animation-delay: 0.2s;"></div>
-        </div>
-      </div>
-      <div class="skill-card" tabindex="0">
-        <div class="skill-name">CI/CD Tools (Drone, Spinnaker)</div>
-        <div class="progress-bar-container" aria-hidden="true">
-          <div class="progress-fill" style="animation-delay: 0.3s;"></div>
-        </div>
-      </div>
-      <div class="skill-card" tabindex="0">
-        <div class="skill-name">Content Management (FrameMaker, RoboHelp)</div>
-        <div class="progress-bar-container" aria-hidden="true">
-          <div class="progress-fill" style="animation-delay: 0.4s;"></div>
-        </div>
-      </div>
-      <div class="skill-card" tabindex="0">
-        <div class="skill-name">Programming (Java, .NET, C#)</div>
-        <div class="progress-bar-container" aria-hidden="true">
-          <div class="progress-fill" style="animation-delay: 0.5s;"></div>
-        </div>
-      </div>
-      <div class="skill-card" tabindex="0">
-        <div class="skill-name">Image Editing (Photoshop, SnagIT)</div>
-        <div class="progress-bar-container" aria-hidden="true">
-          <div class="progress-fill" style="animation-delay: 0.6s;"></div>
-        </div>
-      </div>
-      <div class="skill-card" tabindex="0">
-        <div class="skill-name">API Documentation (JSON, XML)</div>
-        <div class="progress-bar-container" aria-hidden="true">
-          <div class="progress-fill" style="animation-delay: 0.7s;"></div>
-        </div>
-      </div>
-      <div class="skill-card" tabindex="0">
-        <div class="skill-name">Information Security Compliance</div>
-        <div class="progress-bar-container" aria-hidden="true">
-          <div class="progress-fill" style="animation-delay: 0.8s;"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <section id="education" class="animate-on-scroll" role="region" aria-labelledby="education-heading">
-    <h1 id="education-heading">Education</h1>
-    <div class="grid-layout">
-      <article class="content-block" tabindex="0" aria-label="Bachelor in Computer Applications">
-        <h3>Bachelor in Computer Applications (BCA)</h3>
-        <div class="date">2004 - 2007</div>
-        <p>Dr. Kamalaben Gambhirchand Shah College of Computer Science, Mumbai</p>
-        <p><strong>Final Year Project:</strong> BCA Admission System and Fee Break-up for Dr. B. M. N. College of Home Science. Developed GUI using Visual Basic and Microsoft Access as backend to manage student admission records and fee information.</p>
-      </article>
-      <article class="content-block" tabindex="0" aria-label="Fatima High School">
-        <h3>Fatima High School</h3>
-        <div class="date">March 2002</div>
-        <p>Mumbai</p>
-      </article>
-    </div>
-  </section>
+    <!-- ===================== HERO ===================== -->
+    <section id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-content">
+            <div class="hero-badge">AVAILABLE FOR OPPORTUNITIES</div>
+            <h1>
+                <span class="line">I build platforms that</span>
+                <span class="line gradient-text">ship faster, cost less,</span>
+                <span class="line gradient-text">and stay secure.</span>
+            </h1>
+            <p class="hero-sub">
+                DevSecOps Platform Engineer · 8 Years · AWS · Kubernetes · Python
+            </p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">Get in Touch →</a>
+                <a href="#impact" class="btn-ghost">See My Impact ↓</a>
+            </div>
+        </div>
+        <div class="hero-terminal">
+            <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            </div>
+            <pre id="terminal-text"></pre>
+        </div>
+    </section>
 
-  <section id="personal" class="animate-on-scroll" role="region" aria-labelledby="personal-heading">
-    <h1 id="personal-heading">Personal Details &amp; Traits</h1>
-    <p><strong>Date of Birth:</strong> 9th November</p>
-    <p><strong>Civil Status:</strong> Single</p>
-    <p><strong>Languages:</strong> English, Hindi, Marathi, Tamil</p>
-    <p><strong>Nationality:</strong> Indian</p>
-    <h2>Personal Traits</h2>
-    <ul>
-      <li>Excellent interpersonal, verbal &amp; written communication skills</li>
-      <li>Goal oriented, dedicated, passion to succeed</li>
-      <li>Good team worker</li>
-      <li>Quick learner</li>
-      <li>Analytical skills</li>
-      <li>Responsible, innovative, dependable</li>
-    </ul>
-  </section>
-</main>
-<footer role="contentinfo">
-  &copy; 2025 Jennifer J. David. All rights reserved.
-</footer>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const sections = document.querySelectorAll('.animate-on-scroll');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  sections.forEach(section => observer.observe(section));
-});
-</script>
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about">
+        <div class="container">
+            <div class="section-label">01 — ABOUT</div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Platform engineer who turns<br><em>infrastructure problems</em><br>into <em>developer
+                            superpowers</em>.</h2>
+                    <p>
+                        I've spent the last 8 years at the intersection of cloud infrastructure, security,
+                        and developer experience. My work at <strong>Aptiv</strong>, <strong>HCLTech</strong>,
+                        and <strong>Cognizant</strong> has been about one thing: making engineering teams faster
+                        and safer without adding friction.
+                    </p>
+                    <p>
+                        From standardizing DevSecOps workflows for 150+ developers to cutting cloud costs by 15%
+                        and deployment times by 40%, I focus on <strong>measurable outcomes</strong> — not just tooling.
+                    </p>
+                </div>
+                <div class="about-details">
+                    <div class="detail-block">
+                        <div class="detail-label">LOCATION</div>
+                        <div class="detail-value">Bengaluru, India</div>
+                    </div>
+                    <div class="detail-block">
+                        <div class="detail-label">FOCUS AREAS</div>
+                        <div class="detail-value">Cloud Platforms · DevSecOps · Automation</div>
+                    </div>
+                    <div class="detail-block">
+                        <div class="detail-label">EDUCATION</div>
+                        <div class="detail-value">B.E. Mechanical — 8.14 CGPA<br>Anna University, 2017</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== IMPACT ===================== -->
+    <section id="impact">
+        <div class="container">
+            <div class="section-label">02 — IMPACT</div>
+            <h2 class="section-heading">Numbers that tell the story.</h2>
+            <div class="metrics-grid">
+                <div class="metric-card reveal">
+                    <div class="metric-number" data-target="15">0</div>
+                    <div class="metric-unit">%</div>
+                    <div class="metric-desc">Cloud cost reduction through K8s resource optimization & AWS auto-scaling
+                    </div>
+                </div>
+                <div class="metric-card reveal">
+                    <div class="metric-number" data-target="40">0</div>
+                    <div class="metric-unit">%</div>
+                    <div class="metric-desc">Faster deployments via GitHub Actions caching (45 → 25 min)</div>
+                </div>
+                <div class="metric-card reveal">
+                    <div class="metric-number" data-target="150">0</div>
+                    <div class="metric-unit">+</div>
+                    <div class="metric-desc">Developers enabled through standardized reusable CI/CD workflows</div>
+                </div>
+                <div class="metric-card reveal">
+                    <div class="metric-number" data-target="99.9">0</div>
+                    <div class="metric-unit">%</div>
+                    <div class="metric-desc">Production uptime maintained via automated health checks & failover</div>
+                </div>
+                <div class="metric-card reveal">
+                    <div class="metric-number" data-target="50">0</div>
+                    <div class="metric-unit">+</div>
+                    <div class="metric-desc">Active CI/CD pipelines managed across GitHub Actions & ArgoCD</div>
+                </div>
+                <div class="metric-card reveal">
+                    <div class="metric-number" data-target="23">0</div>
+                    <div class="metric-unit">%</div>
+                    <div class="metric-desc">Incident reduction by training an AI-powered support chatbot</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-label">03 — EXPERIENCE</div>
+            <h2 class="section-heading">Where I've built things.</h2>
+
+            <div class="exp-list">
+                <div class="exp-item reveal">
+                    <div class="exp-left">
+                        <div class="exp-period">Jul 2023 — Present</div>
+                        <div class="exp-location">Bengaluru</div>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Platform Engineer — DevSecOps</h3>
+                        <div class="exp-company">Aptiv</div>
+                        <ul>
+                            <li>Standardized DevSecOps practices across 12+ global teams, enabling 150+ developers</li>
+                            <li>Optimized K8s resource allocation & AWS auto-scaling, reducing cloud costs by ~15%</li>
+                            <li>Managed 50+ CI/CD pipelines (GitHub Actions + ArgoCD); cut lead time by 40%</li>
+                            <li>Integrated BlackDuck & SonarQube as reusable workflows; remediated 30+ critical vulns
+                            </li>
+                            <li>Designed Grafana dashboards for DORA metrics (GitHub Actions API + PostgreSQL)</li>
+                            <li>Automated user onboarding via Python module, saving 10+ man-hours/week</li>
+                            <li>Trained AI support chatbot, reducing incident count by 23%</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span>AWS EKS</span><span>GitHub
+                                Actions</span><span>ArgoCD</span><span>Python</span><span>Grafana</span><span>SonarQube</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-item reveal">
+                    <div class="exp-left">
+                        <div class="exp-period">Sep 2021 — Jul 2023</div>
+                        <div class="exp-location">Chennai</div>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Senior Software Engineer</h3>
+                        <div class="exp-company">HCLTech</div>
+                        <ul>
+                            <li>Maintained 99.9% production availability via automated health checks & failover</li>
+                            <li>Migrated manual deployments to Python scripts & CLIs; cut downtime by 30%</li>
+                            <li>Built 20+ custom Grafana dashboards; tuned Prometheus alerts, reducing false positives
+                                by 30%</li>
+                            <li>Restructured IAM roles for 100+ users; enforced least-privilege, 100% audit compliance
+                            </li>
+                            <li>Created dashboards to visualize code quality metrics, coverage & cost per workflow</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span>Prometheus</span><span>Grafana</span><span>Python</span><span>IAM</span><span>Terraform</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-item reveal">
+                    <div class="exp-left">
+                        <div class="exp-period">Aug 2020 — Sep 2021</div>
+                        <div class="exp-location">Chennai</div>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Programmer Analyst</h3>
+                        <div class="exp-company">Cognizant · Medtronic Project</div>
+                        <ul>
+                            <li>Ensured zero downtime for critical release pipelines during organizational transition
+                            </li>
+                            <li>Managed daily releases for 5 microservices, maintaining 98% build success rate</li>
+                            <li>Assisted in strategic decoupling of monolithic legacy applications for cloud migration
+                            </li>
+                            <li>Authored documentation & dependency maps for 10+ critical services</li>
+                            <li>🏆 1st Place Hackathon — Led team of 4 building Azure IoT patient monitoring solution
+                            </li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span>Azure</span><span>Jenkins</span><span>Microservices</span><span>IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-item reveal">
+                    <div class="exp-left">
+                        <div class="exp-period">Jul 2019 — Aug 2020</div>
+                        <div class="exp-location">Chennai</div>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Associate IT Developer</h3>
+                        <div class="exp-company">Medtronic</div>
+                        <ul>
+                            <li>Automated repetitive build verification tasks, reducing manual triage by ~8 hours/week
+                            </li>
+                            <li>Reduced MTTR for build failures by 25% via better error logging & notification hooks
+                            </li>
+                            <li>Supported bi-weekly production releases, collaborating with 3 cross-functional teams
+                            </li>
+                            <li>Scripted ephemeral test environment provisioning, cutting setup time by 50% for QA</li>
+                            <li>Piloted SonarQube integration via custom Python CLI for shift-left security</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span>Python</span><span>Shell</span><span>SonarQube</span><span>CI/CD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-item reveal">
+                    <div class="exp-left">
+                        <div class="exp-period">Dec 2017 — Jul 2019</div>
+                        <div class="exp-location">Chennai</div>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Programmer Analyst</h3>
+                        <div class="exp-company">Cognizant</div>
+                        <ul>
+                            <li>Handled 50+ monthly production incidents with 100% SLA compliance for high-severity
+                                issues</li>
+                            <li>Documented 20+ incident resolution runbooks, accelerating new member onboarding</li>
+                            <li>Configured Nagios/SolarWinds alerts for server health, reducing undetected outages</li>
+                            <li>Orchestrated monthly security patching for 50+ Windows/Linux servers</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span>Nagios</span><span>SolarWinds</span><span>Linux</span><span>Patch Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-label">04 — SKILLS</div>
+            <h2 class="section-heading">Technical toolkit.</h2>
+            <div class="skills-columns">
+                <div class="skill-col reveal">
+                    <h4>☁️ Cloud & Infra</h4>
+                    <div class="skill-list">
+                        <span>AWS</span>
+                        <span>EKS</span>
+                        <span>ECR</span>
+                        <span>S3</span>
+                        <span>RDS</span>
+                        <span>VPC</span>
+                        <span>IAM</span>
+                    </div>
+                </div>
+                <div class="skill-col reveal">
+                    <h4>⎈ Containers & IaC</h4>
+                    <div class="skill-list">
+                        <span>Kubernetes</span>
+                        <span>Docker</span>
+                        <span>Helm</span>
+                        <span>Terraform</span>
+                        <span>CloudFormation</span>
+                    </div>
+                </div>
+                <div class="skill-col reveal">
+                    <h4>🔄 CI/CD</h4>
+                    <div class="skill-list">
+                        <span>GitHub Actions</span>
+                        <span>ArgoCD</span>
+                        <span>Jenkins</span>
+                        <span>GitOps</span>
+                    </div>
+                </div>
+                <div class="skill-col reveal">
+                    <h4>🛡️ Security</h4>
+                    <div class="skill-list">
+                        <span>SonarQube</span>
+                        <span>BlackDuck</span>
+                        <span>Trivy</span>
+                        <span>OWASP</span>
+                    </div>
+                </div>
+                <div class="skill-col reveal">
+                    <h4>📊 Observability</h4>
+                    <div class="skill-list">
+                        <span>Prometheus</span>
+                        <span>Grafana</span>
+                        <span>Datadog</span>
+                        <span>DORA Metrics</span>
+                    </div>
+                </div>
+                <div class="skill-col reveal">
+                    <h4>🐍 Scripting & AI</h4>
+                    <div class="skill-list">
+                        <span>Python</span>
+                        <span>Shell / Bash</span>
+                        <span>MCP Servers</span>
+                        <span>GenAI / LLMs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-label">05 — PROJECTS</div>
+            <h2 class="section-heading">What I'm building.</h2>
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <div class="project-num">01</div>
+                    <h3>AI-Accelerated Workflows</h3>
+                    <p>Integrated Perplexity AI into development workflows to auto-generate Product Requirement
+                        Documents, slashing planning overhead.</p>
+                    <div class="project-stack"><span>AI</span><span>Automation</span><span>PRD</span></div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-num">02</div>
+                    <h3>Jira MCP Server</h3>
+                    <p>Built a Model Context Protocol server for Jira to streamline ticket management and reduce context
+                        switching for developers.</p>
+                    <div class="project-stack"><span>MCP</span><span>Jira API</span><span>Python</span></div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-num">03</div>
+                    <h3>Postgres Data Validator</h3>
+                    <p>Created a Postgres MCP server for automated data validation before dashboard creation, ensuring
+                        data integrity at the source.</p>
+                    <div class="project-stack"><span>PostgreSQL</span><span>MCP</span><span>Data Quality</span></div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-num">04</div>
+                    <h3>AI Spec-Driven Development</h3>
+                    <p>Building a POC for an AI-driven specification server that leverages LLMs for automated code
+                        generation & validation.</p>
+                    <div class="project-stack"><span>LLM</span><span>CodeGen</span><span>POC</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-label">06 — CONTACT</div>
+            <div class="contact-grid">
+                <div class="contact-text">
+                    <h2>Let's build something<br><span class="gradient-text">extraordinary</span> together.</h2>
+                    <p>Open to platform engineering roles, DevSecOps strategy, or technical collaboration. Drop me a
+                        quick message — I'll get back within 24 hours.</p>
+                    <div class="contact-direct">
+                        <a href="mailto:ashwinberyl@gmail.com">ashwinberyl@gmail.com</a>
+                        <a href="tel:+916381259486">+91 638 125 9486</a>
+                    </div>
+                </div>
+                <div class="chatbox">
+                    <div class="chatbox-header">
+                        <div class="chatbox-dot"></div>
+                        <span>Quick Message</span>
+                    </div>
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="0be8db30-bde1-424a-a6dd-180b215c811e">
+                        <input type="hidden" name="subject" value="New message from your portfolio">
+                        <input type="checkbox" name="botcheck" style="display:none;">
+                        <div class="chat-bubble bot">
+                            <p>Hey! 👋 Interested in working together? Fill this out and I'll get back to you.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="jane@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="3"
+                                placeholder="We're hiring for a Platform Engineer role..." required></textarea>
+                        </div>
+                        <input type="hidden" name="_subject" value="Portfolio Contact — New Message">
+                        <button type="submit" class="send-btn">
+                            <span class="send-text">Send Message →</span>
+                            <span class="send-loading" style="display:none;">Sending...</span>
+                        </button>
+                    </form>
+                    <div id="form-success" style="display:none;">
+                        <div class="chat-bubble bot success-bubble">
+                            <p>✅ Message sent! I'll reply to your email within 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <span>© 2026 Ashwin Kalaichandran</span>
+            <span>Built with precision.</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
