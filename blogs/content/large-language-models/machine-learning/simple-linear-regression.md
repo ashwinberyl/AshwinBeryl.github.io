@@ -1,5 +1,5 @@
 ---
-title: "Simple Linear Regression"
+title: Simple Linear Regression
 date: 2026-03-13
 tags: [machine-learning, linear-regression, python, gradient-descent]
 description: A beginner-friendly, visual guide to Simple Linear Regression — from a chocolate shop analogy to gradient descent, with illustrations and Python code.
@@ -31,7 +31,7 @@ That pattern? It's called **Linear Regression**, and it's the very first algorit
 
 Let's plot that chocolate data on a graph — chocolates on the X-axis, price on the Y-axis.
 
-![The Chocolate Shop — A Perfect Linear Relationship](content/large-language-models/images/chocolate_line_plot.png)
+![The Chocolate Shop — A Perfect Linear Relationship](content/large-language-models/machine-learning/images/chocolate_line_plot.png)
 
 See how all the points fall perfectly on a straight line? That line has an equation you probably remember from school:
 
@@ -70,7 +70,7 @@ m = (5 - 2) / (5 - 2) = 3/3 = 1
 
 A steeper line means a bigger slope. A flatter line means a smaller slope.
 
-![Slope Comparison — Steep vs Flat Lines](content/large-language-models/images/slope_comparison.png)
+![Slope Comparison — Steep vs Flat Lines](content/large-language-models/machine-learning/images/slope_comparison.png)
 
 ---
 
@@ -88,7 +88,7 @@ y = 1x + 5
 
 So 10 chocolates = `1(10) + 5 = ₹15`.
 
-![The Y-Intercept — Your Starting Cost](content/large-language-models/images/intercept_illustration.png)
+![The Y-Intercept — Your Starting Cost](content/large-language-models/machine-learning/images/intercept_illustration.png)
 
 The intercept shifts the entire line up or down. It's the "starting point" of your prediction, even before the slope kicks in.
 
@@ -145,7 +145,7 @@ But "best-fit" needs a definition. How do we *measure* how good a line is?
 
 For every data point, there's a gap between what our line **predicts** and the **actual** value. That gap is the **error** (or "residual").
 
-![Cost Function — Measuring the Errors](content/large-language-models/images/error_lines.png)
+![Cost Function — Measuring the Errors](content/large-language-models/machine-learning/images/error_lines.png)
 
 We need a single number that captures how bad *all* the errors are. The most common one is **Mean Squared Error (MSE)**:
 
@@ -188,7 +188,7 @@ This is where the magic happens. Here's the intuition:
 
 That's **Gradient Descent**. The "valley" is the cost function, and the "bottom" is the lowest MSE.
 
-![Gradient Descent — Rolling to the Minimum](content/large-language-models/images/gradient_descent_curve.png)
+![Gradient Descent — Rolling to the Minimum](content/large-language-models/machine-learning/images/gradient_descent_curve.png)
 
 ### Step by step:
 
@@ -245,7 +245,7 @@ The **learning rate** controls how big each step is. Get it wrong, and things br
 - **Too small** → You'll get there eventually... in a million years
 - **Just right** → Smooth, efficient convergence
 
-![Choosing the Right Learning Rate](content/large-language-models/images/learning_rate_comparison.png)
+![Choosing the Right Learning Rate](content/large-language-models/machine-learning/images/learning_rate_comparison.png)
 
 In practice:
 - Start with a small value like `0.01` or `0.001`
