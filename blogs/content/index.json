@@ -5,11 +5,16 @@
       "type": "folder",
       "children": [
         {
-          "name": "Simple Linear Regression — Explained with Chocolates 🍫",
+          "name": "Simple Linear Regression",
           "type": "file",
           "path": "large-language-models/simple-linear-regression.md",
           "date": "2026-03-13",
-          "tags": ["machine-learning", "linear-regression", "beginner", "python"]
+          "tags": [
+            "machine-learning",
+            "linear-regression",
+            "beginner",
+            "python"
+          ]
         }
       ]
     }
