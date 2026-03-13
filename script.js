@@ -9,7 +9,28 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initNavHighlight();
     initContactForm();
+    initHamburger();
 });
+
+// ---------- HAMBURGER MOBILE MENU ----------
+function initHamburger() {
+    const btn = document.getElementById('nav-hamburger');
+    const links = document.getElementById('nav-links');
+    if (!btn || !links) return;
+
+    btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+        links.classList.toggle('open');
+    });
+
+    // Close menu when a link is clicked
+    links.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            btn.classList.remove('active');
+            links.classList.remove('open');
+        });
+    });
+}
 
 // ---------- THEME TOGGLE ----------
 function initThemeToggle() {
