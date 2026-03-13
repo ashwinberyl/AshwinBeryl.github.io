@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Blog — Ashwin Kalaichandran | DevSecOps, Platform Engineering, Kubernetes, AWS, CI/CD insights and tutorials.">
+    <title>Blog — Ashwin Kalaichandran</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Markdown parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" id="hljs-dark-theme">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css" id="hljs-light-theme">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+</head>
+
+<body>
+    <!-- Scroll Progress -->
+    <div id="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav id="nav">
+        <div class="nav-inner">
+            <a href="../" class="logo">AK<span class="logo-dot">.</span></a>
+            <div class="nav-links">
+                <a href="../#about">About</a>
+                <a href="../#experience">Experience</a>
+                <a href="../#projects">Projects</a>
+                <a href="./" class="nav-active">Blog</a>
+                <button id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+                <a href="../#contact" class="nav-cta">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Layout -->
+    <main class="blog-layout">
+        <!-- Mobile sidebar toggle -->
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+
+        <!-- Sidebar -->
+        <aside class="blog-sidebar" id="blog-sidebar">
+            <div class="sidebar-header">
+                <h2>📚 Blog</h2>
+                <div class="sidebar-search">
+                    <input type="text" id="search-input" placeholder="Search posts..." aria-label="Search blog posts">
+                    <span class="search-icon">⌕</span>
+                </div>
+            </div>
+            <nav class="sidebar-tree" id="sidebar-tree" aria-label="Blog navigation">
+                <!-- Dynamically populated by blog.js -->
+            </nav>
+        </aside>
+
+        <!-- Content area -->
+        <div class="blog-content" id="blog-content">
+            <!-- Welcome / landing state -->
+            <div class="blog-welcome" id="blog-welcome">
+                <div class="welcome-icon">📖</div>
+                <h1>Welcome to <span class="gradient-text">my Blog</span></h1>
+                <p>Thoughts on DevSecOps, platform engineering, cloud infrastructure, and everything I learn along the way.</p>
+                <p class="welcome-hint">← Select a post from the sidebar to start reading.</p>
+            </div>
+
+            <!-- Article (hidden until a post is selected) -->
+            <article class="blog-article" id="blog-article" style="display:none;">
+                <div class="article-breadcrumb" id="article-breadcrumb"></div>
+                <div class="article-meta" id="article-meta"></div>
+                <div class="article-body" id="article-body"></div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <span>© 2026 Ashwin Kalaichandran</span>
+            <span>Built with precision.</span>
+        </div>
+    </footer>
+
+    <script src="blog.js"></script>
+</body>
+
+</html>

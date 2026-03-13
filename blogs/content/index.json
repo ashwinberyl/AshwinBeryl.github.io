@@ -1,0 +1,17 @@
+{
+  "tree": [
+    {
+      "name": "Getting Started",
+      "type": "folder",
+      "children": [
+        {
+          "name": "Hello World — My First Blog Post",
+          "type": "file",
+          "path": "getting-started/hello-world.md",
+          "date": "2026-03-13",
+          "tags": ["welcome", "meta"]
+        }
+      ]
+    }
+  ]
+}
