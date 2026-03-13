@@ -1,15 +1,15 @@
 {
   "tree": [
     {
-      "name": "Getting Started",
+      "name": "Large Language Models",
       "type": "folder",
       "children": [
         {
-          "name": "Hello World — My First Blog Post",
+          "name": "Simple Linear Regression — Explained with Chocolates 🍫",
           "type": "file",
-          "path": "getting-started/hello-world.md",
+          "path": "large-language-models/simple-linear-regression.md",
           "date": "2026-03-13",
-          "tags": ["welcome", "meta"]
+          "tags": ["machine-learning", "linear-regression", "beginner", "python"]
         }
       ]
     }
