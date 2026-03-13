@@ -124,6 +124,43 @@
     font-family: var(--font);
 }
 
+/* ---- Depth-based folder styling ---- */
+
+/* Top-level (depth-0) folders: bigger, bolder, accent left bar */
+.tree-folder[data-depth="0"] > .tree-folder-label {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+    padding: 0.65rem 1.25rem;
+    letter-spacing: 0.6px;
+    border-left: 3px solid var(--accent);
+    background: rgba(108, 99, 255, 0.03);
+}
+
+/* Nested (depth-1+) folders: smaller, indented, with guide line */
+.tree-folder[data-depth="1"] > .tree-folder-label {
+    padding-left: 2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.tree-folder[data-depth="2"] > .tree-folder-label {
+    padding-left: 2.8rem;
+    font-size: 0.78rem;
+}
+
+/* Nested children container — left guide line */
+.tree-folder[data-depth="0"] > .tree-folder-children {
+    margin-left: 1.25rem;
+    border-left: 1px solid var(--border);
+}
+
+.tree-folder[data-depth="1"] > .tree-folder-children {
+    margin-left: 2rem;
+    border-left: 1px solid var(--border);
+}
+
 .tree-folder-label:hover {
     color: var(--text);
     background: rgba(108, 99, 255, 0.05);
@@ -147,6 +184,11 @@
     flex-shrink: 0;
 }
 
+/* Top-level folder uses a bigger icon */
+.tree-folder[data-depth="0"] > .tree-folder-label .tree-folder-name-icon {
+    font-size: 1rem;
+}
+
 .tree-folder-children {
     overflow: hidden;
     max-height: 0;
@@ -161,7 +203,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.45rem 1.25rem 0.45rem 2.6rem;
+    padding: 0.45rem 1.25rem 0.45rem 1.2rem;
     font-size: 0.8rem;
     color: var(--text-muted);
     text-decoration: none;

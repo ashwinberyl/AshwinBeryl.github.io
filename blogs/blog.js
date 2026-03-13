@@ -114,13 +114,14 @@ async function loadBlogIndex() {
     }
 }
 
-function renderTree(nodes, container) {
+function renderTree(nodes, container, depth) {
     const parent = container || document.getElementById('sidebar-tree');
+    const d = depth || 0;
     parent.innerHTML = '';
 
     nodes.forEach(node => {
         if (node.type === 'folder') {
-            const folder = createFolderNode(node);
+            const folder = createFolderNode(node, d);
             parent.appendChild(folder);
         } else if (node.type === 'file') {
             const file = createFileNode(node);
@@ -129,16 +130,18 @@ function renderTree(nodes, container) {
     });
 }
 
-function createFolderNode(node) {
+function createFolderNode(node, depth) {
+    const d = depth || 0;
     const li = document.createElement('div');
     li.className = 'tree-folder open'; // open by default
+    li.setAttribute('data-depth', d);
 
     const label = document.createElement('button');
     label.className = 'tree-folder-label';
     label.setAttribute('data-folder-name', node.name.toLowerCase());
     label.innerHTML = `
         <span class="tree-folder-icon">▶</span>
-        <span class="tree-folder-name-icon">📁</span>
+        <span class="tree-folder-name-icon">${d === 0 ? '📂' : '📁'}</span>
         <span class="tree-folder-name">${node.name}</span>
     `;
     label.addEventListener('click', () => {
@@ -151,7 +154,7 @@ function createFolderNode(node) {
     if (node.children) {
         node.children.forEach(child => {
             if (child.type === 'folder') {
-                children.appendChild(createFolderNode(child));
+                children.appendChild(createFolderNode(child, d + 1));
             } else if (child.type === 'file') {
                 children.appendChild(createFileNode(child));
             }
