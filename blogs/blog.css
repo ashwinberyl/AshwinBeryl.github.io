@@ -129,7 +129,6 @@
 /* Top-level (depth-0) folders: bigger, bolder, accent left bar */
 .tree-folder[data-depth="0"] > .tree-folder-label {
     font-size: 0.88rem;
-    font-weight: 700;
     color: var(--text);
     padding: 0.65rem 1.25rem;
     letter-spacing: 0.6px;

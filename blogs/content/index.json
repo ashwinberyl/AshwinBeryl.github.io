@@ -5,6 +5,19 @@
       "type": "folder",
       "children": [
         {
+          "name": "AI vs ML vs DL vs Data Science",
+          "type": "file",
+          "path": "large-language-models/ai-vs-ml-vs-dl-vs-data-science.md",
+          "date": "2026-03-13",
+          "tags": [
+            "ai",
+            "machine-learning",
+            "deep-learning",
+            "data-science",
+            "beginner"
+          ]
+        },
+        {
           "name": "Machine Learning",
           "type": "folder",
           "children": [
