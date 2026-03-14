@@ -13,7 +13,7 @@ Now, it’s time to stop looking at the blueprints and start building the engine
 
 ## What is an ANN? 🧠
 
-Before we write code, let's briefly recap. An **Artificial Neural Network (ANN)** is a computing system inspired by the biological neural networks that constitute animal brains. Think of it as a complex mathematical function designed to recognize underlying relationships in a set of data. 
+Before we write code, let's briefly recap. An **Artificial Neural Network (ANN)** is a computing system inspired by the biological neural networks that constitute human brains. Think of it as a complex mathematical function designed to recognize underlying relationships in a set of data. 
 
 It consists of:
 - **Input Layer:** Receives the raw data (features).
