@@ -84,6 +84,18 @@
                 "neural-networks",
                 "activation-functions"
               ]
+            },
+            {
+              "name": "Loss Functions",
+              "type": "file",
+              "path": "large-language-models/deep-learning/loss-functions.md",
+              "date": "2026-03-14",
+              "tags": [
+                "deep-learning",
+                "loss-functions",
+                "mse",
+                "cross-entropy"
+              ]
             }
           ]
         }
