@@ -255,6 +255,50 @@ In practice:
 
 ---
 
+## In Practice — Using Scikit-Learn 🔧
+
+Everything above taught you *how* linear regression works under the hood. But in the real world, you don't write gradient descent by hand — you use a library.
+
+Here's the **entire** house price prediction in just a few lines with [Scikit-Learn](https://scikit-learn.org/):
+
+```python
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+import numpy as np
+
+# Our data
+sizes = np.array([600, 800, 1000, 1200, 1500, 1800, 2000, 2200]).reshape(-1, 1)
+prices = np.array([25, 32, 38, 45, 55, 60, 72, 78])
+
+# Train the model — one line!
+model = LinearRegression()
+model.fit(sizes, prices)
+
+# Results
+print(f"Slope (m):     {model.coef_[0]:.4f}")
+print(f"Intercept (b): {model.intercept_:.4f}")
+print(f"MSE:           {mean_squared_error(prices, model.predict(sizes)):.2f}")
+
+# Predict
+print(f"\nPrice for 1500 sq ft: ₹{model.predict([[1500]])[0]:.1f} Lakhs")
+print(f"Price for 3000 sq ft: ₹{model.predict([[3000]])[0]:.1f} Lakhs")
+```
+
+```
+Slope (m):     0.0327
+Intercept (b): 2.3929
+MSE:           3.39
+
+Price for 1500 sq ft: ₹51.4 Lakhs
+Price for 3000 sq ft: ₹100.5 Lakhs
+```
+
+That's it. `LinearRegression()` does the gradient descent (or a closed-form solution) behind the scenes. Everything you learned today — slope, intercept, MSE, gradient descent — is exactly what this one line is doing under the hood.
+
+> **The point of learning the raw math:** When something goes wrong (bad predictions, slow training, overfitting), you'll know *why* — because you understand what's happening inside the black box.
+
+---
+
 ## Wrapping Up — What Else? 📦
 
 We've covered the core of Simple Linear Regression. Here's a quick mention of a few related topics for future deep dives:
