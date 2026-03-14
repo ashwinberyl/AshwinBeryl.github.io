@@ -63,18 +63,6 @@
               ]
             },
             {
-              "name": "Weight Initialization",
-              "type": "file",
-              "path": "large-language-models/deep-learning/weight-initialization.md",
-              "date": "2026-03-14",
-              "tags": [
-                "deep-learning",
-                "weight-initialization",
-                "he-init",
-                "xavier-init"
-              ]
-            },
-            {
               "name": "Activation Functions",
               "type": "file",
               "path": "large-language-models/deep-learning/activation-functions.md",
@@ -95,6 +83,18 @@
                 "loss-functions",
                 "mse",
                 "cross-entropy"
+              ]
+            },
+            {
+              "name": "Weight Initialization",
+              "type": "file",
+              "path": "large-language-models/deep-learning/weight-initialization.md",
+              "date": "2026-03-14",
+              "tags": [
+                "deep-learning",
+                "weight-initialization",
+                "he-init",
+                "xavier-init"
               ]
             },
             {
