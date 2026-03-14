@@ -136,4 +136,12 @@ Got questions? 👉 [Send me a message!](https://ashwinberyl.github.io/#contact)
 
 ---
 
-*— Ashwin*
+*— Ashwin*---
+
+## What's Next? 🚀
+
+We've covered all the theoretical pieces needed to run a deep learning engine: data flows forward, predictions are made, loss is calculated, the chain rule sends the error backward, and optimizers update the weights.
+
+It's time to build the engine yourself.
+
+Next up: **[Your First ANN — Bringing It All Together](content/large-language-models/deep-learning/your-first-ann.md)**.
