@@ -130,6 +130,14 @@ By matching the right activation function with the right loss function, you ensu
 
 ---
 
+## What's Next? 🚀
+
+Now that you know how to configure your output activations and measure the network's mistakes, we need to talk about how to *start* the network before it makes any mistakes at all.
+
+Next up: **[Weight Initialization — Starting the Network Right](content/large-language-models/deep-learning/weight-initialization.md)**.
+
+---
+
 Got questions? 👉 [Send me a message!](https://ashwinberyl.github.io/#contact)
 
 ---

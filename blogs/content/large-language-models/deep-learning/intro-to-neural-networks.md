@@ -455,7 +455,9 @@ You now understand the core of **every** neural network — from a single percep
 
 ## What's Next? 🚀
 
-Now that you know how neural networks learn, it's time to explore how **text** gets converted into numbers that networks can understand. Next up: **Tokenization & Embeddings** — the bridge between human language and neural networks.
+Now that you know how a basic neural network makes a prediction and learns through backpropagation, we need to look closer at the math engine running the whole thing: The Chain Rule. 
+
+Next up: **[Neural Networks Continued — Gradients & the Chain Rule](content/large-language-models/deep-learning/neural-networks-continued.md)**.
 
 Got questions or suggestions? 👉 [Send me a message!](https://ashwinberyl.github.io/#contact)
 
