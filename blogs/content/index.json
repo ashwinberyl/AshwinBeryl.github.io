@@ -50,6 +50,29 @@
                 "beginner",
                 "python"
               ]
+            },
+            {
+              "name": "Neural Networks Continued",
+              "type": "file",
+              "path": "large-language-models/deep-learning/neural-networks-continued.md",
+              "date": "2026-03-14",
+              "tags": [
+                "deep-learning",
+                "backpropagation",
+                "gradients"
+              ]
+            },
+            {
+              "name": "Weight Initialization & Optimizers",
+              "type": "file",
+              "path": "large-language-models/deep-learning/weights-and-optimizers.md",
+              "date": "2026-03-14",
+              "tags": [
+                "deep-learning",
+                "optimizers",
+                "adam",
+                "weight-initialization"
+              ]
             }
           ]
         }
