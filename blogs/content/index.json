@@ -63,15 +63,15 @@
               ]
             },
             {
-              "name": "Weight Initialization & Optimizers",
+              "name": "Weight Initialization",
               "type": "file",
-              "path": "large-language-models/deep-learning/weights-and-optimizers.md",
+              "path": "large-language-models/deep-learning/weight-initialization.md",
               "date": "2026-03-14",
               "tags": [
                 "deep-learning",
-                "optimizers",
-                "adam",
-                "weight-initialization"
+                "weight-initialization",
+                "he-init",
+                "xavier-init"
               ]
             },
             {

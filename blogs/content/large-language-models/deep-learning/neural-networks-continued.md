@@ -244,7 +244,9 @@ Both problems come from the same root: **the chain rule multiplies gradients thr
 - Use proper **weight initialization** so initial gradients are the right scale
 - Use **gradient clipping** as a safety net
 
-In the [next post](content/large-language-models/deep-learning/weights-and-optimizers.md), we'll dive into exactly *how* to initialize weights and *which optimizer* to use — evolving from basic techniques to the current industry standards.
+In the next post, we'll look at the first line of defense against vanishing and exploding gradients: the gatekeepers of the neuron.
+
+Next up: **[Activation Functions — The Evolution of Neural Gatekeepers](content/large-language-models/deep-learning/activation-functions.md)**.
 
 ---
 
