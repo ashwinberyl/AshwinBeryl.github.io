@@ -389,6 +389,19 @@ function renderBody(mdContent) {
     container.querySelectorAll('pre code').forEach(block => {
         hljs.highlightElement(block);
     });
+
+    // Intercept internal .md links → route through hash navigation
+    container.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href') || '';
+        if (href.endsWith('.md') && !href.startsWith('http')) {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Strip leading "content/" if present (author convenience)
+                const path = href.replace(/^content\//, '');
+                window.location.hash = encodeURIComponent(path);
+            });
+        }
+    });
 }
 
 function highlightActive(path) {
