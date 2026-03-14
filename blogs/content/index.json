@@ -109,6 +109,18 @@
                 "adam",
                 "sgd"
               ]
+            },
+            {
+              "name": "Your First ANN",
+              "type": "file",
+              "path": "large-language-models/deep-learning/your-first-ann.md",
+              "date": "2026-03-15",
+              "tags": [
+                "deep-learning",
+                "artificial-neural-networks",
+                "keras",
+                "hands-on"
+              ]
             }
           ]
         }
