@@ -96,6 +96,19 @@
                 "mse",
                 "cross-entropy"
               ]
+            },
+            {
+              "name": "Optimizers",
+              "type": "file",
+              "path": "large-language-models/deep-learning/optimizers.md",
+              "date": "2026-03-14",
+              "tags": [
+                "deep-learning",
+                "neural-networks",
+                "optimizers",
+                "adam",
+                "sgd"
+              ]
             }
           ]
         }
