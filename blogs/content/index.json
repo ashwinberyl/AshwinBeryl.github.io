@@ -34,6 +34,24 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Deep Learning",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Intro to Neural Networks",
+              "type": "file",
+              "path": "large-language-models/deep-learning/intro-to-neural-networks.md",
+              "date": "2026-03-14",
+              "tags": [
+                "deep-learning",
+                "neural-networks",
+                "beginner",
+                "python"
+              ]
+            }
+          ]
         }
       ]
     }
