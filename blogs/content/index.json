@@ -73,6 +73,17 @@
                 "adam",
                 "weight-initialization"
               ]
+            },
+            {
+              "name": "Activation Functions",
+              "type": "file",
+              "path": "large-language-models/deep-learning/activation-functions.md",
+              "date": "2026-03-14",
+              "tags": [
+                "deep-learning",
+                "neural-networks",
+                "activation-functions"
+              ]
             }
           ]
         }
