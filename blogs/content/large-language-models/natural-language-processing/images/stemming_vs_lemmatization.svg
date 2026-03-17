@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="420" rx="16" fill="#1a1b2e"/>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" fill="#e0e0e0" font-size="22" font-weight="bold">Stemming vs Lemmatization</text>
+
+  <!-- Stemming Panel -->
+  <rect x="30" y="65" width="355" height="330" rx="12" fill="#1e2040" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="207" y="100" text-anchor="middle" fill="#ff6b6b" font-size="18" font-weight="bold">🪓 Stemming</text>
+  <text x="207" y="122" text-anchor="middle" fill="#888" font-size="12">Rule-based suffix stripping</text>
+
+  <!-- Stemming examples -->
+  <rect x="60" y="145" width="120" height="36" rx="8" fill="#2a2d5a"/>
+  <text x="120" y="169" text-anchor="middle" fill="#a0c4ff" font-size="15">running</text>
+  <text x="210" y="169" fill="#ff6b6b" font-size="20">→</text>
+  <rect x="235" y="145" width="120" height="36" rx="8" fill="#2a4a2a"/>
+  <text x="295" y="169" text-anchor="middle" fill="#90ee90" font-size="15">run ✅</text>
+
+  <rect x="60" y="195" width="120" height="36" rx="8" fill="#2a2d5a"/>
+  <text x="120" y="219" text-anchor="middle" fill="#a0c4ff" font-size="15">history</text>
+  <text x="210" y="219" fill="#ff6b6b" font-size="20">→</text>
+  <rect x="235" y="195" width="120" height="36" rx="8" fill="#4a2a2a"/>
+  <text x="295" y="219" text-anchor="middle" fill="#ff9090" font-size="15">histori ❌</text>
+
+  <rect x="60" y="245" width="120" height="36" rx="8" fill="#2a2d5a"/>
+  <text x="120" y="269" text-anchor="middle" fill="#a0c4ff" font-size="15">fairly</text>
+  <text x="210" y="269" fill="#ff6b6b" font-size="20">→</text>
+  <rect x="235" y="245" width="120" height="36" rx="8" fill="#4a2a2a"/>
+  <text x="295" y="269" text-anchor="middle" fill="#ff9090" font-size="15">fairli ❌</text>
+
+  <rect x="60" y="295" width="120" height="36" rx="8" fill="#2a2d5a"/>
+  <text x="120" y="319" text-anchor="middle" fill="#a0c4ff" font-size="15">congratulations</text>
+  <text x="210" y="319" fill="#ff6b6b" font-size="20">→</text>
+  <rect x="235" y="295" width="120" height="36" rx="8" fill="#4a2a2a"/>
+  <text x="295" y="319" text-anchor="middle" fill="#ff9090" font-size="15">congratul ❌</text>
+
+  <text x="207" y="368" text-anchor="middle" fill="#ff6b6b" font-size="13" font-weight="bold">⚡ Fast but produces non-words</text>
+
+  <!-- Lemmatization Panel -->
+  <rect x="415" y="65" width="355" height="330" rx="12" fill="#1e2040" stroke="#4ecdc4" stroke-width="2"/>
+  <text x="592" y="100" text-anchor="middle" fill="#4ecdc4" font-size="18" font-weight="bold">📖 Lemmatization</text>
+  <text x="592" y="122" text-anchor="middle" fill="#888" font-size="12">Dictionary-based lookup (WordNet)</text>
+
+  <!-- Lemmatization examples -->
+  <rect x="445" y="145" width="120" height="36" rx="8" fill="#2a2d5a"/>
+  <text x="505" y="169" text-anchor="middle" fill="#a0c4ff" font-size="15">running</text>
+  <text x="595" y="169" fill="#4ecdc4" font-size="20">→</text>
+  <rect x="620" y="145" width="120" height="36" rx="8" fill="#2a4a2a"/>
+  <text x="680" y="169" text-anchor="middle" fill="#90ee90" font-size="15">run ✅</text>
+
+  <rect x="445" y="195" width="120" height="36" rx="8" fill="#2a2d5a"/>
+  <text x="505" y="219" text-anchor="middle" fill="#a0c4ff" font-size="15">history</text>
+  <text x="595" y="219" fill="#4ecdc4" font-size="20">→</text>
+  <rect x="620" y="195" width="120" height="36" rx="8" fill="#2a4a2a"/>
+  <text x="680" y="219" text-anchor="middle" fill="#90ee90" font-size="15">history ✅</text>
+
+  <rect x="445" y="245" width="120" height="36" rx="8" fill="#2a2d5a"/>
+  <text x="505" y="269" text-anchor="middle" fill="#a0c4ff" font-size="15">fairly</text>
+  <text x="595" y="269" fill="#4ecdc4" font-size="20">→</text>
+  <rect x="620" y="245" width="120" height="36" rx="8" fill="#2a4a2a"/>
+  <text x="680" y="269" text-anchor="middle" fill="#90ee90" font-size="15">fair ✅</text>
+
+  <rect x="445" y="295" width="120" height="36" rx="8" fill="#2a2d5a"/>
+  <text x="505" y="319" text-anchor="middle" fill="#a0c4ff" font-size="15">better</text>
+  <text x="595" y="319" fill="#4ecdc4" font-size="20">→</text>
+  <rect x="620" y="295" width="120" height="36" rx="8" fill="#2a4a2a"/>
+  <text x="680" y="319" text-anchor="middle" fill="#90ee90" font-size="15">good ✅</text>
+
+  <text x="592" y="368" text-anchor="middle" fill="#4ecdc4" font-size="13" font-weight="bold">🐌 Slower but always real words</text>
+</svg>

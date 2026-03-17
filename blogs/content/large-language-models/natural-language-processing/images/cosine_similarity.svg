@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="420" rx="16" fill="#1a1b2e"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" fill="#e0e0e0" font-size="21" font-weight="bold">Cosine Similarity — Measuring by Angle, Not Distance</text>
+
+  <!-- Left diagram: cos = 1 (identical) -->
+  <text x="160" y="75" text-anchor="middle" fill="#00b894" font-size="15" font-weight="bold">cos θ = 1 (Identical)</text>
+  <line x1="60" y1="280" x2="260" y2="120" stroke="#00b894" stroke-width="3"/>
+  <line x1="60" y1="280" x2="260" y2="120" stroke="#4ecdc4" stroke-width="3" stroke-dasharray="6,4"/>
+  <circle cx="260" cy="120" r="6" fill="#00b894"/>
+  <circle cx="245" cy="130" r="6" fill="#4ecdc4"/>
+  <text x="275" y="115" fill="#00b894" font-size="12">A</text>
+  <text x="260" y="140" fill="#4ecdc4" font-size="12">B</text>
+  <text x="120" y="220" fill="#aaa" font-size="13">θ = 0°</text>
+  <!-- Angle arc -->
+  <path d="M 90,258 A 30,30 0 0,1 85,250" fill="none" stroke="#00b894" stroke-width="1.5"/>
+
+  <!-- Middle diagram: cos = 0 (unrelated) -->
+  <text x="400" y="75" text-anchor="middle" fill="#feca57" font-size="15" font-weight="bold">cos θ = 0 (Unrelated)</text>
+  <line x1="300" y1="280" x2="500" y2="120" stroke="#feca57" stroke-width="3"/>
+  <line x1="300" y1="280" x2="500" y2="280" stroke="#e17055" stroke-width="3"/>
+  <circle cx="500" cy="120" r="6" fill="#feca57"/>
+  <circle cx="500" cy="280" r="6" fill="#e17055"/>
+  <text x="515" y="118" fill="#feca57" font-size="12">A</text>
+  <text x="515" y="283" fill="#e17055" font-size="12">B</text>
+  <!-- Angle arc -->
+  <path d="M 340,280 A 40,40 0 0,1 320,248" fill="none" stroke="#ff9f43" stroke-width="1.5"/>
+  <text x="355" y="258" fill="#aaa" font-size="13">θ = 90°</text>
+
+  <!-- Right diagram: cos = -1 (opposite) -->
+  <text x="640" y="75" text-anchor="middle" fill="#e74c3c" font-size="15" font-weight="bold">cos θ = -1 (Opposite)</text>
+  <line x1="640" y1="280" x2="740" y2="120" stroke="#e74c3c" stroke-width="3"/>
+  <line x1="640" y1="280" x2="540" y2="120" stroke="#6c5ce7" stroke-width="3"/>
+  <circle cx="740" cy="120" r="6" fill="#e74c3c"/>
+  <circle cx="540" cy="120" r="6" fill="#6c5ce7"/>
+  <text x="750" y="118" fill="#e74c3c" font-size="12">A</text>
+  <text x="525" y="118" fill="#6c5ce7" font-size="12">B</text>
+  <!-- Angle arc -->
+  <path d="M 610,228 A 40,40 0 0,1 670,228" fill="none" stroke="#e74c3c" stroke-width="1.5"/>
+  <text x="640" y="218" text-anchor="middle" fill="#aaa" font-size="13">θ = 180°</text>
+
+  <!-- Formula -->
+  <rect x="120" y="310" width="560" height="45" rx="10" fill="#2a2d5a" stroke="#6c5ce7" stroke-width="2"/>
+  <text x="400" y="339" text-anchor="middle" fill="#dfe6e9" font-size="16" font-weight="bold">cos(θ) = (A · B) / (‖A‖ × ‖B‖)</text>
+
+  <!-- Bottom examples -->
+  <text x="160" y="390" text-anchor="middle" fill="#00b894" font-size="13">happy ↔ joyful = 0.99</text>
+  <text x="400" y="390" text-anchor="middle" fill="#feca57" font-size="13">happy ↔ bicycle = 0.07</text>
+  <text x="640" y="390" text-anchor="middle" fill="#e74c3c" font-size="13">good ↔ bad = -0.40</text>
+</svg>

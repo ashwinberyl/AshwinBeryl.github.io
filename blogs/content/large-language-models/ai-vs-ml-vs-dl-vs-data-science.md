@@ -112,13 +112,17 @@ Here's the path we'll follow in this series:
 
 | # | Topic | Status |
 |---|---|---|
-| 1 | AI vs ML vs DL vs Data Science | ✅ You're here! |
+| 1 | AI vs ML vs DL vs Data Science | ✅ [Done!](content/large-language-models/ai-vs-ml-vs-dl-vs-data-science.md) |
 | 2 | Machine Learning Fundamentals (Linear Regression) | ✅ [Done!](content/large-language-models/machine-learning/simple-linear-regression.md) |
-| 3 | Neural Networks — The Building Blocks | 🔜 Coming soon |
-| 4 | How Text Becomes Numbers (Tokenization & Embeddings) | 🔜 Coming soon |
-| 5 | The Attention Mechanism | 🔜 Coming soon |
-| 6 | Transformers — The Architecture Behind LLMs | 🔜 Coming soon |
-| 7 | Building & Using LLMs | 🔜 Coming soon |
+| 3 | Neural Networks — The Building Blocks | ✅ [Done!](content/large-language-models/deep-learning/intro-to-neural-networks.md) |
+| 4 | NLP — Introduction | ✅ [Done!](content/large-language-models/natural-language-processing/intro-to-nlp.md) |
+| 5 | NLP — Text Preprocessing | ✅ [Done!](content/large-language-models/natural-language-processing/text-preprocessing.md) |
+| 6 | NLP — One Hot Encoding, BoW & TF-IDF | ✅ [Done!](content/large-language-models/natural-language-processing/bow-tfidf.md) |
+| 7 | NLP — Word Embeddings & Word2Vec | ✅ [Done!](content/large-language-models/natural-language-processing/word-embeddings-word2vec.md) |
+| 8 | NLP — Average Word2Vec & Gensim | ✅ [Done!](content/large-language-models/natural-language-processing/average-word2vec-gensim.md) |
+| 9 | The Attention Mechanism | 🔜 Coming soon |
+| 10 | Transformers — The Architecture Behind LLMs | 🔜 Coming soon |
+| 11 | Building & Using LLMs | 🔜 Coming soon |
 
 Each post builds on the previous one. No random jumps, no missing pieces.
 

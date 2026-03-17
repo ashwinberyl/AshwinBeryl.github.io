@@ -123,6 +123,76 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Natural Language Processing",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Introduction to NLP",
+              "type": "file",
+              "path": "large-language-models/natural-language-processing/intro-to-nlp.md",
+              "date": "2026-03-17",
+              "tags": [
+                "nlp",
+                "machine-learning",
+                "text-processing",
+                "beginner"
+              ]
+            },
+            {
+              "name": "Text Preprocessing",
+              "type": "file",
+              "path": "large-language-models/natural-language-processing/text-preprocessing.md",
+              "date": "2026-03-17",
+              "tags": [
+                "nlp",
+                "tokenization",
+                "stemming",
+                "lemmatization",
+                "nltk"
+              ]
+            },
+            {
+              "name": "One Hot Encoding, BoW & TF-IDF",
+              "type": "file",
+              "path": "large-language-models/natural-language-processing/bow-tfidf.md",
+              "date": "2026-03-17",
+              "tags": [
+                "nlp",
+                "one-hot-encoding",
+                "bag-of-words",
+                "tf-idf",
+                "math"
+              ]
+            },
+            {
+              "name": "Word Embeddings & Word2Vec",
+              "type": "file",
+              "path": "large-language-models/natural-language-processing/word-embeddings-word2vec.md",
+              "date": "2026-03-17",
+              "tags": [
+                "nlp",
+                "word-embeddings",
+                "word2vec",
+                "cosine-similarity",
+                "deep-learning"
+              ]
+            },
+            {
+              "name": "Average Word2Vec & Gensim",
+              "type": "file",
+              "path": "large-language-models/natural-language-processing/average-word2vec-gensim.md",
+              "date": "2026-03-17",
+              "tags": [
+                "nlp",
+                "word2vec",
+                "gensim",
+                "practical",
+                "python"
+              ]
+            }
+          ]
         }
       ]
     }

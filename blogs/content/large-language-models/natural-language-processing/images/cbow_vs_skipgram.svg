@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="820" height="420" rx="16" fill="#1a1b2e"/>
+
+  <!-- Title -->
+  <text x="410" y="36" text-anchor="middle" fill="#e0e0e0" font-size="21" font-weight="bold">CBOW vs Skip-Gram — Two Sides of the Same Coin</text>
+  <text x="410" y="58" text-anchor="middle" fill="#888" font-size="12">Sentence: "the cat sat on the mat" | Window size = 2</text>
+
+  <!-- CBOW Panel -->
+  <rect x="20" y="75" width="380" height="320" rx="12" fill="#1e2040" stroke="#00b894" stroke-width="2"/>
+  <text x="210" y="105" text-anchor="middle" fill="#00b894" font-size="17" font-weight="bold">CBOW</text>
+  <text x="210" y="125" text-anchor="middle" fill="#888" font-size="12">Context → Predict Center</text>
+
+  <!-- CBOW input words -->
+  <rect x="50" y="150" width="80" height="32" rx="8" fill="#2a4a2a"/>
+  <text x="90" y="171" text-anchor="middle" fill="#90ee90" font-size="13">"the"</text>
+
+  <rect x="50" y="200" width="80" height="32" rx="8" fill="#2a4a2a"/>
+  <text x="90" y="221" text-anchor="middle" fill="#90ee90" font-size="13">"on"</text>
+
+  <rect x="50" y="250" width="80" height="32" rx="8" fill="#2a4a2a"/>
+  <text x="90" y="271" text-anchor="middle" fill="#90ee90" font-size="13">"the"</text>
+
+  <rect x="50" y="300" width="80" height="32" rx="8" fill="#2a4a2a"/>
+  <text x="90" y="321" text-anchor="middle" fill="#90ee90" font-size="13">"cat"</text>
+
+  <text x="80" y="358" text-anchor="middle" fill="#666" font-size="11">Context words (input)</text>
+
+  <!-- CBOW Neural Network -->
+  <rect x="170" y="215" width="90" height="50" rx="10" fill="#2a2d5a" stroke="#6c5ce7" stroke-width="1.5"/>
+  <text x="215" y="237" text-anchor="middle" fill="#a29bfe" font-size="11">Neural</text>
+  <text x="215" y="253" text-anchor="middle" fill="#a29bfe" font-size="11">Network</text>
+
+  <!-- Arrows to NN -->
+  <line x1="130" y1="166" x2="170" y2="230" stroke="#00b894" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="130" y1="216" x2="170" y2="235" stroke="#00b894" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="130" y1="266" x2="170" y2="245" stroke="#00b894" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="130" y1="316" x2="170" y2="250" stroke="#00b894" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- CBOW output -->
+  <rect x="300" y="221" width="80" height="38" rx="8" fill="#ff6b6b" opacity="0.3" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="340" y="245" text-anchor="middle" fill="#ff6b6b" font-size="15" font-weight="bold">"sat"</text>
+  <line x1="260" y1="240" x2="300" y2="240" stroke="#ff6b6b" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+  <text x="340" y="280" text-anchor="middle" fill="#666" font-size="11">Target (output)</text>
+
+  <!-- CBOW info -->
+  <rect x="50" y="368" width="320" height="20" rx="5" fill="#00b894" opacity="0.1"/>
+  <text x="210" y="383" text-anchor="middle" fill="#00b894" font-size="12">⚡ Faster — good for small datasets</text>
+
+  <!-- Skip-Gram Panel -->
+  <rect x="420" y="75" width="380" height="320" rx="12" fill="#1e2040" stroke="#e17055" stroke-width="2"/>
+  <text x="610" y="105" text-anchor="middle" fill="#e17055" font-size="17" font-weight="bold">Skip-Gram</text>
+  <text x="610" y="125" text-anchor="middle" fill="#888" font-size="12">Center → Predict Context</text>
+
+  <!-- Skip-Gram input word -->
+  <rect x="450" y="221" width="80" height="38" rx="8" fill="#e17055" opacity="0.3" stroke="#e17055" stroke-width="2"/>
+  <text x="490" y="245" text-anchor="middle" fill="#e17055" font-size="15" font-weight="bold">"sat"</text>
+  <text x="490" y="280" text-anchor="middle" fill="#666" font-size="11">Center (input)</text>
+
+  <!-- Skip-Gram Neural Network -->
+  <rect x="565" y="215" width="90" height="50" rx="10" fill="#2a2d5a" stroke="#6c5ce7" stroke-width="1.5"/>
+  <text x="610" y="237" text-anchor="middle" fill="#a29bfe" font-size="11">Neural</text>
+  <text x="610" y="253" text-anchor="middle" fill="#a29bfe" font-size="11">Network</text>
+
+  <!-- Arrow to NN -->
+  <line x1="530" y1="240" x2="565" y2="240" stroke="#e17055" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+
+  <!-- Skip-Gram output words -->
+  <rect x="690" y="150" width="80" height="32" rx="8" fill="#2a4a2a"/>
+  <text x="730" y="171" text-anchor="middle" fill="#90ee90" font-size="13">"the"</text>
+
+  <rect x="690" y="200" width="80" height="32" rx="8" fill="#2a4a2a"/>
+  <text x="730" y="221" text-anchor="middle" fill="#90ee90" font-size="13">"cat"</text>
+
+  <rect x="690" y="250" width="80" height="32" rx="8" fill="#2a4a2a"/>
+  <text x="730" y="271" text-anchor="middle" fill="#90ee90" font-size="13">"on"</text>
+
+  <rect x="690" y="300" width="80" height="32" rx="8" fill="#2a4a2a"/>
+  <text x="730" y="321" text-anchor="middle" fill="#90ee90" font-size="13">"the"</text>
+
+  <text x="730" y="358" text-anchor="middle" fill="#666" font-size="11">Context (output)</text>
+
+  <!-- Arrows from NN -->
+  <line x1="655" y1="230" x2="690" y2="166" stroke="#00b894" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="655" y1="235" x2="690" y2="216" stroke="#00b894" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="655" y1="245" x2="690" y2="266" stroke="#00b894" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="655" y1="250" x2="690" y2="316" stroke="#00b894" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- Skip-Gram info -->
+  <rect x="450" y="368" width="320" height="20" rx="5" fill="#e17055" opacity="0.1"/>
+  <text x="610" y="383" text-anchor="middle" fill="#e17055" font-size="12">🎯 Slower — better for large datasets &amp; rare words</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#00b894"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#ff6b6b"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#e17055"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="380" rx="16" fill="#1a1b2e"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" fill="#e0e0e0" font-size="21" font-weight="bold">Average Word2Vec — From Words to Sentence</text>
+  <text x="400" y="58" text-anchor="middle" fill="#888" font-size="13">Sentence: "food is delicious"</text>
+
+  <!-- Word vectors (left side) -->
+  <text x="120" y="95" text-anchor="middle" fill="#a0c4ff" font-size="14" font-weight="bold">Per-Word Vectors (300D each)</text>
+
+  <!-- food vector -->
+  <rect x="30" y="110" width="180" height="38" rx="8" fill="#2a2d5a" stroke="#00b894" stroke-width="1.5"/>
+  <text x="45" y="134" fill="#00b894" font-size="13" font-weight="bold">"food"</text>
+  <text x="115" y="134" fill="#888" font-size="11">→ [0.4, 0.2, -0.1, 0.3, ...]</text>
+
+  <!-- is vector -->
+  <rect x="30" y="160" width="180" height="38" rx="8" fill="#2a2d5a" stroke="#feca57" stroke-width="1.5"/>
+  <text x="45" y="184" fill="#feca57" font-size="13" font-weight="bold">"is"</text>
+  <text x="115" y="184" fill="#888" font-size="11">→ [-0.1, 0.6, 0.1, -0.4, ...]</text>
+
+  <!-- delicious vector -->
+  <rect x="30" y="210" width="180" height="38" rx="8" fill="#2a2d5a" stroke="#e17055" stroke-width="1.5"/>
+  <text x="45" y="234" fill="#e17055" font-size="13" font-weight="bold">"delicious"</text>
+  <text x="142" y="234" fill="#888" font-size="11">→ [0.8, 0.4, 0.7, 0.9, ...]</text>
+
+  <!-- Arrows converging -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#6c5ce7"/>
+    </marker>
+  </defs>
+
+  <line x1="210" y1="129" x2="290" y2="185" stroke="#6c5ce7" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="210" y1="179" x2="290" y2="185" stroke="#6c5ce7" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="210" y1="229" x2="290" y2="195" stroke="#6c5ce7" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Average operation -->
+  <rect x="295" y="165" width="110" height="50" rx="12" fill="#6c5ce7" opacity="0.25" stroke="#6c5ce7" stroke-width="2"/>
+  <text x="350" y="187" text-anchor="middle" fill="#a29bfe" font-size="13" font-weight="bold">AVERAGE</text>
+  <text x="350" y="205" text-anchor="middle" fill="#a29bfe" font-size="11">element-wise</text>
+
+  <!-- Arrow to result -->
+  <line x1="405" y1="190" x2="460" y2="190" stroke="#6c5ce7" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Result vector -->
+  <rect x="465" y="155" width="310" height="70" rx="12" fill="#2a2d5a" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="620" y="182" text-anchor="middle" fill="#ff6b6b" font-size="14" font-weight="bold">Sentence Vector (300D)</text>
+  <text x="620" y="205" text-anchor="middle" fill="#dfe6e9" font-size="13">[0.367, 0.400, 0.233, 0.267, ...]</text>
+
+  <!-- Math breakdown -->
+  <rect x="80" y="270" width="640" height="90" rx="10" fill="#2a2d5a"/>
+  <text x="400" y="295" text-anchor="middle" fill="#dfe6e9" font-size="13" font-weight="bold">Element-wise Average Calculation:</text>
+
+  <text x="168" y="320" text-anchor="middle" fill="#00b894" font-size="12">Dim 1:</text>
+  <text x="168" y="340" text-anchor="middle" fill="#888" font-size="11">(0.4+(-0.1)+0.8)/3 = 0.367</text>
+
+  <text x="348" y="320" text-anchor="middle" fill="#feca57" font-size="12">Dim 2:</text>
+  <text x="348" y="340" text-anchor="middle" fill="#888" font-size="11">(0.2+0.6+0.4)/3 = 0.400</text>
+
+  <text x="528" y="320" text-anchor="middle" fill="#e17055" font-size="12">Dim 3:</text>
+  <text x="528" y="340" text-anchor="middle" fill="#888" font-size="11">(-0.1+0.1+0.7)/3 = 0.233</text>
+
+  <text x="690" y="330" text-anchor="middle" fill="#888" font-size="20">...</text>
+</svg>

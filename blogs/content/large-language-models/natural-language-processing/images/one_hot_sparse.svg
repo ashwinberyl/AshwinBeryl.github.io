@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="400" rx="16" fill="#1a1b2e"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" fill="#e0e0e0" font-size="22" font-weight="bold">One Hot Encoding — The Sparse Matrix Problem</text>
+  <text x="400" y="58" text-anchor="middle" fill="#888" font-size="13">Vocabulary: [cat, dog, food, played, sat, the]</text>
+
+  <!-- Column headers -->
+  <text x="300" y="95" text-anchor="middle" fill="#ff9f43" font-size="13" font-weight="bold">cat</text>
+  <text x="370" y="95" text-anchor="middle" fill="#ff9f43" font-size="13" font-weight="bold">dog</text>
+  <text x="440" y="95" text-anchor="middle" fill="#ff9f43" font-size="13" font-weight="bold">food</text>
+  <text x="510" y="95" text-anchor="middle" fill="#ff9f43" font-size="13" font-weight="bold">played</text>
+  <text x="580" y="95" text-anchor="middle" fill="#ff9f43" font-size="13" font-weight="bold">sat</text>
+  <text x="650" y="95" text-anchor="middle" fill="#ff9f43" font-size="13" font-weight="bold">the</text>
+
+  <!-- Row labels -->
+  <text x="170" y="130" text-anchor="middle" fill="#a0c4ff" font-size="14">"cat"</text>
+  <text x="170" y="170" text-anchor="middle" fill="#a0c4ff" font-size="14">"dog"</text>
+  <text x="170" y="210" text-anchor="middle" fill="#a0c4ff" font-size="14">"food"</text>
+  <text x="170" y="250" text-anchor="middle" fill="#a0c4ff" font-size="14">"played"</text>
+  <text x="170" y="290" text-anchor="middle" fill="#a0c4ff" font-size="14">"sat"</text>
+  <text x="170" y="330" text-anchor="middle" fill="#a0c4ff" font-size="14">"the"</text>
+
+  <!-- Grid cells - Row 1: cat = [1,0,0,0,0,0] -->
+  <rect x="275" y="110" width="50" height="30" rx="6" fill="#00b894" opacity="0.9"/>
+  <text x="300" y="130" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">1</text>
+  <rect x="345" y="110" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="370" y="130" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="415" y="110" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="440" y="130" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="485" y="110" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="510" y="130" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="555" y="110" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="580" y="130" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="625" y="110" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="650" y="130" text-anchor="middle" fill="#555" font-size="15">0</text>
+
+  <!-- Row 2: dog = [0,1,0,0,0,0] -->
+  <rect x="275" y="150" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="300" y="170" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="345" y="150" width="50" height="30" rx="6" fill="#00b894" opacity="0.9"/>
+  <text x="370" y="170" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">1</text>
+  <rect x="415" y="150" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="440" y="170" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="485" y="150" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="510" y="170" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="555" y="150" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="580" y="170" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="625" y="150" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="650" y="170" text-anchor="middle" fill="#555" font-size="15">0</text>
+
+  <!-- Row 3: food = [0,0,1,0,0,0] -->
+  <rect x="275" y="190" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="300" y="210" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="345" y="190" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="370" y="210" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="415" y="190" width="50" height="30" rx="6" fill="#00b894" opacity="0.9"/>
+  <text x="440" y="210" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">1</text>
+  <rect x="485" y="190" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="510" y="210" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="555" y="190" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="580" y="210" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="625" y="190" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="650" y="210" text-anchor="middle" fill="#555" font-size="15">0</text>
+
+  <!-- Row 4: played = [0,0,0,1,0,0] -->
+  <rect x="275" y="230" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="300" y="250" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="345" y="230" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="370" y="250" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="415" y="230" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="440" y="250" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="485" y="230" width="50" height="30" rx="6" fill="#00b894" opacity="0.9"/>
+  <text x="510" y="250" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">1</text>
+  <rect x="555" y="230" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="580" y="250" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="625" y="230" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="650" y="250" text-anchor="middle" fill="#555" font-size="15">0</text>
+
+  <!-- Row 5: sat = [0,0,0,0,1,0] -->
+  <rect x="275" y="270" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="300" y="290" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="345" y="270" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="370" y="290" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="415" y="270" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="440" y="290" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="485" y="270" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="510" y="290" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="555" y="270" width="50" height="30" rx="6" fill="#00b894" opacity="0.9"/>
+  <text x="580" y="290" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">1</text>
+  <rect x="625" y="270" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="650" y="290" text-anchor="middle" fill="#555" font-size="15">0</text>
+
+  <!-- Row 6: the = [0,0,0,0,0,1] -->
+  <rect x="275" y="310" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="300" y="330" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="345" y="310" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="370" y="330" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="415" y="310" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="440" y="330" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="485" y="310" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="510" y="330" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="555" y="310" width="50" height="30" rx="6" fill="#2d3436" opacity="0.5"/>
+  <text x="580" y="330" text-anchor="middle" fill="#555" font-size="15">0</text>
+  <rect x="625" y="310" width="50" height="30" rx="6" fill="#00b894" opacity="0.9"/>
+  <text x="650" y="330" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">1</text>
+
+  <!-- Warning callout -->
+  <rect x="200" y="355" width="400" height="32" rx="8" fill="#e74c3c" opacity="0.2"/>
+  <text x="400" y="376" text-anchor="middle" fill="#e74c3c" font-size="14" font-weight="bold">⚠️ 30 zeros vs 6 ones — 83% wasted space!</text>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="560" rx="16" fill="#1a1b2e"/>
+
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" fill="#e0e0e0" font-size="26" font-weight="bold">NLP Preparation Pyramid</text>
+
+  <!-- Pyramid outline (guides) -->
+  <!-- Apex at (400, 95), Left base at (115, 470), Right base at (685, 470) -->
+
+  <!-- Arrow on left side: Accuracy ↑, Model Size ↑ -->
+  <line x1="85" y1="460" x2="85" y2="130" stroke="#888" stroke-width="1.5" marker-end="url(#arrowUp)"/>
+  <text x="78" y="310" text-anchor="middle" fill="#aaa" font-size="12" transform="rotate(-90, 78, 310)">Accuracy ↑  ·  Model Size ↑  ·  Complexity ↑</text>
+
+  <defs>
+    <marker id="arrowUp" markerWidth="8" markerHeight="8" refX="4" refY="8" orient="auto">
+      <path d="M0,8 L4,0 L8,8 Z" fill="#888"/>
+    </marker>
+    <!-- Clip paths for each pyramid layer -->
+    <clipPath id="layer1Clip">
+      <polygon points="188,380 612,380 685,470 115,470"/>
+    </clipPath>
+    <clipPath id="layer2Clip">
+      <polygon points="260,290 540,290 612,380 188,380"/>
+    </clipPath>
+    <clipPath id="layer3Clip">
+      <polygon points="330,200 470,200 540,290 260,290"/>
+    </clipPath>
+    <clipPath id="layer4Clip">
+      <polygon points="400,110 470,200 330,200"/>
+    </clipPath>
+  </defs>
+
+  <!-- Layer 1: Text Preprocessing (bottom, widest) — Deep Teal -->
+  <polygon points="188,380 612,380 685,470 115,470" fill="#1a7a6d" stroke="#22a391" stroke-width="2"/>
+  <rect x="115" y="395" width="570" height="75" fill="#1a7a6d" clip-path="url(#layer1Clip)" opacity="0"/>
+  <text x="400" y="412" text-anchor="middle" fill="#dfe6e9" font-size="13">Layer 1</text>
+  <text x="400" y="434" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="bold">Text Preprocessing —</text>
+  <text x="400" y="456" text-anchor="middle" fill="#b2dfdb" font-size="14">Tokenization, Stemming, Lemmatization</text>
+
+  <!-- Layer 2: Basic Vectorization — Steel Blue -->
+  <polygon points="260,290 540,290 612,380 188,380" fill="#2d6a9f" stroke="#3d8ad0" stroke-width="2"/>
+  <text x="400" y="315" text-anchor="middle" fill="#dfe6e9" font-size="13">Layer 2</text>
+  <text x="400" y="337" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="bold">Basic Vectorization —</text>
+  <text x="400" y="359" text-anchor="middle" fill="#90caf9" font-size="14">Bag of Words, TF-IDF</text>
+
+  <!-- Layer 3: Word Embeddings — Purple -->
+  <polygon points="330,200 470,200 540,290 260,290" fill="#6c3f9e" stroke="#8e5dc0" stroke-width="2"/>
+  <text x="400" y="225" text-anchor="middle" fill="#dfe6e9" font-size="13">Layer 3</text>
+  <text x="400" y="247" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="bold">Word Embeddings —</text>
+  <text x="400" y="269" text-anchor="middle" fill="#ce93d8" font-size="14">Word2Vec, GloVe</text>
+
+  <!-- Layer 4: Transformers (top, smallest) — Gold/Orange -->
+  <polygon points="400,110 470,200 330,200" fill="#d4940a" stroke="#f0b429" stroke-width="2"/>
+  <text x="400" y="145" text-anchor="middle" fill="#1a1b2e" font-size="12" font-weight="bold">Layer 4</text>
+  <text x="400" y="165" text-anchor="middle" fill="#1a1b2e" font-size="15" font-weight="bold">Transformers</text>
+  <text x="400" y="183" text-anchor="middle" fill="#3d2e00" font-size="12">BERT, GPT</text>
+
+  <!-- Right-side annotations -->
+  <!-- DL Tools bracket -->
+  <line x1="555" y1="140" x2="590" y2="140" stroke="#e17055" stroke-width="1.5"/>
+  <line x1="555" y1="280" x2="590" y2="280" stroke="#e17055" stroke-width="1.5"/>
+  <line x1="590" y1="140" x2="590" y2="280" stroke="#e17055" stroke-width="1.5"/>
+  <line x1="590" y1="210" x2="610" y2="210" stroke="#e17055" stroke-width="1.5"/>
+  <rect x="615" y="185" width="155" height="52" rx="8" fill="#e17055" opacity="0.15"/>
+  <text x="692" y="205" text-anchor="middle" fill="#e17055" font-size="13" font-weight="bold">DL Tools:</text>
+  <text x="692" y="225" text-anchor="middle" fill="#fab1a0" font-size="12">TensorFlow, PyTorch</text>
+
+  <!-- ML Tools bracket -->
+  <line x1="620" y1="310" x2="655" y2="310" stroke="#00b894" stroke-width="1.5"/>
+  <line x1="620" y1="460" x2="655" y2="460" stroke="#00b894" stroke-width="1.5"/>
+  <line x1="655" y1="310" x2="655" y2="460" stroke="#00b894" stroke-width="1.5"/>
+  <line x1="655" y1="385" x2="675" y2="385" stroke="#00b894" stroke-width="1.5"/>
+  <rect x="680" y="360" width="110" height="52" rx="8" fill="#00b894" opacity="0.15"/>
+  <text x="735" y="380" text-anchor="middle" fill="#00b894" font-size="13" font-weight="bold">ML Tools:</text>
+  <text x="735" y="400" text-anchor="middle" fill="#55efc4" font-size="12">NLTK, SpaCy</text>
+
+  <!-- Decorative dots (subtle) -->
+  <circle cx="350" cy="85" r="2" fill="#feca57" opacity="0.4"/>
+  <circle cx="440" cy="90" r="1.5" fill="#feca57" opacity="0.3"/>
+  <circle cx="150" cy="120" r="1.5" fill="#4ecdc4" opacity="0.3"/>
+  <circle cx="650" cy="135" r="2" fill="#a29bfe" opacity="0.3"/>
+  <circle cx="170" cy="490" r="1.5" fill="#00b894" opacity="0.3"/>
+  <circle cx="630" cy="490" r="1.5" fill="#00b894" opacity="0.3"/>
+
+  <!-- Bottom caption -->
+  <text x="400" y="520" text-anchor="middle" fill="#888" font-size="13">Each layer builds on the one below. Start from the base and work your way up.</text>
+</svg>
