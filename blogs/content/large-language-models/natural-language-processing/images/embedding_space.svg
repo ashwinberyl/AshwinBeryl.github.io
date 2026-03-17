@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 480" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="750" height="480" rx="16" fill="#1a1b2e"/>
+
+  <!-- Title -->
+  <text x="375" y="36" text-anchor="middle" fill="#e0e0e0" font-size="21" font-weight="bold">Word Embedding Space — Semantic Clustering</text>
+  <text x="375" y="58" text-anchor="middle" fill="#888" font-size="13">Similar words cluster together. Dissimilar words are far apart.</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="420" x2="700" y2="420" stroke="#444" stroke-width="1.5"/>
+  <line x1="80" y1="420" x2="80" y2="80" stroke="#444" stroke-width="1.5"/>
+  <text x="700" y="445" fill="#666" font-size="12">Dimension 1</text>
+  <text x="48" y="82" fill="#666" font-size="12">Dim 2</text>
+
+  <!-- Happy cluster (top-left area) -->
+  <circle cx="190" cy="140" r="10" fill="#00b894"/>
+  <text x="210" y="137" fill="#00b894" font-size="14" font-weight="bold">happy</text>
+  <circle cx="230" cy="175" r="10" fill="#00b894"/>
+  <text x="250" y="172" fill="#00b894" font-size="14" font-weight="bold">joyful</text>
+  <circle cx="165" cy="190" r="10" fill="#00b894"/>
+  <text x="108" y="193" fill="#00b894" font-size="14" font-weight="bold">excited</text>
+  <circle cx="220" cy="215" r="10" fill="#00cec9"/>
+  <text x="240" y="212" fill="#00cec9" font-size="14" font-weight="bold">cheerful</text>
+
+  <!-- Cluster outline -->
+  <ellipse cx="200" cy="180" rx="80" ry="60" fill="none" stroke="#00b894" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.4"/>
+  <text x="200" y="255" text-anchor="middle" fill="#00b894" font-size="11" opacity="0.7">Positive Emotions</text>
+
+  <!-- Sad cluster (right area) -->
+  <circle cx="560" cy="150" r="10" fill="#e74c3c"/>
+  <text x="580" y="147" fill="#e74c3c" font-size="14" font-weight="bold">sad</text>
+  <circle cx="590" cy="195" r="10" fill="#e74c3c"/>
+  <text x="610" y="192" fill="#e74c3c" font-size="14" font-weight="bold">angry</text>
+  <circle cx="530" cy="200" r="10" fill="#e74c3c"/>
+  <text x="536" y="225" fill="#e74c3c" font-size="14" font-weight="bold">furious</text>
+
+  <ellipse cx="560" cy="180" rx="70" ry="55" fill="none" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.4"/>
+  <text x="560" y="250" text-anchor="middle" fill="#e74c3c" font-size="11" opacity="0.7">Negative Emotions</text>
+
+  <!-- Food cluster (bottom-center area) -->
+  <circle cx="340" cy="340" r="10" fill="#feca57"/>
+  <text x="360" y="337" fill="#feca57" font-size="14" font-weight="bold">pizza</text>
+  <circle cx="390" cy="370" r="10" fill="#feca57"/>
+  <text x="410" y="367" fill="#feca57" font-size="14" font-weight="bold">burger</text>
+  <circle cx="310" cy="375" r="10" fill="#feca57"/>
+  <text x="285" y="400" fill="#feca57" font-size="14" font-weight="bold">pasta</text>
+
+  <ellipse cx="345" cy="363" rx="70" ry="45" fill="none" stroke="#feca57" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.4"/>
+  <text x="345" y="415" text-anchor="middle" fill="#feca57" font-size="11" opacity="0.7">Food</text>
+
+  <!-- Distance annotations -->
+  <line x1="227" y1="175" x2="555" y2="152" stroke="#ff9f43" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
+  <text x="390" y="142" text-anchor="middle" fill="#ff9f43" font-size="12" font-weight="bold">far apart (different meaning)</text>
+
+  <line x1="193" y1="147" x2="227" y2="172" stroke="#00b894" stroke-width="1.5" opacity="0.4"/>
+  <text x="140" y="125" fill="#00b894" font-size="11" font-weight="bold">close (similar)</text>
+
+  <!-- Legend -->
+  <rect x="150" y="440" width="450" height="28" rx="8" fill="#2a2d5a"/>
+  <text x="375" y="459" text-anchor="middle" fill="#dfe6e9" font-size="13">💡 Position in vector space = meaning. Distance = semantic difference.</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="340" rx="16" fill="#1a1b2e"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" fill="#e0e0e0" font-size="21" font-weight="bold">TF-IDF Formula Breakdown</text>
+
+  <!-- Main formula -->
+  <rect x="150" y="55" width="500" height="45" rx="10" fill="#2a2d5a" stroke="#6c5ce7" stroke-width="2"/>
+  <text x="400" y="84" text-anchor="middle" fill="#dfe6e9" font-size="18" font-weight="bold">TF-IDF(word, doc) = TF(word, doc) × IDF(word)</text>
+
+  <!-- TF Panel -->
+  <rect x="30" y="120" width="355" height="195" rx="12" fill="#1e2040" stroke="#00b894" stroke-width="2"/>
+  <text x="207" y="152" text-anchor="middle" fill="#00b894" font-size="17" font-weight="bold">Term Frequency (TF)</text>
+
+  <!-- TF Formula -->
+  <text x="207" y="185" text-anchor="middle" fill="#dfe6e9" font-size="14">word appears in doc</text>
+  <line x1="110" y1="195" x2="305" y2="195" stroke="#dfe6e9" stroke-width="1.5"/>
+  <text x="207" y="215" text-anchor="middle" fill="#dfe6e9" font-size="14">total words in doc</text>
+
+  <text x="207" y="248" text-anchor="middle" fill="#888" font-size="13">Example: "good" in "the food is good"</text>
+
+  <rect x="110" y="260" width="195" height="35" rx="8" fill="#00b894" opacity="0.15"/>
+  <text x="207" y="283" text-anchor="middle" fill="#00b894" font-size="16" font-weight="bold">TF = 1 / 4 = 0.25</text>
+
+  <!-- IDF Panel -->
+  <rect x="415" y="120" width="355" height="195" rx="12" fill="#1e2040" stroke="#e17055" stroke-width="2"/>
+  <text x="592" y="152" text-anchor="middle" fill="#e17055" font-size="17" font-weight="bold">Inverse Document Frequency (IDF)</text>
+
+  <!-- IDF Formula -->
+  <text x="542" y="185" text-anchor="middle" fill="#dfe6e9" font-size="14">IDF = log</text>
+  <text x="600" y="182" fill="#dfe6e9" font-size="11">e</text>
+  <text x="640" y="180" fill="#dfe6e9" font-size="13">(</text>
+  <text x="675" y="175" text-anchor="middle" fill="#dfe6e9" font-size="13">total docs</text>
+  <line x1="635" y1="185" x2="720" y2="185" stroke="#dfe6e9" stroke-width="1.5"/>
+  <text x="675" y="205" text-anchor="middle" fill="#dfe6e9" font-size="13">docs with word</text>
+  <text x="725" y="192" fill="#dfe6e9" font-size="13">)</text>
+
+  <!-- IDF Common word -->
+  <text x="592" y="238" text-anchor="middle" fill="#888" font-size="12">Common word ("the" — in all 3 docs):</text>
+  <rect x="480" y="245" width="225" height="28" rx="6" fill="#e74c3c" opacity="0.15"/>
+  <text x="592" y="265" text-anchor="middle" fill="#e74c3c" font-size="14" font-weight="bold">IDF = log(3/3) = log(1) = 0 💀</text>
+
+  <!-- IDF Rare word -->
+  <text x="592" y="290" text-anchor="middle" fill="#888" font-size="12">Rare word ("bad" — in only 1 doc):</text>
+  <rect x="480" y="297" width="225" height="28" rx="6" fill="#00b894" opacity="0.15"/>
+  <text x="592" y="317" text-anchor="middle" fill="#00b894" font-size="14" font-weight="bold">IDF = log(3/1) = 1.099 🌟</text>
+</svg>

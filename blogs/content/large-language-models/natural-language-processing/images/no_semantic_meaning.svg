@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="700" height="380" rx="16" fill="#1a1b2e"/>
+
+  <!-- Title -->
+  <text x="350" y="36" text-anchor="middle" fill="#e0e0e0" font-size="20" font-weight="bold">One Hot Encoding — No Semantic Meaning</text>
+  <text x="350" y="58" text-anchor="middle" fill="#888" font-size="13">All words are mathematically equidistant — no relationships captured</text>
+
+  <!-- 3D axes -->
+  <line x1="150" y1="290" x2="550" y2="290" stroke="#444" stroke-width="1.5"/>
+  <line x1="150" y1="290" x2="150" y2="90" stroke="#444" stroke-width="1.5"/>
+  <line x1="150" y1="290" x2="80" y2="340" stroke="#444" stroke-width="1.5"/>
+  <text x="550" y="308" fill="#666" font-size="12">Dim 1</text>
+  <text x="132" y="88" fill="#666" font-size="12">Dim 2</text>
+  <text x="60" y="350" fill="#666" font-size="12">Dim 3</text>
+
+  <!-- Points at unit vectors (equidistant) -->
+  <!-- Pizza at (1,0,0) -->
+  <circle cx="480" cy="290" r="12" fill="#ff6b6b"/>
+  <text x="480" y="322" text-anchor="middle" fill="#ff6b6b" font-size="14" font-weight="bold">🍕 pizza</text>
+  <text x="480" y="338" text-anchor="middle" fill="#ff6b6b" font-size="11">[1, 0, 0]</text>
+
+  <!-- Burger at (0,1,0) -->
+  <circle cx="150" cy="130" r="12" fill="#feca57"/>
+  <text x="198" y="125" fill="#feca57" font-size="14" font-weight="bold">🍔 burger</text>
+  <text x="210" y="141" fill="#feca57" font-size="11">[0, 1, 0]</text>
+
+  <!-- Football at (0,0,1) -->
+  <circle cx="105" cy="330" r="12" fill="#48dbfb"/>
+  <text x="105" y="368" text-anchor="middle" fill="#48dbfb" font-size="14" font-weight="bold">⚽ football</text>
+
+  <!-- Distance lines with labels -->
+  <line x1="480" y1="290" x2="150" y2="130" stroke="#ff6b6b" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6"/>
+  <text x="340" y="195" text-anchor="middle" fill="#ff9f43" font-size="13" font-weight="bold">d = √2 ≈ 1.41</text>
+
+  <line x1="480" y1="290" x2="105" y2="330" stroke="#48dbfb" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6"/>
+  <text x="300" y="325" text-anchor="middle" fill="#ff9f43" font-size="13" font-weight="bold">d = √2 ≈ 1.41</text>
+
+  <line x1="150" y1="130" x2="105" y2="330" stroke="#feca57" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6"/>
+  <text x="95" y="238" text-anchor="middle" fill="#ff9f43" font-size="13" font-weight="bold">d = √2 ≈ 1.41</text>
+
+  <!-- Callout -->
+  <rect x="380" y="130" width="280" height="60" rx="8" fill="#e74c3c" opacity="0.15"/>
+  <text x="520" y="155" text-anchor="middle" fill="#e74c3c" font-size="12" font-weight="bold">Pizza ↔ Burger = SAME distance</text>
+  <text x="520" y="175" text-anchor="middle" fill="#e74c3c" font-size="12" font-weight="bold">as Pizza ↔ Football! 😱</text>
+</svg>
