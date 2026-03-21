@@ -404,13 +404,22 @@ You now have a foundational, working template that you can apply to almost any s
 
 ## Where to Go From Here 🚀
 
-This ANN handles **tabular data** (rows and columns). But the real world has other types of data that need specialized architectures:
+We've built a powerful engine for **tabular data** (rows and columns). But to understand modern AI—specifically Large Language Models (LLMs) like ChatGPT—we need to tackle a much messier type of data: **Language**.
 
-- **Images** → Convolutional Neural Networks (CNNs) — learn to see edges, shapes, and objects
-- **Sequences & Text** → Recurrent Neural Networks (RNNs) and Transformers — learn to understand order and context
-- **Time Series** → LSTMs — learn to remember long-term patterns
+Neural networks only understand numbers, not words. Before we can use Deep Learning architectures on text, we must first learn how to mathematically represent language. Because of this, **we are hitting pause on the Deep Learning module for now**. 
 
-Each of these builds on the exact same fundamentals you learned in this series. The concepts of forward propagation, backpropagation, activation functions, loss functions, and optimizers remain universal — the architectures just change to fit the shape of the data.
+Our next stop is the **Natural Language Processing (NLP)** module. There, we will:
+1. Learn how to clean and prepare text.
+2. Discover how to turn words into numbers (Word Embeddings).
+3. Once we know how to feed words into neural networks, we will **resume Deep Learning** by applying **Recurrent Neural Networks (RNNs)** to our text data.
+
+This is the exact evolutionary path AI researchers took to build LLMs. Let's start the NLP journey here:
+
+👉 **[Introduction to Natural Language Processing (NLP)](content/large-language-models/natural-language-processing/intro-to-nlp.md)**
+
+And if you want to jump straight to where Deep Learning and NLP finally meet, head here:
+
+👉 **[Intro to RNNs & LSTMs — Teaching Neural Networks to Remember](content/large-language-models/natural-language-processing/intro-to-rnn-lstm.md)**
 
 Stay tuned — we're just getting started. 🔥
 
