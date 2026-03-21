@@ -1026,6 +1026,11 @@ footer {
         display: none !important;
     }
 
+    /* Blog page: always show the work link regardless of href suppression */
+    .nav-links a[href="../#projects"].blog-work-link {
+        display: inline-block !important;
+    }
+
     .nav-links a {
         padding: 0;
         font-size: 0.9rem;

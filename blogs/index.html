@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Blog — Ashwin Kalaichandran | DevSecOps, Platform Engineering, Kubernetes, AWS, CI/CD insights and tutorials.">
-    <title>Blog — Ashwin Kalaichandran</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="blog.css">
+    <title>Ashwin Blogs</title>
+    <link rel="stylesheet" href="../style.css?v=2">
+    <link rel="stylesheet" href="blog.css?v=8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
@@ -16,8 +16,11 @@
     <!-- Markdown parser -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- Syntax highlighting -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" id="hljs-dark-theme">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css" id="hljs-light-theme">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css"
+        id="hljs-dark-theme">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css"
+        id="hljs-light-theme">
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
 </head>
 
@@ -28,32 +31,42 @@
     <!-- Navigation -->
     <nav id="nav">
         <div class="nav-inner">
-            <a href="../" class="logo">AK<span class="logo-dot">.</span></a>
-            <div class="nav-links">
-                <a href="../#about">About</a>
-                <a href="../#experience">Experience</a>
-                <a href="../#projects">Projects</a>
-                <a href="./" class="nav-active nav-blog">Blog</a>
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle blog sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                        class="sidebar-toggle-icon">
+                        <line x1="4" y1="12" x2="20" y2="12" />
+                        <line x1="4" y1="6" x2="20" y2="6" />
+                        <line x1="4" y1="18" x2="20" y2="18" />
+                    </svg>
+                </button>
+                <a href="../" class="blog-home-link" title="Home" aria-label="Go to homepage">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2.5 10.5L12 2.5l9.5 8" />
+                        <path d="M5 8.5V21h4v-6a3 3 0 0 1 6 0v6h4V8.5" />
+                    </svg>
+                </a>
+            </div>
+            <div class="nav-links" style="gap: 0.8rem;">
+                <a href="../#projects" class="blog-work-link">View My Work</a>
                 <button id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
                     <span class="icon-sun">☀️</span>
                     <span class="icon-moon">🌙</span>
                 </button>
-                <a href="../#contact" class="nav-cta">Let's Talk</a>
             </div>
         </div>
     </nav>
 
     <!-- Blog Layout -->
     <main class="blog-layout">
-        <!-- Mobile sidebar toggle -->
-        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle blog index">
-            📑 Topics
-        </button>
+        <!-- Sidebar toggle moved to header -->
 
         <!-- Sidebar -->
         <aside class="blog-sidebar" id="blog-sidebar">
             <div class="sidebar-header">
-                <h2>📚 Blog</h2>
+                <h2>Blog</h2>
                 <div class="sidebar-search">
                     <input type="text" id="search-input" placeholder="Search posts..." aria-label="Search blog posts">
                     <span class="search-icon">⌕</span>
@@ -70,7 +83,8 @@
             <div class="blog-welcome" id="blog-welcome">
                 <div class="welcome-icon">📖</div>
                 <h1>Welcome to <span class="gradient-text">my Blog</span></h1>
-                <p>Thoughts on DevSecOps, platform engineering, cloud infrastructure, and everything I learn along the way.</p>
+                <p>Thoughts on DevSecOps, platform engineering, cloud infrastructure, and everything I learn along the
+                    way.</p>
                 <p class="welcome-hint">← Select a post from the sidebar to start reading.</p>
             </div>
 
