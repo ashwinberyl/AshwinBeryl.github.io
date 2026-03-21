@@ -246,11 +246,16 @@
     display: none !important;
 }
 
-/* ---------- SIDEBAR TOGGLE (IN HEADER) ---------- */
+/* ---------- DESKTOP/GLOBAL TOP BAR THEMING OVERRIDES ---------- */
+#nav {
+    background: var(--gradient) !important;
+    border-bottom: none !important;
+}
+
 .sidebar-toggle {
     display: none;
     background: transparent !important;
-    color: var(--text) !important;
+    color: #fff !important;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -261,8 +266,7 @@
 }
 
 .sidebar-toggle:hover {
-    transform: scale(1.05);
-    background: rgba(128, 128, 128, 0.1) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
 }
 
 .sidebar-toggle-icon {
@@ -272,14 +276,14 @@
 }
 
 .sidebar-toggle.active .sidebar-toggle-icon {
-    color: var(--accent);
+    color: #fff;
 }
 
 /* ---------- BLOG NAV HOME & WORK LINKS ---------- */
 .blog-home-link {
     display: flex;
     align-items: center;
-    color: var(--text) !important;
+    color: #fff !important;
     text-decoration: none;
     background: transparent !important;
     border: none;
@@ -288,30 +292,41 @@
     transition: all 0.25s var(--ease);
 }
 
+.blog-home-link svg, .sidebar-toggle svg {
+    stroke: #fff !important;
+}
+
 .blog-home-link:hover {
-    transform: scale(1.05);
-    background: rgba(128, 128, 128, 0.1) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
 }
 
 .blog-work-link {
     font-family: var(--font);
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 500 !important;
     color: #fff !important;
     text-decoration: none;
-    padding: 0.38rem 0.9rem;
-    background: var(--gradient) !important;
-    border: none;
+    padding: 0.4rem 0.5rem !important;
+    background: transparent !important;
+    border: none !important;
     border-radius: 6px;
     transition: all 0.25s var(--ease);
     white-space: nowrap;
     letter-spacing: 0.2px;
     display: inline-block !important;
+    box-shadow: none !important;
 }
 
 .blog-work-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(108, 99, 255, 0.3);
+    background: transparent !important;
+    opacity: 0.85;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+#theme-toggle {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #fff !important;
 }
 
 /* ---------- CONTENT AREA ---------- */
@@ -669,6 +684,12 @@
 
     .blog-content {
         padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Mobile Nav Spacing */
+    .nav-inner {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
 
     /* Overlay behind sidebar */
