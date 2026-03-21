@@ -350,38 +350,53 @@ We went from zero NLP knowledge to a **working end-to-end pipeline** that takes 
 
 ---
 
-## But Wait — There's a Flaw... 🤔
+## But Wait — There Are Two Flaws... 🤔
 
-Average Word2Vec is powerful, but it has a fundamental limitation that set the stage for the next revolution in NLP:
+Average Word2Vec is powerful, but it has two fundamental limitations that set the stage for our next deep learning breakthrough.
 
-**Word2Vec gives every word exactly ONE vector, regardless of context.**
+### Flaw 1: No Word Order 🔀
 
-The word **"bank"** always has the same 300-dimensional vector, whether you say:
+Average Word2Vec *averages* all word vectors together. That means it treats these two sentences as **mathematically identical**:
+
+- "**Dog** bites **man**" 🐕 → 😱
+- "**Man** bites **dog**" 😱 → 🐕
+
+Both sentences contain the exact same words, so the averaged vector is the same. But the meaning is completely different! By averaging, we've destroyed the **sequence** — the order in which words appear.
+
+Think about it: in language, order is *everything*. "I am happy" and "Am I happy?" use the same three words, but one is a statement and the other is a question. Our current pipeline is **deaf to word order**.
+
+### Flaw 2: Static Word Vectors 📌
+
+**Word2Vec gives every word exactly ONE vector, regardless of context.** The word **"bank"** always has the same 300-dimensional vector, whether you say:
 
 - "I deposited money at the **bank**" (financial institution)
 - "I sat by the river **bank**" (edge of a river)
 
-Same word, completely different meanings, **identical vector.** The model can't tell the difference.
+Same word, completely different meanings, **identical vector.** This is called the **polysemy problem** — one word, multiple meanings — and Average Word2Vec inherits it completely.
 
-This is called the **polysemy problem** — one word, multiple meanings. Average Word2Vec inherits this flaw because it averages vectors that don't account for context.
+### What We Need
 
-The solution? Models that read the **entire sentence** before assigning a vector to each word — so "bank" gets a *different* vector depending on whether it's near "money" or near "river."
+To solve Flaw 1, we need a model that processes words **one at a time, in order**, building up an understanding of the sentence as it reads through it — a model with **memory**.
 
-That's exactly what **Transformers** and models like **BERT** do — and that's where this series heads next in the journey toward Large Language Models.
+To solve Flaw 2, we'll eventually need models that read the **entire sentence** before assigning a vector to each word — so "bank" gets a *different* vector near "money" vs. near "river." That's what **Transformers** and **BERT** will do later in this series.
+
+But first things first — let's give our network a memory.
 
 ---
 
 ## What's Next? 🚀
 
-We've completed the foundations of NLP:
+We've completed the core NLP representation pipeline:
 
 ```
 Text Preprocessing → BoW / TF-IDF → Word2Vec → Average Word2Vec
 ```
 
-The next leap is the architecture that powers ChatGPT, Claude, and every modern language model: **the Transformer**. It solves the polysemy problem, handles long-range context, and processes text in parallel. It's the single most important architecture in modern AI.
+Every technique so far has been about converting **individual words** into numbers. But none of them understand **sequence** — the order in which words appear.
 
-Stay tuned — the best is yet to come. 🚀
+To fix this, we're stepping into the world of **Deep Learning for NLP.** Our first stop: the architecture that gave neural networks the ability to **remember** — the **Recurrent Neural Network (RNN)**. It reads words one by one, carries forward a "hidden state" that acts as memory, and finally produces an output that considers the entire sentence in order.
+
+Next up: **[Intro to RNNs & LSTMs — Teaching Neural Networks to Remember](content/large-language-models/natural-language-processing/intro-to-rnn-lstm.md)** 🧠
 
 ---
 
