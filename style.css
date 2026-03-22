@@ -1021,7 +1021,9 @@ footer {
     .nav-links a[href="#skills"],
     .nav-links a[href="#projects"],
     .nav-links a[href="../#about"],
+    .nav-links a[href="../#impact"],
     .nav-links a[href="../#experience"],
+    .nav-links a[href="../#skills"],
     .nav-links a[href="../#projects"] {
         display: none !important;
     }
