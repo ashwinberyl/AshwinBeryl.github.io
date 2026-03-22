@@ -225,6 +225,29 @@
           ]
         }
       ]
+    },
+    {
+      "name": "LLMOps",
+      "type": "folder",
+      "children": [
+        {
+          "name": "LLMOps Syllabus",
+          "type": "file",
+          "path": "LLMOps/syllabus.md",
+          "date": "2026-03-22",
+          "tags": [
+            "llmops",
+            "aws",
+            "production",
+            "serving",
+            "evaluation",
+            "observability",
+            "docker",
+            "kubernetes",
+            "cicd"
+          ]
+        }
+      ]
     }
   ]
 }
