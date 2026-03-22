@@ -114,14 +114,15 @@ async function loadBlogIndex() {
     }
 }
 
-function renderTree(nodes, container, depth) {
+function renderTree(nodes, container, depth, parentPath) {
     const parent = container || document.getElementById('sidebar-tree');
     const d = depth || 0;
+    const pPath = parentPath || '';
     parent.innerHTML = '';
 
     nodes.forEach(node => {
         if (node.type === 'folder') {
-            const folder = createFolderNode(node, d);
+            const folder = createFolderNode(node, d, pPath);
             parent.appendChild(folder);
         } else if (node.type === 'file') {
             const file = createFileNode(node);
@@ -130,10 +131,18 @@ function renderTree(nodes, container, depth) {
     });
 }
 
-function createFolderNode(node, depth) {
+function createFolderNode(node, depth, parentPath) {
     const d = depth || 0;
+    const pPath = parentPath || '';
+    const currentPath = pPath ? `${pPath}/${node.name}` : node.name;
+    
+    // Check localStorage for expanded state
+    const storageKey = 'blog_expanded_folders';
+    const expandedState = JSON.parse(localStorage.getItem(storageKey) || '{}');
+    const isOpen = expandedState[currentPath] === true;
+
     const li = document.createElement('div');
-    li.className = 'tree-folder open'; // open by default
+    li.className = isOpen ? 'tree-folder open' : 'tree-folder';
     li.setAttribute('data-depth', d);
 
     const label = document.createElement('button');
@@ -145,7 +154,11 @@ function createFolderNode(node, depth) {
         <span class="tree-folder-name">${node.name}</span>
     `;
     label.addEventListener('click', () => {
-        li.classList.toggle('open');
+        const nowOpen = li.classList.toggle('open');
+        // Save state to localStorage
+        const state = JSON.parse(localStorage.getItem(storageKey) || '{}');
+        state[currentPath] = nowOpen;
+        localStorage.setItem(storageKey, JSON.stringify(state));
     });
 
     const children = document.createElement('div');
@@ -154,7 +167,7 @@ function createFolderNode(node, depth) {
     if (node.children) {
         node.children.forEach(child => {
             if (child.type === 'folder') {
-                children.appendChild(createFolderNode(child, d + 1));
+                children.appendChild(createFolderNode(child, d + 1, currentPath));
             } else if (child.type === 'file') {
                 children.appendChild(createFileNode(child));
             }
