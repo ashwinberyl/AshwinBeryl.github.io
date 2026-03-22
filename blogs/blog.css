@@ -246,16 +246,13 @@
     display: none !important;
 }
 
-/* ---------- DESKTOP/GLOBAL TOP BAR THEMING OVERRIDES ---------- */
-#nav {
-    background: var(--gradient) !important;
-    border-bottom: none !important;
-}
+/* Custom blog header styles removed to defer to global style.css */
+
 
 .sidebar-toggle {
     display: none;
     background: transparent !important;
-    color: #fff !important;
+    color: var(--text-muted) !important;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -266,7 +263,8 @@
 }
 
 .sidebar-toggle:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
+    background: rgba(108, 99, 255, 0.08) !important;
+    color: var(--text) !important;
 }
 
 .sidebar-toggle-icon {
@@ -275,58 +273,9 @@
     transition: color 0.25s var(--ease);
 }
 
-.sidebar-toggle.active .sidebar-toggle-icon {
-    color: #fff;
-}
-
-/* ---------- BLOG NAV HOME & WORK LINKS ---------- */
-.blog-home-link {
-    display: flex;
-    align-items: center;
-    color: #fff !important;
-    text-decoration: none;
-    background: transparent !important;
-    border: none;
-    border-radius: 6px;
-    padding: 0.4rem 0.45rem;
-    transition: all 0.25s var(--ease);
-}
-
-.blog-home-link svg, .sidebar-toggle svg {
-    stroke: #fff !important;
-}
-
-.blog-home-link:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
-}
-
-.blog-work-link {
-    font-family: var(--font);
-    font-size: 0.8rem;
-    font-weight: 500 !important;
-    color: #fff !important;
-    text-decoration: none;
-    padding: 0.4rem 0.5rem !important;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 6px;
-    transition: all 0.25s var(--ease);
-    white-space: nowrap;
-    letter-spacing: 0.2px;
-    display: inline-block !important;
-    box-shadow: none !important;
-}
-
-.blog-work-link:hover {
-    background: transparent !important;
-    opacity: 0.85;
-    box-shadow: none !important;
-    transform: none !important;
-}
-
 #theme-toggle {
-    border-color: rgba(255, 255, 255, 0.4) !important;
-    color: #fff !important;
+    border-color: var(--border) !important;
+    color: var(--text-muted) !important;
 }
 
 /* ---------- CONTENT AREA ---------- */
@@ -680,6 +629,12 @@
 
     .sidebar-toggle {
         display: flex;
+    }
+
+    /* Hide text nav links on mobile, keep theme toggle */
+    .blog-nav-links .blog-nav-link,
+    .blog-nav-links .blog-nav-dropdown {
+        display: none;
     }
 
     .blog-content {
