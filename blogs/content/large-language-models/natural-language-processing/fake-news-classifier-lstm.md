@@ -420,6 +420,9 @@ What if we could look at **all words simultaneously** and let the model decide w
 
 The Transformer is coming next. And it changes *everything*.
 
+> 🔧 **Want to see the full production pipeline?** We've taken this exact approach further by building an **end-to-end MLOps pipeline** for RNN sentiment analysis — with DVC, MLflow, FastAPI, Docker, Terraform, and automated CI/CD/CT:
+> 👉 **[End-to-End RNN Sentiment Analysis — From Model to Production MLOps](content/large-language-models/natural-language-processing/rnn-sentiment-analysis-mlops.md)**
+
 ---
 
 Got questions or suggestions? 👉 [Send me a message!](https://ashwinberyl.github.io/#contact)

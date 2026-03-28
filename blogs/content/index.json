@@ -222,6 +222,26 @@
                 "binary-classification",
                 "practical"
               ]
+            },
+            {
+              "name": "End-to-End RNN Sentiment Analysis",
+              "type": "file",
+              "path": "large-language-models/natural-language-processing/rnn-sentiment-analysis-mlops.md",
+              "date": "2026-03-28",
+              "tags": [
+                "rnn",
+                "sentiment-analysis",
+                "mlops",
+                "pytorch",
+                "dvc",
+                "mlflow",
+                "fastapi",
+                "docker",
+                "terraform",
+                "github-actions",
+                "evidently",
+                "data-drift"
+              ]
             }
           ]
         }

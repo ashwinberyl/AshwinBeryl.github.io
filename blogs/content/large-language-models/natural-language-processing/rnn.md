@@ -535,6 +535,9 @@ Now that we deeply understand how RNNs work *and* why they fail, we're ready for
 
 Stay tuned — the LSTM is one of the most elegant architectures in deep learning. 🔥
 
+> 🔧 **Want to see RNNs in action?** Check out our hands-on post where we build a **production-grade sentiment analysis pipeline** using a Bidirectional RNN — complete with DVC, MLflow, FastAPI, Docker, and CI/CD automation:
+> 👉 **[End-to-End RNN Sentiment Analysis — From Model to Production MLOps](content/large-language-models/natural-language-processing/rnn-sentiment-analysis-mlops.md)**
+
 ---
 
 Got questions or suggestions? 👉 [Send me a message!](https://ashwinberyl.github.io/#contact)
