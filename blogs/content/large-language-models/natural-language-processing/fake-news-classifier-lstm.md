@@ -7,7 +7,7 @@ description: Day 10 of our NLP series — a hands-on, step-by-step implementatio
 
 # Welcome Back, NLP Enthusiasts! 🗞️🔍
 
-In our [previous post](content/large-language-models/natural-language-processing/intro-to-rnn-lstm.md), we explored the theory behind RNNs and LSTMs — how they process sequences, why vanilla RNNs suffer from vanishing gradients, and how the LSTM's three gates (Forget, Input, Output) solve the long-term memory problem.
+In our [previous post](content/large-language-models/natural-language-processing/rnn.md), we explored the theory behind **Recurrent Neural Networks (RNNs)** — how they process sequences, why vanilla RNNs suffer from vanishing gradients, and how the mathematics of Backpropagation Through Time (BPTT) works.
 
 Today, we're putting all of that theory into practice. We're building a **Fake News Classifier** — a real-world binary classification system that reads a news headline and predicts whether the article is **Real** or **Fake**.
 
@@ -246,7 +246,7 @@ Total params: 256,501
 | **LSTM** | Processes the 20-word sequence one step at a time, maintaining a hidden state that accumulates context. Has 100 neurons (hidden units). | 4 × [(40 + 100) × 100 + 100] = **56,400** |
 | **Dense** | Single output neuron with **sigmoid** activation — outputs a probability between 0 and 1. | 100 × 1 + 1 = **101** |
 
-> **Why 4× parameters in the LSTM?** As we learned in our [RNN & LSTM blog](content/large-language-models/natural-language-processing/intro-to-rnn-lstm.md), an LSTM has **4 internal weight matrices** — one for each of the Forget gate, Input gate, Output gate, and the Candidate computation. That's the computational cost of memory!
+> **Why 4× parameters in the LSTM?** As we learned in our [Recurrent Neural Network blog](content/large-language-models/natural-language-processing/rnn.md), an LSTM has **4 internal weight matrices** — one for each of the Forget gate, Input gate, Output gate, and the Candidate computation. That's the computational cost of memory!
 >
 > **Why sigmoid + binary cross-entropy?** This is a **binary classification** problem (Fake vs Real), which is exactly what sigmoid + BCE was designed for. We covered this combination in depth in our [Loss Functions blog](content/large-language-models/deep-learning/loss-functions.md).
 >
@@ -391,7 +391,7 @@ Let's zoom out and see how this project connects to everything we've learned in 
 | Stemming & Stopwords | [Text Preprocessing](content/large-language-models/natural-language-processing/text-preprocessing.md) | Cleaned 18,285 news titles |
 | One-Hot Encoding | [BoW & TF-IDF](content/large-language-models/natural-language-processing/bow-tfidf.md) | Mapped words → integer indices (vocab=5,000) |
 | Word Embeddings | [Word2Vec](content/large-language-models/natural-language-processing/word-embeddings-word2vec.md) | Embedding layer learns 40-dim vectors during training |
-| LSTM Architecture | [Intro to RNNs & LSTMs](content/large-language-models/natural-language-processing/intro-to-rnn-lstm.md) | 100-neuron LSTM processes padded sequences |
+| LSTM Architecture | [Recurrent Neural Network](content/large-language-models/natural-language-processing/rnn.md) | 100-neuron LSTM processes padded sequences |
 | Sigmoid + BCE | [Loss Functions](content/large-language-models/deep-learning/loss-functions.md) | Binary classification output |
 | Adam Optimizer | [Optimizers](content/large-language-models/deep-learning/optimizers.md) | Standard training optimizer |
 | Dropout | [Your First ANN](content/large-language-models/deep-learning/your-first-ann.md) | Regularization to combat overfitting |

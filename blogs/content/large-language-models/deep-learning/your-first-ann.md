@@ -419,7 +419,7 @@ This is the exact evolutionary path AI researchers took to build LLMs. Let's sta
 
 And if you want to jump straight to where Deep Learning and NLP finally meet, head here:
 
-👉 **[Intro to RNNs & LSTMs — Teaching Neural Networks to Remember](content/large-language-models/natural-language-processing/intro-to-rnn-lstm.md)**
+👉 **[Recurrent Neural Network](content/large-language-models/natural-language-processing/rnn.md)**
 
 Stay tuned — we're just getting started. 🔥
 
