@@ -193,17 +193,18 @@
               ]
             },
             {
-              "name": "Intro to RNNs & LSTMs",
+              "name": "Recurrent Neural Network",
               "type": "file",
-              "path": "large-language-models/natural-language-processing/intro-to-rnn-lstm.md",
+              "path": "large-language-models/natural-language-processing/rnn.md",
               "date": "2026-03-21",
               "tags": [
                 "nlp",
                 "rnn",
-                "lstm",
-                "gru",
                 "deep-learning",
-                "sequence-models"
+                "sequence-models",
+                "backpropagation",
+                "bptt",
+                "vanishing-gradient"
               ]
             },
             {

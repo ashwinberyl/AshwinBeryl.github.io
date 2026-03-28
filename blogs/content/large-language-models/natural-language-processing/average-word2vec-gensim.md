@@ -396,7 +396,7 @@ Every technique so far has been about converting **individual words** into numbe
 
 To fix this, we're stepping into the world of **Deep Learning for NLP.** Our first stop: the architecture that gave neural networks the ability to **remember** — the **Recurrent Neural Network (RNN)**. It reads words one by one, carries forward a "hidden state" that acts as memory, and finally produces an output that considers the entire sentence in order.
 
-Next up: **[Intro to RNNs & LSTMs — Teaching Neural Networks to Remember](content/large-language-models/natural-language-processing/intro-to-rnn-lstm.md)** 🧠
+Next up: **[Recurrent Neural Network](content/large-language-models/natural-language-processing/rnn.md)** 🧠
 
 ---
 
