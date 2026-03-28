@@ -207,22 +207,7 @@
                 "vanishing-gradient"
               ]
             },
-            {
-              "name": "Fake News Classifier Using LSTM",
-              "type": "file",
-              "path": "large-language-models/natural-language-processing/fake-news-classifier-lstm.md",
-              "date": "2026-03-22",
-              "tags": [
-                "nlp",
-                "lstm",
-                "deep-learning",
-                "tensorflow",
-                "keras",
-                "fake-news",
-                "binary-classification",
-                "practical"
-              ]
-            },
+
             {
               "name": "End-to-End RNN Sentiment Analysis",
               "type": "file",
