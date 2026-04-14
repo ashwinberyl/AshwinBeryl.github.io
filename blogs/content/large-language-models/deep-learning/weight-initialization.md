@@ -166,6 +166,8 @@ You now know how to start the network perfectly. But once the network completes 
 
 Next up, we explore the engine of training: **[Optimizers — Navigating the Loss Landscape](content/large-language-models/deep-learning/optimizers.md)**.
 
+---
+
 Got questions? 👉 [Send me a message!](https://ashwinberyl.github.io/#contact)
 
 ---

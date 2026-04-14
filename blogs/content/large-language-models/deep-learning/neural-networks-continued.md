@@ -1,26 +1,74 @@
 ---
-title: "Neural Networks Continued — Gradients & the Chain Rule"
+title: "Backpropagation & Gradient Problems"
 date: 2026-03-14
-tags: [deep-learning, neural-networks, backpropagation, gradients]
-description: Understanding the chain rule, exploding gradients, and vanishing gradients — the three concepts that determine whether your neural network will actually learn.
+tags: [deep-learning, neural-networks, backpropagation, gradients, chain-rule]
+description: How neural networks learn through backpropagation, the chain rule that powers it, and the two critical gradient problems that can break training.
 ---
 
-# Where We Left Off 🔄
+# How Does a Neural Network Learn? 🔄
 
-In the [previous post](content/large-language-models/deep-learning/intro-to-neural-networks.md), we built a neural network from scratch. We saw the training loop:
+In the [previous post](content/large-language-models/deep-learning/intro-to-neural-networks.md), we built the structure of a neural network — neurons, layers, weights, and forward propagation. Data flows in, a prediction comes out.
 
-1. Forward propagation → get a prediction
-2. Compute the cost
-3. Backpropagation → compute gradients
-4. Update weights
-5. Repeat
+But the prediction is garbage. The weights are random. The network hasn't *learned* anything yet.
+
+So how does it go from clueless to competent? Through a process called **backpropagation** — and it's one of the most elegant ideas in all of computer science.
+
+---
+
+## The Training Loop — The Big Picture 🔁
+
+Before diving into the details, here's the full process. Training a neural network is just this loop:
+
+```
+1. Initialize random weights and biases
+2. Forward propagation → get a prediction
+3. Compute the loss (how wrong?)
+4. Backpropagation → compute gradients (who's to blame?)
+5. Update weights using gradient descent
+6. Repeat steps 2-5 for many epochs
+```
+
+> **What's an epoch?** One epoch = one complete pass through your entire training dataset. If you have 1,000 data points and train for 10 epochs, the network sees every data point 10 times. More epochs = more chances to learn, but too many can lead to **overfitting** (memorizing the data instead of learning the pattern).
+
+Steps 2 and 3 are straightforward — we covered forward propagation already, and we'll explore loss functions in a [dedicated post](content/large-language-models/deep-learning/loss-functions.md). The magic is in step 4: **backpropagation.**
+
+---
+
+## Backpropagation — Tracing the Blame 🔍
+
+The network made a prediction via forward propagation. We measured the error using a loss function. Now we need to answer: **which weights caused the error, and how should we adjust them?**
+
+### The Manager Analogy
+
+Imagine a project failed at a company. The CEO (output layer) knows the project failed, but they need to figure out **who in the chain is responsible.**
+
+They trace backward:
+- Did the final team deliver bad work? → Adjust their process
+- Did they get bad inputs from a previous team? → Trace further back
+- Did the original data team mess up? → Adjust at the source
+
+That's **backpropagation**. The error flows **backward** through the network, and at each step, we figure out how much each weight contributed to the error.
+
+![Backpropagation — Error Flows Backward](content/large-language-models/deep-learning/images/backpropagation_flow.png)
+
+### How it works (intuition, not heavy math)
+
+1. **Compute the error** at the output
+2. **Ask:** "How much did each weight in the last layer contribute to this error?"
+3. **Send the error backward** to the previous layer
+4. **Repeat** through every layer until you reach the inputs
+5. **Update all the weights** using **gradient descent** (from our [linear regression post](content/large-language-models/machine-learning/simple-linear-regression.md)!)
+
+The key insight:
+
+> **Every weight gets a "blame score" (gradient) telling it how much to change and in which direction.**
 
 Simple enough. But here's the thing — **this process can go horribly wrong.** Two specific ways:
 
 - The gradients can grow so large that training explodes 💥
 - The gradients can shrink so small that training freezes 🧊
 
-To understand *why*, we first need to understand the math engine behind backpropagation: **the chain rule.**
+To understand *why*, we need to understand the math engine behind backpropagation: **the chain rule.**
 
 ---
 
@@ -63,7 +111,7 @@ This single observation explains the two biggest problems in training deep netwo
 
 ---
 
-### A Walk-Through Example
+### A Walk-Through Example 🔢
 
 Let's trace gradients through a 3-layer network. Suppose the partial derivatives at each layer are:
 
@@ -183,13 +231,7 @@ The opposite problem. When gradients are **less than 1** at each layer and get m
 
 ### Why Sigmoid Makes It Worse
 
-Remember sigmoid? Its derivative is:
-
-```
-σ'(x) = σ(x) × (1 - σ(x))
-```
-
-The maximum value of this derivative is **0.25** (when x = 0). For most inputs, it's even smaller.
+Remember the sigmoid function from our [forward propagation example](content/large-language-models/deep-learning/intro-to-neural-networks.md)? Its derivative has a maximum value of just **0.25** (when x = 0). For most inputs, it's even smaller.
 
 So at every layer using sigmoid, the gradient gets multiplied by at most 0.25:
 
@@ -219,11 +261,11 @@ def relu_derivative(x):
     return 1 if x > 0 else 0
 ```
 
-When x is positive, the gradient passes through **unchanged** (multiplied by 1). This prevents vanishing. That's why ReLU replaced sigmoid for hidden layers.
+When x is positive, the gradient passes through **unchanged** (multiplied by 1). This prevents vanishing. That's why ReLU replaced sigmoid for hidden layers. We trace this full evolutionary journey in the [next post](content/large-language-models/deep-learning/activation-functions.md).
 
 ### 2. Better Weight Initialization
 
-Starting with the right scale of weights prevents gradients from being too large or too small from the beginning. We cover this in detail in the [next post](content/large-language-models/deep-learning/weights-and-optimizers.md).
+Starting with the right scale of weights prevents gradients from being too large or too small from the beginning. We cover this in detail in the [Weight Initialization post](content/large-language-models/deep-learning/weight-initialization.md).
 
 ### 3. Skip Connections (Residual Networks)
 
@@ -231,7 +273,7 @@ Instead of forcing gradients through every single layer, create "shortcut" paths
 
 ---
 
-## The Big Picture
+## The Big Picture 🗺️
 
 | Problem | What Happens | Cause | Quick Fix |
 |---|---|---|---|
@@ -244,7 +286,13 @@ Both problems come from the same root: **the chain rule multiplies gradients thr
 - Use proper **weight initialization** so initial gradients are the right scale
 - Use **gradient clipping** as a safety net
 
-In the next post, we'll look at the first line of defense against vanishing and exploding gradients: the gatekeepers of the neuron.
+---
+
+## What's Next? 🚀
+
+Gradient problems boil down to one thing: the derivative of the activation function. If it's too small, gradients vanish. If it's too large, gradients explode. So the choice of activation function is critical.
+
+In the next post, we'll trace the full evolutionary journey of activation functions — from the original Sigmoid to the modern GELU used in Transformers — and see how each new generation solved the flaws of the last.
 
 Next up: **[Activation Functions — The Evolution of Neural Gatekeepers](content/large-language-models/deep-learning/activation-functions.md)**.
 

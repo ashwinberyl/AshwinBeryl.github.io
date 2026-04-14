@@ -23,7 +23,7 @@ You might wonder: "If I'm building a cat vs. dog classifier, why not just use ac
 
 **Because accuracy isn't smooth.**
 
-To train a network, we use gradient descent and backpropagation (as discussed in [Neural Networks Continued](content/large-language-models/deep-learning/neural-networks-continued.md)). Gradient descent requires a smooth slope to roll down. Accuracy acts like a staircase—if a small change in a weight doesn't immediately flip a prediction from wrong to right, the accuracy doesn't change at all, and the network doesn't know which way to adjust.
+To train a network, we use gradient descent and backpropagation (as discussed in [Backpropagation & Gradient Problems](content/large-language-models/deep-learning/neural-networks-continued.md)). Gradient descent requires a smooth slope to roll down. Accuracy acts like a staircase—if a small change in a weight doesn't immediately flip a prediction from wrong to right, the accuracy doesn't change at all, and the network doesn't know which way to adjust.
 
 Loss functions provide that smooth, continuous slope.
 

@@ -26,6 +26,150 @@ Here's the exact architecture we'll be building today — a 4-layer network tail
 
 ![Our ANN Architecture — 10 inputs → 6 neurons → 6 neurons → 1 output](content/large-language-models/deep-learning/images/ann_architecture_10_6_6_1.png)
 
+But before we build this architecture with a framework, let's cement our understanding by building a tiny neural network **completely by hand** first.
+
+---
+
+## From Theory to Code — Building from Scratch 🔧
+
+The best way to prove you understand forward propagation, backpropagation, and weight updates is to build them yourself — every weight, every gradient, every update by hand. We'll solve the **XOR problem**: a pattern that a single perceptron cannot learn, but a two-layer network can.
+
+```python
+import math
+import random
+
+# Sigmoid and its derivative
+def sigmoid(x):
+    return 1 / (1 + math.exp(-x))
+
+def sigmoid_derivative(x):
+    s = sigmoid(x)
+    return s * (1 - s)
+
+# Training data: XOR problem (inputs → expected output)
+X = [[0, 0], [0, 1], [1, 0], [1, 1]]
+y = [0, 1, 1, 0]
+
+# Initialize random weights
+random.seed(42)
+w_hidden = [[random.uniform(-1, 1) for _ in range(2)] for _ in range(2)]
+b_hidden = [random.uniform(-1, 1) for _ in range(2)]
+w_output = [random.uniform(-1, 1) for _ in range(2)]
+b_output = random.uniform(-1, 1)
+
+learning_rate = 0.5
+
+# Training loop
+for epoch in range(10000):
+    total_loss = 0
+
+    for inputs, target in zip(X, y):
+        # --- Forward propagation ---
+        h = []
+        h_raw = []
+        for j in range(2):
+            z = sum(inputs[i] * w_hidden[j][i] for i in range(2)) + b_hidden[j]
+            h_raw.append(z)
+            h.append(sigmoid(z))
+
+        z_out = sum(h[j] * w_output[j] for j in range(2)) + b_output
+        predicted = sigmoid(z_out)
+
+        # --- Cost ---
+        loss = (target - predicted) ** 2
+        total_loss += loss
+
+        # --- Backpropagation ---
+        d_output = -2 * (target - predicted) * sigmoid_derivative(z_out)
+
+        for j in range(2):
+            d_hidden = d_output * w_output[j] * sigmoid_derivative(h_raw[j])
+
+            # Update hidden weights
+            for i in range(2):
+                w_hidden[j][i] -= learning_rate * d_hidden * inputs[i]
+            b_hidden[j] -= learning_rate * d_hidden
+
+        # Update output weights
+        for j in range(2):
+            w_output[j] -= learning_rate * d_output * h[j]
+        b_output -= learning_rate * d_output
+
+    if epoch % 2000 == 0:
+        print(f"Epoch {epoch}, Cost: {total_loss:.4f}")
+
+# Test the trained network
+print("\nResults after training:")
+for inputs, target in zip(X, y):
+    h = [sigmoid(sum(inputs[i] * w_hidden[j][i] for i in range(2)) + b_hidden[j]) for j in range(2)]
+    pred = sigmoid(sum(h[j] * w_output[j] for j in range(2)) + b_output)
+    print(f"  Input: {inputs} → Predicted: {pred:.4f} (Expected: {target})")
+```
+
+```
+Epoch 0, Cost: 1.0154
+Epoch 2000, Cost: 0.0185
+Epoch 4000, Cost: 0.0063
+Epoch 6000, Cost: 0.0035
+Epoch 8000, Cost: 0.0023
+
+Results after training:
+  Input: [0, 0] → Predicted: 0.0354 (Expected: 0)
+  Input: [0, 1] → Predicted: 0.9640 (Expected: 1)
+  Input: [1, 0] → Predicted: 0.9639 (Expected: 1)
+  Input: [1, 1] → Predicted: 0.0432 (Expected: 0)
+```
+
+The network **started random** and **learned XOR** — a pattern that a single perceptron cannot learn, but a two-layer network can. That's the power of hidden layers and [backpropagation](content/large-language-models/deep-learning/neural-networks-continued.md) working together.
+
+### The Same Thing in TensorFlow/Keras
+
+You just built everything by hand — every weight, every gradient, every update. That's how you learn. But in the real world, you use a framework:
+
+```python
+import numpy as np
+import tensorflow as tf
+
+# Data — same XOR problem
+X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]], dtype=np.float32)
+y = np.array([[0], [1], [1], [0]], dtype=np.float32)
+
+# Build the network — same architecture: 2 inputs → 2 hidden → 1 output
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(2, activation='sigmoid', input_shape=(2,)),
+    tf.keras.layers.Dense(1, activation='sigmoid')
+])
+
+# Compile — same loss and learning rate
+model.compile(
+    optimizer=tf.keras.optimizers.SGD(learning_rate=0.5),
+    loss='mse'
+)
+
+# Train — same 10,000 epochs
+model.fit(X, y, epochs=10000, verbose=0)
+
+# Test
+predictions = model.predict(X, verbose=0)
+for inputs, pred, target in zip(X, predictions, y):
+    print(f"Input: {inputs.astype(int)} → Predicted: {pred[0]:.4f} (Expected: {int(target[0])})")
+```
+
+```
+Input: [0 0] → Predicted: 0.0341 (Expected: 0)
+Input: [0 1] → Predicted: 0.9658 (Expected: 1)
+Input: [1 0] → Predicted: 0.9659 (Expected: 1)
+Input: [1 1] → Predicted: 0.0398 (Expected: 0)
+```
+
+Same result, **way less code**. `Dense(2, activation='sigmoid')` creates a layer with 2 neurons and sigmoid activation — exactly what we built by hand. `model.fit()` handles forward prop, backprop, and weight updates automatically.
+
+> **Why build from scratch first?** Because when you see `Dense(2, activation='sigmoid')`, you now know exactly what it's doing: weighted sums, biases, sigmoid squashing, gradient updates. You're not guessing — you *know*.
+
+Now let's build something real.
+
+---
+
 ## The Mission: Predicting Customer Churn 📉
 
 The best way to learn is by doing. We are going to solve a classic **binary classification** problem: predicting whether a customer will leave a company (churn) or stay, based on their data. 
@@ -382,13 +526,13 @@ You have successfully built, compiled, trained, and evaluated your first Artific
 
 | Concept | Where We Used It | Deep Dive |
 |---|---|---|
-| Neurons, Layers, Forward Propagation | Model architecture with `Dense` layers | [Intro to Neural Networks](content/large-language-models/deep-learning/intro-to-neural-networks.md) |
+| Neurons, Layers, Forward Propagation | Model architecture with `Dense` layers | [The Building Blocks of Neural Networks](content/large-language-models/deep-learning/intro-to-neural-networks.md) |
 | ReLU Activation | Hidden layers `activation='relu'` | [Activation Functions](content/large-language-models/deep-learning/activation-functions.md) |
 | Sigmoid Activation | Output layer for binary probability | [Activation Functions](content/large-language-models/deep-learning/activation-functions.md) |
 | Binary Cross-Entropy Loss | `loss='binary_crossentropy'` | [Loss Functions](content/large-language-models/deep-learning/loss-functions.md) |
 | He Weight Initialization | Keras default for ReLU layers | [Weight Initialization](content/large-language-models/deep-learning/weight-initialization.md) |
 | Adam Optimizer | `optimizer='adam'` | [Optimizers](content/large-language-models/deep-learning/optimizers.md) |
-| Backpropagation & Chain Rule | Happens inside `model.fit()` | [Neural Networks Continued](content/large-language-models/deep-learning/neural-networks-continued.md) |
+| Backpropagation & Chain Rule | Happens inside `model.fit()` | [Backpropagation & Gradient Problems](content/large-language-models/deep-learning/neural-networks-continued.md) |
 | Feature Scaling | `StandardScaler` on input data | *This post (Step 1)* |
 | Data Leakage Prevention | `fit_transform` vs `transform` | *This post (Step 1)* |
 | Model Summary Interpretation | Reading `ann.summary()` output | *This post (Step 2)* |
@@ -425,7 +569,7 @@ Stay tuned — we're just getting started. 🔥
 
 ---
 
-Got questions or suggestions? 👉 [Send me a message!](https://ashwinberyl.github.io/#contact)
+Got questions? 👉 [Send me a message!](https://ashwinberyl.github.io/#contact)
 
 ---
 
