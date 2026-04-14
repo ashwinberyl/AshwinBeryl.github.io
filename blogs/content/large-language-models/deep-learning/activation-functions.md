@@ -13,7 +13,7 @@ In a neural network, the **Activation Function** is that bouncer.
 
 Every neuron receives a bunch of inputs, multiplies them by their weights, and adds them up (the linear part). But without an activation function to make a non-linear "decision" on that sum, the neuron would just naively pass everything forward. 
 
-As we learned in our previous post, [Neural Networks Continued: Gradients & Backpropagation](content/large-language-models/deep-learning/neural-networks-continued.md), neural networks learn by calculating gradients. If you don't use non-linear activation functions, a network with 100 layers collapses mathematically into a single linear equation (`y = mx + b`). You would never be able to learn complex patterns like image recognition or language translation.
+As we learned in our previous post, [Backpropagation & Gradient Problems](content/large-language-models/deep-learning/neural-networks-continued.md), neural networks learn by calculating gradients. If you don't use non-linear activation functions, a network with 100 layers collapses mathematically into a single linear equation (`y = mx + b`). You would never be able to learn complex patterns like image recognition or language translation.
 
 Activation functions add **curves, bends, and thresholds** to the network's understanding of the world. But finding the *perfect* gatekeeper took researchers decades. Let's look at the evolutionary journey of these functions, and how each new invention solved a critical flaw of the previous one.
 
@@ -159,7 +159,13 @@ While the functions above are used inside the "hidden" layers of a network, the 
 
 By understanding this evolutionary history, you now know *why* we use what we use.
 
-Next up: Now that we know how neurons activate, how do we evaluate if they did a good job? Let's explore exactly that in **[Loss Functions — Measuring the Mistakes](content/large-language-models/deep-learning/loss-functions.md)**.
+---
+
+## What's Next? 🚀
+
+Now that we know how neurons activate, how do we evaluate if they did a good job? Let's explore exactly that.
+
+Next up: **[Loss Functions — Measuring the Mistakes](content/large-language-models/deep-learning/loss-functions.md)**.
 
 ---
 

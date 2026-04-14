@@ -40,7 +40,7 @@
           "type": "folder",
           "children": [
             {
-              "name": "Intro to Neural Networks",
+              "name": "The Building Blocks of Neural Networks",
               "type": "file",
               "path": "large-language-models/deep-learning/intro-to-neural-networks.md",
               "date": "2026-03-14",
@@ -52,14 +52,15 @@
               ]
             },
             {
-              "name": "Neural Networks Continued",
+              "name": "Backpropagation & Gradient Problems",
               "type": "file",
               "path": "large-language-models/deep-learning/neural-networks-continued.md",
               "date": "2026-03-14",
               "tags": [
                 "deep-learning",
                 "backpropagation",
-                "gradients"
+                "gradients",
+                "chain-rule"
               ]
             },
             {

@@ -7,9 +7,7 @@ description: How neural networks actually learn by updating their weights, traci
 
 # What is an Optimizer? 🧭
 
-In our previous post, [Loss Functions — Measuring the Mistakes](content/large-language-models/deep-learning/loss-functions.md), we learned how a neural network calculates *how wrong* its predictions are. 
-
-But knowing you are wrong doesn't magically fix the problem. You have to actively change something to be right next time. In a neural network, that means **updating the weights and biases**.
+In the [previous post](content/large-language-models/deep-learning/weight-initialization.md), we saw how to start the network with properly scaled weights. But once the network makes its predictions and measures its mistakes (via [Loss Functions](content/large-language-models/deep-learning/loss-functions.md)), it has to actively change something to be right next time. In a neural network, that means **updating the weights and biases**.
 
 This is exactly what an **Optimizer** does.
 
@@ -132,12 +130,6 @@ By pairing the right **Activation Function** (to make decisions), the right **Lo
 
 ---
 
-Got questions? 👉 [Send me a message!](https://ashwinberyl.github.io/#contact)
-
----
-
-*— Ashwin*---
-
 ## What's Next? 🚀
 
 We've covered all the theoretical pieces needed to run a deep learning engine: data flows forward, predictions are made, loss is calculated, the chain rule sends the error backward, and optimizers update the weights.
@@ -145,3 +137,11 @@ We've covered all the theoretical pieces needed to run a deep learning engine: d
 It's time to build the engine yourself.
 
 Next up: **[Your First ANN — Bringing It All Together](content/large-language-models/deep-learning/your-first-ann.md)**.
+
+---
+
+Got questions? 👉 [Send me a message!](https://ashwinberyl.github.io/#contact)
+
+---
+
+*— Ashwin*
