@@ -32,7 +32,7 @@ LSTM:        x₁ → h₁ → x₂ → h₂ → x₃ → h₃   (100 sequential
 Transformer: [x₁, x₂, x₃, ..., x₁₀₀] → [y₁, y₂, y₃, ..., y₁₀₀]  (1 parallel step!)
 ```
 
-> **Interview insight — "Why are Transformers faster than RNNs?"** RNNs are inherently sequential — each time step depends on the previous one, making it impossible to parallelize across time steps. Transformers replace recurrence with self-attention, which computes relationships between all positions in a single matrix multiplication. This allows Transformers to fully exploit modern GPU parallelism, reducing training time from weeks to days for equivalent tasks.
+> **💡 "Why are Transformers faster than RNNs?"** RNNs are inherently sequential — each time step depends on the previous one, making it impossible to parallelize across time steps. Transformers replace recurrence with self-attention, which computes relationships between all positions in a single matrix multiplication. This allows Transformers to fully exploit modern GPU parallelism, reducing training time from weeks to days for equivalent tasks.
 
 ### Killer 2: Long-Range Dependencies 🔗
 
@@ -103,7 +103,7 @@ You might wonder: why not just add the position number (1 for the first word, 2 
 2. **Generalization** — the model couldn't handle sequences longer than what it saw during training
 3. **Relative positions** — sinusoidal encodings have a special property: `PE(pos + k)` can be expressed as a linear function of `PE(pos)`, meaning the model can learn to attend to *relative* positions ("3 words ago") rather than absolute positions
 
-> **Interview insight — "Why do Transformers need positional encoding?"** Self-attention is permutation invariant — it computes the same attention scores regardless of the order of inputs. Since Transformers have no recurrence or convolution to capture sequential order, positional encoding must be explicitly added to the input embeddings. Without it, the model would treat "dog bites man" and "man bites dog" identically. Sinusoidal encoding is chosen because it generalizes to unseen sequence lengths and allows the model to learn relative position relationships.
+> **💡 "Why do Transformers need positional encoding?"** Self-attention is permutation invariant — it computes the same attention scores regardless of the order of inputs. Since Transformers have no recurrence or convolution to capture sequential order, positional encoding must be explicitly added to the input embeddings. Without it, the model would treat "dog bites man" and "man bites dog" identically. Sinusoidal encoding is chosen because it generalizes to unseen sequence lengths and allows the model to learn relative position relationships.
 
 ### Code: Positional Encoding
 
@@ -141,7 +141,7 @@ print(f"PE[0][:8]: {PE[0][:8].round(4)}")  # Position 0
 print(f"PE[1][:8]: {PE[1][:8].round(4)}")  # Position 1 — different pattern!
 ```
 
-> **Interview insight — "Can we use learned positional encodings instead of sinusoidal?"** Yes! BERT and GPT use *learned* positional embeddings — trainable vectors that the model learns during training. The original Transformer used sinusoidal because it generalizes to sequence lengths unseen during training (extrapolation). In practice, both approaches perform similarly for sequences within the training length. Modern models like RoPE (Rotary Position Embedding) and ALiBi offer even better alternatives for long-context scenarios.
+> **💡 "Can we use learned positional encodings instead of sinusoidal?"** Yes! BERT and GPT use *learned* positional embeddings — trainable vectors that the model learns during training. The original Transformer used sinusoidal because it generalizes to sequence lengths unseen during training (extrapolation). In practice, both approaches perform similarly for sequences within the training length. Modern models like RoPE (Rotary Position Embedding) and ALiBi offer even better alternatives for long-context scenarios.
 
 ---
 
@@ -173,7 +173,7 @@ Why residual connections? Same reason as ResNets — they let gradients flow dir
 
 Why Layer Normalization (not Batch Normalization)? In NLP, sequences have variable lengths, making batch statistics unreliable. Layer Norm normalizes across the feature dimension for each individual example, which is more stable for sequences.
 
-> **Interview insight — "What's the purpose of residual connections in Transformers?"** Residual connections (x + sublayer(x)) serve two purposes: (1) They allow gradients to flow unimpeded through the network during backpropagation, preventing vanishing gradients in deep stacks (the original Transformer has 6 layers, modern ones have 100+). (2) They enable the model to learn *incremental refinements* — each layer adds a small modification to the representation rather than creating it from scratch. This is why Transformers can be stacked so deep without training instability.
+> **💡 "What's the purpose of residual connections in Transformers?"** Residual connections (x + sublayer(x)) serve two purposes: (1) They allow gradients to flow unimpeded through the network during backpropagation, preventing vanishing gradients in deep stacks (the original Transformer has 6 layers, modern ones have 100+). (2) They enable the model to learn *incremental refinements* — each layer adds a small modification to the representation rather than creating it from scratch. This is why Transformers can be stacked so deep without training instability.
 
 ### Component 3: Position-wise Feed-Forward Network (FFN)
 
@@ -189,7 +189,7 @@ Where:
 
 This FFN acts as a "thinking step" — after the attention layer has gathered information from other positions, the FFN processes that gathered information at each position individually.
 
-> **Interview insight — "What does the Feed-Forward Network do in a Transformer?"** The FFN provides non-linear transformation capacity at each position *independently*. While self-attention allows positions to exchange information (inter-position mixing), the FFN processes the aggregated information at each position separately (intra-position processing). Research has shown that the FFN layers act as key-value memories, storing factual knowledge learned during training. The 4× expansion (512 → 2048 → 512) provides a higher-dimensional space for this processing.
+> **💡 "What does the Feed-Forward Network do in a Transformer?"** The FFN provides non-linear transformation capacity at each position *independently*. While self-attention allows positions to exchange information (inter-position mixing), the FFN processes the aggregated information at each position separately (intra-position processing). Research has shown that the FFN layers act as key-value memories, storing factual knowledge learned during training. The 4× expansion (512 → 2048 → 512) provides a higher-dimensional space for this processing.
 
 ### The Complete Encoder Block
 
@@ -258,7 +258,7 @@ def masked_attention(Q, K, V):
     return attn_weights @ V
 ```
 
-> **Interview insight — "What is masked self-attention and why is it needed?"** Masked (causal) self-attention prevents the decoder from attending to future positions during generation. Without masking, the model could "cheat" during training by looking at the target words it's supposed to predict. The mask sets future attention scores to -∞ before softmax, ensuring e^(-∞) = 0 attention weight. This maintains the autoregressive property: each position can only depend on earlier positions, mirroring the left-to-right generation process at inference time.
+> **💡 "What is masked self-attention and why is it needed?"** Masked (causal) self-attention prevents the decoder from attending to future positions during generation. Without masking, the model could "cheat" during training by looking at the target words it's supposed to predict. The mask sets future attention scores to -∞ before softmax, ensuring e^(-∞) = 0 attention weight. This maintains the autoregressive property: each position can only depend on earlier positions, mirroring the left-to-right generation process at inference time.
 
 ---
 
@@ -347,7 +347,7 @@ Then add a task-specific head:
   QA:              Each token embedding → Linear → start/end position
 ```
 
-> **Interview insight — "Why can't BERT generate text?"** BERT is an encoder-only model — it uses bidirectional self-attention where every word can see every other word (including future words). This makes it powerful for understanding but prevents autoregressive generation. Text generation requires predicting the *next* word based only on *previous* words (causal masking), which BERT's architecture doesn't enforce. For generation, you need a decoder-only model (GPT) or a full encoder-decoder (T5).
+> **💡 "Why can't BERT generate text?"** BERT is an encoder-only model — it uses bidirectional self-attention where every word can see every other word (including future words). This makes it powerful for understanding but prevents autoregressive generation. Text generation requires predicting the *next* word based only on *previous* words (causal masking), which BERT's architecture doesn't enforce. For generation, you need a decoder-only model (GPT) or a full encoder-decoder (T5).
 
 ### 2. Decoder-Only Models — GPT 🔵 "I create"
 
@@ -387,7 +387,7 @@ GPT-4:    ~1.8T params   (2023)  — human-level on many benchmarks
 
 The key insight: **the same architecture** just gets bigger. No fundamental changes — just more layers, more heads, more data, more compute. This is the scaling law that drives the entire LLM revolution.
 
-> **Interview insight — "What's the difference between BERT and GPT?"** The fundamental difference is the attention pattern: BERT uses *bidirectional* self-attention (every word sees every other word), making it excellent for understanding tasks but incapable of generation. GPT uses *unidirectional/causal* self-attention (each word only sees previous words), enabling autoregressive generation. BERT is pre-trained with Masked Language Modeling (predict masked words), while GPT uses Causal Language Modeling (predict next word). In practice, BERT dominates classification/NER/QA, while GPT dominates generation/chatbots/reasoning.
+> **💡 "What's the difference between BERT and GPT?"** The fundamental difference is the attention pattern: BERT uses *bidirectional* self-attention (every word sees every other word), making it excellent for understanding tasks but incapable of generation. GPT uses *unidirectional/causal* self-attention (each word only sees previous words), enabling autoregressive generation. BERT is pre-trained with Masked Language Modeling (predict masked words), while GPT uses Causal Language Modeling (predict next word). In practice, BERT dominates classification/NER/QA, while GPT dominates generation/chatbots/reasoning.
 
 ### 3. Encoder-Decoder Models — T5/BART 🟣 "I transform"
 
@@ -413,7 +413,7 @@ By converting every task into "input text → output text," the same model handl
 | **Question Answering** | Encoder processes context+question; Decoder generates the answer |
 | **Grammar Correction** | Encoder reads broken text; Decoder generates corrected version |
 
-> **Interview insight — "When would you choose T5 over BERT or GPT?"** Use T5/BART when you need to both *understand* an input and *generate* an output that's structurally different — translation (different language), summarization (different length), or transformation (different format). BERT can't generate at all. GPT can generate but processes everything as a single stream — it can't separately encode a source and decode a target. The encoder-decoder architecture lets the encoder build a rich understanding of the input while the decoder focuses entirely on generation.
+> **💡 "When would you choose T5 over BERT or GPT?"** Use T5/BART when you need to both *understand* an input and *generate* an output that's structurally different — translation (different language), summarization (different length), or transformation (different format). BERT can't generate at all. GPT can generate but processes everything as a single stream — it can't separately encode a source and decode a target. The encoder-decoder architecture lets the encoder build a rich understanding of the input while the decoder focuses entirely on generation.
 
 ### The Three Families — Side by Side
 
@@ -449,7 +449,7 @@ Do you need to GENERATE text?
 | T5-base | Enc-Dec | 12+12 | 768 | 12 | 220M |
 | T5-11B | Enc-Dec | 24+24 | 1024 | 128 | 11B |
 
-> **Interview insight — "How does the number of parameters relate to model capability?"** More parameters allow a model to store more knowledge and capture more complex patterns. However, it's not just size — the interplay of depth (layers), width (d_model), and heads determines expressivity. Deeper models learn more abstract features. Wider models have richer per-position representations. More heads capture more diverse attention patterns. The scaling laws (Kaplan et al., 2020) showed that model performance scales predictably with the product of parameters, data, and compute.
+> **💡 "How does the number of parameters relate to model capability?"** More parameters allow a model to store more knowledge and capture more complex patterns. However, it's not just size — the interplay of depth (layers), width (d_model), and heads determines expressivity. Deeper models learn more abstract features. Wider models have richer per-position representations. More heads capture more diverse attention patterns. The scaling laws (Kaplan et al., 2020) showed that model performance scales predictably with the product of parameters, data, and compute.
 
 ---
 
