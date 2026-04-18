@@ -857,9 +857,11 @@ curl -X POST http://localhost:8000/predict \
 
 ## What's Next? 🚀
 
-We've now seen the full lifecycle of a production ML system — from raw text to a deployed, self-monitoring API. But our model is still a **vanilla RNN** (albeit bidirectional). As we learned in our theory post, vanilla RNNs suffer from vanishing gradients and struggle with long-range dependencies.
+We've now seen the full lifecycle of a production ML system — from raw text to a deployed, self-monitoring API. But our model is still a **vanilla RNN** (albeit bidirectional). As we learned in our [theory post](content/large-language-models/natural-language-processing/rnn.md), vanilla RNNs suffer from vanishing gradients and struggle with long-range dependencies.
 
-The next evolution? **Transformers** — architectures that don't just remember sequences but can *attend* to any part of the input simultaneously. They're the foundation of GPT, BERT, and every modern Large Language Model. And that's coming next.
+The natural next step? Fix the architecture itself. The **LSTM (Long Short-Term Memory)** introduces a "conveyor belt" cell state with **three learned gates** — forget, input, and output — that allow gradients to flow unchanged across hundreds of time steps. No more vanishing gradients, no more forgotten beginnings.
+
+👉 **[Long Short-Term Memory (LSTM) — The Fix for Vanishing Gradients](content/large-language-models/natural-language-processing/lstm.md)**
 
 ---
 
@@ -868,3 +870,4 @@ Got questions or suggestions? 👉 [Send me a message!](https://ashwinberyl.gith
 ---
 
 *— Ashwin*
+
