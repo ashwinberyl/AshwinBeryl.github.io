@@ -214,21 +214,23 @@ The cell state carries information about both "animal" and "road." But the conte
 Let's collect every equation for one time step. At each step t, given input xₜ, previous hidden state hₜ₋₁, and previous cell state Cₜ₋₁:
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    LSTM — One Time Step                      │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  Forget Gate:   fₜ  = σ(W_f · [hₜ₋₁, xₜ] + b_f)          │
-│  Input Gate:    iₜ  = σ(W_i · [hₜ₋₁, xₜ] + b_i)          │
-│  Candidate:     C̃ₜ = tanh(W_C · [hₜ₋₁, xₜ] + b_C)       │
-│  Cell State:    Cₜ  = fₜ ⊗ Cₜ₋₁  +  iₜ ⊗ C̃ₜ            │
-│  Output Gate:   oₜ  = σ(W_o · [hₜ₋₁, xₜ] + b_o)          │
-│  Hidden State:  hₜ  = oₜ ⊗ tanh(Cₜ)                       │
-│                                                             │
-│  Inputs:  xₜ, hₜ₋₁, Cₜ₋₁                                  │
-│  Outputs: hₜ, Cₜ  (passed to next time step)               │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|                    LSTM - One Time Step                      |
++-------------------------------------------------------------+
+|                                                             |
+|  Forget Gate:   ft  = s(W_f . [h(t-1), xt] + b_f)          |
+|  Input Gate:    it  = s(W_i . [h(t-1), xt] + b_i)          |
+|  Candidate:     Ct~ = tanh(W_C . [h(t-1), xt] + b_C)       |
+|  Cell State:    Ct  = ft * C(t-1)  +  it * Ct~              |
+|  Output Gate:   ot  = s(W_o . [h(t-1), xt] + b_o)          |
+|  Hidden State:  ht  = ot * tanh(Ct)                         |
+|                                                             |
+|  Inputs:  xt, h(t-1), C(t-1)                                |
+|  Outputs: ht, Ct  (passed to next time step)                |
+|                                                             |
++-------------------------------------------------------------+
+
+Where: s = sigmoid, * = element-wise multiply, . = matrix multiply
 ```
 
 > **Weight count comparison:** A vanilla RNN has **2 weight matrices** (W and W'). An LSTM has **8 weight matrices** (W_f, W_i, W_C, W_o — each with separate parameters for input and hidden state) and **4 bias vectors**. That's roughly **4× the parameters** — the price we pay for the ability to selectively remember.
@@ -504,6 +506,100 @@ Let's compare the two architectures systematically:
 
 ---
 
+## Bidirectional LSTM — Reading Forward *and* Backward 🔄
+
+So far, our LSTM reads the sentence left-to-right — word 1, then word 2, then word 3. But think about how *you* understand language. When you read:
+
+> "The movie was **not** great"
+
+The word "not" changes the meaning of "great" — but a left-to-right LSTM processes "not" *before* it ever sees "great." It has to somehow store the negation and hope it's relevant later. What if the model could also read right-to-left, so that when it processes "not," it *already knows* that "great" is coming?
+
+That's exactly what a **Bidirectional LSTM (BiLSTM)** does.
+
+![Bidirectional LSTM — Forward and Backward Context](content/large-language-models/natural-language-processing/images/lstm_bidirectional.png)
+
+### How It Works
+
+A BiLSTM runs **two separate LSTMs** on the same input:
+
+| Direction | Processes | Captures |
+|---|---|---|
+| **Forward LSTM →** | word₁ → word₂ → word₃ → ... → wordₙ | Left context (what came *before*) |
+| **Backward LSTM ←** | wordₙ → wordₙ₋₁ → ... → word₂ → word₁ | Right context (what comes *after*) |
+
+At each time step t, the final hidden state is the **concatenation** of both directions:
+
+```
+hₜ = [h→ₜ ; h←ₜ]
+```
+
+This means every word in the sequence has access to the **full context** — both what came before it *and* what comes after it.
+
+### The Math
+
+```
+Forward:   h→ₜ = LSTM_forward(xₜ, h→ₜ₋₁, C→ₜ₋₁)
+Backward:  h←ₜ = LSTM_backward(xₜ, h←ₜ₊₁, C←ₜ₊₁)
+Combined:  hₜ  = [h→ₜ ; h←ₜ]        (concatenation)
+```
+
+Each direction has its **own set of weights** — so a BiLSTM has **2× the parameters** of a unidirectional LSTM (8× a vanilla RNN).
+
+### Why It Matters — A Concrete Example
+
+Consider sentiment analysis on these two sentences:
+
+> 1. "The food was **not** good at all"
+> 2. "The food was **not** bad at all"
+
+A unidirectional LSTM processing left-to-right hits "not" and has to guess: is it negating something positive or something negative? The backward LSTM already knows — it's read "good" or "bad" first. By combining both directions, the BiLSTM gets the full picture.
+
+```python
+import numpy as np
+
+def bilstm_forward(inputs, forward_params, backward_params):
+    """
+    Simplified Bidirectional LSTM forward pass.
+    
+    inputs: list of word vectors [x1, x2, ..., xT]
+    forward_params: dict with Wf, Wi, Wc, Wo, bf, bi, bc, bo, h0, C0
+    backward_params: dict with same keys (separate weights!)
+    """
+    # Forward pass: left → right
+    fwd_hidden, fwd_cell = lstm_forward(
+        inputs, **forward_params
+    )
+    
+    # Backward pass: right → left
+    bwd_hidden, bwd_cell = lstm_forward(
+        inputs[::-1], **backward_params  # Reverse the input!
+    )
+    bwd_hidden = bwd_hidden[::-1]  # Reverse back to align with forward
+    
+    # Concatenate at each time step
+    combined = [
+        np.concatenate([fwd_h, bwd_h])
+        for fwd_h, bwd_h in zip(fwd_hidden, bwd_hidden)
+    ]
+    
+    return combined
+
+# Result: each combined[t] has 2 × hidden_dim dimensions
+# combined[t] = [left_context_of_word_t ; right_context_of_word_t]
+```
+
+> **When to use BiLSTM vs LSTM?** Use BiLSTM when you have the **entire sequence available upfront** — sentiment analysis, named entity recognition, text classification. Don't use it for **real-time generation** (predicting the next word) because you can't look at future words that haven't been generated yet. We already used a BiLSTM (well, Bi-RNN) in our [End-to-End Sentiment Analysis pipeline](content/large-language-models/natural-language-processing/rnn-sentiment-analysis-mlops.md) — the same idea applies here with LSTMs.
+
+| Feature | Unidirectional LSTM | Bidirectional LSTM |
+|---|---|---|
+| **Context** | Left only (past) | Left + Right (past + future) |
+| **Parameters** | 4×(d+h)×h | 8×(d+h)×h |
+| **Output dim** | h | 2h |
+| **Use case** | Text generation, real-time | Classification, NER, tagging |
+| **Can see future?** | ❌ No | ✅ Yes |
+
+---
+
 ## Summary — What We Learned 🎓
 
 | Concept | Key Takeaway |
@@ -514,7 +610,8 @@ Let's compare the two architectures systematically:
 | **Output Gate (oₜ)** | Sigmoid gate that decides what to expose as the current output |
 | **Cell State Update** | Cₜ = fₜ ⊗ Cₜ₋₁ + iₜ ⊗ C̃ₜ — **additive** (gradients survive!) |
 | **Gradient Highway** | Forget gate ≈ 1 means gradient passes through unchanged — no vanishing! |
-| **Parameter Cost** | ~4× more parameters than vanilla RNN — but handles 30× longer sequences |
+| **Bidirectional LSTM** | Two LSTMs (forward + backward) capture full left-right context at every position |
+| **Parameter Cost** | ~4× more parameters than vanilla RNN (8× for BiLSTM) — but handles 30× longer sequences |
 | **Two Memory Types** | hₜ = short-term (what to output now), Cₜ = long-term (what to remember) |
 
 ---
@@ -523,13 +620,13 @@ Let's compare the two architectures systematically:
 
 The LSTM is an elegant, beautiful solution to the vanishing gradient problem. It dominated NLP from its invention in 1997 by Hochreiter & Schmidhuber all the way until 2017 — a remarkable 20-year reign.
 
-But it has one fundamental limitation: **LSTMs are sequential.** They must process word 1 before word 2, word 2 before word 3, and so on. You can't parallelize the forward pass across time steps. On modern GPUs with thousands of cores, this sequential bottleneck means LSTMs leave enormous compute on the table.
+But there's a new challenge. Consider **machine translation**: translating "I love cats" from English to French ("J'aime les chats"). The LSTM reads the English sentence word by word and produces a final hidden state — a single fixed-size vector that supposedly captures the *entire* meaning of the source sentence. Then we need a *second* LSTM to generate the French output, word by word, from that compressed vector.
 
-In 2017, a paper titled "Attention Is All You Need" introduced an architecture that processes **all words simultaneously** — achieving better performance, better parallelism, and the ability to attend to any word in the sequence regardless of distance. No recurrence. No sequential bottleneck.
+This raises two critical questions:
+- How do you **compress** an entire sentence into a single vector without losing information?
+- How do you **generate** a variable-length output from that fixed-size summary?
 
-That architecture is the **Transformer** — and it's what powers GPT, BERT, and every modern LLM.
-
-But that's a story for another post. 🔥
+The answer is an architecture pattern that splits the problem into two cooperating networks: one that reads and compresses (the **Encoder**), and one that generates the output (the **Decoder**). This Encoder-Decoder framework is the backbone of sequence-to-sequence models — and it's built entirely with the LSTMs we just learned.
 
 ---
 
@@ -539,11 +636,11 @@ But that's a story for another post. 🔥
 BoW / TF-IDF → Word2Vec → Average Word2Vec → RNNs → LSTMs → ???
 ```
 
-We've now traveled from the simplest text representations all the way to networks that can remember context across hundreds of words. The LSTM gave us **selective memory** — the ability to choose what to remember, what to forget, and what to output.
+We've now traveled from the simplest text representations all the way to networks that can selectively remember context across hundreds of words. The LSTM gave us **selective memory** — the ability to choose what to remember, what to forget, and what to output. The BiLSTM gave us **full context** — past and future at every position.
 
-But the sequential processing bottleneck remains. The next evolution will shatter that constraint entirely.
+But how do we use these powerful sequence processors for tasks where the *input* and *output* are both sequences of different lengths — like translation, summarization, or chatbot responses? We need a framework that **encodes** the input into a compressed representation and then **decodes** it into the target output.
 
-Stay tuned — the Transformers arc is coming, and it changes everything. ⚡
+That framework is the **Encoder-Decoder architecture** — and it's coming in the next post. 🔥
 
 ---
 
