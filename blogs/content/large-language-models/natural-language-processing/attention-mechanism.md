@@ -31,7 +31,7 @@ Now imagine you have a **spotlight** that you can point at any part of the banne
 
 That spotlight is **Attention**. Instead of one fixed Context Vector for the entire sentence, the Decoder now computes a *different* Context Vector at *every* decoding step — one that's specifically weighted towards the most relevant parts of the input.
 
-> **Interview insight — "Why do we need Attention?"** The standard Encoder-Decoder compresses the entire input into a single fixed-length vector, creating an information bottleneck. As sequence length grows, crucial early information is lost. Attention solves this by giving the Decoder *direct access* to every Encoder hidden state at every decoding step, allowing it to dynamically focus on the most relevant parts of the input.
+> **💡 "Why do we need Attention?"** The standard Encoder-Decoder compresses the entire input into a single fixed-length vector, creating an information bottleneck. As sequence length grows, crucial early information is lost. Attention solves this by giving the Decoder *direct access* to every Encoder hidden state at every decoding step, allowing it to dynamically focus on the most relevant parts of the input.
 
 ---
 
@@ -68,7 +68,7 @@ This is a tiny one-hidden-layer neural network that learns to score how well the
 
 The softmax normalizes the raw scores into a probability distribution — the **attention weights**. They always sum to 1, meaning they represent "how much attention to pay to each source word."
 
-> **Interview insight — "Is Attention the same as Softmax?"** No. Softmax is just one *step* in the attention mechanism — the normalization step. Attention is the full pipeline: compute alignment scores → normalize with softmax → compute weighted sum. Softmax converts raw scores into a probability distribution, but the *scoring function* and the *weighted aggregation* are equally important parts.
+> **💡 "Is Attention the same as Softmax?"** No. Softmax is just one *step* in the attention mechanism — the normalization step. Attention is the full pipeline: compute alignment scores → normalize with softmax → compute weighted sum. Softmax converts raw scores into a probability distribution, but the *scoring function* and the *weighted aggregation* are equally important parts.
 
 **Step 3: Compute the Dynamic Context Vector**
 
@@ -137,7 +137,7 @@ def bahdanau_attention(decoder_hidden, encoder_states, W1, W2, V):
 #         "I"   "love" "cats"  ← spotlight on "cats"!
 ```
 
-> **Interview insight — "Why is Bahdanau called 'additive' attention?"** Because the alignment score is computed by *adding* the transformed decoder state and encoder state: `tanh(W₁·s + W₂·h)`. This contrasts with Luong's "multiplicative" attention (coming next), which uses a dot product instead of addition.
+> **💡 "Why is Bahdanau called 'additive' attention?"** Because the alignment score is computed by *adding* the transformed decoder state and encoder state: `tanh(W₁·s + W₂·h)`. This contrasts with Luong's "multiplicative" attention (coming next), which uses a dot product instead of addition.
 
 ---
 
@@ -195,7 +195,7 @@ def luong_dot_attention(decoder_hidden, encoder_states):
 | **Performance** | Slightly better on some tasks | Comparable, often preferred for speed |
 | **Historical significance** | The original attention paper | The simplification that made it practical |
 
-> **Interview insight — "What's the difference between Bahdanau and Luong attention?"** Two main differences: (1) The scoring function — Bahdanau uses an additive learned network (`tanh(W₁s + W₂h)`), Luong uses a multiplicative dot product (`s · h`). (2) The timing — Bahdanau computes attention using the *previous* decoder state (sₜ₋₁), while Luong uses the *current* state (sₜ). In practice, Luong's dot-product variant is the most widely used because it's fast and parameter-free.
+> **💡 "What's the difference between Bahdanau and Luong attention?"** Two main differences: (1) The scoring function — Bahdanau uses an additive learned network (`tanh(W₁s + W₂h)`), Luong uses a multiplicative dot product (`s · h`). (2) The timing — Bahdanau computes attention using the *previous* decoder state (sₜ₋₁), while Luong uses the *current* state (sₜ). In practice, Luong's dot-product variant is the most widely used because it's fast and parameter-free.
 
 ---
 
@@ -215,7 +215,7 @@ What does "it" refer to? A human instantly knows "it" = "the cat." But how does 
 
 This is **Self-Attention** — every word in a sequence computes attention scores with *every other word in the same sequence*. It allows the model to capture long-range dependencies, resolve coreferences (like "it" → "cat"), and understand context — all without any recurrence.
 
-> **Interview insight — "What is Self-Attention?"** Self-Attention (also called intra-attention) is a mechanism where each element in a sequence computes attention scores against *all other elements in the same sequence*. Unlike cross-attention (where queries come from the decoder and keys/values come from the encoder), in self-attention the queries, keys, and values all come from the same input. This allows the model to capture relationships between any two positions in the sequence regardless of distance.
+> **💡 "What is Self-Attention?"** Self-Attention (also called intra-attention) is a mechanism where each element in a sequence computes attention scores against *all other elements in the same sequence*. Unlike cross-attention (where queries come from the decoder and keys/values come from the encoder), in self-attention the queries, keys, and values all come from the same input. This allows the model to capture relationships between any two positions in the sequence regardless of distance.
 
 ---
 
@@ -248,7 +248,7 @@ Where:
 - **W_Q, W_K, W_V** are learned weight matrices (shape: [d_model, d_k])
 - **Qᵢ, Kᵢ, Vᵢ** are the transformed vectors (shape: [d_k])
 
-> **Interview insight — "Why do we need separate Q, K, V? Why not just use the raw embeddings?"** Using the raw embedding for all three roles would force the model to use a single representation for three different purposes — asking questions, advertising content, and providing information. By projecting into separate Q, K, V spaces with *learned* weight matrices, the model can learn different representations for each role. For example, the word "bank" as a Query might focus on "financial institution" features, while as a Key in another context it might advertise "river bank" features. The separation gives the model vastly more expressive power.
+> **💡 "Why do we need separate Q, K, V? Why not just use the raw embeddings?"** Using the raw embedding for all three roles would force the model to use a single representation for three different purposes — asking questions, advertising content, and providing information. By projecting into separate Q, K, V spaces with *learned* weight matrices, the model can learn different representations for each role. For example, the word "bank" as a Query might focus on "financial institution" features, while as a Key in another context it might advertise "river bank" features. The separation gives the model vastly more expressive power.
 
 ### Computing Self-Attention — The Full Pipeline
 
@@ -396,7 +396,7 @@ Variance of Q·K^T / sqrt(d_k) = d_k / d_k = 1  ✅
 
 This keeps the scores in a smooth range where softmax produces a well-behaved distribution and gradients flow properly.
 
-> **Interview insight — "Why divide by √d_k in attention?"** The dot product of two d_k-dimensional vectors has variance proportional to d_k. For large d_k, this pushes softmax into saturation (extreme values where one score dominates and gradients vanish). Dividing by √d_k normalizes the variance back to 1, keeping the softmax output smooth and the gradients healthy. Without this scaling, attention with large dimensions would be nearly impossible to train.
+> **💡 "Why divide by √d_k in attention?"** The dot product of two d_k-dimensional vectors has variance proportional to d_k. For large d_k, this pushes softmax into saturation (extreme values where one score dominates and gradients vanish). Dividing by √d_k normalizes the variance back to 1, keeping the softmax output smooth and the gradients healthy. Without this scaling, attention with large dimensions would be nearly impossible to train.
 
 ---
 
@@ -494,7 +494,7 @@ Researchers have visualized attention heads in trained Transformers and found re
 | Head 5 | **Negation scope** | "not" → the word it negates ("not" → "great") |
 | Head 6 | **Punctuation structure** | Clause boundaries, commas, periods |
 
-> **Interview insight — "Why Multi-Head instead of single attention?"** A single attention head computes one set of attention weights per position, forcing it to average multiple types of linguistic relationships (syntax, semantics, coreference, etc.) into a single pattern. Multi-Head Attention runs multiple independent attention computations in parallel, each with its own learned projections, allowing different heads to specialize in different relationship types. Crucially, this comes at roughly the same computational cost as a single full-dimensional head because each head operates on d_model/h dimensions.
+> **💡 "Why Multi-Head instead of single attention?"** A single attention head computes one set of attention weights per position, forcing it to average multiple types of linguistic relationships (syntax, semantics, coreference, etc.) into a single pattern. Multi-Head Attention runs multiple independent attention computations in parallel, each with its own learned projections, allowing different heads to specialize in different relationship types. Crucially, this comes at roughly the same computational cost as a single full-dimensional head because each head operates on d_model/h dimensions.
 
 ---
 
