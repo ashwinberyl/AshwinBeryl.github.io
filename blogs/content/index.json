@@ -243,6 +243,21 @@
                 "vanishing-gradient",
                 "cell-state"
               ]
+            },
+            {
+              "name": "Encoder-Decoder Architecture",
+              "type": "file",
+              "path": "large-language-models/natural-language-processing/encoder-decoder.md",
+              "date": "2026-04-18",
+              "tags": [
+                "nlp",
+                "lstm",
+                "sequence-to-sequence",
+                "seq2seq",
+                "encoder-decoder",
+                "context-vector",
+                "bottleneck"
+              ]
             }
           ]
         }
