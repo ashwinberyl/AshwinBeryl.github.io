@@ -258,6 +258,22 @@
                 "context-vector",
                 "bottleneck"
               ]
+            },
+            {
+              "name": "Attention Mechanism",
+              "type": "file",
+              "path": "large-language-models/natural-language-processing/attention-mechanism.md",
+              "date": "2026-04-18",
+              "tags": [
+                "nlp",
+                "attention",
+                "bahdanau",
+                "luong",
+                "self-attention",
+                "multi-head-attention",
+                "query-key-value",
+                "transformers"
+              ]
             }
           ]
         }

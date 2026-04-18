@@ -442,7 +442,7 @@ What if, when translating the word "chats," the Decoder could say: *"Let me pay 
 
 And when translating "J'aime," it could attend to "love" instead. Each output word could focus on the most relevant input word — dynamically, at every step.
 
-This simple, elegant idea changed the world. It is the **Attention Mechanism** — and it's coming next. 🔥
+👉 **[Attention Mechanism — Learning Where to Look](content/large-language-models/natural-language-processing/attention-mechanism.md)**
 
 ---
 
@@ -451,3 +451,4 @@ Got questions or suggestions? 👉 [Send me a message!](https://ashwinberyl.gith
 ---
 
 *— Ashwin*
+
