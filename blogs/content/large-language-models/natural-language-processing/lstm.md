@@ -640,7 +640,7 @@ We've now traveled from the simplest text representations all the way to network
 
 But how do we use these powerful sequence processors for tasks where the *input* and *output* are both sequences of different lengths — like translation, summarization, or chatbot responses? We need a framework that **encodes** the input into a compressed representation and then **decodes** it into the target output.
 
-That framework is the **Encoder-Decoder architecture** — and it's coming in the next post. 🔥
+👉 **[Encoder-Decoder Architecture — Solving the Translation Problem](content/large-language-models/natural-language-processing/encoder-decoder.md)**
 
 ---
 
