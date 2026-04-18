@@ -208,7 +208,6 @@
                 "vanishing-gradient"
               ]
             },
-
             {
               "name": "End-to-End RNN Sentiment Analysis",
               "type": "file",
@@ -227,6 +226,22 @@
                 "github-actions",
                 "evidently",
                 "data-drift"
+              ]
+            },
+            {
+              "name": "Long Short-Term Memory (LSTM)",
+              "type": "file",
+              "path": "large-language-models/natural-language-processing/lstm.md",
+              "date": "2026-04-18",
+              "tags": [
+                "nlp",
+                "lstm",
+                "rnn",
+                "deep-learning",
+                "sequence-models",
+                "gates",
+                "vanishing-gradient",
+                "cell-state"
               ]
             }
           ]

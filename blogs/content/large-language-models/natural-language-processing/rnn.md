@@ -521,22 +521,21 @@ We need a mechanism that can carry important information across **hundreds** of 
 - **Gates** that control what information flows through
 - A design that allows gradients to flow unchanged across long distances
 
-That mechanism is the **LSTM (Long Short-Term Memory)** — and it's coming in the next post.
+That mechanism is the **LSTM (Long Short-Term Memory)** — but before we get there, let's see how far we can push the vanilla RNN in a real-world production setting.
 
 ---
 
 ## What's Next? 🚀
 
 ```
-BoW / TF-IDF → Word2Vec → Average Word2Vec → RNNs → ??? 
+BoW / TF-IDF → Word2Vec → Average Word2Vec → RNNs → ???
 ```
 
-Now that we deeply understand how RNNs work *and* why they fail, we're ready for the breakthrough architecture that fixed everything: the **LSTM**. It introduces a "notebook" that the network carries through time — allowing it to write, erase, and read information selectively. No more vanishing gradients, no more forgetting the beginning of the sentence.
+Now that we deeply understand how RNNs work *and* why they fail, let's put one to work. In the next post, we build a **production-grade sentiment analysis pipeline** using a Bidirectional RNN — complete with DVC data versioning, MLflow experiment tracking, FastAPI serving, Docker containerization, and CI/CD automation. Theory meets engineering.
 
-Stay tuned — the LSTM is one of the most elegant architectures in deep learning. 🔥
+👉 **[End-to-End RNN Sentiment Analysis — From Model to Production MLOps](content/large-language-models/natural-language-processing/rnn-sentiment-analysis-mlops.md)**
 
-> 🔧 **Want to see RNNs in action?** Check out our hands-on post where we build a **production-grade sentiment analysis pipeline** using a Bidirectional RNN — complete with DVC, MLflow, FastAPI, Docker, and CI/CD automation:
-> 👉 **[End-to-End RNN Sentiment Analysis — From Model to Production MLOps](content/large-language-models/natural-language-processing/rnn-sentiment-analysis-mlops.md)**
+> 🔮 **After that?** We'll return to theory and tackle the architecture that *fixed* the vanishing gradient problem — the **[LSTM (Long Short-Term Memory)](content/large-language-models/natural-language-processing/lstm.md)**. It introduces a "conveyor belt" that carries information across hundreds of time steps without degradation. Stay tuned. 🔥
 
 ---
 
@@ -545,3 +544,4 @@ Got questions or suggestions? 👉 [Send me a message!](https://ashwinberyl.gith
 ---
 
 *— Ashwin*
+
