@@ -274,6 +274,24 @@
                 "query-key-value",
                 "transformers"
               ]
+            },
+            {
+              "name": "Transformers",
+              "type": "file",
+              "path": "large-language-models/natural-language-processing/transformers.md",
+              "date": "2026-04-18",
+              "tags": [
+                "nlp",
+                "transformers",
+                "attention",
+                "positional-encoding",
+                "bert",
+                "gpt",
+                "t5",
+                "bart",
+                "self-attention",
+                "multi-head-attention"
+              ]
             }
           ]
         }

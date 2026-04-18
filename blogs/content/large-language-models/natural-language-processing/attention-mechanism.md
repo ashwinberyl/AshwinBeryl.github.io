@@ -584,7 +584,7 @@ We've traveled from simple sequence memory (RNNs) through selective memory (LSTM
 
 But the LSTM backbone remains — sequential, slow, and unable to fully exploit modern hardware. The next architecture strips it away entirely and builds *everything* from attention alone.
 
-👉 The **Transformer** is coming next — and it's the architecture that powers the AI revolution. 🔥
+👉 **[Transformers — Attention Is All You Need](content/large-language-models/natural-language-processing/transformers.md)**
 
 ---
 
@@ -593,3 +593,4 @@ Got questions or suggestions? 👉 [Send me a message!](https://ashwinberyl.gith
 ---
 
 *— Ashwin*
+
