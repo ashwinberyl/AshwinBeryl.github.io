@@ -1,8 +1,8 @@
 ---
-title: "Long Short-Term Memory (LSTM)"
+title: "Long Short-Term Memory (LSTM) & Gated Recurrent Unit (GRU)"
 date: 2026-04-18
-tags: [nlp, lstm, rnn, deep-learning, sequence-models, gates, vanishing-gradient, cell-state]
-description: From the RNN's vanishing gradient problem to the LSTM's elegant solution — covering the cell state conveyor belt, the forget-input-output gate trio with full math, the gradient highway that kills vanishing gradients, complete forward pass in Python, and when to use LSTMs vs vanilla RNNs.
+tags: [nlp, lstm, gru, rnn, deep-learning, sequence-models, gates, vanishing-gradient, cell-state]
+description: From the RNN's vanishing gradient problem to the LSTM's elegant solution — covering the cell state conveyor belt, the forget-input-output gate trio with full math, the gradient highway that kills vanishing gradients, the GRU's streamlined two-gate alternative with reset and update gates, complete forward passes in Python, and when to choose LSTMs vs GRUs vs vanilla RNNs.
 ---
 
 # The Fix — Selective Memory 🧠🔒
@@ -341,21 +341,7 @@ This is the most important section. Let's understand *exactly* why LSTMs solve t
 
 ![Gradient Flow Comparison — RNN vs LSTM](content/large-language-models/natural-language-processing/images/lstm_gradient_flow_comparison.png)
 
-### The RNN's Gradient Problem (Recap)
-
-In a vanilla RNN, the hidden state at each step is computed as:
-
-```
-Oₜ = tanh(xₜ · W + Oₜ₋₁ · W')
-```
-
-During backpropagation, the gradient flows through the **tanh derivative** at every step. Since the tanh derivative is always ≤ 1, the gradient **shrinks at every step**:
-
-```
-Gradient after T steps ≈ (tanh_derivative)^T → 0    (exponentially!)
-```
-
-### The LSTM's Gradient Solution
+Recall from our [RNN blog](content/large-language-models/natural-language-processing/rnn.md): the vanilla RNN's gradient must pass through the **tanh derivative** (always < 1) at every time step. After 50 steps, the gradient shrinks to ~0.00018 — essentially zero. The network can't learn what happened at the beginning of the sentence.
 
 Now look at the LSTM's cell state update:
 
@@ -363,27 +349,13 @@ Now look at the LSTM's cell state update:
 Cₜ = fₜ ⊗ Cₜ₋₁  +  iₜ ⊗ C̃ₜ
 ```
 
-When we backpropagate through this equation, what happens?
+When we backpropagate through this equation:
 
 ```
 ∂Cₜ / ∂Cₜ₋₁ = fₜ
 ```
 
-The gradient of the cell state with respect to the **previous** cell state is simply **fₜ** — the forget gate! And fₜ is a sigmoid output, so it's between 0 and 1.
-
-But here's the crucial difference:
-
-| | Vanilla RNN | LSTM |
-|---|---|---|
-| **Gradient multiplied by** | tanh derivative (always < 1, typically 0.5-0.7) | fₜ (forget gate, can be **close to 1**) |
-| **After 50 steps** | 0.7⁵⁰ ≈ 0.00018 (dead!) | 0.95⁵⁰ ≈ 0.077 (alive!) |
-| **Can the network learn?** | ❌ No | ✅ Yes |
-
-> **The key insight:** The forget gate is a **learned** parameter. If the LSTM learns that it needs to carry certain information across 100 time steps, it will learn to set fₜ ≈ 1 for those cell state elements. When fₜ = 1, the gradient passes through **completely unchanged** — like a highway with no speed bumps!
-
-### The Gradient Highway
-
-The cell state acts as a **gradient highway**:
+The gradient of the cell state with respect to the **previous** cell state is simply **fₜ** — the forget gate! And here's the crucial difference: fₜ is a **learned** parameter. If the LSTM needs to carry information across 100 time steps, it learns to set fₜ ≈ 1. When fₜ = 1, the gradient passes through **completely unchanged** — like a highway with no speed bumps.
 
 ```
 RNN:   gradient × tanh' × tanh' × tanh' × tanh' → 💀 dead
@@ -394,28 +366,7 @@ LSTM:  gradient × fₜ × fₜ₋₁ × fₜ₋₂ × fₜ₋₃ → ✅ alive
 
 Furthermore, the cell state update is an **addition** (`Cₜ = fₜ ⊗ Cₜ₋₁ + iₜ ⊗ C̃ₜ`). During backpropagation, the gradient of an addition distributes equally to both branches — it doesn't get multiplied or shrunk. This is fundamentally different from the multiplicative updates in vanilla RNNs.
 
-```python
-# Gradient survival comparison
-print("=== Gradient After 50 Time Steps ===\n")
-
-# Vanilla RNN (tanh derivative ≈ 0.7)
-rnn_grad = 1.0
-for _ in range(50):
-    rnn_grad *= 0.7
-print(f"RNN Gradient:  {rnn_grad:.10f}  → {'💀 Dead' if rnn_grad < 0.001 else '✅ Alive'}")
-
-# LSTM (forget gate ≈ 0.95 — learned to keep memory)
-lstm_grad = 1.0
-for _ in range(50):
-    lstm_grad *= 0.95
-print(f"LSTM Gradient: {lstm_grad:.10f}  → {'💀 Dead' if lstm_grad < 0.001 else '✅ Alive'}")
-
-# Output:
-# RNN Gradient:  0.0001798465  → 💀 Dead
-# LSTM Gradient: 0.0769345700  → ✅ Alive
-```
-
-> **Can vanishing gradients still happen in LSTMs?** Yes, but it's much harder. If the forget gate learns fₜ ≈ 0 for many steps, the gradient will still vanish. But unlike RNNs where vanishing is **guaranteed** by the math (tanh derivative < 1), in LSTMs the forget gate is **learnable** — the network can choose to keep the gradient highway open. In practice, LSTMs can handle sequences of **200-500+ tokens** compared to the RNN's limit of ~15.
+> **Can vanishing gradients still happen in LSTMs?** Yes, but it's much harder. If the forget gate learns fₜ ≈ 0 for many steps, the gradient will still vanish. But unlike RNNs where vanishing is **guaranteed** by the math, in LSTMs the forget gate is **learnable** — the network can choose to keep the gradient highway open. In practice, LSTMs can handle sequences of **200-500+ tokens** compared to the RNN's limit of ~15.
 
 ---
 
@@ -459,23 +410,20 @@ print(f"\nLSTM has {params / rnn_params:.1f}× more parameters than RNN")
 
 ---
 
-## RNN vs LSTM — Side-by-Side Comparison 📊
+## RNN vs LSTM — Quick Comparison 📊
 
 ![Simple RNN vs LSTM vs GRU — Architecture Comparison](content/large-language-models/natural-language-processing/images/rnn_lstm_gru_comparison.png)
 
-Let's compare the two architectures systematically:
-
 | Feature | Vanilla RNN | LSTM |
 |---|---|---|
-| **Hidden state** | 1 (hₜ) | 2 (hₜ + Cₜ) |
+| **States** | 1 (hₜ) | 2 (hₜ + Cₜ) |
 | **Gates** | 0 | 3 (forget, input, output) |
-| **Operations per step** | 1 (tanh) | 6 (3 sigmoids + 1 tanh + 2 element-wise ops) |
 | **Parameters** | ~(d+h)×h | ~4×(d+h)×h |
 | **Max sequence length** | ~15 tokens | ~500+ tokens |
 | **Gradient behavior** | Vanishes exponentially | Controlled by learned forget gate |
-| **Training speed** | Fast | Slower (4× more computation) |
-| **Memory usage** | Low | Higher (stores cell state + hidden state) |
 | **When to use** | Short sequences, simple patterns | Long sequences, complex dependencies |
+
+We'll extend this comparison to include the **GRU** in a later section — it sits between these two in both complexity and parameters.
 
 ---
 
@@ -600,6 +548,195 @@ def bilstm_forward(inputs, forward_params, backward_params):
 
 ---
 
+## The GRU — A Streamlined Alternative 🔀
+
+In 2014, Kyunghyun Cho et al. proposed the **Gated Recurrent Unit (GRU)** — a simpler variant that achieves comparable performance to the LSTM with **fewer gates** and **fewer parameters**. The core idea: merge the forget and input gates into a single **update gate**, eliminate the separate cell state entirely, and add a **reset gate** to control how much past context to consider when computing new candidates.
+
+### The Key Difference: Two Gates Instead of Three
+
+The LSTM has three gates (forget, input, output) and two state vectors (hₜ, Cₜ). The GRU distills this down to **two gates** and **one state vector**:
+
+| Component | LSTM | GRU |
+|---|---|---|
+| **Gates** | 3 (forget, input, output) | 2 (reset, update) |
+| **State vectors** | 2 (hₜ + Cₜ) | 1 (hₜ only) |
+| **Parameters** | ~4×(d+h)×h | ~3×(d+h)×h |
+| **Separate long-term memory?** | ✅ Yes (cell state Cₜ) | ❌ No (hidden state does everything) |
+
+### GRU Gate 1 — The Reset Gate rₜ 🔄 "How much past context should I use?"
+
+The reset gate decides how much of the **previous hidden state** to consider when computing the new candidate value. Think of it as: "Should I use my full memory, or start fresh?"
+
+```
+rₜ = σ(W_r · [hₜ₋₁, xₜ] + b_r)
+```
+
+Where:
+- **[hₜ₋₁, xₜ]** — concatenation of previous hidden state and current input
+- **W_r** — the reset gate's weight matrix
+- **b_r** — the reset gate's bias vector
+- **σ** — sigmoid activation → output in [0, 1]
+
+**What does it do?**
+- **rₜ ≈ 1** → "Use all of my previous memory" (the candidate sees the full past)
+- **rₜ ≈ 0** → "Ignore my previous memory" (the candidate computes almost entirely from the current input — like a fresh start)
+
+**Real-World Example:** In the sentence "The cat sat on the mat. **A dog** then walked in" — when the model processes "A dog," the reset gate can output values near 0, effectively saying: "Forget the cat context; this is a brand new subject. Compute the candidate from scratch."
+
+### GRU Gate 2 — The Update Gate zₜ 🔄 "How much should I update?"
+
+The update gate serves **double duty** — it replaces both the LSTM's forget gate and input gate in a single mechanism. It decides how much of the old hidden state to **keep** versus how much of the new candidate to **accept**.
+
+```
+zₜ = σ(W_z · [hₜ₋₁, xₜ] + b_z)
+```
+
+**What does it do?**
+- **zₜ ≈ 1** → "Keep the old hidden state as-is" (no update — information passes through unchanged, like the LSTM's forget gate set to 1)
+- **zₜ ≈ 0** → "Replace the old hidden state with the new candidate" (fresh information overwrites the past)
+
+> **The LSTM needs separate forget and input gates that can be set independently.** For instance, it can forget old info (fₜ = 0) while simultaneously writing new info (iₜ = 1). The GRU **couples** these decisions: the fraction you keep (zₜ) and the fraction you replace (1 - zₜ) must always sum to 1. This is a simpler but less flexible design.
+
+### The Candidate Hidden State h̃ₜ
+
+The candidate is where the reset gate does its work — it controls how much of the previous hidden state participates in computing new content:
+
+```
+h̃ₜ = tanh(W_h · [rₜ ⊗ hₜ₋₁, xₜ] + b_h)
+```
+
+Notice **rₜ ⊗ hₜ₋₁** — the reset gate element-wise multiplies the previous hidden state *before* it enters the tanh computation. When rₜ ≈ 0, the previous hidden state is zeroed out, and h̃ₜ is computed purely from the current input xₜ.
+
+### The Final Hidden State Update
+
+The new hidden state is a **linear interpolation** between the old state and the candidate:
+
+```
+hₜ = zₜ ⊗ hₜ₋₁  +  (1 - zₜ) ⊗ h̃ₜ
+     ──────────     ──────────────
+     what we keep    what we replace
+     from the past   with new content
+```
+
+This is elegant: the update gate zₜ acts as a **dial** between "keep everything" (zₜ = 1 → hₜ = hₜ₋₁) and "replace everything" (zₜ = 0 → hₜ = h̃ₜ). There's no separate cell state — the hidden state itself carries both long-term and short-term information.
+
+> **Gradient perspective:** When zₜ ≈ 1, the hidden state passes through unchanged (hₜ ≈ hₜ₋₁), and the gradient flows unimpeded — the same "gradient highway" trick as the LSTM's cell state. The GRU achieves gradient survival without needing a separate conveyor belt.
+
+### The Complete GRU Equations
+
+```
++-------------------------------------------------------------+
+|                    GRU - One Time Step                       |
++-------------------------------------------------------------+
+|                                                             |
+|  Reset Gate:    rt  = s(W_r . [h(t-1), xt] + b_r)          |
+|  Update Gate:   zt  = s(W_z . [h(t-1), xt] + b_z)          |
+|  Candidate:     ht~ = tanh(W_h . [rt * h(t-1), xt] + b_h)  |
+|  Hidden State:  ht  = zt * h(t-1)  +  (1 - zt) * ht~       |
+|                                                             |
+|  Inputs:  xt, h(t-1)                                        |
+|  Outputs: ht  (passed to next time step)                    |
+|                                                             |
++-------------------------------------------------------------+
+
+Where: s = sigmoid, * = element-wise multiply, . = matrix multiply
+```
+
+Compare this to the LSTM's 6-equation block — the GRU achieves the same core idea (gated information flow) with only **4 equations** and **3 weight matrices** instead of 4.
+
+### GRU Forward Pass in Python 🐍
+
+```python
+import numpy as np
+
+def sigmoid(x):
+    """Sigmoid activation — outputs values between 0 and 1."""
+    return 1 / (1 + np.exp(-np.clip(x, -500, 500)))
+
+def gru_forward(inputs, Wr, Wz, Wh, br, bz, bh, h0):
+    """
+    Forward pass of a single GRU layer.
+    
+    inputs: list of word vectors [x1, x2, ..., xT]
+    Wr, Wz, Wh: weight matrices for reset, update, and candidate
+                (shape: [hidden_dim + input_dim, hidden_dim])
+    br, bz, bh: bias vectors (shape: [hidden_dim])
+    h0: initial hidden state (shape: [hidden_dim])
+    """
+    h = h0
+    hidden_states = []
+    
+    for xt in inputs:
+        combined = np.concatenate([h, xt])
+        
+        # === Gate 1: Reset Gate ===
+        # "How much past context should I use for the candidate?"
+        r = sigmoid(combined @ Wr + br)          # rₜ ∈ [0, 1]
+        
+        # === Gate 2: Update Gate ===
+        # "How much of the old state should I keep vs replace?"
+        z = sigmoid(combined @ Wz + bz)          # zₜ ∈ [0, 1]
+        
+        # === Candidate Hidden State ===
+        # Reset gate filters the previous hidden state BEFORE computing candidate
+        combined_reset = np.concatenate([r * h, xt])  # rₜ ⊗ hₜ₋₁
+        h_tilde = np.tanh(combined_reset @ Wh + bh)   # h̃ₜ ∈ [-1, 1]
+        
+        # === Final Hidden State (linear interpolation) ===
+        # hₜ = zₜ ⊗ hₜ₋₁ + (1 - zₜ) ⊗ h̃ₜ
+        h = z * h + (1 - z) * h_tilde  # ← Update gate controls the mix!
+        
+        hidden_states.append(h)
+    
+    return hidden_states
+
+# ─── Example: Process a 4-word sentence ───
+np.random.seed(42)
+
+input_dim = 3    # Each word is a 3D vector
+hidden_dim = 5   # GRU has 5 hidden units
+
+# 4 word vectors
+words = [np.random.randn(input_dim) for _ in range(4)]
+
+# Initialize weights (3 weight matrices instead of LSTM's 4)
+combined_dim = input_dim + hidden_dim
+Wr = np.random.randn(combined_dim, hidden_dim) * 0.1
+Wz = np.random.randn(combined_dim, hidden_dim) * 0.1
+Wh = np.random.randn(combined_dim, hidden_dim) * 0.1
+
+br = np.zeros(hidden_dim)
+bz = np.zeros(hidden_dim)
+bh = np.zeros(hidden_dim)
+
+h0 = np.zeros(hidden_dim)
+
+hidden_states = gru_forward(words, Wr, Wz, Wh, br, bz, bh, h0)
+
+print("=== GRU Hidden States ===")
+for t, h in enumerate(hidden_states, 1):
+    print(f"h{t} (after word {t}): {h.round(4)}")
+
+print("\n✅ Notice: Only ONE state vector — no separate cell state!")
+print("   The hidden state carries BOTH long-term and short-term information.")
+```
+
+### LSTM vs GRU — When to Choose Which? 🤔
+
+| Factor | LSTM | GRU |
+|---|---|---|
+| **Parameters** | 4 × (d+h) × h | 3 × (d+h) × h (~25% fewer) |
+| **Training speed** | Slower | Faster (fewer matrix operations) |
+| **Memory usage** | Higher (two state vectors) | Lower (one state vector) |
+| **Flexibility** | Forget and input gates are **independent** | Update gate **couples** keep vs replace (must sum to 1) |
+| **Long sequences (500+)** | Slight edge (separate cell state gives more control) | Comparable in most benchmarks |
+| **Small datasets** | Can overfit more (more params) | Often generalizes better (fewer params) |
+| **Default choice** | When you need maximum control over memory | When you want comparable performance at lower cost |
+
+> **In practice:** For most NLP tasks, LSTM and GRU perform **nearly identically**. The GRU's simplicity makes it faster to train and easier to tune — so it's often the better starting point unless you have a specific reason to use LSTM (e.g., tasks requiring very precise memory control over extremely long sequences). When in doubt, try both and compare on your validation set.
+
+---
+
 ## Summary — What We Learned 🎓
 
 | Concept | Key Takeaway |
@@ -610,9 +747,10 @@ def bilstm_forward(inputs, forward_params, backward_params):
 | **Output Gate (oₜ)** | Sigmoid gate that decides what to expose as the current output |
 | **Cell State Update** | Cₜ = fₜ ⊗ Cₜ₋₁ + iₜ ⊗ C̃ₜ — **additive** (gradients survive!) |
 | **Gradient Highway** | Forget gate ≈ 1 means gradient passes through unchanged — no vanishing! |
+| **GRU** | Streamlined 2-gate variant — reset gate controls past context, update gate interpolates between old and new |
+| **GRU vs LSTM** | ~25% fewer parameters, comparable performance; GRU couples forget/input into one gate |
 | **Bidirectional LSTM** | Two LSTMs (forward + backward) capture full left-right context at every position |
-| **Parameter Cost** | ~4× more parameters than vanilla RNN (8× for BiLSTM) — but handles 30× longer sequences |
-| **Two Memory Types** | hₜ = short-term (what to output now), Cₜ = long-term (what to remember) |
+| **Parameter Cost** | LSTM: ~4× RNN, GRU: ~3× RNN, BiLSTM: ~8× RNN — but handles 30× longer sequences |
 
 ---
 
