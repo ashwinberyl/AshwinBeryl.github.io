@@ -53,6 +53,8 @@ function initScrollProgress() {
 // ---------- MOBILE SIDEBAR ----------
 function initMobileNav() {
     const toggle = document.getElementById('sidebar-toggle');
+    const pill = document.getElementById('mobile-posts-pill');
+    const dragHandle = document.getElementById('sidebar-drag-handle');
     const sidebar = document.getElementById('blog-sidebar');
 
     // Create overlay
@@ -63,23 +65,47 @@ function initMobileNav() {
     function openSidebar() {
         sidebar.classList.add('open');
         overlay.classList.add('active');
-        toggle.classList.add('active');
+        if (toggle) toggle.classList.add('active');
+        // Keep pill visible but flip chevron to signal "tap to close"
+        if (pill) pill.classList.add('active');
     }
 
     function closeSidebar() {
         sidebar.classList.remove('open');
         overlay.classList.remove('active');
-        toggle.classList.remove('active');
+        if (toggle) toggle.classList.remove('active');
+        // Reset pill chevron back to "browse" state
+        if (pill) pill.classList.remove('active');
     }
 
-    toggle.addEventListener('click', () => {
-        if (sidebar.classList.contains('open')) {
-            closeSidebar();
-        } else {
-            openSidebar();
-        }
-    });
+    // Floating pill — primary trigger on mobile
+    if (pill) {
+        pill.addEventListener('click', () => {
+            if (sidebar.classList.contains('open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+    }
 
+    // Legacy nav toggle (hidden on mobile, kept for desktop fallback)
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            if (sidebar.classList.contains('open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+    }
+
+    // Tapping the drag handle closes the sheet (native iOS pattern)
+    if (dragHandle) {
+        dragHandle.addEventListener('click', closeSidebar);
+    }
+
+    // Tapping the dimmed overlay closes the sheet
     overlay.addEventListener('click', closeSidebar);
 
     // Close sidebar when a post is selected on mobile
