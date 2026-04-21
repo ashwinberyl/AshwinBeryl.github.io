@@ -319,6 +319,169 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Efficient AI",
+      "type": "folder",
+      "children": [
+        {
+          "name": "Setup & Foundations",
+          "type": "file",
+          "path": "efficient-ai/01-setup-and-foundations.md",
+          "date": "2026-04-22",
+          "tags": [
+            "github-copilot",
+            "vscode",
+            "claude",
+            "setup",
+            "agent-mode",
+            "custom-instructions",
+            "devops",
+            "python"
+          ]
+        },
+        {
+          "name": "Model Selection & Cost Control",
+          "type": "file",
+          "path": "efficient-ai/02-model-selection-and-cost.md",
+          "date": "2026-04-22",
+          "tags": [
+            "github-copilot",
+            "claude",
+            "opus",
+            "sonnet",
+            "premium-requests",
+            "cost-optimization",
+            "token-management"
+          ]
+        },
+        {
+          "name": "Context & Token Optimization",
+          "type": "file",
+          "path": "efficient-ai/03-context-and-token-optimization.md",
+          "date": "2026-04-22",
+          "tags": [
+            "github-copilot",
+            "context-management",
+            "token-optimization",
+            "workspace-indexing",
+            "session-hygiene",
+            "vscode"
+          ]
+        },
+        {
+          "name": "MCP Servers: GitHub & Atlassian",
+          "type": "file",
+          "path": "efficient-ai/04-mcp-servers-github-and-atlassian.md",
+          "date": "2026-04-22",
+          "tags": [
+            "github-copilot",
+            "mcp",
+            "model-context-protocol",
+            "github-api",
+            "jira",
+            "confluence",
+            "atlassian",
+            "agent-mode"
+          ]
+        },
+        {
+          "name": "MCP Servers: Postgres & Security",
+          "type": "file",
+          "path": "efficient-ai/05-mcp-servers-postgres-and-security.md",
+          "date": "2026-04-22",
+          "tags": [
+            "github-copilot",
+            "mcp",
+            "postgres",
+            "database",
+            "security",
+            "credentials",
+            "devops",
+            "docker"
+          ]
+        },
+        {
+          "name": "The Jira-to-Code Workflow",
+          "type": "file",
+          "path": "efficient-ai/06-jira-to-code-workflow.md",
+          "date": "2026-04-22",
+          "tags": [
+            "github-copilot",
+            "jira",
+            "workflow",
+            "requirements",
+            "implementation-plan",
+            "agent-mode",
+            "devops",
+            "python"
+          ]
+        },
+        {
+          "name": "Coding & Validation",
+          "type": "file",
+          "path": "efficient-ai/07-coding-and-validation.md",
+          "date": "2026-04-22",
+          "tags": [
+            "github-copilot",
+            "coding",
+            "testing",
+            "pytest",
+            "github-actions",
+            "pull-request",
+            "validation",
+            "agent-mode",
+            "jira"
+          ]
+        },
+        {
+          "name": "Prompt Engineering Foundations",
+          "type": "file",
+          "path": "efficient-ai/08-prompt-engineering-foundations.md",
+          "date": "2026-04-22",
+          "tags": [
+            "github-copilot",
+            "prompt-engineering",
+            "pctf",
+            "persona",
+            "context",
+            "task-decomposition",
+            "anti-patterns"
+          ]
+        },
+        {
+          "name": "Prompt Templates: Python & GitHub Actions",
+          "type": "file",
+          "path": "efficient-ai/09-prompt-templates-python-and-actions.md",
+          "date": "2026-04-22",
+          "tags": [
+            "github-copilot",
+            "prompt-templates",
+            "python",
+            "github-actions",
+            "pytest",
+            "devops",
+            "automation",
+            "cli"
+          ]
+        },
+        {
+          "name": "Automated Documentation",
+          "type": "file",
+          "path": "efficient-ai/10-automated-documentation.md",
+          "date": "2026-04-22",
+          "tags": [
+            "github-copilot",
+            "documentation",
+            "docstrings",
+            "readme",
+            "changelog",
+            "confluence",
+            "github-actions",
+            "automation"
+          ]
+        }
+      ]
     }
   ]
 }
