@@ -249,29 +249,89 @@
 /* Custom blog header styles removed to defer to global style.css */
 
 
-.sidebar-toggle {
-    display: none;
-    background: transparent !important;
-    color: var(--text-muted) !important;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 0.4rem 0.5rem;
-    transition: all 0.25s var(--ease);
+/* ---------- DRAG HANDLE (mobile bottom sheet) ---------- */
+.sidebar-drag-handle {
+    display: none; /* shown only on mobile via media query */
+    width: 40px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 100px;
+    margin: 12px auto 0;
+    flex-shrink: 0;
+    cursor: grab;
+}
+
+/* ---------- FLOATING BOTTOM PILL (mobile only) ---------- */
+.mobile-posts-pill {
+    display: none; /* shown via media query */
+    position: fixed;
+    bottom: 1.75rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    z-index: 300;
     align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    font-family: var(--font);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow:
+        0 4px 24px rgba(108, 99, 255, 0.45),
+        0 1px 4px rgba(0,0,0,0.15);
+    transition:
+        transform 0.35s cubic-bezier(0.32, 0.72, 0, 1),
+        opacity   0.3s ease,
+        box-shadow 0.25s ease;
+    animation: pillEntrance 0.6s cubic-bezier(0.32, 0.72, 0, 1) 0.4s both;
 }
 
-.sidebar-toggle:hover {
-    background: rgba(108, 99, 255, 0.08) !important;
-    color: var(--text) !important;
+@keyframes pillEntrance {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
-.sidebar-toggle-icon {
-    width: 20px;
-    height: 20px;
-    transition: color 0.25s var(--ease);
+.mobile-posts-pill:hover {
+    box-shadow:
+        0 6px 32px rgba(108, 99, 255, 0.55),
+        0 2px 8px rgba(0,0,0,0.18);
+    transform: translateX(-50%) translateY(-2px);
 }
+
+.mobile-posts-pill:active {
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Sheet is open — pill stays visible, chevron flips to signal "tap to close" */
+.mobile-posts-pill.active {
+    background: rgba(80, 72, 200, 0.95);
+    box-shadow:
+        0 4px 24px rgba(108, 99, 255, 0.35),
+        0 1px 4px rgba(0,0,0,0.2);
+}
+
+.pill-chevron {
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+    flex-shrink: 0;
+}
+
+/* Chevron points down = close action */
+.mobile-posts-pill.active .pill-chevron {
+    transform: rotate(180deg);
+}
+
+.pill-icon { flex-shrink: 0; }
 
 #theme-toggle {
     border-color: var(--border) !important;
@@ -611,23 +671,42 @@
         grid-template-columns: 1fr;
     }
 
+    /* Bottom sheet sidebar */
     .blog-sidebar {
         position: fixed;
-        top: 64px;
+        bottom: 0;
         left: 0;
-        width: 300px;
-        height: calc(100vh - 64px);
-        transform: translateX(-100%);
-        transition: transform 0.3s var(--ease);
+        right: 0;
+        top: auto;
+        width: 100%;
+        height: 85vh;
+        border-radius: 20px 20px 0 0;
+        border-right: none;
+        border-top: 1px solid var(--border);
+        transform: translateY(100%);
+        transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
         box-shadow: none;
+        z-index: 200;
+        overflow-y: auto;
     }
 
     .blog-sidebar.open {
-        transform: translateX(0);
-        box-shadow: 4px 0 30px rgba(0,0,0,0.2);
+        transform: translateY(0);
+        box-shadow: 0 -8px 48px rgba(0, 0, 0, 0.25);
     }
 
+    /* Show drag handle on mobile */
+    .sidebar-drag-handle {
+        display: block;
+    }
+
+    /* Hide old nav hamburger button entirely on mobile */
     .sidebar-toggle {
+        display: none !important;
+    }
+
+    /* Show floating pill */
+    .mobile-posts-pill {
         display: flex;
     }
 
@@ -638,7 +717,7 @@
     }
 
     .blog-content {
-        padding: 2rem 1.5rem 4rem;
+        padding: 2rem 1.5rem 6rem; /* extra bottom padding so pill doesn't overlap content */
     }
 
     /* Mobile Nav Spacing */
@@ -651,12 +730,13 @@
     .sidebar-overlay {
         position: fixed;
         inset: 0;
-        top: 64px;
-        background: rgba(0,0,0,0.4);
-        z-index: 9;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 199;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.3s;
+        transition: opacity 0.35s ease;
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
     }
 
     .sidebar-overlay.active {
@@ -667,7 +747,7 @@
 
 @media (max-width: 600px) {
     .blog-content {
-        padding: 1.5rem 1rem 3rem;
+        padding: 1.5rem 1rem 6rem;
     }
 
     .article-meta h1 {
