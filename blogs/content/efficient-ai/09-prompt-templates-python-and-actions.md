@@ -1,7 +1,7 @@
 ---
 title: "Prompt Templates — Python & GitHub Actions Ready-to-Use"
 date: 2026-04-22
-tags: [github-copilot, prompt-templates, python, github-actions, pytest, devops, automation, cli]
+tags: [github-copilot, prompt-templates, skills, python, github-actions, pytest, devops, automation, cli]
 description: 20+ copy-paste prompt templates for daily DevOps work — writing Python CLIs, refactoring, debugging, testing, creating GitHub Actions workflows, composite actions, matrix strategies, caching, and OIDC authentication.
 ---
 
@@ -11,7 +11,7 @@ This is **Post 9 of 10** in the Efficient AI Handbook.
 
 This post is a **reference document** — organized by category, ready to copy-paste. Each template follows the PCTF framework from [Post 8](content/efficient-ai/08-prompt-engineering-foundations.md). All templates assume **Sonnet (1x)** unless noted otherwise.
 
-> **Don't just copy-paste — save as `.prompt.md` files.** Every template below can be saved to `.github/prompts/` as a reusable slash command (e.g., `/generate-tests`, `/debug-workflow`). This way you type `/` instead of the full prompt every time. See the [Reusable Prompt Components](content/efficient-ai/08-prompt-engineering-foundations.md) section in Post 8 for setup details.
+> **Don't just copy-paste — save as `.prompt.md` files or `SKILL.md` folders.** Every template below can be saved to `.github/prompts/` as a reusable slash command (e.g., `/generate-tests`, `/debug-workflow`). For multi-step templates that need bundled assets, upgrade them to skills in `.github/skills/`. See the [Reusable Prompt Components](content/efficient-ai/08-prompt-engineering-foundations.md) section in Post 8 for setup details.
 
 ---
 
@@ -317,6 +317,107 @@ These aren't chat prompts — they're code comments that prime inline completion
 ```
 
 Write the comment, press Enter, and let Copilot complete. The more specific the comment, the better the completion.
+
+---
+
+## Converting Templates to Skills — When a Prompt File Isn't Enough 📦
+
+Some of the templates above work perfectly as one-shot `.prompt.md` files. Others involve multiple steps, bundled assets, or benefit from automatic discovery — those should be upgraded to **Agent Skills** (`SKILL.md` folders).
+
+### Decision Guide: Prompt File vs. Skill
+
+| Template | Save As | Why |
+|---|---|---|
+| #3 Debug a Traceback | `.prompt.md` | Single-step: paste error, get fix |
+| #4 Add Type Hints | `.prompt.md` | Single-step: transform one file |
+| #6 Generate Pytest Tests | Either | As a prompt: one-shot. As a skill: add fixture templates |
+| #7 Review for Security | `SKILL.md` | Multi-step: scan, classify, report. Bundle a checklist |
+| #10 Python-Based Action Entry Point | `SKILL.md` | Multi-step: scaffold, write script, wire action.yml |
+| #12 Write a Composite Action | `SKILL.md` | Multi-step: needs action.yml template + entry script |
+| #18 Debug a Failing Workflow | `SKILL.md` | Multi-step: read YAML, analyze logs, check common errors |
+
+### Example: Upgrading Template #12 to a Skill
+
+Template #12 ("Write a Composite Action") involves creating two files and following specific conventions. As a Skill:
+
+```
+.github/skills/create-composite-action/
+├── SKILL.md
+├── templates/
+│   ├── action.yml.template      ← Pre-built action.yml skeleton
+│   └── entrypoint.py.template   ← Pre-built Python entry script
+└── references/
+    └── composite-action-standards.md  ← Team conventions doc
+```
+
+**The `SKILL.md`:**
+
+```markdown
+---
+name: create-composite-action
+description: "Create a new composite GitHub Action with Python entry script, following team standards"
+---
+# Create a Composite GitHub Action
+
+## Steps
+1. Ask the user for: action name, purpose, inputs, and outputs
+2. Create the folder `.github/actions/<action-name>/`
+3. Generate `action.yml` using the template in `./templates/action.yml.template`:
+   - Fill in inputs with descriptions and defaults
+   - Fill in outputs with descriptions
+   - Add branding (icon and color)
+   - Set `runs.using: composite` with Python entrypoint
+4. Generate the Python entry script using `./templates/entrypoint.py.template`:
+   - Read inputs from INPUT_* environment variables
+   - Write outputs to $GITHUB_OUTPUT
+   - Include error handling with exit code 1 on failure
+   - Use only standard library (no pip dependencies)
+5. Follow the standards in `./references/composite-action-standards.md`
+6. Run `actionlint` on the generated action.yml if available
+
+## Rules
+- Pin all action references to full SHA
+- Include explicit permissions recommendations in a comment
+- Use Google-style docstrings in the Python script
+- All functions must have type hints
+```
+
+Now instead of copy-pasting Template #12 every time, you just type *"create a composite action for checking PR labels"* — Copilot auto-detects the skill, loads the templates, and executes the full procedure with your team's conventions baked in.
+
+### Example: Upgrading Template #7 to a Security Audit Skill
+
+```
+.github/skills/security-audit/
+├── SKILL.md
+└── references/
+    ├── owasp-python-checklist.md     ← OWASP Top 10 for Python
+    └── severity-classification.md   ← How to classify Critical/High/Medium/Low
+```
+
+```markdown
+---
+name: security-audit
+description: "Perform a security review of Python code for OWASP Top 10 vulnerabilities"
+---
+# Security Audit
+
+## Steps
+1. Read the target file(s) provided by the user
+2. Check against each category in `./references/owasp-python-checklist.md`
+3. For each finding:
+   - Classify severity using `./references/severity-classification.md`
+   - Note the specific line number
+   - Provide the recommended fix
+4. Output findings as a numbered list sorted by severity (Critical first)
+5. Summarize: total findings by severity, overall risk assessment
+
+## Rules
+- Never dismiss a finding without explanation
+- Flag any use of `eval()`, `exec()`, `pickle.loads()`, or `subprocess.call(shell=True)`
+- Check for hardcoded secrets using regex patterns
+```
+
+> **Pro tip:** Start with prompt files for simplicity. When you notice you're repeatedly adding the same context, bundling the same reference docs, or following the same multi-step procedure — that's your signal to upgrade to a Skill.
 
 ---
 

@@ -191,6 +191,8 @@ docstrings:
 
 Agent mode will run `git checkout -b`, create the files, and add initial docstrings — giving you a clean starting point for implementation.
 
+> **💡 Make this a Skill:** Scaffolding is the most repeatable step in the developer loop. Instead of typing this prompt every time, save it as a `SKILL.md` in `.github/skills/scaffold-feature/`. Bundle a module template, test template, and your team's naming conventions as assets — then just type *"scaffold a new feature for DEVOPS-142"* and Copilot auto-detects the skill and executes the full procedure consistently. See [Post 8 — Skills](content/efficient-ai/08-prompt-engineering-foundations.md) for setup details.
+
 ### Branch Naming Convention
 
 Use a consistent pattern that links to Jira:

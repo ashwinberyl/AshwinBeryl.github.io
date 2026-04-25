@@ -119,6 +119,8 @@ The agent will execute pytest, read the output, and either confirm all tests pas
 
 > **Model choice for testing:** Stick with **Sonnet (1x)**. Test generation is structured and pattern-based — exactly what Sonnet excels at. Reserve Opus for debugging test failures that Sonnet can't resolve.
 
+> **💡 Skill candidate:** If your team follows a consistent test structure (fixtures, parametrize, mock patterns), create a `SKILL.md` in `.github/skills/generate-tests/` that bundles your fixture templates and test conventions. Copilot will auto-detect it whenever you ask for tests — no need to re-specify your testing standards every time.
+
 ---
 
 ## Validating GitHub Actions Locally 🔧
@@ -235,6 +237,8 @@ Here's the full loop tracked by cost:
 Eleven premium requests for a complete feature — from Jira story to merged PR with tests and documentation. On Sonnet at 1x, that's a fraction of your daily budget.
 
 > **Compare to the Opus-everywhere approach:** If every prompt above used Opus 4.6 (3x), the same workflow would cost **33 premium requests** — 3× more for no quality improvement on these structured tasks.
+
+> **💡 Speed this up with Skills:** Steps 4 (scaffold) and 6 (generate tests) are highly repeatable across stories. Encoding them as `SKILL.md` folders means you skip typing detailed prompts — Copilot auto-detects the skill and executes the bundled procedure. Over 10 stories per sprint, this saves dozens of manual prompt keystrokes.
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Automated Documentation — Every Change Ships with Updated Docs"
 date: 2026-04-22
-tags: [github-copilot, documentation, docstrings, readme, changelog, confluence, github-actions, automation]
+tags: [github-copilot, documentation, docstrings, readme, changelog, confluence, github-actions, skills, automation]
 description: Build an AI-driven documentation workflow — generate Python docstrings, update READMEs, create changelog entries, sync with Confluence via MCP, document GitHub Actions workflows, and enforce doc quality in CI.
 ---
 
@@ -300,6 +300,89 @@ Before every PR:
 - [ ] CHANGELOG entry added for the release
 - [ ] Confluence runbook updated (if operational procedure changed)
 - [ ] Workflow documentation updated (if workflows changed)
+
+---
+
+## Documentation Skills — Automate the Entire Doc Flow 🧩
+
+The prompts above work great individually, but documentation generation is one of the **strongest use cases for Agent Skills** — multi-step, repeatable, and benefiting from bundled templates.
+
+### Skill: Post-Feature Documentation
+
+```
+.github/skills/post-feature-docs/
+├── SKILL.md
+├── templates/
+│   ├── changelog-entry.md.template    ← Keep a Changelog format skeleton
+│   ├── readme-section.md.template     ← Standard README feature section
+│   └── confluence-page.md.template    ← Operations guide structure
+└── references/
+    └── doc-standards.md               ← Team documentation conventions
+```
+
+**The `SKILL.md`:**
+
+```markdown
+---
+name: post-feature-docs
+description: "Generate all documentation for a completed feature: docstrings, README section, changelog entry, and Confluence page"
+---
+# Post-Feature Documentation
+
+## Steps
+1. Scan all modified/new Python files in the current branch for missing
+   or outdated docstrings — add or update them using Google-style format
+2. Generate a README.md section for the feature using
+   `./templates/readme-section.md.template`
+3. Generate a CHANGELOG.md entry using
+   `./templates/changelog-entry.md.template` with:
+   - Changes categorized as Added/Changed/Fixed/Removed
+   - Jira story IDs included where applicable
+4. Generate a Confluence operations page using
+   `./templates/confluence-page.md.template` with:
+   - What the feature does
+   - How to configure it
+   - Troubleshooting common failures
+5. Validate docstring coverage with `interrogate src/ --fail-under 80`
+6. Follow conventions in `./references/doc-standards.md`
+
+## Rules
+- Docstrings describe WHAT and WHY, not HOW
+- README sections include usage examples with all inputs
+- CHANGELOG entries are user-facing descriptions, not commit messages
+- Confluence pages always link back to the source repository
+```
+
+**How to use it:** After implementing a feature (Posts 6–7), simply ask *"generate documentation for this feature"* — Copilot auto-detects the skill, scans your changes, and produces all four documentation outputs in one session.
+
+### Skill: Document a GitHub Actions Workflow
+
+```markdown
+---
+name: document-workflow
+description: "Generate comprehensive documentation for a GitHub Actions workflow file"
+---
+# Document a GitHub Actions Workflow
+
+## Steps
+1. Read the target workflow YAML file
+2. Extract: triggers, inputs, secrets, jobs, steps, outputs/artifacts
+3. Generate documentation with sections:
+   - Purpose (one sentence)
+   - Trigger events and conditions
+   - Inputs table (name, type, required, default, description)
+   - Secrets table (name, description, where to set)
+   - Jobs overview (numbered, with dependencies)
+   - Usage example (for reusable workflows)
+4. Format as a markdown section ready for `docs/workflows.md`
+
+## Rules
+- Verify all documented inputs actually exist in the YAML
+- Note any missing permission blocks as a warning
+- Flag unpinned action references
+```
+
+> **The pattern:** Every repeated documentation task in this post — docstrings, READMEs, changelogs, Confluence pages, workflow docs — can be encoded as a `SKILL.md` with bundled templates. Start with the prompts above, and when you find yourself re-using the same one across multiple features, upgrade it to a skill.
 
 ---
 
