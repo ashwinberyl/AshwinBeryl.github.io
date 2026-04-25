@@ -27,6 +27,7 @@ When you send a prompt, Copilot assembles context from multiple sources — auto
 | **Chat history** | All previous messages in the current chat session | Using `/clear` or starting a new session |
 | **Semantic index** | Repository-wide code search results (`@workspace`, `#codebase`) | `.gitignore`, `files.exclude` settings |
 | **Custom instructions** | `.github/copilot-instructions.md` and `.instructions.md` files | Editing these files directly |
+| **Agent skills** | `SKILL.md` instructions + bundled assets (loaded on-demand when triggered) | Keeping skills focused; using prompt files for simple tasks |
 | **MCP tool results** | Data returned by MCP servers (Jira, GitHub, Postgres) | Choosing which tools to invoke |
 
 > **Key insight:** You pay for ALL of this context — not just your prompt text. Ten open tabs of unrelated files plus a long chat history can easily double the tokens consumed per request.
@@ -247,6 +248,7 @@ Before every task:
 - [ ] Truncate any logs or output before pasting
 - [ ] Start with Sonnet (1x), escalate only if needed
 - [ ] Follow up to refine — don't re-ask from scratch
+- [ ] Use a `.prompt.md` or `SKILL.md` instead of retyping the same PCTF prompt — skills load context on-demand, saving tokens vs. pasting instructions every time
 
 ---
 

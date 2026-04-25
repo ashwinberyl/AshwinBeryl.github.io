@@ -1,8 +1,8 @@
 ---
 title: "Setup & Foundations — Your Copilot Enterprise Environment"
 date: 2026-04-22
-tags: [github-copilot, vscode, claude, setup, agent-mode, custom-instructions, devops, python]
-description: A from-scratch guide to setting up GitHub Copilot Enterprise with Claude models in VS Code — covering extension installation, admin policies, model picker, chat modes, custom instructions, agent configuration, and workspace indexing. Tailored for Python and GitHub Actions workflows.
+tags: [github-copilot, vscode, claude, setup, agent-mode, custom-instructions, skills, devops, python]
+description: A from-scratch guide to setting up GitHub Copilot Enterprise with Claude models in VS Code — covering extension installation, admin policies, model picker, chat modes, custom instructions, agent configuration, agent skills, and workspace indexing. Tailored for Python and GitHub Actions workflows.
 ---
 
 # Setup & Foundations — Your Copilot Enterprise Environment 🛠️
@@ -224,6 +224,90 @@ Create `AGENTS.md` in your repository root:
 
 ---
 
+## Step 6.5 — Agent Skills (`SKILL.md`) — Reusable Multi-Step Workflows 🧩
+
+While custom instructions define *rules* and prompt files define *templates*, **Agent Skills** define *procedures* — multi-step, bundled workflows that Copilot can auto-detect and execute when your prompt matches the skill's description.
+
+Think of a Skill as a **procedural runbook** that Copilot loads on-demand.
+
+### What Is a Skill?
+
+A Skill is a folder containing a `SKILL.md` file (the instructions) plus optional supporting resources — scripts, templates, reference docs. When you describe a task that matches a skill's description, Copilot **automatically discovers and loads** the skill's instructions into context.
+
+### Where to Place Skills
+
+| Scope | Location | Shared With | Best For |
+|---|---|---|---|
+| **Workspace** | `.github/skills/<skill-name>/SKILL.md` | Entire team (committed to Git) | Team-standard procedures: scaffolding, migrations, runbooks |
+| **Personal** | `~/.copilot/skills/<skill-name>/SKILL.md` | Only you | Personal workflows: your debugging ritual, your review checklist |
+
+### Creating a Skill
+
+Create `.github/skills/scaffold-module/SKILL.md`:
+
+```markdown
+---
+name: scaffold-module
+description: "Scaffold a new Python module with src file, test file, docstrings, and __init__.py entry"
+---
+# Scaffold a New Python Module
+
+## Steps
+1. Create `src/<module_name>.py` with a module docstring and placeholder class
+2. Create `tests/test_<module_name>.py` with pytest import and one placeholder test
+3. Add the module to `src/__init__.py` exports
+4. Add Google-style docstrings to all public symbols
+5. Run `ruff check src/<module_name>.py` to verify lint compliance
+
+## Rules
+- Use the naming conventions from `.github/copilot-instructions.md`
+- All functions must have type hints
+- Test file must use `@pytest.fixture` for setup
+```
+
+### How Skills Are Triggered
+
+- **Automatic discovery:** Copilot matches your natural-language request against the `description` field in the YAML frontmatter. If it matches, the skill is loaded into context silently.
+- **Explicit invocation:** Type `/scaffold-module` in Copilot Chat to force-invoke the skill.
+- **Via `/create-skill`:** In Copilot Chat, type `/create-skill` and describe what you want — Copilot generates the folder structure and `SKILL.md` for you.
+
+### Skills vs. Prompt Files vs. Agents — When to Use Each
+
+| Feature | Purpose | Trigger | Best For |
+|---|---|---|---|
+| **Custom Instructions** (`.instructions.md`) | Always-on rules | Automatic (every request) | Coding standards, stack preferences |
+| **Prompt Files** (`.prompt.md`) | Reusable one-shot templates | Manual (`/command`) | Single-step tasks: generate tests, write docstrings |
+| **Skills** (`SKILL.md`) | Multi-step procedural workflows | Auto-detected or `/command` | Complex procedures: scaffolding, migrations, audits |
+| **Custom Agents** (`.agent.md`) | Specialized personas | Manual (`@agent`) | Persistent roles: security reviewer, release manager |
+
+> **When to use a Skill over a Prompt File:** If your workflow needs bundled assets (scripts, templates, reference files), involves 3+ steps, or benefits from automatic discovery — make it a Skill. If it's a single-step templated prompt you invoke manually, use a `.prompt.md` file.
+
+### Practical Skills for a DevOps Team
+
+```
+.github/skills/
+├── scaffold-module/
+│   ├── SKILL.md                 ← "Scaffold a new Python module"
+│   └── templates/
+│       └── module_template.py   ← Bundled template file
+├── audit-workflow/
+│   ├── SKILL.md                 ← "Audit a GitHub Actions workflow for security"
+│   └── references/
+│       └── action-security-checklist.md
+├── generate-migration/
+│   ├── SKILL.md                 ← "Generate an Alembic migration from schema diff"
+│   └── scripts/
+│       └── diff_schema.py       ← Helper script the agent can execute
+└── incident-report/
+    ├── SKILL.md                 ← "Create a structured incident report"
+    └── templates/
+        └── incident_template.md
+```
+
+> **Pro tip: Extract skills from conversations.** After a productive multi-step debugging or scaffolding session, ask Copilot: *"Create a skill from how we just did this."* Copilot will generalize the conversation into a reusable `SKILL.md` — saving you from encoding the procedure manually.
+
+---
+
 ## Step 7 — Workspace Indexing 🔍
 
 Copilot builds a **semantic index** of your workspace to power `@workspace` and `#codebase` queries. Understanding how this works prevents frustration.
@@ -280,6 +364,7 @@ After completing this setup, your repository should contain:
 | `.github/copilot-instructions.md` | Repository-wide coding standards for Copilot |
 | `.github/instructions/*.instructions.md` | Path-specific instructions (optional) |
 | `AGENTS.md` | Agent behavior: commands, validation, definition of done |
+| `.github/skills/<name>/SKILL.md` | Reusable multi-step procedural workflows (optional) |
 | `.github/copilot-setup-steps.yml` | Pre-install dependencies for the coding agent |
 | `.gitignore` | Controls what files are indexed by Copilot |
 

@@ -1,8 +1,8 @@
 ---
 title: "Prompt Engineering Foundations — Why Good Prompts Work"
 date: 2026-04-22
-tags: [github-copilot, prompt-engineering, pctf, persona, context, task-decomposition, anti-patterns, prompt-files, reusable-prompts, custom-agents]
-description: The principles behind effective Copilot prompts — the PCTF framework (Persona, Context, Task, Format), task decomposition, iterative refinement, anti-patterns that waste tokens, and how to make prompts reusable with .prompt.md files, custom instructions hierarchy (org/repo/path/user), and .agent.md custom agents.
+tags: [github-copilot, prompt-engineering, pctf, persona, context, task-decomposition, anti-patterns, prompt-files, skills, reusable-prompts, custom-agents]
+description: The principles behind effective Copilot prompts — the PCTF framework (Persona, Context, Task, Format), task decomposition, iterative refinement, anti-patterns that waste tokens, and how to make prompts reusable with .prompt.md files, SKILL.md agent skills, custom instructions hierarchy (org/repo/path/user), and .agent.md custom agents.
 ---
 
 # Prompt Engineering Foundations — Why Good Prompts Work 🧠
@@ -250,7 +250,7 @@ Find the 5 relevant lines and paste only those.
 
 ## Reusable Prompt Components — Stop Retyping the Same PCTF Prompts ♻️
 
-Typing a full PCTF prompt every time is time-consuming. The good news: GitHub Copilot provides mechanisms to save and reuse prompt components at **four different levels** — from your personal machine to your entire GitHub organization.
+Typing a full PCTF prompt every time is time-consuming. The good news: GitHub Copilot provides mechanisms to save and reuse prompt components at **five different levels** — from one-shot templates to organization-wide rules.
 
 ### Level 1: Prompt Files (`.prompt.md`) — Reusable Slash Commands
 
@@ -299,7 +299,97 @@ Return a complete test file with imports, fixtures, and test functions.
 - **From a chat session:** After a productive conversation, ask: "Save this workflow as a .prompt.md file" — Copilot generalizes the conversation into a reusable prompt
 - **From the Chat gear icon:** Click ⚙️ → Prompts tab → manage all your prompt files
 
-### Level 2: Custom Instructions — Always-On Context
+### Level 2: Agent Skills (`SKILL.md`) — Bundled Multi-Step Procedures
+
+While prompt files are one-shot templates, **Agent Skills** are multi-step procedural workflows bundled with supporting resources. A Skill is a folder containing a `SKILL.md` instruction file plus optional scripts, templates, and reference docs.
+
+**The key difference from prompt files:**
+
+| Feature | Prompt Files (`.prompt.md`) | Agent Skills (`SKILL.md`) |
+|---|---|---|
+| **Structure** | Single markdown file | Folder with `SKILL.md` + bundled assets |
+| **Trigger** | Manual (`/command`) only | Auto-detected from prompt **or** manual (`/command`) |
+| **Complexity** | Single-step tasks | Multi-step workflows with branching logic |
+| **Assets** | None — instructions only | Can include scripts, templates, reference docs |
+| **Best for** | "Generate tests for this file" | "Scaffold a new service with tests, config, CI, and docs" |
+
+**How to create a Skill:**
+
+Create a folder under `.github/skills/` with a `SKILL.md` file:
+
+**Example — `.github/skills/debug-workflow/SKILL.md`:**
+
+```markdown
+---
+name: debug-workflow
+description: "Debug a failing GitHub Actions workflow by analyzing logs, identifying root cause, and proposing a fix"
+---
+# Debug a Failing GitHub Actions Workflow
+
+## Steps
+1. Read the workflow YAML file to understand the pipeline structure
+2. Analyze the provided error log (ask user if not provided)
+3. Identify the failing step and narrow down to the root cause
+4. Check for common issues:
+   - Incorrect action version or SHA pinning
+   - Missing permissions block
+   - Incorrect secret references
+   - Runner compatibility issues
+   - Path or shell escaping problems
+5. Propose a targeted fix with a diff
+6. Suggest a test command to validate locally (e.g., `act -j <job_name>`)
+
+## Rules
+- Prefer minimal changes over rewrites
+- Always verify action references use SHA pinning
+- Follow the standards in `.github/copilot-instructions.md`
+
+## References
+- See `./references/common-workflow-errors.md` for known failure patterns
+```
+
+**Example — `.github/skills/generate-migration/SKILL.md`:**
+
+```markdown
+---
+name: generate-migration
+description: "Generate an Alembic database migration from current schema changes"
+---
+# Generate an Alembic Migration
+
+## Steps
+1. Read the current SQLAlchemy models from `src/models/`
+2. Query the current database schema via Postgres MCP (if available)
+3. Identify the diff between models and current schema
+4. Generate an Alembic migration file using `alembic revision --autogenerate`
+5. Review the generated migration for:
+   - Correct upgrade() and downgrade() functions
+   - No destructive operations without explicit confirmation
+   - Proper index and constraint naming
+6. Run `alembic check` to validate the migration chain
+
+## Rules
+- Never auto-approve DROP TABLE or DROP COLUMN — flag for human review
+- Use the helper script in `./scripts/diff_schema.py` for schema comparison
+```
+
+**How Skills are triggered:**
+
+- **Automatic discovery:** Type a request like *"scaffold a new service"* — Copilot matches it against skill descriptions and loads the matching skill's instructions into context, without you referencing it
+- **Explicit invocation:** Type `/debug-workflow` or `/generate-migration` in Copilot Chat
+- **Quick creation via `/create-skill`:** In Copilot Chat, type `/create-skill` and describe what you want — Copilot generates the folder structure and `SKILL.md` for you
+- **Extract from conversation:** After a productive multi-step session, ask: *"Create a skill from how we just did this"* — Copilot generalizes the procedure into a reusable skill
+
+> **Workspace vs User scope:** Just like prompt files, skills in `.github/skills/` are committed to Git (team-shared), while skills in `~/.copilot/skills/` are personal.
+
+**When to upgrade a Prompt File to a Skill:**
+
+- Your workflow involves **3+ sequential steps** that must execute in order
+- You need **bundled assets** (scripts, templates, checklists) alongside the instructions
+- You want **automatic discovery** — the skill triggers when Copilot recognizes a matching request
+- Multiple team members need **consistent execution** of the same complex procedure
+
+### Level 3: Custom Instructions — Always-On Context
 
 Unlike prompt files (which you invoke manually), custom instructions are **injected automatically** into every request. Use them for context that applies to ALL prompts — your tech stack, coding standards, and conventions.
 
@@ -328,7 +418,7 @@ Write a function that..."
 
 The persona and tech stack context are automatically injected from your instructions file. You type less, get the same quality.
 
-### Level 3: Custom Agents (`.agent.md`) — Specialized Roles
+### Level 4: Custom Agents (`.agent.md`) — Specialized Roles
 
 For recurring complex tasks, define **custom agents** — predefined personas with specific tools and model preferences.
 
@@ -368,12 +458,25 @@ This is more powerful than a prompt file — it lets you pin a specific model, r
 │   ├── create-action.prompt.md          ← /create-action
 │   ├── debug-workflow.prompt.md         ← /debug-workflow
 │   └── write-docstrings.prompt.md       ← /write-docstrings
+├── skills/
+│   ├── scaffold-module/
+│   │   ├── SKILL.md                     ← Auto-detected: "scaffold a new module"
+│   │   └── templates/
+│   │       └── module_template.py
+│   ├── debug-workflow/
+│   │   ├── SKILL.md                     ← Auto-detected: "debug a failing workflow"
+│   │   └── references/
+│   │       └── common-workflow-errors.md
+│   └── generate-migration/
+│       ├── SKILL.md                     ← Auto-detected: "generate a migration"
+│       └── scripts/
+│           └── diff_schema.py
 ├── agents/
 │   └── security-reviewer.agent.md       ← @security-reviewer
 └── ...
 ```
 
-With this setup: your persona and context live in instructions files (never retyped), your task patterns live in prompt files (invoked with `/`), and your specialized roles live in agent files (invoked with `@`). The templates in [Post 9](content/efficient-ai/09-prompt-templates-python-and-actions.md) can all be saved as `.prompt.md` files for one-keystroke access.
+With this setup: your persona and context live in instructions files (never retyped), your single-step task patterns live in prompt files (invoked with `/`), your multi-step procedures live in skills (auto-detected or invoked with `/`), and your specialized roles live in agent files (invoked with `@`). The templates in [Post 9](content/efficient-ai/09-prompt-templates-python-and-actions.md) can all be saved as `.prompt.md` files for one-keystroke access — or upgraded to `SKILL.md` folders when they grow complex enough to benefit from bundled assets.
 
 ---
 
