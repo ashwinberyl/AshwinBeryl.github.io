@@ -78,7 +78,6 @@ def make_page(out: Path, slug: str, post: str, title: str, description: str) -> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{t} | Ashwin Blogs</title>
     <meta name="description" content="{d}">
-    <link rel="canonical" href="{post_url}">
 
     <!-- Open Graph: LinkedIn, Facebook, WhatsApp, Slack -->
     <meta property="og:type" content="article">
