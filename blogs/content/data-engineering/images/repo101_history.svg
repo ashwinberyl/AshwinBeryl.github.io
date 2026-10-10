@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 270" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="270" fill="#ffffff"/>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Repo 101 on 1 March 2024: three versions in one day</text>
+
+  <!-- grid: 09:00 at x=80, 1 hour = 220px -->
+  <g stroke="#e1e6ec">
+    <line x1="80" y1="60" x2="80" y2="205"/><line x1="300" y1="60" x2="300" y2="205"/>
+    <line x1="520" y1="60" x2="520" y2="205"/><line x1="740" y1="60" x2="740" y2="205"/>
+  </g>
+
+  <!-- versions -->
+  <rect x="80" y="130" width="220" height="40" rx="5" fill="#cfe2f7" stroke="#3a78c2"/>
+  <text x="190" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#173d6b">alpha-api · public</text>
+  <text x="190" y="164" text-anchor="middle" font-size="12" fill="#173d6b">c1 [09:00, 10:00)</text>
+
+  <rect x="300" y="130" width="220" height="40" rx="5" fill="#f9d9b8" stroke="#d9822b"/>
+  <text x="410" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#7a3f00">alpha-api · PRIVATE</text>
+  <text x="410" y="164" text-anchor="middle" font-size="12" fill="#7a3f00">c2 [10:00, 11:00)</text>
+
+  <rect x="520" y="130" width="340" height="40" rx="5" fill="#bfe6d4" stroke="#2f9e72"/>
+  <text x="690" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#14583d">alpha-service · public  (current)</text>
+  <text x="690" y="164" text-anchor="middle" font-size="12" fill="#14583d">c3 [11:00, ∞)</text>
+
+  <!-- events -->
+  <g font-size="13" fill="#1b2733">
+    <circle cx="263" cy="85" r="7" fill="#1b2733"/>
+    <line x1="263" y1="92" x2="263" y2="128" stroke="#5b6b7a" stroke-dasharray="4 3"/>
+    <text x="263" y="72" text-anchor="middle">e01 09:50</text>
+
+    <circle cx="447" cy="85" r="7" fill="#d9822b"/>
+    <line x1="447" y1="92" x2="447" y2="128" stroke="#d9822b" stroke-dasharray="4 3"/>
+    <text x="447" y="72" text-anchor="middle" font-weight="700" fill="#7a3f00">e03 10:40</text>
+
+    <circle cx="593" cy="85" r="7" fill="#1b2733"/>
+    <line x1="593" y1="92" x2="593" y2="128" stroke="#5b6b7a" stroke-dasharray="4 3"/>
+    <text x="593" y="72" text-anchor="middle">e04 11:20</text>
+  </g>
+
+  <!-- axis -->
+  <line x1="60" y1="205" x2="870" y2="205" stroke="#5b6b7a"/>
+  <g font-size="12" fill="#5b6b7a" text-anchor="middle">
+    <text x="80" y="223">09:00</text><text x="300" y="223">10:00</text><text x="520" y="223">11:00</text><text x="740" y="223">12:00</text>
+  </g>
+  <text x="450" y="255" text-anchor="middle" font-size="14" fill="#7a3f00">Today repo 101 is public. But at 10:40, when e03 happened, it was private. The report must say private.</text>
+</svg>
