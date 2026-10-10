@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="330" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  </defs>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The RepoSphere pipeline: seven functions, two lanes, one join</text>
+
+  <!-- inputs -->
+  <g font-size="13">
+    <rect x="15" y="70" width="120" height="44" rx="22" fill="#fdecd8" stroke="#d9822b"/>
+    <text x="75" y="97" text-anchor="middle" font-weight="700" fill="#7a3f00">events.jsonl</text>
+    <rect x="15" y="220" width="120" height="44" rx="22" fill="#fdecd8" stroke="#d9822b"/>
+    <text x="75" y="240" text-anchor="middle" font-weight="700" fill="#7a3f00">repo_</text>
+    <text x="75" y="256" text-anchor="middle" font-weight="700" fill="#7a3f00">changes.jsonl</text>
+  </g>
+
+  <!-- facts lane -->
+  <g font-size="12" fill="#1b2733">
+    <rect x="155" y="70" width="130" height="44" rx="6" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="220" y="90" text-anchor="middle" font-weight="700">1 read_events</text><text x="220" y="106" text-anchor="middle" font-size="11" fill="#5b6b7a">Post 03</text>
+    <rect x="305" y="70" width="130" height="44" rx="6" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="370" y="90" text-anchor="middle" font-weight="700">3 flatten_events</text><text x="370" y="106" text-anchor="middle" font-size="11" fill="#5b6b7a">Post 04</text>
+    <rect x="455" y="70" width="130" height="44" rx="6" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="520" y="90" text-anchor="middle" font-weight="700">5 sessionize</text><text x="520" y="106" text-anchor="middle" font-size="11" fill="#5b6b7a">Posts 05, 07</text>
+  </g>
+
+  <!-- dimension lane -->
+  <g font-size="12" fill="#1b2733">
+    <rect x="155" y="220" width="130" height="44" rx="6" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="220" y="240" text-anchor="middle" font-weight="700">2 read_repo_</text><text x="220" y="256" text-anchor="middle" font-weight="700">changes</text>
+    <rect x="305" y="220" width="280" height="44" rx="6" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="445" y="240" text-anchor="middle" font-weight="700">4 build_repo_scd2</text><text x="445" y="256" text-anchor="middle" font-size="11" fill="#5b6b7a">Posts 05, 06</text>
+  </g>
+
+  <!-- join + summary -->
+  <g font-size="12" fill="#1b2733">
+    <rect x="605" y="140" width="135" height="54" rx="6" fill="#dff3ea" stroke="#2f9e72"/>
+    <text x="672" y="162" text-anchor="middle" font-weight="700">6 enrich_with_</text><text x="672" y="178" text-anchor="middle" font-weight="700">repo_state</text>
+    <rect x="755" y="140" width="138" height="54" rx="6" fill="#dff3ea" stroke="#2f9e72"/>
+    <text x="824" y="162" text-anchor="middle" font-weight="700">7 compute_</text><text x="824" y="178" text-anchor="middle" font-weight="700">session_summary</text>
+  </g>
+
+  <g stroke="#5b6b7a" stroke-width="2" fill="none">
+    <path d="M135 92 H151" marker-end="url(#a)"/><path d="M285 92 H301" marker-end="url(#a)"/><path d="M435 92 H451" marker-end="url(#a)"/>
+    <path d="M585 92 H640 V136" marker-end="url(#a)"/>
+    <path d="M135 242 H151" marker-end="url(#a)"/><path d="M285 242 H301" marker-end="url(#a)"/>
+    <path d="M585 242 H640 V198" marker-end="url(#a)"/>
+    <path d="M740 167 H751" marker-end="url(#a)"/>
+  </g>
+
+  <g font-size="12" font-weight="700">
+    <text x="160" y="58" fill="#3a78c2">FACTS lane: what happened</text>
+    <text x="160" y="290" fill="#3a78c2">DIMENSION lane: what things looked like, over time</text>
+    <text x="590" y="218" fill="#14583d">point-in-time join · Post 08</text>
+    <text x="830" y="218" fill="#14583d">Post 09</text>
+  </g>
+</svg>

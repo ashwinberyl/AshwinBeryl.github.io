@@ -482,6 +482,25 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Data Engineering",
+      "type": "folder",
+      "children": [
+        {
+          "name": "What Data Engineering Actually Is",
+          "type": "file",
+          "path": "data-engineering/01-what-is-data-engineering.md",
+          "date": "2026-10-10",
+          "tags": [
+            "data-engineering",
+            "first-principles",
+            "facts",
+            "dimensions",
+            "beginner"
+          ]
+        }
+      ]
     }
   ]
 }

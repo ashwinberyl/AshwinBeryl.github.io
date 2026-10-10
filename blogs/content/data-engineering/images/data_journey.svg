@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="300" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  </defs>
+  <text x="450" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The Data Journey: from where it's produced to where it's used</text>
+
+  <!-- stage boxes -->
+  <g font-size="14">
+    <rect x="20" y="70" width="150" height="120" rx="10" fill="#fdecd8" stroke="#d9822b"/>
+    <text x="95" y="98" text-anchor="middle" font-weight="700" fill="#7a3f00">1. Sources</text>
+    <text x="95" y="124" text-anchor="middle" fill="#3b2a1a">Apps, APIs,</text>
+    <text x="95" y="144" text-anchor="middle" fill="#3b2a1a">webhooks, logs</text>
+    <text x="95" y="172" text-anchor="middle" font-size="12" fill="#7a3f00">messy · nested · late</text>
+
+    <rect x="215" y="70" width="150" height="120" rx="10" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="290" y="98" text-anchor="middle" font-weight="700" fill="#173d6b">2. Ingest</text>
+    <text x="290" y="124" text-anchor="middle" fill="#1b2733">Land raw data</text>
+    <text x="290" y="144" text-anchor="middle" fill="#1b2733">exactly as it came</text>
+    <text x="290" y="172" text-anchor="middle" font-size="12" fill="#173d6b">never edit the raw</text>
+
+    <rect x="410" y="70" width="150" height="120" rx="10" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="485" y="98" text-anchor="middle" font-weight="700" fill="#173d6b">3. Transform</text>
+    <text x="485" y="124" text-anchor="middle" fill="#1b2733">Clean, flatten,</text>
+    <text x="485" y="144" text-anchor="middle" fill="#1b2733">dedupe, enrich</text>
+    <text x="485" y="172" text-anchor="middle" font-size="12" fill="#173d6b">PySpark lives here</text>
+
+    <rect x="605" y="70" width="150" height="120" rx="10" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="680" y="98" text-anchor="middle" font-weight="700" fill="#173d6b">4. Store</text>
+    <text x="680" y="124" text-anchor="middle" fill="#1b2733">Tables you can</text>
+    <text x="680" y="144" text-anchor="middle" fill="#1b2733">query and trust</text>
+    <text x="680" y="172" text-anchor="middle" font-size="12" fill="#173d6b">Iceberg lives here</text>
+
+    <rect x="800" y="70" width="85" height="120" rx="10" fill="#dff3ea" stroke="#2f9e72"/>
+    <text x="842" y="98" text-anchor="middle" font-weight="700" fill="#14583d">5. Use</text>
+    <text x="842" y="124" text-anchor="middle" fill="#1b2733">BI</text>
+    <text x="842" y="144" text-anchor="middle" fill="#1b2733">ML</text>
+    <text x="842" y="164" text-anchor="middle" fill="#1b2733">Apps</text>
+  </g>
+
+  <g stroke="#5b6b7a" stroke-width="2" fill="none">
+    <path d="M170 130 H211" marker-end="url(#a)"/>
+    <path d="M365 130 H406" marker-end="url(#a)"/>
+    <path d="M560 130 H601" marker-end="url(#a)"/>
+    <path d="M755 130 H796" marker-end="url(#a)"/>
+  </g>
+
+  <!-- data engineer bracket -->
+  <path d="M215 215 V230 H755 V215" stroke="#3a78c2" stroke-width="2" fill="none"/>
+  <text x="485" y="256" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">The data engineer's job: make steps 2 – 4 correct, repeatable and cheap</text>
+  <text x="485" y="280" text-anchor="middle" font-size="13" fill="#5b6b7a">so that nobody in step 5 has to think about steps 1 – 4</text>
+</svg>
