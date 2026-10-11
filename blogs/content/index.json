@@ -499,6 +499,19 @@
             "dimensions",
             "beginner"
           ]
+        },
+        {
+          "name": "Reading JSON Lines & Schemas",
+          "type": "file",
+          "path": "data-engineering/03-reading-json-lines-and-schemas.md",
+          "date": "2026-10-11",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "json-lines",
+            "schema",
+            "structtype"
+          ]
         }
       ]
     }

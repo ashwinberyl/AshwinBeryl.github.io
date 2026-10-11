@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="400" fill="#ffffff"/>
+  <defs>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  </defs>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Same quiet-day file, two ways to read it</text>
+  <text x="450" y="56" text-anchor="middle" font-size="13.5" fill="#5b6b7a">Only one event today, and its actor has no login</text>
+
+  <!-- input file -->
+  <rect x="300" y="72" width="300" height="40" rx="6" fill="#111916"/>
+  <text x="450" y="97" text-anchor="middle" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" fill="#dbe5e0">"actor":{"id":3}   ← no "login"</text>
+
+  <g stroke="#5b6b7a" stroke-width="2" fill="none">
+    <path d="M380 114 L225 150" marker-end="url(#b)"/>
+    <path d="M520 114 L675 150" marker-end="url(#b)"/>
+  </g>
+
+  <!-- left: inference -->
+  <rect x="30" y="152" width="390" height="226" rx="10" fill="#fff7ef" stroke="#d9822b" stroke-width="2"/>
+  <text x="225" y="180" text-anchor="middle" font-size="16" font-weight="700" fill="#7a3f00">A · spark.read.json(path)</text>
+  <text x="225" y="201" text-anchor="middle" font-size="13" fill="#7a3f00">schema guessed from today's data</text>
+  <g font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12.5" fill="#1b2733">
+    <text x="60" y="232">actor: struct</text>
+    <text x="80" y="252">└─ id: long</text>
+    <text x="80" y="272" fill="#b0471a">(no login field at all)</text>
+  </g>
+  <rect x="50" y="292" width="350" height="68" rx="8" fill="#fde0d6" stroke="#c4441d"/>
+  <text x="225" y="318" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8a2a0e">F.col("actor.login")  →  crash</text>
+  <text x="225" y="340" text-anchor="middle" font-size="12.5" fill="#8a2a0e">AnalysisException: no such struct field</text>
+
+  <!-- right: explicit -->
+  <rect x="480" y="152" width="390" height="226" rx="10" fill="#f1faf6" stroke="#2f9e72" stroke-width="2"/>
+  <text x="675" y="180" text-anchor="middle" font-size="16" font-weight="700" fill="#14583d">B · spark.read.schema(S).json(path)</text>
+  <text x="675" y="201" text-anchor="middle" font-size="13" fill="#14583d">schema is a contract you wrote</text>
+  <g font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12.5" fill="#1b2733">
+    <text x="510" y="232">actor: struct</text>
+    <text x="530" y="252">├─ id: long</text>
+    <text x="530" y="272" fill="#14583d">└─ login: string</text>
+  </g>
+  <rect x="500" y="292" width="350" height="68" rx="8" fill="#dff3ea" stroke="#2f9e72"/>
+  <text x="675" y="318" text-anchor="middle" font-size="13.5" font-weight="700" fill="#14583d">F.col("actor.login")  →  null</text>
+  <text x="675" y="340" text-anchor="middle" font-size="12.5" fill="#14583d">job keeps running, null handled downstream</text>
+</svg>

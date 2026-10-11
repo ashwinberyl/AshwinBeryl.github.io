@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="360" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  </defs>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">One line of events.jsonl becomes one row with two struct columns</text>
+
+  <!-- the raw line -->
+  <rect x="30" y="52" width="840" height="44" rx="6" fill="#111916"/>
+  <text x="44" y="79" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11.5" fill="#dbe5e0">{"event_id":"e09","event_type":"PushEvent","created_at":"…","repo":{"id":101,"name":"alpha-api"},"actor":{"id":3}}</text>
+
+  <g stroke="#5b6b7a" stroke-width="2" fill="none">
+    <path d="M450 98 L450 124" marker-end="url(#a)"/>
+  </g>
+
+  <!-- row -->
+  <g font-size="13">
+    <rect x="30" y="128" width="130" height="62" rx="8" fill="#f5f8fc" stroke="#3a78c2"/>
+    <text x="95" y="153" text-anchor="middle" font-weight="700" fill="#173d6b">event_id</text>
+    <text x="95" y="174" text-anchor="middle" fill="#1b2733">string · "e09"</text>
+
+    <rect x="172" y="128" width="150" height="62" rx="8" fill="#f5f8fc" stroke="#3a78c2"/>
+    <text x="247" y="153" text-anchor="middle" font-weight="700" fill="#173d6b">event_type</text>
+    <text x="247" y="174" text-anchor="middle" fill="#1b2733">string · "PushEvent"</text>
+
+    <rect x="334" y="128" width="150" height="62" rx="8" fill="#f5f8fc" stroke="#3a78c2"/>
+    <text x="409" y="153" text-anchor="middle" font-weight="700" fill="#173d6b">created_at</text>
+    <text x="409" y="174" text-anchor="middle" fill="#1b2733">string (not a time yet)</text>
+
+    <rect x="496" y="128" width="180" height="62" rx="8" fill="#dff3ea" stroke="#2f9e72" stroke-width="2"/>
+    <text x="586" y="153" text-anchor="middle" font-weight="700" fill="#14583d">repo</text>
+    <text x="586" y="174" text-anchor="middle" fill="#14583d">struct</text>
+
+    <rect x="688" y="128" width="182" height="62" rx="8" fill="#dff3ea" stroke="#2f9e72" stroke-width="2"/>
+    <text x="779" y="153" text-anchor="middle" font-weight="700" fill="#14583d">actor</text>
+    <text x="779" y="174" text-anchor="middle" fill="#14583d">struct</text>
+  </g>
+
+  <g stroke="#2f9e72" stroke-width="1.5" fill="none">
+    <path d="M556 190 L540 226"/><path d="M616 190 L632 226"/>
+    <path d="M749 190 L733 226"/><path d="M809 190 L825 226"/>
+  </g>
+
+  <!-- struct children -->
+  <g font-size="12.5">
+    <rect x="490" y="228" width="96" height="54" rx="6" fill="#ffffff" stroke="#2f9e72"/>
+    <text x="538" y="250" text-anchor="middle" font-weight="700" fill="#14583d">repo.id</text>
+    <text x="538" y="270" text-anchor="middle" fill="#1b2733">long · 101</text>
+
+    <rect x="594" y="228" width="88" height="54" rx="6" fill="#ffffff" stroke="#2f9e72"/>
+    <text x="638" y="250" text-anchor="middle" font-weight="700" fill="#14583d">repo.name</text>
+    <text x="638" y="270" text-anchor="middle" fill="#1b2733">alpha-api</text>
+
+    <rect x="688" y="228" width="88" height="54" rx="6" fill="#ffffff" stroke="#2f9e72"/>
+    <text x="732" y="250" text-anchor="middle" font-weight="700" fill="#14583d">actor.id</text>
+    <text x="732" y="270" text-anchor="middle" fill="#1b2733">long · 3</text>
+
+    <rect x="782" y="228" width="88" height="54" rx="6" fill="#fdecd8" stroke="#d9822b" stroke-width="2"/>
+    <text x="826" y="250" text-anchor="middle" font-weight="700" fill="#7a3f00">actor.login</text>
+    <text x="826" y="270" text-anchor="middle" fill="#7a3f00">missing!</text>
+  </g>
+
+  <text x="30" y="318" font-size="14" fill="#1b2733"><tspan font-weight="700">Struct</tspan> = a column that holds a small row of its own. Reach inside with a dot path: <tspan font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="13">F.col("actor.login")</tspan></text>
+  <text x="30" y="342" font-size="14" fill="#7a3f00">The schema decides what a missing key becomes: a null, or a crash.</text>
+</svg>
