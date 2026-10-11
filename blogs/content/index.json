@@ -499,6 +499,19 @@
             "dimensions",
             "beginner"
           ]
+        },
+        {
+          "name": "Spark from First Principles",
+          "type": "file",
+          "path": "data-engineering/02-spark-from-first-principles.md",
+          "date": "2026-10-11",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "dataframes",
+            "lazy-evaluation",
+            "null"
+          ]
         }
       ]
     }
