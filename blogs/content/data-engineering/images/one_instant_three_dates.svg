@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="380" fill="#ffffff"/>
+  <defs>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  </defs>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">One instant, three calendars</text>
+  <text x="450" y="56" text-anchor="middle" font-size="13.5" fill="#5b6b7a">The same parsed timestamp, read under three values of spark.sql.session.timeZone</text>
+
+  <rect x="250" y="74" width="400" height="42" rx="8" fill="#111916"/>
+  <text x="450" y="100" text-anchor="middle" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="13" fill="#dbe5e0">created_at = "2024-03-01T20:15:00Z"</text>
+
+  <g stroke="#5b6b7a" stroke-width="2" fill="none">
+    <path d="M330 118 L165 160" marker-end="url(#b)"/>
+    <path d="M450 118 L450 160" marker-end="url(#b)"/>
+    <path d="M570 118 L735 160" marker-end="url(#b)"/>
+  </g>
+
+  <!-- UTC -->
+  <rect x="30" y="162" width="270" height="160" rx="10" fill="#f1faf6" stroke="#2f9e72" stroke-width="2"/>
+  <text x="165" y="190" text-anchor="middle" font-size="15" font-weight="700" fill="#14583d">UTC</text>
+  <g font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12.5" fill="#1b2733">
+    <text x="50" y="228">created_ts</text>
+    <text x="50" y="248">2024-03-01 20:15:00</text>
+    <text x="50" y="282">event_date</text>
+    <text x="50" y="302" font-weight="700" fill="#14583d">2024-03-01</text>
+  </g>
+
+  <!-- Kolkata -->
+  <rect x="315" y="162" width="270" height="160" rx="10" fill="#fff7ef" stroke="#d9822b" stroke-width="2"/>
+  <text x="450" y="190" text-anchor="middle" font-size="15" font-weight="700" fill="#7a3f00">Asia/Kolkata (UTC+5:30)</text>
+  <g font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12.5" fill="#1b2733">
+    <text x="335" y="228">created_ts</text>
+    <text x="335" y="248">2024-03-02 01:45:00</text>
+    <text x="335" y="282">event_date</text>
+    <text x="335" y="302" font-weight="700" fill="#b0471a">2024-03-02 ← next day</text>
+  </g>
+
+  <!-- LA -->
+  <rect x="600" y="162" width="270" height="160" rx="10" fill="#f6f8fa" stroke="#9aa8b4" stroke-width="2"/>
+  <text x="735" y="190" text-anchor="middle" font-size="15" font-weight="700" fill="#1b2733">America/Los_Angeles (UTC−8)</text>
+  <g font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12.5" fill="#1b2733">
+    <text x="620" y="228">created_ts</text>
+    <text x="620" y="248">2024-03-01 12:15:00</text>
+    <text x="620" y="282">event_date</text>
+    <text x="620" y="302" font-weight="700">2024-03-01</text>
+  </g>
+
+  <text x="450" y="352" text-anchor="middle" font-size="13.5" fill="#5b6b7a">The instant never changes. The wall-clock time and the date do. Pin the session to UTC.</text>
+</svg>
