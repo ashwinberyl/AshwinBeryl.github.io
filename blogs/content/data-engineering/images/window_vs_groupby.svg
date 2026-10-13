@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="400" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">groupBy collapses each group. A window keeps every row.</text>
+<text x="30" y="64" font-size="15" font-weight="700" fill="#1b2733">Input: 8 events</text>
+<text x="30" y="82" font-size="12" fill="#5b6b7a">e09 left out for clarity</text>
+<text x="38" y="112" font-size="12" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">actor_login</text>
+<text x="158" y="112" font-size="12" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">event_id</text>
+<line x1="30" y1="120" x2="240" y2="120" stroke="#9aa7b4"/>
+<rect x="30" y="126" width="210" height="26" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<text x="38" y="144" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">priya</text>
+<text x="158" y="144" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e01</text>
+<rect x="30" y="156" width="210" height="26" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<text x="38" y="174" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">priya</text>
+<text x="158" y="174" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e02</text>
+<rect x="30" y="186" width="210" height="26" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<text x="38" y="204" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">priya</text>
+<text x="158" y="204" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e03</text>
+<rect x="30" y="216" width="210" height="26" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<text x="38" y="234" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">priya</text>
+<text x="158" y="234" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e04</text>
+<rect x="30" y="246" width="210" height="26" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<text x="38" y="264" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">priya</text>
+<text x="158" y="264" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e05</text>
+<rect x="30" y="276" width="210" height="26" rx="4" fill="#d3efe2" stroke="#2f9e72"/>
+<text x="38" y="294" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">rahul</text>
+<text x="158" y="294" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e06</text>
+<rect x="30" y="306" width="210" height="26" rx="4" fill="#d3efe2" stroke="#2f9e72"/>
+<text x="38" y="324" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">rahul</text>
+<text x="158" y="324" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e07</text>
+<rect x="30" y="336" width="210" height="26" rx="4" fill="#d3efe2" stroke="#2f9e72"/>
+<text x="38" y="354" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">rahul</text>
+<text x="158" y="354" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e08</text>
+<text x="345" y="64" font-size="15" font-weight="700" fill="#1b2733">groupBy → 2 rows</text>
+<text x="345" y="82" font-size="12" fill="#5b6b7a">groupBy("actor_login").count()</text>
+<text x="353" y="202" font-size="12" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">actor_login</text>
+<text x="473" y="202" font-size="12" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">count</text>
+<line x1="345" y1="210" x2="535" y2="210" stroke="#9aa7b4"/>
+<rect x="345" y="216" width="190" height="26" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<text x="353" y="234" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">priya</text>
+<text x="473" y="234" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">5</text>
+<rect x="345" y="246" width="190" height="26" rx="4" fill="#d3efe2" stroke="#2f9e72"/>
+<text x="353" y="264" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">rahul</text>
+<text x="473" y="264" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">3</text>
+<text x="620" y="64" font-size="15" font-weight="700" fill="#1b2733">Window → 8 rows</text>
+<text x="620" y="82" font-size="12" fill="#5b6b7a">count over partitionBy("actor_login")</text>
+<text x="628" y="112" font-size="12" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">actor_login</text>
+<text x="738" y="112" font-size="12" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">event_id</text>
+<text x="823" y="112" font-size="12" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">n_total</text>
+<line x1="620" y1="120" x2="895" y2="120" stroke="#9aa7b4"/>
+<rect x="620" y="126" width="275" height="26" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<text x="628" y="144" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">priya</text>
+<text x="738" y="144" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e01</text>
+<text x="823" y="144" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">5</text>
+<rect x="620" y="156" width="275" height="26" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<text x="628" y="174" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">priya</text>
+<text x="738" y="174" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e02</text>
+<text x="823" y="174" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">5</text>
+<rect x="620" y="186" width="275" height="26" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<text x="628" y="204" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">priya</text>
+<text x="738" y="204" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e03</text>
+<text x="823" y="204" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">5</text>
+<rect x="620" y="216" width="275" height="26" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<text x="628" y="234" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">priya</text>
+<text x="738" y="234" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e04</text>
+<text x="823" y="234" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">5</text>
+<rect x="620" y="246" width="275" height="26" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<text x="628" y="264" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">priya</text>
+<text x="738" y="264" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e05</text>
+<text x="823" y="264" font-size="13" fill="#173d6b" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">5</text>
+<rect x="620" y="276" width="275" height="26" rx="4" fill="#d3efe2" stroke="#2f9e72"/>
+<text x="628" y="294" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">rahul</text>
+<text x="738" y="294" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e06</text>
+<text x="823" y="294" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">3</text>
+<rect x="620" y="306" width="275" height="26" rx="4" fill="#d3efe2" stroke="#2f9e72"/>
+<text x="628" y="324" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">rahul</text>
+<text x="738" y="324" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e07</text>
+<text x="823" y="324" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">3</text>
+<rect x="620" y="336" width="275" height="26" rx="4" fill="#d3efe2" stroke="#2f9e72"/>
+<text x="628" y="354" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">rahul</text>
+<text x="738" y="354" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e08</text>
+<text x="823" y="354" font-size="13" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">3</text>
+<defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker></defs>
+<line x1="250" y1="200" x2="335" y2="235" stroke="#5b6b7a" stroke-width="2" marker-end="url(#ar)"/>
+<path d="M250,330 C 420,380 520,380 610,330" fill="none" stroke="#5b6b7a" stroke-width="2" marker-end="url(#ar)"/>
+<text x="345" y="330" font-size="12" fill="#5b6b7a">every row survives, and</text>
+<text x="345" y="346" font-size="12" fill="#5b6b7a">gains its group's answer</text>
+</svg>
