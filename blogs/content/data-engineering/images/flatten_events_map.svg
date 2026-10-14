@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="460" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+  </defs>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">flatten_events: one nested row in, six flat columns out</text>
+  <text x="450" y="56" text-anchor="middle" font-size="13.5" fill="#5b6b7a">Event e04, before and after</text>
+
+  <!-- left: nested row -->
+  <rect x="30" y="76" width="330" height="340" rx="10" fill="#f6f8fa" stroke="#9aa8b4" stroke-width="1.5"/>
+  <text x="195" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">read_events output (nested)</text>
+  <g font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12.5" fill="#1b2733">
+    <text x="48" y="134">event_id:</text><text x="140" y="134">"e04"</text>
+    <text x="48" y="169">event_type:</text><text x="140" y="169">"PUSHEVENT"</text>
+    <text x="48" y="204">created_at:</text><text x="140" y="204">"2024-03-01T11:20:00Z"</text>
+    <text x="48" y="260">repo:</text>
+    <text x="68" y="285">.id</text><text x="128" y="285">101</text>
+    <text x="68" y="310" fill="#9aa8b4">.name</text><text x="128" y="310" fill="#9aa8b4">"alpha-service"</text>
+    <text x="48" y="345">actor:</text>
+    <text x="68" y="370" fill="#9aa8b4">.id</text><text x="128" y="370" fill="#9aa8b4">1</text>
+    <text x="68" y="395">.login</text><text x="128" y="395">"priya"</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#2f9e72" stroke-width="1.8" fill="none">
+    <path d="M362 130 L538 130" marker-end="url(#a)"/>
+    <path d="M362 165 L538 165" marker-end="url(#a)"/>
+    <path d="M362 200 L538 200" marker-end="url(#a)"/>
+    <path d="M362 210 L538 235" marker-end="url(#a)"/>
+    <path d="M362 281 L538 281" marker-end="url(#a)"/>
+    <path d="M362 391 L538 391" marker-end="url(#a)"/>
+  </g>
+  <g font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11.5" fill="#14583d" text-anchor="middle">
+    <text x="450" y="124">as is</text>
+    <text x="450" y="159">lower() + alias</text>
+    <text x="450" y="194">to_timestamp()</text>
+    <text x="470" y="246">to_date()</text>
+    <text x="450" y="275">"repo.id" + alias</text>
+    <text x="450" y="385">"actor.login" + alias</text>
+  </g>
+  <g font-size="12" fill="#9aa8b4" text-anchor="middle" font-style="italic">
+    <text x="450" y="314">repo.name: left behind</text>
+    <text x="450" y="353">actor.id: left behind</text>
+  </g>
+
+  <!-- right: flat row -->
+  <rect x="540" y="76" width="330" height="340" rx="10" fill="#f1faf6" stroke="#2f9e72" stroke-width="2"/>
+  <text x="705" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#14583d">flatten_events output (flat)</text>
+  <g font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12.5" fill="#1b2733">
+    <text x="556" y="134">event_id</text><text x="664" y="134">e04</text>
+    <text x="556" y="169">event_type</text><text x="664" y="169">pushevent</text>
+    <text x="556" y="204">created_ts</text><text x="664" y="204">2024-03-01 11:20:00</text>
+    <text x="556" y="239">event_date</text><text x="664" y="239">2024-03-01</text>
+    <text x="556" y="285">repo_id</text><text x="664" y="285">101</text>
+    <text x="556" y="395">actor_login</text><text x="664" y="395">priya</text>
+  </g>
+  <text x="705" y="330" text-anchor="middle" font-size="12.5" fill="#14583d">types: string · string · timestamp</text>
+  <text x="705" y="350" text-anchor="middle" font-size="12.5" fill="#14583d">date · long · string</text>
+
+  <text x="450" y="444" text-anchor="middle" font-size="13" fill="#5b6b7a">Every output column is chosen and named on purpose. Nothing rides along by accident.</text>
+</svg>

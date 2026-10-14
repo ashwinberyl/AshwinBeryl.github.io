@@ -525,6 +525,19 @@
             "schema",
             "structtype"
           ]
+        },
+        {
+          "name": "Flattening & Timestamps",
+          "type": "file",
+          "path": "data-engineering/04-flattening-and-timestamps.md",
+          "date": "2026-10-12",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "flattening",
+            "timestamps",
+            "time-zones"
+          ]
         }
       ]
     }
