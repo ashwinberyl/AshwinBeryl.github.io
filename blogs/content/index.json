@@ -538,6 +538,19 @@
             "timestamps",
             "time-zones"
           ]
+        },
+        {
+          "name": "Window Functions",
+          "type": "file",
+          "path": "data-engineering/05-window-functions.md",
+          "date": "2026-10-13",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "window-functions",
+            "lag-lead",
+            "ranking"
+          ]
         }
       ]
     }

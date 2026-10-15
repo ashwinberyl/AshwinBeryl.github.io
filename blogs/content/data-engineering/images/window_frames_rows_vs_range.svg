@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="900" height="330" fill="#ffffff"/>
+<text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Running count for priya's e04: which rows are in the frame?</text>
+<text x="450" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Partition: actor_login = priya · ordered by created_ts · current row = e04</text>
+<rect x="60" y="76" width="140" height="56" rx="6" fill="#dbe9f8" stroke="#3a78c2" stroke-width="1.5"/>
+<text x="130" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e01</text>
+<text x="130" y="121" text-anchor="middle" font-size="13" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">09:50</text>
+<rect x="220" y="76" width="140" height="56" rx="6" fill="#dbe9f8" stroke="#3a78c2" stroke-width="1.5"/>
+<text x="290" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e02</text>
+<text x="290" y="121" text-anchor="middle" font-size="13" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">10:10</text>
+<rect x="380" y="76" width="140" height="56" rx="6" fill="#dbe9f8" stroke="#3a78c2" stroke-width="1.5"/>
+<text x="450" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e03</text>
+<text x="450" y="121" text-anchor="middle" font-size="13" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">10:40</text>
+<rect x="540" y="76" width="140" height="56" rx="6" fill="#fde7c8" stroke="#d9822b" stroke-width="3"/>
+<text x="610" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e04</text>
+<text x="610" y="121" text-anchor="middle" font-size="13" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">11:20</text>
+<rect x="700" y="76" width="140" height="56" rx="6" fill="#dbe9f8" stroke="#3a78c2" stroke-width="1.5"/>
+<text x="770" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e05</text>
+<text x="770" y="121" text-anchor="middle" font-size="13" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">11:20</text>
+<text x="670" y="150" text-anchor="middle" font-size="12" fill="#d9822b">current row</text>
+<text x="770" y="150" text-anchor="middle" font-size="12" fill="#7a3f00">same time</text>
+<rect x="56" y="168" width="628" height="54" rx="8" fill="#eaf6ef" stroke="#2f9e72" stroke-width="2"/>
+<text x="72" y="191" font-size="14" font-weight="700" fill="#14583d" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">rowsBetween(unboundedPreceding, currentRow)</text>
+<text x="72" y="211" font-size="13" fill="#14583d">physical rows up to e04 → n = 4</text>
+<rect x="56" y="236" width="788" height="54" rx="8" fill="#fdf0f0" stroke="#c0392b" stroke-width="2"/>
+<text x="72" y="259" font-size="14" font-weight="700" fill="#8e2a20" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">default: rangeBetween(unboundedPreceding, currentRow)</text>
+<text x="72" y="279" font-size="13" fill="#8e2a20">every row with created_ts ≤ 11:20, so e05 sneaks in → n = 5</text>
+<text x="450" y="316" text-anchor="middle" font-size="12" fill="#5b6b7a">Fix: rowsBetween plus a tie-breaker (event_id) in orderBy, so e04 → 4 and e05 → 5 on every run.</text>
+</svg>
