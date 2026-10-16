@@ -551,6 +551,19 @@
             "lag-lead",
             "ranking"
           ]
+        },
+        {
+          "name": "SCD Type 2",
+          "type": "file",
+          "path": "data-engineering/06-scd-type-2.md",
+          "date": "2026-10-17",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "scd-type-2",
+            "dimensions",
+            "window-functions"
+          ]
         }
       ]
     }

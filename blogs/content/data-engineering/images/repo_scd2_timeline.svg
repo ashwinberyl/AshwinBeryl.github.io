@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="430" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Repo versions as half-open intervals [valid_from, valid_to)</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Each bar includes its left edge and excludes its right edge. Every event falls in at most one bar.</text>
+
+<!-- grid -->
+<g stroke="#e3e8ed" stroke-width="1">
+  <line x1="244" y1="70" x2="244" y2="362"/><line x1="412" y1="70" x2="412" y2="362"/>
+  <line x1="580" y1="70" x2="580" y2="362"/><line x1="748" y1="70" x2="748" y2="362"/>
+  <line x1="916" y1="70" x2="916" y2="362"/>
+</g>
+
+<!-- lane labels -->
+<text x="24" y="146" font-size="15" font-weight="700" fill="#1b2733">repo 101</text>
+<text x="24" y="296" font-size="15" font-weight="700" fill="#1b2733">repo 202</text>
+
+<!-- repo 101 bars -->
+<rect x="244" y="120" width="168" height="46" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<rect x="412" y="120" width="168" height="46" rx="4" fill="#fde4d4" stroke="#d9822b"/>
+<rect x="580" y="120" width="336" height="46" rx="4" fill="#d8f0e4" stroke="#2f9e72"/>
+<g font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" font-size="12.5">
+  <text x="252" y="139" fill="#173d6b" font-weight="700">c1 · public</text>
+  <text x="252" y="157" fill="#173d6b">[09:00, 10:00)</text>
+  <text x="420" y="139" fill="#7a3e0c" font-weight="700">c2 · private</text>
+  <text x="420" y="157" fill="#7a3e0c">[10:00, 11:00)</text>
+  <text x="588" y="139" fill="#14583d" font-weight="700">c3 · public · alpha-service</text>
+  <text x="588" y="157" fill="#14583d">[11:00, null) · is_current</text>
+</g>
+
+<!-- repo 101 events -->
+<g stroke="#1b2733" stroke-dasharray="3 3"><line x1="384" y1="100" x2="384" y2="120"/><line x1="412" y1="100" x2="412" y2="120"/><line x1="524" y1="100" x2="524" y2="120"/><line x1="636" y1="100" x2="636" y2="120"/></g>
+<g fill="#1b2733"><circle cx="384" cy="96" r="5"/><circle cx="412" cy="96" r="5"/><circle cx="524" cy="96" r="5"/><circle cx="636" cy="96" r="5"/></g>
+<g font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" font-size="12" fill="#1b2733">
+  <text x="378" y="82" text-anchor="end">e01 09:50</text>
+  <text x="418" y="82">e09 10:00</text>
+  <text x="530" y="82">e03 10:40</text>
+  <text x="642" y="82">e04 11:20</text>
+</g>
+
+<!-- repo 202: no version yet -->
+<rect x="160" y="270" width="336" height="46" rx="4" fill="#f6f7f8" stroke="#9aa7b4" stroke-dasharray="5 4"/>
+<text x="300" y="298" text-anchor="middle" font-size="12.5" fill="#5b6b7a">no version yet</text>
+<rect x="496" y="270" width="252" height="46" rx="4" fill="#dbe9f8" stroke="#3a78c2"/>
+<rect x="748" y="270" width="168" height="46" rx="4" fill="#d8f0e4" stroke="#2f9e72"/>
+<g font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" font-size="12.5">
+  <text x="504" y="289" fill="#173d6b" font-weight="700">c4 · public · master</text>
+  <text x="504" y="307" fill="#173d6b">[10:30, 12:00)</text>
+  <text x="756" y="289" fill="#14583d" font-weight="700">c5 · public · main</text>
+  <text x="756" y="307" fill="#14583d">[12:00, null)</text>
+</g>
+
+<!-- repo 202 events -->
+<g stroke="#1b2733" stroke-dasharray="3 3"><line x1="440" y1="250" x2="440" y2="270"/><line x1="454" y1="250" x2="454" y2="270"/><line x1="510" y1="250" x2="510" y2="270"/><line x1="636" y1="250" x2="636" y2="270"/></g>
+<circle cx="440" cy="246" r="5" fill="#ffffff" stroke="#d9822b" stroke-width="2.5"/>
+<circle cx="454" cy="246" r="5" fill="#ffffff" stroke="#d9822b" stroke-width="2.5"/>
+<circle cx="510" cy="246" r="5" fill="#1b2733"/>
+<circle cx="636" cy="246" r="5" fill="#1b2733"/>
+<g font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" font-size="12">
+  <text x="434" y="214" text-anchor="end" fill="#a3560f">e02 10:10</text>
+  <text x="460" y="214" fill="#a3560f">e06 10:15</text>
+  <text x="516" y="234" fill="#1b2733">e07 10:35</text>
+  <text x="642" y="234" fill="#1b2733">e05 11:20</text>
+</g>
+
+<!-- axis -->
+<line x1="160" y1="362" x2="916" y2="362" stroke="#5b6b7a"/>
+<g font-size="12" fill="#5b6b7a" text-anchor="middle">
+  <text x="244" y="380">09:00</text><text x="412" y="380">10:00</text><text x="580" y="380">11:00</text><text x="748" y="380">12:00</text><text x="916" y="380">13:00</text>
+</g>
+
+<!-- legend -->
+<circle cx="170" cy="410" r="5" fill="#1b2733"/>
+<text x="182" y="414" font-size="12.5" fill="#1b2733">event matches exactly one version</text>
+<circle cx="440" cy="410" r="5" fill="#ffffff" stroke="#d9822b" stroke-width="2.5"/>
+<text x="452" y="414" font-size="12.5" fill="#1b2733">no version covers it (null)</text>
+<text x="660" y="414" font-size="12.5" fill="#5b6b7a">repo 999 (e08) has no versions at all</text>
+</svg>

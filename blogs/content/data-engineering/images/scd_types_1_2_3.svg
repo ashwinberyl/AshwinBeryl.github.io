@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="380" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Repo 101 under SCD Types 1, 2 and 3</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Same three changes (c1, c2, c3). What the table keeps, and what Dave's e03 at 10:40 gets.</text>
+
+<!-- SCD 1 -->
+<rect x="25" y="74" width="290" height="286" rx="10" fill="#f7f9fb" stroke="#9aa7b4" stroke-width="1.5"/>
+<text x="170" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2733">SCD Type 1</text>
+<text x="170" y="122" text-anchor="middle" font-size="12.5" fill="#5b6b7a">overwrite the old value</text>
+<g font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" font-size="12.5" fill="#1b2733">
+  <text x="45" y="160" font-weight="700">repo_name</text><text x="175" y="160" font-weight="700">visibility</text>
+  <line x1="45" y1="168" x2="295" y2="168" stroke="#9aa7b4"/>
+  <text x="45" y="188">alpha-service</text><text x="175" y="188">public</text>
+</g>
+<text x="45" y="232" font-size="12.5" fill="#5b6b7a">1 row. History is gone.</text>
+<rect x="45" y="294" width="250" height="46" rx="6" fill="#fde8e8" stroke="#c0392b"/>
+<text x="170" y="316" text-anchor="middle" font-size="13" font-weight="700" fill="#8e1f14">e03 sees: public</text>
+<text x="170" y="333" text-anchor="middle" font-size="12" fill="#8e1f14">wrong, it was private</text>
+
+<!-- SCD 2 -->
+<rect x="335" y="74" width="290" height="286" rx="10" fill="#f1faf6" stroke="#2f9e72" stroke-width="2"/>
+<text x="480" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#14583d">SCD Type 2</text>
+<text x="480" y="122" text-anchor="middle" font-size="12.5" fill="#5b6b7a">add a row, close the old one</text>
+<g font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" font-size="12.5" fill="#1b2733">
+  <text x="355" y="160" font-weight="700">visibility</text><text x="450" y="160" font-weight="700">from</text><text x="515" y="160" font-weight="700">to</text>
+  <line x1="355" y1="168" x2="605" y2="168" stroke="#9aa7b4"/>
+  <text x="355" y="188">public</text><text x="450" y="188">09:00</text><text x="515" y="188">10:00</text>
+  <text x="355" y="208" fill="#a3560f" font-weight="700">private</text><text x="450" y="208" fill="#a3560f" font-weight="700">10:00</text><text x="515" y="208" fill="#a3560f" font-weight="700">11:00</text>
+  <text x="355" y="228">public</text><text x="450" y="228">11:00</text><text x="515" y="228">null</text>
+</g>
+<text x="355" y="262" font-size="12.5" fill="#5b6b7a">3 rows, each with its time range.</text>
+<rect x="355" y="294" width="250" height="46" rx="6" fill="#d8f0e4" stroke="#2f9e72"/>
+<text x="480" y="316" text-anchor="middle" font-size="13" font-weight="700" fill="#14583d">e03 sees: private</text>
+<text x="480" y="333" text-anchor="middle" font-size="12" fill="#14583d">correct, 10:40 is in [10:00, 11:00)</text>
+
+<!-- SCD 3 -->
+<rect x="645" y="74" width="290" height="286" rx="10" fill="#f7f9fb" stroke="#9aa7b4" stroke-width="1.5"/>
+<text x="790" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2733">SCD Type 3</text>
+<text x="790" y="122" text-anchor="middle" font-size="12.5" fill="#5b6b7a">keep a "previous" column</text>
+<g font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" font-size="12.5" fill="#1b2733">
+  <text x="665" y="160" font-weight="700">visibility</text><text x="760" y="160" font-weight="700">prev_visibility</text>
+  <line x1="665" y1="168" x2="915" y2="168" stroke="#9aa7b4"/>
+  <text x="665" y="188">public</text><text x="760" y="188">private</text>
+</g>
+<text x="665" y="232" font-size="12.5" fill="#5b6b7a">1 row. One step back, no times.</text>
+<rect x="665" y="294" width="250" height="46" rx="6" fill="#fff4e0" stroke="#d9822b"/>
+<text x="790" y="316" text-anchor="middle" font-size="13" font-weight="700" fill="#7a3e0c">e03 sees: can't tell</text>
+<text x="790" y="333" text-anchor="middle" font-size="12" fill="#7a3e0c">private once, but when?</text>
+</svg>
