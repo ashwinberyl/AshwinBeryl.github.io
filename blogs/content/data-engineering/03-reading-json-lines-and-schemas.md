@@ -33,8 +33,8 @@ Each card describes one thing, completely, on its own. You can add a new card to
 That's **JSON Lines** (`.jsonl`): **one complete JSON object per line, one line per record.**
 
 ```json
-{"event_id":"e01","event_type":"PushEvent","created_at":"2024-03-01T09:50:00Z","repo":{"id":101,"name":"alpha-api"},"actor":{"id":1,"login":"priya"}}
-{"event_id":"e02","event_type":"PullRequestEvent","created_at":"2024-03-01T10:10:00Z","repo":{"id":202,"name":"beta-web"},"actor":{"id":1,"login":"priya"}}
+{"event_id":"e01","event_type":"PushEvent","created_at":"2024-03-01T09:50:00Z","repo":{"id":101,"name":"alpha-api"},"actor":{"id":1,"login":"dave"}}
+{"event_id":"e02","event_type":"PullRequestEvent","created_at":"2024-03-01T10:10:00Z","repo":{"id":202,"name":"beta-web"},"actor":{"id":1,"login":"dave"}}
 ```
 
 Compare that with a normal JSON file — one big array:
@@ -234,14 +234,14 @@ root
 +--------+----------------+--------------------+--------------------+----------+
 |event_id|event_type      |created_at          |repo                |actor     |
 +--------+----------------+--------------------+--------------------+----------+
-|e01     |PushEvent       |2024-03-01T09:50:00Z|{101, alpha-api}    |{1, priya}|
-|e02     |PullRequestEvent|2024-03-01T10:10:00Z|{202, beta-web}     |{1, priya}|
-|e03     |IssuesEvent     |2024-03-01T10:40:00Z|{101, alpha-api}    |{1, priya}|
-|e05     |PushEvent       |2024-03-01T11:20:00Z|{202, beta-web}     |{1, priya}|
-|e04     |PUSHEVENT       |2024-03-01T11:20:00Z|{101, alpha-service}|{1, priya}|
-|e06     |PushEvent       |2024-03-01T10:15:00Z|{202, beta-web}     |{2, rahul}|
-|e07     |IssuesEvent     |2024-03-01T10:35:00Z|{202, beta-web}     |{2, rahul}|
-|e08     |PushEvent       |2024-03-01T12:30:00Z|{999, ghost}        |{2, rahul}|
+|e01     |PushEvent       |2024-03-01T09:50:00Z|{101, alpha-api}    |{1, dave} |
+|e02     |PullRequestEvent|2024-03-01T10:10:00Z|{202, beta-web}     |{1, dave} |
+|e03     |IssuesEvent     |2024-03-01T10:40:00Z|{101, alpha-api}    |{1, dave} |
+|e05     |PushEvent       |2024-03-01T11:20:00Z|{202, beta-web}     |{1, dave} |
+|e04     |PUSHEVENT       |2024-03-01T11:20:00Z|{101, alpha-service}|{1, dave} |
+|e06     |PushEvent       |2024-03-01T10:15:00Z|{202, beta-web}     |{2, jim}  |
+|e07     |IssuesEvent     |2024-03-01T10:35:00Z|{202, beta-web}     |{2, jim}  |
+|e08     |PushEvent       |2024-03-01T12:30:00Z|{999, ghost}        |{2, jim}  |
 |e09     |PushEvent       |2024-03-01T10:00:00Z|{101, alpha-api}    |{3, null} |
 +--------+----------------+--------------------+--------------------+----------+
 ```
@@ -411,7 +411,7 @@ ids.orderBy(F.col("repo_id").cast("long")).show()      # sorted as numbers
 
 As text, `"1000"` comes first, because `'1' < '2'` and the comparison stops there. Repo 1000 is "smaller" than repo 101.
 
-This matters far beyond `orderBy`. Later in the pipeline, IDs become **tie-breakers**. In Post 01, e04 and e05 both happened at exactly 11:20. To decide which came "first" in priya's session, we'll order by time *and then* by `event_id` (Posts 07 and 09).
+This matters far beyond `orderBy`. Later in the pipeline, IDs become **tie-breakers**. In Post 01, e04 and e05 both happened at exactly 11:20. To decide which came "first" in Dave's session, we'll order by time *and then* by `event_id` (Posts 07 and 09).
 
 So check the real data before you choose the type:
 

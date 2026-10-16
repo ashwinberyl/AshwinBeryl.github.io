@@ -73,14 +73,14 @@ A **DataFrame** is a table with named, typed columns — spread across partition
 
 ```python
 rows = [
-    ("e01", "PushEvent",        "priya", 101, "2024-03-01T09:50:00Z"),
-    ("e02", "PullRequestEvent", "priya", 202, "2024-03-01T10:10:00Z"),
-    ("e03", "IssuesEvent",      "priya", 101, "2024-03-01T10:40:00Z"),
-    ("e05", "PushEvent",        "priya", 202, "2024-03-01T11:20:00Z"),
-    ("e04", "PUSHEVENT",        "priya", 101, "2024-03-01T11:20:00Z"),
-    ("e06", "PushEvent",        "rahul", 202, "2024-03-01T10:15:00Z"),
-    ("e07", "IssuesEvent",      "rahul", 202, "2024-03-01T10:35:00Z"),
-    ("e08", "PushEvent",        "rahul", 999, "2024-03-01T12:30:00Z"),
+    ("e01", "PushEvent",        "dave", 101, "2024-03-01T09:50:00Z"),
+    ("e02", "PullRequestEvent", "dave", 202, "2024-03-01T10:10:00Z"),
+    ("e03", "IssuesEvent",      "dave", 101, "2024-03-01T10:40:00Z"),
+    ("e05", "PushEvent",        "dave", 202, "2024-03-01T11:20:00Z"),
+    ("e04", "PUSHEVENT",        "dave", 101, "2024-03-01T11:20:00Z"),
+    ("e06", "PushEvent",        "jim", 202, "2024-03-01T10:15:00Z"),
+    ("e07", "IssuesEvent",      "jim", 202, "2024-03-01T10:35:00Z"),
+    ("e08", "PushEvent",        "jim", 999, "2024-03-01T12:30:00Z"),
     ("e09", "PushEvent",        None,    101, "2024-03-01T10:00:00Z"),   # no login!
 ]
 events = spark.createDataFrame(
@@ -103,14 +103,14 @@ root
 +--------+----------------+-----------+-------+--------------------+
 |event_id|event_type      |actor_login|repo_id|created_at          |
 +--------+----------------+-----------+-------+--------------------+
-|e01     |PushEvent       |priya      |101    |2024-03-01T09:50:00Z|
-|e02     |PullRequestEvent|priya      |202    |2024-03-01T10:10:00Z|
-|e03     |IssuesEvent     |priya      |101    |2024-03-01T10:40:00Z|
-|e05     |PushEvent       |priya      |202    |2024-03-01T11:20:00Z|
-|e04     |PUSHEVENT       |priya      |101    |2024-03-01T11:20:00Z|
-|e06     |PushEvent       |rahul      |202    |2024-03-01T10:15:00Z|
-|e07     |IssuesEvent     |rahul      |202    |2024-03-01T10:35:00Z|
-|e08     |PushEvent       |rahul      |999    |2024-03-01T12:30:00Z|
+|e01     |PushEvent       |dave       |101    |2024-03-01T09:50:00Z|
+|e02     |PullRequestEvent|dave       |202    |2024-03-01T10:10:00Z|
+|e03     |IssuesEvent     |dave       |101    |2024-03-01T10:40:00Z|
+|e05     |PushEvent       |dave       |202    |2024-03-01T11:20:00Z|
+|e04     |PUSHEVENT       |dave       |101    |2024-03-01T11:20:00Z|
+|e06     |PushEvent       |jim        |202    |2024-03-01T10:15:00Z|
+|e07     |IssuesEvent     |jim        |202    |2024-03-01T10:35:00Z|
+|e08     |PushEvent       |jim        |999    |2024-03-01T12:30:00Z|
 |e09     |PushEvent       |null       |101    |2024-03-01T10:00:00Z|
 +--------+----------------+-----------+-------+--------------------+
 ```
@@ -192,14 +192,14 @@ clean.show(truncate=False)
 +--------+----------------+-----------+-------+-------+
 |event_id|event_type      |actor_login|repo_id|is_push|
 +--------+----------------+-----------+-------+-------+
-|e01     |pushevent       |priya      |101    |true   |
-|e02     |pullrequestevent|priya      |202    |false  |
-|e03     |issuesevent     |priya      |101    |false  |
-|e05     |pushevent       |priya      |202    |true   |
-|e04     |pushevent       |priya      |101    |true   |
-|e06     |pushevent       |rahul      |202    |true   |
-|e07     |issuesevent     |rahul      |202    |false  |
-|e08     |pushevent       |rahul      |999    |true   |
+|e01     |pushevent       |dave       |101    |true   |
+|e02     |pullrequestevent|dave       |202    |false  |
+|e03     |issuesevent     |dave       |101    |false  |
+|e05     |pushevent       |dave       |202    |true   |
+|e04     |pushevent       |dave       |101    |true   |
+|e06     |pushevent       |jim        |202    |true   |
+|e07     |issuesevent     |jim        |202    |false  |
+|e08     |pushevent       |jim        |999    |true   |
 +--------+----------------+-----------+-------+-------+
 ```
 
@@ -219,9 +219,9 @@ events.select("event_id", F.upper("actor_login")).show(3, truncate=False)
 +--------+------------------+
 |event_id|upper(actor_login)|
 +--------+------------------+
-|e01     |PRIYA             |
-|e02     |PRIYA             |
-|e03     |PRIYA             |
+|e01     |DAVE              |
+|e02     |DAVE              |
+|e03     |DAVE              |
 +--------+------------------+
 only showing top 3 rows
 ```
@@ -256,9 +256,9 @@ events.filter(F.col("actor_login") != None).count()
 
 | Expression | Result |
 |---|---|
-| `'priya' != 'rahul'` | `true` |
-| `'priya' != 'priya'` | `false` |
-| `'priya' != NULL` | **`null`** |
+| `'dave' != 'jim'` | `true` |
+| `'dave' != 'dave'` | `false` |
+| `'dave' != NULL` | **`null`** |
 | `NULL != NULL` | **`null`** |
 | `NULL = NULL` | **`null`** (not true!) |
 
@@ -281,26 +281,26 @@ events.filter(F.col("actor_login").isNotNull()).count()
 
 ### The sneakier version
 
-Now the one that even experienced engineers miss. Find every event *not* by priya:
+Now the one that even experienced engineers miss. Find every event *not* by Dave:
 
 ```python
-events.filter(F.col("actor_login") != "priya").show(truncate=False)
+events.filter(F.col("actor_login") != "dave").show(truncate=False)
 ```
 
 ```
 +--------+----------------+-----------+-------+--------------------+
 |event_id|event_type      |actor_login|repo_id|created_at          |
 +--------+----------------+-----------+-------+--------------------+
-|e06     |PushEvent       |rahul      |202    |2024-03-01T10:15:00Z|
-|e07     |IssuesEvent     |rahul      |202    |2024-03-01T10:35:00Z|
-|e08     |PushEvent       |rahul      |999    |2024-03-01T12:30:00Z|
+|e06     |PushEvent       |jim        |202    |2024-03-01T10:15:00Z|
+|e07     |IssuesEvent     |jim        |202    |2024-03-01T10:35:00Z|
+|e08     |PushEvent       |jim        |999    |2024-03-01T12:30:00Z|
 +--------+----------------+-----------+-------+--------------------+
 ```
 
-Where's `e09`? Its actor definitely isn't priya. But `NULL != 'priya'` is `null`, so `filter` dropped it. If you genuinely want "not priya, including unknowns", say so:
+Where's `e09`? Its actor definitely isn't Dave. But `NULL != 'dave'` is `null`, so `filter` dropped it. If you genuinely want "not Dave, including unknowns", say so:
 
 ```python
-events.filter((F.col("actor_login") != "priya") | F.col("actor_login").isNull()) \
+events.filter((F.col("actor_login") != "dave") | F.col("actor_login").isNull()) \
       .select("event_id", "actor_login", "repo_id").show(truncate=False)
 ```
 
@@ -308,9 +308,9 @@ events.filter((F.col("actor_login") != "priya") | F.col("actor_login").isNull())
 +--------+-----------+-------+
 |event_id|actor_login|repo_id|
 +--------+-----------+-------+
-|e06     |rahul      |202    |
-|e07     |rahul      |202    |
-|e08     |rahul      |999    |
+|e06     |jim        |202    |
+|e07     |jim        |202    |
+|e08     |jim        |999    |
 |e09     |null       |101    |
 +--------+-----------+-------+
 ```
@@ -369,8 +369,8 @@ pushes.show()
 +-----------+-----+
 |actor_login|count|
 +-----------+-----+
-|      priya|    3|
-|      rahul|    2|
+|      dave |    3|
+|      jim  |    2|
 +-----------+-----+
 ```
 
@@ -382,12 +382,12 @@ Now remove the `lower()` line and filter on `"PushEvent"` instead:
 +-----------+-----+
 |actor_login|count|
 +-----------+-----+
-|      priya|    2|
-|      rahul|    2|
+|      dave |    2|
+|      jim  |    2|
 +-----------+-----+
 ```
 
-priya lost a push — `e04` was spelt `PUSHEVENT`. **No error. Just a wrong number.** That's what data quality bugs look like: the job succeeds, the dashboard renders, and the answer is quietly off.
+Dave lost a push — `e04` was spelt `PUSHEVENT`. **No error. Just a wrong number.** That's what data quality bugs look like: the job succeeds, the dashboard renders, and the answer is quietly off.
 
 ---
 
@@ -416,12 +416,12 @@ No — it hasn't done anything yet. `filter` is a **transformation**; it only ad
 
 </details>
 
-**Q2.** How many rows does `events.filter(F.col("actor_login") == "priya")` return? And `events.filter(~(F.col("actor_login") == "priya"))`?
+**Q2.** How many rows does `events.filter(F.col("actor_login") == "dave")` return? And `events.filter(~(F.col("actor_login") == "dave"))`?
 
 <details>
 <summary>Show answer</summary>
 
-**5** and **3**. The first keeps priya's five events. The second keeps rahul's three — but **not e09**. For e09, `NULL == 'priya'` is `null`, and `~null` is still `null`, so it's dropped by *both* filters. 5 + 3 = 8, not 9. One row fell through the gap.
+**5** and **3**. The first keeps Dave's five events. The second keeps Jim's three — but **not e09**. For e09, `NULL == 'dave'` is `null`, and `~null` is still `null`, so it's dropped by *both* filters. 5 + 3 = 8, not 9. One row fell through the gap.
 
 </details>
 
