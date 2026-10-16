@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
 <rect width="900" height="330" fill="#ffffff"/>
-<text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Running count for priya's e04: which rows are in the frame?</text>
-<text x="450" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Partition: actor_login = priya · ordered by created_ts · current row = e04</text>
+<text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Running count for Dave's e04: which rows are in the frame?</text>
+<text x="450" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Partition: actor_login = dave · ordered by created_ts · current row = e04</text>
 <rect x="60" y="76" width="140" height="56" rx="6" fill="#dbe9f8" stroke="#3a78c2" stroke-width="1.5"/>
 <text x="130" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">e01</text>
 <text x="130" y="121" text-anchor="middle" font-size="13" fill="#1b2733" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">09:50</text>

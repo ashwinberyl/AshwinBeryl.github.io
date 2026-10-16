@@ -18,7 +18,7 @@
     <text x="68" y="310" fill="#9aa8b4">.name</text><text x="128" y="310" fill="#9aa8b4">"alpha-service"</text>
     <text x="48" y="345">actor:</text>
     <text x="68" y="370" fill="#9aa8b4">.id</text><text x="128" y="370" fill="#9aa8b4">1</text>
-    <text x="68" y="395">.login</text><text x="128" y="395">"priya"</text>
+    <text x="68" y="395">.login</text><text x="128" y="395">"dave"</text>
   </g>
 
   <!-- arrows -->
@@ -52,7 +52,7 @@
     <text x="556" y="204">created_ts</text><text x="664" y="204">2024-03-01 11:20:00</text>
     <text x="556" y="239">event_date</text><text x="664" y="239">2024-03-01</text>
     <text x="556" y="285">repo_id</text><text x="664" y="285">101</text>
-    <text x="556" y="395">actor_login</text><text x="664" y="395">priya</text>
+    <text x="556" y="395">actor_login</text><text x="664" y="395">dave</text>
   </g>
   <text x="705" y="330" text-anchor="middle" font-size="12.5" fill="#14583d">types: string · string · timestamp</text>
   <text x="705" y="350" text-anchor="middle" font-size="12.5" fill="#14583d">date · long · string</text>

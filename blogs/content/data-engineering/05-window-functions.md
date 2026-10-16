@@ -27,7 +27,7 @@ That's exactly what a **window function** does. It's one idea, and three of the 
 
 ## The Queue-at-the-Counter Analogy ☕
 
-Picture the coffee counter on a busy morning. There are two queues: one for **priya's** team, one for **rahul's**.
+Picture the coffee counter on a busy morning. There are two queues: one for **Dave's** team, one for **Jim's**.
 
 If the manager asks "how many people are in each queue?", you walk over, count, and write down two numbers. The people don't matter anymore. That's **`groupBy`**: each group collapses to one answer.
 
@@ -88,20 +88,20 @@ A `Window` object on its own does nothing. It's a **specification**. You attach 
 |actor_login|event_id|created_ts         |rn|prev_ts            |next_ts            |
 +-----------+--------+-------------------+--+-------------------+-------------------+
 |null       |e09     |2024-03-01 10:00:00|1 |null               |null               |
-|priya      |e01     |2024-03-01 09:50:00|1 |null               |2024-03-01 10:10:00|
-|priya      |e02     |2024-03-01 10:10:00|2 |2024-03-01 09:50:00|2024-03-01 10:40:00|
-|priya      |e03     |2024-03-01 10:40:00|3 |2024-03-01 10:10:00|2024-03-01 11:20:00|
-|priya      |e04     |2024-03-01 11:20:00|4 |2024-03-01 10:40:00|2024-03-01 11:20:00|
-|priya      |e05     |2024-03-01 11:20:00|5 |2024-03-01 11:20:00|null               |
-|rahul      |e06     |2024-03-01 10:15:00|1 |null               |2024-03-01 10:35:00|
-|rahul      |e07     |2024-03-01 10:35:00|2 |2024-03-01 10:15:00|2024-03-01 12:30:00|
-|rahul      |e08     |2024-03-01 12:30:00|3 |2024-03-01 10:35:00|null               |
+|dave       |e01     |2024-03-01 09:50:00|1 |null               |2024-03-01 10:10:00|
+|dave       |e02     |2024-03-01 10:10:00|2 |2024-03-01 09:50:00|2024-03-01 10:40:00|
+|dave       |e03     |2024-03-01 10:40:00|3 |2024-03-01 10:10:00|2024-03-01 11:20:00|
+|dave       |e04     |2024-03-01 11:20:00|4 |2024-03-01 10:40:00|2024-03-01 11:20:00|
+|dave       |e05     |2024-03-01 11:20:00|5 |2024-03-01 11:20:00|null               |
+|jim        |e06     |2024-03-01 10:15:00|1 |null               |2024-03-01 10:35:00|
+|jim        |e07     |2024-03-01 10:35:00|2 |2024-03-01 10:15:00|2024-03-01 12:30:00|
+|jim        |e08     |2024-03-01 12:30:00|3 |2024-03-01 10:35:00|null               |
 +-----------+--------+-------------------+--+-------------------+-------------------+
 ```
 
 Read it slowly. There's a lot in nine rows:
 
-- **priya and rahul never mix.** rahul's e06 at 10:15 sits between priya's e02 and e03 in time, but it's in a different partition, so it's invisible to her.
+- **Dave and Jim never mix.** Jim's e06 at 10:15 sits between Dave's e02 and e03 in time, but it's in a different partition, so it's invisible to him.
 - **e05 sits in the file before e04**, yet e04 gets `rn = 4`. The window sorts. File order doesn't matter.
 - **The first row in each partition has `prev_ts = null`.** The last has `next_ts = null`.
 - **e09 has no login**, so `actor_login` is `null`. All the null keys land in **one partition of their own**. Here that's a lonely partition of one.
@@ -114,7 +114,7 @@ Read it slowly. There's a lot in nine rows:
 
 ## Tie-Breakers: Making the Order Unique 🎲
 
-Look at priya's last two events again. e04 and e05 both happened at **11:20:00**, to the second.
+Look at Dave's last two events again. e04 and e05 both happened at **11:20:00**, to the second.
 
 Now drop the tie-breaker:
 
@@ -124,9 +124,9 @@ w_loose = Window.partitionBy("actor_login").orderBy("created_ts")
 
 Which one gets `rn = 4`? **Spark doesn't promise.** Both rows are "equal" as far as the order is concerned, so the answer depends on which partition of the data was read first, how the shuffle went, how many cores you had. It can be e04 today and e05 tomorrow.
 
-That sounds harmless until you remember what row numbers are *for*. In Post 09 we pick each session's **first event** to report its primary repo. For priya's session 2, that's either e04 (`alpha-service`) or e05 (`beta-web`). Same data, two different reports.
+That sounds harmless until you remember what row numbers are *for*. In Post 09 we pick each session's **first event** to report its primary repo. For Dave's session 2, that's either e04 (`alpha-service`) or e05 (`beta-web`). Same data, two different reports.
 
-| Ordering | priya's e04 / e05 | Same answer every run? |
+| Ordering | Dave's e04 / e05 | Same answer every run? |
 |---|---|---|
 | `orderBy("created_ts")` | 4 / 5 *or* 5 / 4 | ❌ No |
 | `orderBy("created_ts", "event_id")` | **4 / 5** | ✅ Yes |
@@ -160,20 +160,20 @@ gap_s   = F.col("created_ts").cast("double") - prev_ts.cast("double")
 +-----------+--------+-------------------+------+
 |actor_login|event_id|created_ts         |gap_s |
 +-----------+--------+-------------------+------+
-|priya      |e01     |2024-03-01 09:50:00|null  |
-|priya      |e02     |2024-03-01 10:10:00|1200.0|
-|priya      |e03     |2024-03-01 10:40:00|1800.0|
-|priya      |e04     |2024-03-01 11:20:00|2400.0|
-|priya      |e05     |2024-03-01 11:20:00|0.0   |
-|rahul      |e06     |2024-03-01 10:15:00|null  |
-|rahul      |e07     |2024-03-01 10:35:00|1200.0|
-|rahul      |e08     |2024-03-01 12:30:00|6900.0|
+|dave       |e01     |2024-03-01 09:50:00|null  |
+|dave       |e02     |2024-03-01 10:10:00|1200.0|
+|dave       |e03     |2024-03-01 10:40:00|1800.0|
+|dave       |e04     |2024-03-01 11:20:00|2400.0|
+|dave       |e05     |2024-03-01 11:20:00|0.0   |
+|jim        |e06     |2024-03-01 10:15:00|null  |
+|jim        |e07     |2024-03-01 10:35:00|1200.0|
+|jim        |e08     |2024-03-01 12:30:00|6900.0|
 +-----------+--------+-------------------+------+
 ```
 
-This one column is most of sessionization. RepoSphere splits a session when the gap is **strictly greater than 30 minutes (1800 s)**. Spot the two splits: priya's e04 (2400 s) and rahul's e08 (6900 s).
+This one column is most of sessionization. RepoSphere splits a session when the gap is **strictly greater than 30 minutes (1800 s)**. Spot the two splits: Dave's e04 (2400 s) and Jim's e08 (6900 s).
 
-And spot the trap waiting for Post 07: priya's e03 has a gap of **exactly 1800.0**. Is that a new session? With `> 1800`, no. With `>= 1800`, yes. One character changes priya's whole day.
+And spot the trap waiting for Post 07: Dave's e03 has a gap of **exactly 1800.0**. Is that a new session? With `> 1800`, no. With `>= 1800`, yes. One character changes Dave's whole day.
 
 > **Trap:** `gap_s` is `null` on the first row, and `null > 1800` is `null`, not `true`. If your "new session" flag only checks the gap, every actor's first event belongs to **no** session. The flag needs an explicit `prev_ts.isNull()` branch. That's step 3 of the recipe in Post 07.
 
@@ -257,15 +257,15 @@ by_time_tb = Window.orderBy("created_ts", "event_id")
 +--------+-----------+-------------------+----------+----+----------+
 |event_id|actor_login|created_ts         |row_number|rank|dense_rank|
 +--------+-----------+-------------------+----------+----+----------+
-|e01     |priya      |2024-03-01 09:50:00|1         |1   |1         |
+|e01     |dave       |2024-03-01 09:50:00|1         |1   |1         |
 |e09     |null       |2024-03-01 10:00:00|2         |2   |2         |
-|e02     |priya      |2024-03-01 10:10:00|3         |3   |3         |
-|e06     |rahul      |2024-03-01 10:15:00|4         |4   |4         |
-|e07     |rahul      |2024-03-01 10:35:00|5         |5   |5         |
-|e03     |priya      |2024-03-01 10:40:00|6         |6   |6         |
-|e04     |priya      |2024-03-01 11:20:00|7         |7   |7         |
-|e05     |priya      |2024-03-01 11:20:00|8         |7   |7         |
-|e08     |rahul      |2024-03-01 12:30:00|9         |9   |8         |
+|e02     |dave       |2024-03-01 10:10:00|3         |3   |3         |
+|e06     |jim        |2024-03-01 10:15:00|4         |4   |4         |
+|e07     |jim        |2024-03-01 10:35:00|5         |5   |5         |
+|e03     |dave       |2024-03-01 10:40:00|6         |6   |6         |
+|e04     |dave       |2024-03-01 11:20:00|7         |7   |7         |
+|e05     |dave       |2024-03-01 11:20:00|8         |7   |7         |
+|e08     |jim        |2024-03-01 12:30:00|9         |9   |8         |
 +--------+-----------+-------------------+----------+----+----------+
 ```
 
@@ -301,13 +301,13 @@ latest = Window.partitionBy("actor_login").orderBy(F.col("created_ts").desc())
 +-----------+--------+-------------------+-------+
 |actor_login|event_id|created_ts         |repo_id|
 +-----------+--------+-------------------+-------+
-|priya      |e04     |2024-03-01 11:20:00|101    |
-|priya      |e05     |2024-03-01 11:20:00|202    |
-|rahul      |e08     |2024-03-01 12:30:00|999    |
+|dave       |e04     |2024-03-01 11:20:00|101    |
+|dave       |e05     |2024-03-01 11:20:00|202    |
+|jim        |e08     |2024-03-01 12:30:00|999    |
 +-----------+--------+-------------------+-------+
 ```
 
-You asked for one row per actor and got **three rows for two actors**. `rank` gave both of priya's 11:20 events a `1`. Any join downstream now duplicates priya.
+You asked for one row per actor and got **three rows for two actors**. `rank` gave both of Dave's 11:20 events a `1`. Any join downstream now duplicates Dave.
 
 Switch to `row_number` with a tie-breaker:
 
@@ -328,8 +328,8 @@ latest_tb = (Window.partitionBy("actor_login")
 +-----------+--------+-------------------+-------+
 |actor_login|event_id|created_ts         |repo_id|
 +-----------+--------+-------------------+-------+
-|priya      |e04     |2024-03-01 11:20:00|101    |
-|rahul      |e08     |2024-03-01 12:30:00|999    |
+|dave       |e04     |2024-03-01 11:20:00|101    |
+|jim        |e08     |2024-03-01 12:30:00|999    |
 +-----------+--------+-------------------+-------+
 ```
 
@@ -370,18 +370,18 @@ whole   = Window.partitionBy("actor_login")                               # no o
 +-----------+--------+-------------------+-------+------+-------+
 |actor_login|event_id|created_ts         |n_range|n_rows|n_total|
 +-----------+--------+-------------------+-------+------+-------+
-|priya      |e01     |2024-03-01 09:50:00|1      |1     |5      |
-|priya      |e02     |2024-03-01 10:10:00|2      |2     |5      |
-|priya      |e03     |2024-03-01 10:40:00|3      |3     |5      |
-|priya      |e04     |2024-03-01 11:20:00|5      |4     |5      |
-|priya      |e05     |2024-03-01 11:20:00|5      |5     |5      |
-|rahul      |e06     |2024-03-01 10:15:00|1      |1     |3      |
-|rahul      |e07     |2024-03-01 10:35:00|2      |2     |3      |
-|rahul      |e08     |2024-03-01 12:30:00|3      |3     |3      |
+|dave       |e01     |2024-03-01 09:50:00|1      |1     |5      |
+|dave       |e02     |2024-03-01 10:10:00|2      |2     |5      |
+|dave       |e03     |2024-03-01 10:40:00|3      |3     |5      |
+|dave       |e04     |2024-03-01 11:20:00|5      |4     |5      |
+|dave       |e05     |2024-03-01 11:20:00|5      |5     |5      |
+|jim        |e06     |2024-03-01 10:15:00|1      |1     |3      |
+|jim        |e07     |2024-03-01 10:35:00|2      |2     |3      |
+|jim        |e08     |2024-03-01 12:30:00|3      |3     |3      |
 +-----------+--------+-------------------+-------+------+-------+
 ```
 
-Look at priya's e04. `n_rows` says **4**. `n_range` says **5**. Same data, same partition, same order column. What happened?
+Look at Dave's e04. `n_rows` says **4**. `n_range` says **5**. Same data, same partition, same order column. What happened?
 
 ![For e04, the rows frame covers e01 to e04 and counts 4; the default range frame includes every row with created_ts up to 11:20, so e05 is included and the count is 5](content/data-engineering/images/window_frames_rows_vs_range.svg)
 
@@ -493,7 +493,7 @@ c3 is the **last** row in repo 101's partition when ordered by `valid_from`, so 
 
 </details>
 
-**Q4.** A teammate writes `F.sum(F.lit(1)).over(Window.partitionBy("actor_login").orderBy("created_ts"))` as a running event counter. What does it return for priya's e04, and how do you fix it?
+**Q4.** A teammate writes `F.sum(F.lit(1)).over(Window.partitionBy("actor_login").orderBy("created_ts"))` as a running event counter. What does it return for Dave's e04, and how do you fix it?
 
 <details>
 <summary>Show answer</summary>
@@ -507,7 +507,7 @@ c3 is the **last** row in repo 101's partition when ordered by `valid_from`, so 
 <details>
 <summary>Show answer</summary>
 
-priya's latest two events tie at 11:20, so `rank` gives **both** e04 and e05 a 1, and you get two rows for priya. Use `F.row_number()` over `partitionBy("actor_login").orderBy(F.col("created_ts").desc(), F.col("event_id"))` and keep `rn == 1`. That returns e04 for priya and e08 for rahul, every run.
+Dave's latest two events tie at 11:20, so `rank` gives **both** e04 and e05 a 1, and you get two rows for Dave. Use `F.row_number()` over `partitionBy("actor_login").orderBy(F.col("created_ts").desc(), F.col("event_id"))` and keep `rn == 1`. That returns e04 for Dave and e08 for Jim, every run.
 
 </details>
 

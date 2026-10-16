@@ -75,7 +75,7 @@ That last one is the hardest, and it's the heart of this whole series. Let's mee
 Here's one event, exactly as RepoSphere writes it:
 
 ```json
-{"event_id":"e01","event_type":"PushEvent","created_at":"2024-03-01T09:50:00Z","repo":{"id":101,"name":"alpha-api"},"actor":{"id":1,"login":"priya"}}
+{"event_id":"e01","event_type":"PushEvent","created_at":"2024-03-01T09:50:00Z","repo":{"id":101,"name":"alpha-api"},"actor":{"id":1,"login":"dave"}}
 ```
 
 One JSON object per line, one line per event. Nested `repo` and `actor` objects. A timestamp in UTC (the `Z`).
@@ -109,7 +109,7 @@ Those two files aren't just two files. They're two fundamentally different *kind
 | **Grows by** | Adding new rows, constantly | Changing slowly, occasionally |
 | **Question it answers** | "How many? When? Who?" | "What was it like?" |
 
-A fact is a **verb**: *priya pushed to repo 101 at 09:50.* It never changes — it happened.
+A fact is a **verb**: *Dave pushed to repo 101 at 09:50.* It never changes — it happened.
 
 A dimension is a **noun**: *repo 101 is called alpha-api and it's public.* That can change tomorrow.
 
@@ -123,9 +123,9 @@ RepoSphere's product team wants two things.
 
 ### 1. Work sessions
 
-Not "priya made 5 events today", but:
+Not "Dave made 5 events today", but:
 
-> *"priya worked from 09:50 to 10:40 and touched 2 repos. Then she came back at 11:20."*
+> *"Dave worked from 09:50 to 10:40 and touched 2 repos. Then he came back at 11:20."*
 
 To get that, we have to group each developer's events into **bursts of activity** — splitting wherever there's a long enough pause. That's called **sessionization**, and it's Post 07.
 
@@ -135,7 +135,7 @@ Here's what happened to repo 101 on 1 March:
 
 ![Repo 101 history](content/data-engineering/images/repo101_history.svg)
 
-At 10:40, priya filed an issue (event `e03`) on repo 101. **Right now** repo 101 is public and called `alpha-service`. But at 10:40 it was called `alpha-api` and it was **private**.
+At 10:40, Dave filed an issue (event `e03`) on repo 101. **Right now** repo 101 is public and called `alpha-service`. But at 10:40 it was called `alpha-api` and it was **private**.
 
 If the report says "public", it's wrong. Not slightly wrong — it's telling auditors that activity happened on a public repo when it didn't. The report must join each event to the version of the repo that was true **when the event happened**. That's a **point-in-time join**, and it's Post 08.
 
@@ -166,7 +166,7 @@ print("Event types:", sorted({e["event_type"] for e in events}))
 
 ```
 Events: 9
-Per actor: {'priya': 5, 'rahul': 3, None: 1}
+Per actor: {'dave': 5, 'jim': 3, None: 1}
 Event types: ['IssuesEvent', 'PUSHEVENT', 'PullRequestEvent', 'PushEvent']
 ```
 
@@ -250,14 +250,14 @@ Because each function is a pure "DataFrame in, DataFrame out" step, we can build
 +-----------+----------+-------------------+-------------------+----------------------+-----------------+-----------------------------+
 |actor_login|session_id|session_start      |session_end        |distinct_repos_touched|events_in_session|primary_repo_at_session_start|
 +-----------+----------+-------------------+-------------------+----------------------+-----------------+-----------------------------+
-|priya      |1         |2024-03-01 09:50:00|2024-03-01 10:40:00|2                     |3                |alpha-api                    |
-|priya      |2         |2024-03-01 11:20:00|2024-03-01 11:20:00|2                     |2                |alpha-service                |
-|rahul      |1         |2024-03-01 10:15:00|2024-03-01 10:35:00|1                     |2                |null                         |
-|rahul      |2         |2024-03-01 12:30:00|2024-03-01 12:30:00|1                     |1                |null                         |
+|dave       |1         |2024-03-01 09:50:00|2024-03-01 10:40:00|2                     |3                |alpha-api                    |
+|dave       |2         |2024-03-01 11:20:00|2024-03-01 11:20:00|2                     |2                |alpha-service                |
+|jim        |1         |2024-03-01 10:15:00|2024-03-01 10:35:00|1                     |2                |null                         |
+|jim        |2         |2024-03-01 12:30:00|2024-03-01 12:30:00|1                     |1                |null                         |
 +-----------+----------+-------------------+-------------------+----------------------+-----------------+-----------------------------+
 ```
 
-Some of those values look odd right now. Why does rahul's first session have a `null` repo, when repo 202 clearly exists? Why is priya's second session `alpha-service` and not `beta-web`? Where did the 9th event go? By Post 09, every one of those will be obvious.
+Some of those values look odd right now. Why does Jim's first session have a `null` repo, when repo 202 clearly exists? Why is Dave's second session `alpha-service` and not `beta-web`? Where did the 9th event go? By Post 09, every one of those will be obvious.
 
 ---
 
@@ -265,7 +265,7 @@ Some of those values look odd right now. Why does rahul's first session have a `
 
 Commit to an answer before you open each one.
 
-**Q1.** RepoSphere also logs *stars*: "rahul starred repo 202 at 14:05". Is a star a fact or a dimension?
+**Q1.** RepoSphere also logs *stars*: "Jim starred repo 202 at 14:05". Is a star a fact or a dimension?
 
 <details>
 <summary>Show answer</summary>
