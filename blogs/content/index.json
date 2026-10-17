@@ -564,6 +564,19 @@
             "dimensions",
             "window-functions"
           ]
+        },
+        {
+          "name": "Sessionization: Gaps & Islands",
+          "type": "file",
+          "path": "data-engineering/07-sessionization-gaps-and-islands.md",
+          "date": "2026-10-17",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "sessionization",
+            "gaps-and-islands",
+            "window-functions"
+          ]
         }
       ]
     }
