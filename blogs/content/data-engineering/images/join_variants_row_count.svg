@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="400" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Five ways to write the join, and the rows each one returns</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Input: 8 sessionized events. Correct output: 8 rows. Bar length = output row count.</text>
+
+<!-- scale: x0 = 360, 1 row = 30px -->
+<line x1="600" y1="70" x2="600" y2="346" stroke="#1b2733" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="600" y="364" text-anchor="middle" font-size="12" font-weight="700" fill="#1b2733">8 rows in</text>
+
+<g font-size="13" fill="#1b2733">
+  <!-- 1 correct -->
+  <text x="24" y="92" font-weight="700">Left join, half-open range</text>
+  <text x="24" y="109" font-size="11.5" fill="#5b6b7a" font-family="DejaVu Sans Mono, Consolas, monospace">enrich_with_repo_state ✅</text>
+  <rect x="360" y="80" width="240" height="30" rx="3" fill="#2f9e72"/>
+  <text x="610" y="100" font-weight="700" fill="#14583d">8 · every event once, right version</text>
+
+  <!-- 2 equi only -->
+  <text x="24" y="146" font-weight="700">Left join on repo_id only</text>
+  <text x="24" y="163" font-size="11.5" fill="#5b6b7a" font-family="DejaVu Sans Mono, Consolas, monospace">no time condition</text>
+  <rect x="360" y="134" width="540" height="30" rx="3" fill="#d9822b"/>
+  <text x="890" y="154" text-anchor="end" font-weight="700" fill="#ffffff">18 · one row per version</text>
+
+  <!-- 3 inner -->
+  <text x="24" y="200" font-weight="700">Inner join, half-open range</text>
+  <text x="24" y="217" font-size="11.5" fill="#5b6b7a" font-family="DejaVu Sans Mono, Consolas, monospace">how="inner"</text>
+  <rect x="360" y="188" width="150" height="30" rx="3" fill="#c0392b"/>
+  <text x="612" y="208" font-weight="700" fill="#8e2a1f">5 · e02, e06, e08 gone</text>
+
+  <!-- 4 range in filter -->
+  <text x="24" y="254" font-weight="700">Left join on repo_id,</text>
+  <text x="24" y="271" font-weight="700">range in .filter() after</text>
+  <rect x="360" y="242" width="150" height="30" rx="3" fill="#c0392b"/>
+  <text x="612" y="262" font-weight="700" fill="#8e2a1f">5 · a left join that acts inner</text>
+
+  <!-- 5 no isNull -->
+  <text x="24" y="308" font-weight="700">No valid_to IS NULL branch</text>
+  <text x="24" y="325" font-size="11.5" fill="#5b6b7a" font-family="DejaVu Sans Mono, Consolas, monospace">count looks fine</text>
+  <rect x="360" y="296" width="240" height="30" rx="3" fill="#e8b04a"/>
+  <text x="610" y="316" font-weight="700" fill="#7a5410">8 · but e04 loses its details</text>
+</g>
+
+<text x="480" y="390" text-anchor="middle" font-size="12.5" fill="#5b6b7a">The row-count check catches the first three bugs. Only a look at the values catches the last one.</text>
+</svg>

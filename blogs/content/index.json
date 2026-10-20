@@ -577,6 +577,19 @@
             "gaps-and-islands",
             "window-functions"
           ]
+        },
+        {
+          "name": "Point-in-Time Joins",
+          "type": "file",
+          "path": "data-engineering/08-point-in-time-joins.md",
+          "date": "2026-10-20",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "joins",
+            "point-in-time",
+            "scd-type-2"
+          ]
         }
       ]
     }
