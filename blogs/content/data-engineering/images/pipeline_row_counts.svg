@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 530" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="530" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker></defs>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The full pipeline, and the row count after every step</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Lab data: 9 events and 5 repo changes in, 4 session rows out. Big number = rows.</text>
+
+<text x="80" y="82" font-size="12" font-weight="700" fill="#2f7d6d">FACTS LANE · events.jsonl</text>
+<text x="560" y="82" font-size="12" font-weight="700" fill="#7a5aa6">DIMENSION LANE · repo_changes.jsonl</text>
+
+<g font-size="12.5">
+  <!-- lane A -->
+  <rect x="80" y="92" width="320" height="56" rx="6" fill="#eef7f4" stroke="#2f7d6d" stroke-width="1.5"/>
+  <text x="96" y="116" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="15" font-weight="700" fill="#1b2733">read_events</text>
+  <text x="96" y="136" fill="#5b6b7a">nested repo and actor structs</text>
+  <text x="386" y="130" text-anchor="end" font-size="24" font-weight="700" fill="#2f7d6d">9</text>
+
+  <rect x="80" y="172" width="320" height="56" rx="6" fill="#eef7f4" stroke="#2f7d6d" stroke-width="1.5"/>
+  <text x="96" y="196" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="15" font-weight="700" fill="#1b2733">flatten_events</text>
+  <text x="96" y="216" fill="#5b6b7a">6 flat, typed columns</text>
+  <text x="386" y="210" text-anchor="end" font-size="24" font-weight="700" fill="#2f7d6d">9</text>
+
+  <rect x="80" y="252" width="320" height="56" rx="6" fill="#eef7f4" stroke="#2f7d6d" stroke-width="1.5"/>
+  <text x="96" y="276" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="15" font-weight="700" fill="#1b2733">sessionize_actor_events</text>
+  <text x="96" y="296" fill="#5b6b7a">e09 dropped · + session_id</text>
+  <text x="386" y="290" text-anchor="end" font-size="24" font-weight="700" fill="#c0392b">8</text>
+
+  <!-- lane B -->
+  <rect x="560" y="92" width="320" height="56" rx="6" fill="#f4f0fa" stroke="#7a5aa6" stroke-width="1.5"/>
+  <text x="576" y="116" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="15" font-weight="700" fill="#1b2733">read_repo_changes</text>
+  <text x="576" y="136" fill="#5b6b7a">late c2 is in the file</text>
+  <text x="866" y="130" text-anchor="end" font-size="24" font-weight="700" fill="#7a5aa6">5</text>
+
+  <rect x="560" y="172" width="320" height="56" rx="6" fill="#f4f0fa" stroke="#7a5aa6" stroke-width="1.5"/>
+  <text x="576" y="196" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="15" font-weight="700" fill="#1b2733">build_repo_scd2</text>
+  <text x="576" y="216" fill="#5b6b7a">versions on [valid_from, valid_to)</text>
+  <text x="866" y="210" text-anchor="end" font-size="24" font-weight="700" fill="#7a5aa6">5</text>
+
+  <!-- meet -->
+  <rect x="320" y="352" width="320" height="56" rx="6" fill="#fdf6e7" stroke="#b8862b" stroke-width="1.5"/>
+  <text x="336" y="376" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="15" font-weight="700" fill="#1b2733">enrich_with_repo_state</text>
+  <text x="336" y="396" fill="#5b6b7a">+ 3 repo columns · 3 null rows</text>
+  <text x="626" y="390" text-anchor="end" font-size="24" font-weight="700" fill="#b8862b">8</text>
+
+  <rect x="320" y="442" width="320" height="56" rx="6" fill="#e8f5ee" stroke="#2f9e72" stroke-width="2.5"/>
+  <text x="336" y="466" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="15" font-weight="700" fill="#1b2733">compute_session_summary</text>
+  <text x="336" y="486" fill="#5b6b7a">one row per (actor, session)</text>
+  <text x="626" y="480" text-anchor="end" font-size="24" font-weight="700" fill="#2f9e72">4</text>
+</g>
+
+<g stroke="#5b6b7a" stroke-width="1.6" fill="none" marker-end="url(#ah)">
+  <line x1="240" y1="148" x2="240" y2="170"/>
+  <line x1="240" y1="228" x2="240" y2="250"/>
+  <line x1="720" y1="148" x2="720" y2="170"/>
+  <polyline points="240,308 240,330 400,330 400,350"/>
+  <polyline points="720,228 720,330 560,330 560,350"/>
+  <line x1="480" y1="408" x2="480" y2="440"/>
+</g>
+<text x="250" y="324" font-size="11.5" fill="#5b6b7a">left side: facts</text>
+<text x="710" y="324" text-anchor="end" font-size="11.5" fill="#5b6b7a">right side: dimension</text>
+<text x="490" y="429" font-size="11.5" fill="#5b6b7a">groupBy + agg</text>
+</svg>

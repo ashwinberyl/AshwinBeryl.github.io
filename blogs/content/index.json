@@ -590,6 +590,19 @@
             "point-in-time",
             "scd-type-2"
           ]
+        },
+        {
+          "name": "Aggregates and the Full Pipeline",
+          "type": "file",
+          "path": "data-engineering/09-aggregates-and-full-pipeline.md",
+          "date": "2026-10-21",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "aggregates",
+            "groupby",
+            "window-functions"
+          ]
         }
       ]
     }

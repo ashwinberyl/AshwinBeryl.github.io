@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="400" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Struct-min picks the first event of each session, nulls and all</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a" font-family="DejaVu Sans Mono, Consolas, monospace">F.min(F.struct("created_ts", "event_id", "repo_name"))["repo_name"]</text>
+
+<!-- left panel -->
+<rect x="30" y="76" width="440" height="262" rx="8" fill="#f7f9fb" stroke="#d3dbe3"/>
+<text x="50" y="106" font-size="16" font-weight="700" fill="#1b2733">Dave · session 2</text>
+<rect x="50" y="122" width="400" height="40" rx="5" fill="#e8f5ee" stroke="#2f9e72" stroke-width="1.5"/>
+<text x="66" y="148" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="13.5" fill="#1b2733">(11:20, "e04", "alpha-service")</text>
+<text x="436" y="148" text-anchor="end" font-size="12.5" font-weight="700" fill="#2f9e72">MIN</text>
+<rect x="50" y="172" width="400" height="40" rx="5" fill="#ffffff" stroke="#d3dbe3"/>
+<text x="66" y="198" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="13.5" fill="#5b6b7a">(11:20, "e05", "beta-web")</text>
+<text x="50" y="242" font-size="13" fill="#1b2733">Field 1 ties: both events are at 11:20.</text>
+<text x="50" y="262" font-size="13" fill="#1b2733">Field 2 decides: "e04" &lt; "e05".</text>
+<text x="50" y="312" font-size="14" font-weight="700" fill="#14583d">primary repo = alpha-service ✓</text>
+
+<!-- right panel -->
+<rect x="490" y="76" width="440" height="262" rx="8" fill="#f7f9fb" stroke="#d3dbe3"/>
+<text x="510" y="106" font-size="16" font-weight="700" fill="#1b2733">Jim · session 1</text>
+<rect x="510" y="122" width="400" height="40" rx="5" fill="#e8f5ee" stroke="#2f9e72" stroke-width="1.5"/>
+<text x="526" y="148" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="13.5" fill="#1b2733">(10:15, "e06", null)</text>
+<text x="896" y="148" text-anchor="end" font-size="12.5" font-weight="700" fill="#2f9e72">MIN</text>
+<rect x="510" y="172" width="400" height="40" rx="5" fill="#ffffff" stroke="#d3dbe3"/>
+<text x="526" y="198" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="13.5" fill="#5b6b7a">(10:35, "e07", "beta-web")</text>
+<text x="510" y="242" font-size="13" fill="#1b2733">Field 1 decides: 10:15 &lt; 10:35.</text>
+<text x="510" y="262" font-size="13" fill="#1b2733">The struct isn't null, so its null field comes along.</text>
+<text x="510" y="312" font-size="14" font-weight="700" fill="#14583d">primary repo = null ✓ (not beta-web)</text>
+
+<text x="480" y="372" text-anchor="middle" font-size="13" fill="#5b6b7a">Fields compare left to right: ① created_ts  ·  ② event_id (tie-breaker)  ·  ③ repo_name (never decides, just carried out)</text>
+</svg>
