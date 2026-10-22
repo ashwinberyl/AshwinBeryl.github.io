@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="420" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Which version was in force when e03 happened?</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">e03 · dave · repo 101 · created_ts 10:40. Every clause must be true for a version to match.</text>
+
+<!-- header -->
+<rect x="24" y="72" width="912" height="54" rx="6" fill="#1b2733"/>
+<g font-size="13" font-weight="700" fill="#ffffff">
+  <text x="40" y="104">Version of repo</text>
+  <text x="330" y="96" text-anchor="middle">repo_id</text>
+  <text x="330" y="114" text-anchor="middle">= 101</text>
+  <text x="490" y="96" text-anchor="middle">valid_from</text>
+  <text x="490" y="114" text-anchor="middle">&lt;= 10:40</text>
+  <text x="680" y="96" text-anchor="middle">valid_to IS NULL</text>
+  <text x="680" y="114" text-anchor="middle">OR 10:40 &lt; valid_to</text>
+  <text x="860" y="104" text-anchor="middle">Joined?</text>
+</g>
+
+<!-- row c1 -->
+<rect x="24" y="134" width="912" height="56" rx="6" fill="#f5f7f9" stroke="#d5dde5"/>
+<g font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" font-size="12.5" fill="#1b2733">
+  <text x="40" y="157" font-weight="700">c1 · 101 · alpha-api · public</text>
+  <text x="40" y="177" fill="#5b6b7a">[09:00, 10:00)</text>
+  <text x="330" y="168" text-anchor="middle" fill="#2f9e72" font-weight="700">✓ true</text>
+  <text x="490" y="168" text-anchor="middle" fill="#2f9e72" font-weight="700">✓ 09:00 &lt;= 10:40</text>
+  <text x="680" y="168" text-anchor="middle" fill="#c0392b" font-weight="700">✗ 10:40 &lt; 10:00</text>
+</g>
+<text x="860" y="168" text-anchor="middle" font-size="13" font-weight="700" fill="#8a96a3">no</text>
+
+<!-- row c2 (match) -->
+<rect x="24" y="198" width="912" height="56" rx="6" fill="#d8f0e4" stroke="#2f9e72" stroke-width="2"/>
+<g font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" font-size="12.5" fill="#14583d">
+  <text x="40" y="221" font-weight="700">c2 · 101 · alpha-api · private</text>
+  <text x="40" y="241">[10:00, 11:00)</text>
+  <text x="330" y="232" text-anchor="middle" font-weight="700">✓ true</text>
+  <text x="490" y="232" text-anchor="middle" font-weight="700">✓ 10:00 &lt;= 10:40</text>
+  <text x="680" y="232" text-anchor="middle" font-weight="700">✓ 10:40 &lt; 11:00</text>
+</g>
+<rect x="808" y="214" width="104" height="26" rx="13" fill="#2f9e72"/>
+<text x="860" y="232" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">MATCH</text>
+
+<!-- row c3 -->
+<rect x="24" y="262" width="912" height="56" rx="6" fill="#f5f7f9" stroke="#d5dde5"/>
+<g font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" font-size="12.5" fill="#1b2733">
+  <text x="40" y="285" font-weight="700">c3 · 101 · alpha-service · public</text>
+  <text x="40" y="305" fill="#5b6b7a">[11:00, null)  is_current</text>
+  <text x="330" y="296" text-anchor="middle" fill="#2f9e72" font-weight="700">✓ true</text>
+  <text x="490" y="296" text-anchor="middle" fill="#c0392b" font-weight="700">✗ 11:00 &lt;= 10:40</text>
+  <text x="680" y="296" text-anchor="middle" fill="#2f9e72" font-weight="700">✓ valid_to is null</text>
+</g>
+<text x="860" y="296" text-anchor="middle" font-size="13" font-weight="700" fill="#8a96a3">no</text>
+
+<!-- row 202 -->
+<rect x="24" y="326" width="912" height="56" rx="6" fill="#fbfbfc" stroke="#e3e8ed" stroke-dasharray="4 3"/>
+<g font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" font-size="12.5" fill="#8a96a3">
+  <text x="40" y="349" font-weight="700">c4, c5 · repo 202</text>
+  <text x="40" y="369">any interval</text>
+  <text x="330" y="360" text-anchor="middle" fill="#c0392b" font-weight="700">✗ 202 ≠ 101</text>
+  <text x="490" y="360" text-anchor="middle">not checked</text>
+  <text x="680" y="360" text-anchor="middle">not checked</text>
+</g>
+<text x="860" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#8a96a3">no</text>
+
+<text x="480" y="406" text-anchor="middle" font-size="13" fill="#1b2733">Exactly one version passes all three clauses, so e03 stays one row and comes back <tspan font-weight="700">alpha-api · private</tspan>.</text>
+</svg>
