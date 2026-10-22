@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="360" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Optimistic concurrency: two writers, one table</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Nobody locks the table while working. The check happens once, at the swap.</text>
+
+<!-- S2 committed line -->
+<line x1="645" y1="74" x2="645" y2="262" stroke="#2f9e72" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="645" y="276" text-anchor="middle" font-size="12" font-weight="700" fill="#14583d">current = S2</text>
+
+<!-- lane A -->
+<text x="24" y="118" font-size="14" font-weight="700" fill="#1b2733">Writer A</text>
+<text x="24" y="138" font-size="12" fill="#5b6b7a">daily load (batch 2)</text>
+<circle cx="250" cy="122" r="6" fill="#1d5fa8"/>
+<text x="250" y="152" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="12" fill="#5b6b7a">base S1</text>
+<rect x="272" y="106" width="250" height="32" rx="5" fill="#a9c8ea"/>
+<text x="397" y="127" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="12" fill="#1b2733">write files + metadata</text>
+<rect x="534" y="104" width="104" height="36" rx="6" fill="#d8f0e4" stroke="#2f9e72"/>
+<text x="586" y="127" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="12" font-weight="700" fill="#14583d">S1→S2 ✓</text>
+
+<!-- lane B -->
+<text x="24" y="208" font-size="14" font-weight="700" fill="#1b2733">Writer B</text>
+<text x="24" y="228" font-size="12" fill="#5b6b7a">late-arrivals job</text>
+<circle cx="250" cy="212" r="6" fill="#1d5fa8"/>
+<text x="250" y="242" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="12" fill="#5b6b7a">base S1</text>
+<rect x="272" y="196" width="300" height="32" rx="5" fill="#a9c8ea"/>
+<text x="422" y="217" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="12" fill="#1b2733">write files + metadata</text>
+<rect x="656" y="194" width="112" height="36" rx="6" fill="#fbe1de" stroke="#c0392b"/>
+<text x="712" y="217" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="12" font-weight="700" fill="#c0392b">S1→? ✗</text>
+<rect x="778" y="196" width="60" height="32" rx="5" fill="#a9c8ea"/>
+<text x="808" y="217" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="12" fill="#1b2733">retry</text>
+<rect x="846" y="194" width="90" height="36" rx="6" fill="#d8f0e4" stroke="#2f9e72"/>
+<text x="891" y="217" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="12" font-weight="700" fill="#14583d">S2→S3 ✓</text>
+<text x="712" y="248" text-anchor="middle" font-size="12" fill="#c0392b">base is stale</text>
+
+<!-- notes -->
+<rect x="24" y="294" width="912" height="52" rx="8" fill="#f5f7f9" stroke="#d5dde5"/>
+<text x="40" y="316" font-size="13" fill="#1b2733">B's swap fails because the pointer no longer says S1. B re-reads the table, checks that A's change doesn't</text>
+<text x="40" y="335" font-size="13" fill="#1b2733">clash with its own (two appends never do), re-applies its files on top of S2, and swaps again.</text>
+</svg>

@@ -603,6 +603,19 @@
             "groupby",
             "window-functions"
           ]
+        },
+        {
+          "name": "Why Table Formats? Apache Iceberg",
+          "type": "file",
+          "path": "data-engineering/10-why-table-formats-iceberg.md",
+          "date": "2026-10-22",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "lakehouse",
+            "table-formats",
+            "acid"
+          ]
         }
       ]
     }
