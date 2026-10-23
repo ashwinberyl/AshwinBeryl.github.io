@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 352" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="352" fill="#ffffff"/>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+</defs>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">One table name, three parts, one folder on disk</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">local.reposphere.events is read left to right: catalog, namespace, table</text>
+
+<rect x="40" y="76" width="260" height="84" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.6"/>
+<text x="56" y="98" font-size="12" font-weight="700" fill="#1d5fa8">CATALOG</text>
+<text x="56" y="124" font-size="20" font-weight="700" fill="#1b2733">local</text>
+<text x="56" y="148" font-size="12" fill="#5b6b7a">spark.sql.catalog.local</text>
+
+<rect x="350" y="76" width="260" height="84" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="366" y="98" font-size="12" font-weight="700" fill="#5b6b7a">NAMESPACE</text>
+<text x="366" y="124" font-size="20" font-weight="700" fill="#1b2733">reposphere</text>
+<text x="366" y="148" font-size="12" fill="#5b6b7a">CREATE NAMESPACE IF NOT EXISTS</text>
+
+<rect x="660" y="76" width="260" height="84" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="676" y="98" font-size="12" font-weight="700" fill="#5b6b7a">TABLE</text>
+<text x="676" y="124" font-size="20" font-weight="700" fill="#1b2733">events</text>
+<text x="676" y="148" font-size="12" fill="#5b6b7a">USING iceberg</text>
+
+<path d="M302 118 H346" stroke="#5b6b7a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<path d="M612 118 H656" stroke="#5b6b7a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+
+<rect x="40" y="188" width="880" height="140" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="56" y="210" font-size="12" font-weight="700" fill="#5b6b7a">ON DISK  (type = hadoop, warehouse = warehouse/)</text>
+<g font-family="DejaVu Sans Mono, Consolas, monospace" font-size="13" fill="#1b2733">
+<text x="56" y="234">warehouse/</text>
+<text x="56" y="254">└── reposphere/</text>
+<text x="56" y="274">    └── events/</text>
+<text x="56" y="294">        ├── metadata/</text>
+<text x="56" y="314">        └── data/</text>
+</g>
+<g font-size="12" fill="#5b6b7a">
+<text x="360" y="234">← catalog setting: spark.sql.catalog.local.warehouse</text>
+<text x="360" y="254">← the namespace is a folder</text>
+<text x="360" y="274">← the table is a folder</text>
+<text x="360" y="294">← metadata.json files, manifest lists, manifests</text>
+<text x="360" y="314">← Parquet files, one sub-folder per partition</text>
+</g>
+</svg>

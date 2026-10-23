@@ -616,6 +616,19 @@
             "table-formats",
             "acid"
           ]
+        },
+        {
+          "name": "Catalogs and Hidden Partitioning",
+          "type": "file",
+          "path": "data-engineering/11-catalogs-and-hidden-partitioning.md",
+          "date": "2026-10-23",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "catalog",
+            "partitioning"
+          ]
         }
       ]
     }
