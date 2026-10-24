@@ -629,6 +629,19 @@
             "catalog",
             "partitioning"
           ]
+        },
+        {
+          "name": "Idempotent Loads",
+          "type": "file",
+          "path": "data-engineering/12-idempotent-loads.md",
+          "date": "2026-10-24",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "idempotency",
+            "lakehouse"
+          ]
         }
       ]
     }
