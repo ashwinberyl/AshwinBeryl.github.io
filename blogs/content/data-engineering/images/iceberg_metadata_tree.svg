@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="540" fill="#ffffff"/>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  <marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d5fa8"/></marker>
+</defs>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The Iceberg metadata tree for local.reposphere.events</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">A reader follows pointers from top to bottom. It never lists folders.</text>
+
+<!-- catalog -->
+<rect x="24" y="76" width="260" height="70" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.6"/>
+<text x="40" y="98" font-size="12" font-weight="700" fill="#1d5fa8">CATALOG</text>
+<text x="40" y="117" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="12" fill="#1b2733">reposphere.events</text>
+<text x="40" y="135" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="12" fill="#1b2733">→ 00002-….metadata.json</text>
+<path d="M284 111 H326" stroke="#1d5fa8" stroke-width="1.8" fill="none" marker-end="url(#arb)"/>
+
+<!-- metadata.json -->
+<rect x="330" y="76" width="606" height="70" rx="8" fill="#f5f7f9" stroke="#b9c6d3" stroke-width="1.2"/>
+<text x="346" y="98" font-size="12" font-weight="700" fill="#5b6b7a">METADATA FILE</text>
+<text x="346" y="117" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="12" fill="#1b2733">schema: 6 columns · partition spec: days(created_ts)</text>
+<text x="346" y="135" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="12" fill="#1b2733">snapshots: S1 (batch 1), S2 (batch 2) · current = S2</text>
+
+<!-- layer labels -->
+<text x="40" y="204" font-size="12" font-weight="700" fill="#5b6b7a">MANIFEST LISTS</text>
+<text x="40" y="222" font-size="12" fill="#5b6b7a">one per snapshot</text>
+<text x="40" y="306" font-size="12" font-weight="700" fill="#5b6b7a">MANIFESTS</text>
+<text x="40" y="324" font-size="12" fill="#5b6b7a">file paths + column stats</text>
+<text x="40" y="418" font-size="12" font-weight="700" fill="#5b6b7a">DATA FILES</text>
+<text x="40" y="436" font-size="12" fill="#5b6b7a">plain Parquet, never edited</text>
+
+<!-- manifest lists -->
+<path d="M480 146 V180" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<path d="M790 146 V180" stroke="#1d5fa8" stroke-width="1.8" fill="none" marker-end="url(#arb)"/>
+<rect x="330" y="184" width="290" height="54" rx="8" fill="#ffffff" stroke="#b9c6d3" stroke-width="1.2"/>
+<text x="346" y="206" font-size="13" font-weight="700" fill="#1b2733">S1 manifest list</text>
+<text x="346" y="225" font-size="12" fill="#5b6b7a">→ M1</text>
+<rect x="646" y="184" width="290" height="54" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.6"/>
+<text x="662" y="206" font-size="13" font-weight="700" fill="#1b2733">S2 manifest list (current)</text>
+<text x="662" y="225" font-size="12" fill="#5b6b7a">→ M1 (reused) + M2 (new)</text>
+
+<!-- manifests -->
+<path d="M475 238 V282" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<path d="M700 238 L560 282" stroke="#1d5fa8" stroke-width="1.8" fill="none" marker-end="url(#arb)"/>
+<path d="M790 238 V282" stroke="#1d5fa8" stroke-width="1.8" fill="none" marker-end="url(#arb)"/>
+<rect x="330" y="286" width="290" height="58" rx="8" fill="#ffffff" stroke="#b9c6d3" stroke-width="1.2"/>
+<text x="346" y="308" font-size="13" font-weight="700" fill="#1b2733">M1 · written by batch 1</text>
+<text x="346" y="328" font-size="12" fill="#5b6b7a">files A, B · min/max per column</text>
+<rect x="646" y="286" width="290" height="58" rx="8" fill="#ffffff" stroke="#b9c6d3" stroke-width="1.2"/>
+<text x="662" y="308" font-size="13" font-weight="700" fill="#1b2733">M2 · written by batch 2</text>
+<text x="662" y="328" font-size="12" fill="#5b6b7a">files C, D · min/max per column</text>
+
+<!-- data files -->
+<path d="M420 344 L401 392" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<path d="M530 344 L556 392" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<path d="M740 344 L711 392" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<path d="M850 344 L866 392" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<g font-family="DejaVu Sans Mono, Consolas, monospace" font-size="12">
+  <rect x="330" y="396" width="142" height="66" rx="6" fill="#e8f1fb" stroke="#a9c8ea"/>
+  <text x="342" y="416" font-weight="700" fill="#1b2733">file A</text>
+  <text x="342" y="434" fill="#5b6b7a">day 2024-03-01</text>
+  <text x="342" y="452" fill="#1b2733">e01 e02 e03</text>
+  <rect x="485" y="396" width="142" height="66" rx="6" fill="#e8f1fb" stroke="#a9c8ea"/>
+  <text x="497" y="416" font-weight="700" fill="#1b2733">file B</text>
+  <text x="497" y="434" fill="#5b6b7a">day 2024-03-01</text>
+  <text x="497" y="452" fill="#1b2733">e04 e05</text>
+  <rect x="640" y="396" width="142" height="66" rx="6" fill="#e8f1fb" stroke="#a9c8ea"/>
+  <text x="652" y="416" font-weight="700" fill="#1b2733">file C</text>
+  <text x="652" y="434" fill="#5b6b7a">day 2024-03-01</text>
+  <text x="652" y="452" fill="#1b2733">e06</text>
+  <rect x="795" y="396" width="141" height="66" rx="6" fill="#e8f1fb" stroke="#a9c8ea"/>
+  <text x="807" y="416" font-weight="700" fill="#1b2733">file D</text>
+  <text x="807" y="434" fill="#5b6b7a">day 2024-03-02</text>
+  <text x="807" y="452" fill="#1b2733">e07 … e10</text>
+</g>
+
+<text x="480" y="500" text-anchor="middle" font-size="13" fill="#1b2733">Read "as of S1" → M1 → files A, B → the 5 batch-1 events. Read "now" → S2 → all 4 files → 10 events.</text>
+<text x="480" y="522" text-anchor="middle" font-size="12" fill="#5b6b7a">File split is illustrative: the real number of files depends on your Spark tasks.</text>
+</svg>
