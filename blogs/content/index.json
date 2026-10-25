@@ -642,6 +642,19 @@
             "idempotency",
             "lakehouse"
           ]
+        },
+        {
+          "name": "MERGE INTO in Depth",
+          "type": "file",
+          "path": "data-engineering/13-merge-into-in-depth.md",
+          "date": "2026-10-25",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "merge",
+            "lakehouse"
+          ]
         }
       ]
     }
