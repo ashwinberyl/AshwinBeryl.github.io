@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="360" fill="#ffffff"/>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker></defs>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">merge_repo_scd2: six steps on batch 2</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Rows shrink until only real changes reach the MERGE</text>
+<rect x="25" y="86" width="140" height="84" rx="8" fill="#dde9f7" stroke="#1d5fa8"/>
+<text x="37" y="110" font-size="12" font-weight="700" fill="#1d5fa8">STEP 1</text>
+<text x="37" y="132" font-size="14" font-weight="700" fill="#1b2733">New changes</text>
+<text x="37" y="154" font-size="11" fill="#5b6b7a">dedupe + anti join</text>
+<rect x="25" y="196" width="140" height="64" rx="8" fill="#ffffff" stroke="#5b6b7a"/>
+<text x="37" y="222" font-size="13" font-weight="700" fill="#1b2733">3 lines → 2 rows</text>
+<text x="37" y="244" font-size="11" fill="#5b6b7a">c2, c6</text>
+<path d="M95 170 V192" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<path d="M167 128 H179" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<rect x="181" y="86" width="140" height="84" rx="8" fill="#dde9f7" stroke="#1d5fa8"/>
+<text x="193" y="110" font-size="12" font-weight="700" fill="#1d5fa8">STEP 2</text>
+<text x="193" y="132" font-size="14" font-weight="700" fill="#1b2733">Affected repos</text>
+<text x="193" y="154" font-size="11" fill="#5b6b7a">distinct repo_id</text>
+<rect x="181" y="196" width="140" height="64" rx="8" fill="#ffffff" stroke="#5b6b7a"/>
+<text x="193" y="222" font-size="13" font-weight="700" fill="#1b2733">{101, 303}</text>
+<text x="193" y="244" font-size="11" fill="#5b6b7a">repo 202 skipped</text>
+<path d="M251 170 V192" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<path d="M323 128 H335" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<rect x="337" y="86" width="140" height="84" rx="8" fill="#dde9f7" stroke="#1d5fa8"/>
+<text x="349" y="110" font-size="12" font-weight="700" fill="#1d5fa8">STEP 3</text>
+<text x="349" y="132" font-size="14" font-weight="700" fill="#1b2733">Full history</text>
+<text x="349" y="154" font-size="11" fill="#5b6b7a">stored + new</text>
+<rect x="337" y="196" width="140" height="64" rx="8" fill="#ffffff" stroke="#5b6b7a"/>
+<text x="349" y="222" font-size="13" font-weight="700" fill="#1b2733">4 rows</text>
+<text x="349" y="244" font-size="11" fill="#5b6b7a">c1, c2, c3, c6</text>
+<path d="M407 170 V192" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<path d="M479 128 H491" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<rect x="493" y="86" width="140" height="84" rx="8" fill="#dde9f7" stroke="#1d5fa8"/>
+<text x="505" y="110" font-size="12" font-weight="700" fill="#1d5fa8">STEP 4</text>
+<text x="505" y="132" font-size="14" font-weight="700" fill="#1b2733">Recompute</text>
+<text x="505" y="154" font-size="11" fill="#5b6b7a">lead() window</text>
+<rect x="493" y="196" width="140" height="64" rx="8" fill="#ffffff" stroke="#5b6b7a"/>
+<text x="505" y="222" font-size="13" font-weight="700" fill="#1b2733">4 rows</text>
+<text x="505" y="244" font-size="11" fill="#5b6b7a">+ valid_to, is_current</text>
+<path d="M563 170 V192" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<path d="M635 128 H647" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<rect x="649" y="86" width="140" height="84" rx="8" fill="#dde9f7" stroke="#1d5fa8"/>
+<text x="661" y="110" font-size="12" font-weight="700" fill="#1d5fa8">STEP 5</text>
+<text x="661" y="132" font-size="14" font-weight="700" fill="#1b2733">Diff</text>
+<text x="661" y="154" font-size="11" fill="#5b6b7a">null-safe compare</text>
+<rect x="649" y="196" width="140" height="64" rx="8" fill="#ffffff" stroke="#5b6b7a"/>
+<text x="661" y="222" font-size="13" font-weight="700" fill="#1b2733">3 rows</text>
+<text x="661" y="244" font-size="11" fill="#5b6b7a">c1, c2, c6</text>
+<path d="M719 170 V192" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<path d="M791 128 H803" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<rect x="805" y="86" width="140" height="84" rx="8" fill="#fbeed6" stroke="#8f5300"/>
+<text x="817" y="110" font-size="12" font-weight="700" fill="#8f5300">STEP 6</text>
+<text x="817" y="132" font-size="14" font-weight="700" fill="#1b2733">MERGE</text>
+<text x="817" y="154" font-size="11" fill="#5b6b7a">one atomic commit</text>
+<rect x="805" y="196" width="140" height="64" rx="8" fill="#ffffff" stroke="#5b6b7a"/>
+<text x="817" y="222" font-size="13" font-weight="700" fill="#1b2733">1 update</text>
+<text x="817" y="244" font-size="11" fill="#5b6b7a">+ 2 inserts</text>
+<path d="M875 170 V192" stroke="#5b6b7a" stroke-width="1.2" fill="none" marker-end="url(#ar)"/>
+<rect x="25" y="290" width="920" height="50" rx="8" fill="#ffffff" stroke="#5b6b7a" stroke-dasharray="5 4"/>
+<text x="42" y="312" font-size="13" font-weight="700" fill="#1b2733">Never touched: repo 202 (c4)</text>
+<text x="42" y="330" font-size="12" fill="#5b6b7a">No new change, so its rows are not read, recomputed or rewritten. On a re-run, step 1 finds nothing and the function returns.</text>
+</svg>

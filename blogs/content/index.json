@@ -655,6 +655,20 @@
             "merge",
             "lakehouse"
           ]
+        },
+        {
+          "name": "Incremental SCD Type 2",
+          "type": "file",
+          "path": "data-engineering/14-incremental-scd2.md",
+          "date": "2026-10-26",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "scd2",
+            "merge",
+            "lakehouse"
+          ]
         }
       ]
     }

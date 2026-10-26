@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="330" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Repo 101: one row edited, one row added, one row untouched</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Late change c2 (10:00) lands inside c1&apos;s stored interval</text>
+<text x="30" y="113" font-size="12" font-weight="700" fill="#1d5fa8">BEFORE</text>
+<text x="30" y="203" font-size="12" font-weight="700" fill="#1d5fa8">AFTER</text>
+<rect x="140" y="88" width="480" height="40" rx="5" fill="#a9c8ea" stroke="#1d5fa8"/><text x="154" y="113" font-size="13" fill="#1b2733">c1 alpha-api · public · [09:00, 11:00)</text>
+<rect x="620" y="88" width="290" height="40" rx="5" fill="#1d5fa8"/><text x="634" y="113" font-size="13" font-weight="700" fill="#ffffff">c3 alpha-service · current</text>
+<rect x="140" y="178" width="240" height="40" rx="5" fill="#a9c8ea" stroke="#8f5300" stroke-width="2"/><text x="154" y="203" font-size="13" fill="#1b2733">c1 · ends 10:00</text>
+<rect x="380" y="178" width="240" height="40" rx="5" fill="#5a93d1"/><text x="394" y="203" font-size="13" font-weight="700" fill="#ffffff">c2 · private · new</text>
+<rect x="620" y="178" width="290" height="40" rx="5" fill="#1d5fa8"/><text x="634" y="203" font-size="13" font-weight="700" fill="#ffffff">c3 · unchanged</text>
+<text x="154" y="160" font-size="12" font-weight="700" fill="#8f5300">UPDATE valid_to: 11:00 → 10:00</text>
+<text x="394" y="160" font-size="12" font-weight="700" fill="#1d5fa8">INSERT</text>
+<text x="634" y="160" font-size="12" fill="#5b6b7a">no clause fires</text>
+<line x1="140" y1="248" x2="910" y2="248" stroke="#5b6b7a"/>
+<line x1="140" y1="244" x2="140" y2="252" stroke="#5b6b7a"/><text x="140" y="270" text-anchor="middle" font-size="12" fill="#5b6b7a">09:00</text>
+<line x1="380" y1="244" x2="380" y2="252" stroke="#5b6b7a"/><text x="380" y="270" text-anchor="middle" font-size="12" fill="#5b6b7a">10:00</text>
+<line x1="620" y1="244" x2="620" y2="252" stroke="#5b6b7a"/><text x="620" y="270" text-anchor="middle" font-size="12" fill="#5b6b7a">11:00</text>
+<line x1="860" y1="244" x2="860" y2="252" stroke="#5b6b7a"/><text x="860" y="270" text-anchor="middle" font-size="12" fill="#5b6b7a">12:00</text>
+<text x="480" y="308" text-anchor="middle" font-size="13" fill="#1b2733">Versions stay back-to-back: each valid_to equals the next valid_from</text>
+</svg>
