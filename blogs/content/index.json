@@ -669,6 +669,20 @@
             "merge",
             "lakehouse"
           ]
+        },
+        {
+          "name": "Snapshots and Time Travel",
+          "type": "file",
+          "path": "data-engineering/15-snapshots-and-time-travel.md",
+          "date": "2026-10-27",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "snapshots",
+            "time-travel",
+            "lakehouse"
+          ]
         }
       ]
     }

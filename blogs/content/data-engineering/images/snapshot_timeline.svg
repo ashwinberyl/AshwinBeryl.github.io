@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="420" fill="#ffffff"/>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d5fa8"/></marker>
+</defs>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Each commit adds a snapshot; none is ever edited</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Arrows point from a snapshot to its parent. The newest one is "current".</text>
+
+<text x="40" y="96" font-size="14" font-weight="700" fill="#1b2733">events</text>
+<rect x="40" y="108" width="300" height="86" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="56" y="132" font-size="12" font-weight="700" fill="#5b6b7a">SNAPSHOT S1 · append</text>
+<text x="56" y="154" font-size="13" fill="#1b2733">batch 1 → e01 … e05</text>
+<text x="56" y="176" font-size="13" fill="#5b6b7a">5 rows · parent_id = null</text>
+
+<rect x="440" y="108" width="300" height="86" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.6"/>
+<text x="456" y="132" font-size="12" font-weight="700" fill="#1d5fa8">SNAPSHOT S2 · append · CURRENT</text>
+<text x="456" y="154" font-size="13" fill="#1b2733">batch 2 → e06 … e10</text>
+<text x="456" y="176" font-size="13" fill="#5b6b7a">10 rows · parent_id = S1</text>
+<path d="M436 151 H344" stroke="#5b6b7a" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
+
+<text x="40" y="238" font-size="14" font-weight="700" fill="#1b2733">repo_dim</text>
+<rect x="40" y="250" width="300" height="86" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="56" y="274" font-size="12" font-weight="700" fill="#5b6b7a">SNAPSHOT S1 · append</text>
+<text x="56" y="296" font-size="13" fill="#1b2733">batch 1 → c1, c3, c4</text>
+<text x="56" y="318" font-size="13" fill="#5b6b7a">3 rows · parent_id = null</text>
+
+<rect x="440" y="250" width="300" height="86" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.6"/>
+<text x="456" y="274" font-size="12" font-weight="700" fill="#1d5fa8">SNAPSHOT S2 · overwrite · CURRENT</text>
+<text x="456" y="296" font-size="13" fill="#1b2733">update c1, insert c2 and c6</text>
+<text x="456" y="318" font-size="13" fill="#5b6b7a">5 rows · parent_id = S1</text>
+<path d="M436 293 H344" stroke="#5b6b7a" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
+
+<rect x="780" y="108" width="150" height="86" rx="8" fill="#ffffff" stroke="#1d5fa8" stroke-dasharray="5 4"/>
+<text x="855" y="136" text-anchor="middle" font-size="12" font-weight="700" fill="#1d5fa8">TIME TRAVEL</text>
+<text x="855" y="158" text-anchor="middle" font-size="12" fill="#1b2733">VERSION AS OF S1</text>
+<text x="855" y="178" text-anchor="middle" font-size="12" fill="#5b6b7a">reads 5 rows</text>
+<path d="M780 130 Q 560 78 250 104" stroke="#1d5fa8" stroke-width="1.4" fill="none" marker-end="url(#ab)"/>
+
+<text x="480" y="384" text-anchor="middle" font-size="13" fill="#5b6b7a">The re-run of batch 2 commits nothing, so neither table gets a third snapshot.</text>
+</svg>
