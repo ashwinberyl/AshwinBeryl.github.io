@@ -683,6 +683,19 @@
             "time-travel",
             "lakehouse"
           ]
+        },
+        {
+          "name": "Schema Evolution",
+          "type": "file",
+          "path": "data-engineering/16-schema-evolution.md",
+          "date": "2026-10-28",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "schema-evolution",
+            "lakehouse"
+          ]
         }
       ]
     }
