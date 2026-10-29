@@ -696,6 +696,20 @@
             "schema-evolution",
             "lakehouse"
           ]
+        },
+        {
+          "name": "Compaction and Maintenance",
+          "type": "file",
+          "path": "data-engineering/17-compaction-and-maintenance.md",
+          "date": "2026-10-29",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "compaction",
+            "maintenance",
+            "lakehouse"
+          ]
         }
       ]
     }
