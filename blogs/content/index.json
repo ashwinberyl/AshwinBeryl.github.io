@@ -710,6 +710,20 @@
             "maintenance",
             "lakehouse"
           ]
+        },
+        {
+          "name": "Capstone: The Daily Run",
+          "type": "file",
+          "path": "data-engineering/18-capstone-daily-run.md",
+          "date": "2026-10-30",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "capstone",
+            "lakehouse",
+            "first-principles"
+          ]
         }
       ]
     }

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="400" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">What batch 2 does to repo_dim, row by row</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Three changes arrive, one is a replay. Only two repos are affected.</text>
+<text x="40" y="86" font-size="12" font-weight="700" fill="#5b6b7a">ROW</text><text x="160" y="86" font-size="12" font-weight="700" fill="#5b6b7a">WHAT HAPPENS</text><text x="640" y="86" font-size="12" font-weight="700" fill="#5b6b7a">WHY</text>
+<rect x="30" y="100" width="900" height="42" rx="6" fill="#ffffff" stroke="#b9c6d3"/>
+<text x="40" y="126" font-size="13" font-weight="700" fill="#1b2733">c1 · repo 101</text>
+<rect x="160" y="108" width="104" height="26" rx="13" fill="#fbeed6" stroke="#8f5300"/>
+<text x="212" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="#8f5300">UPDATE</text>
+<text x="278" y="126" font-size="12" fill="#1b2733">valid_to 11:00 → 10:00</text>
+<text x="640" y="126" font-size="12" fill="#5b6b7a">Late c2 now cuts it short</text>
+<rect x="30" y="152" width="900" height="42" rx="6" fill="#ffffff" stroke="#b9c6d3"/>
+<text x="40" y="178" font-size="13" font-weight="700" fill="#1b2733">c2 · repo 101</text>
+<rect x="160" y="160" width="104" height="26" rx="13" fill="#dde9f7" stroke="#1d5fa8"/>
+<text x="212" y="178" text-anchor="middle" font-size="12" font-weight="700" fill="#1d5fa8">INSERT</text>
+<text x="278" y="178" font-size="12" fill="#1b2733">new row, private, 10:00 → 11:00</text>
+<text x="640" y="178" font-size="12" fill="#5b6b7a">Late change, new to the table</text>
+<rect x="30" y="204" width="900" height="42" rx="6" fill="#ffffff" stroke="#b9c6d3"/>
+<text x="40" y="230" font-size="13" font-weight="700" fill="#1b2733">c3 · repo 101</text>
+<rect x="160" y="212" width="104" height="26" rx="13" fill="#f5f7f9" stroke="#5b6b7a"/>
+<text x="212" y="230" text-anchor="middle" font-size="12" font-weight="700" fill="#5b6b7a">SKIPPED</text>
+<text x="278" y="230" font-size="12" fill="#1b2733">replay, dropped as already stored</text>
+<text x="640" y="230" font-size="12" fill="#5b6b7a">Recomputed row equals stored row</text>
+<rect x="30" y="256" width="900" height="42" rx="6" fill="#ffffff" stroke="#b9c6d3"/>
+<text x="40" y="282" font-size="13" font-weight="700" fill="#1b2733">c4 · repo 202</text>
+<rect x="160" y="264" width="104" height="26" rx="13" fill="#f5f7f9" stroke="#5b6b7a"/>
+<text x="212" y="282" text-anchor="middle" font-size="12" font-weight="700" fill="#5b6b7a">UNTOUCHED</text>
+<text x="278" y="282" font-size="12" fill="#1b2733">never read at all</text>
+<text x="640" y="282" font-size="12" fill="#5b6b7a">No new change for repo 202</text>
+<rect x="30" y="308" width="900" height="42" rx="6" fill="#ffffff" stroke="#b9c6d3"/>
+<text x="40" y="334" font-size="13" font-weight="700" fill="#1b2733">c6 · repo 303</text>
+<rect x="160" y="316" width="104" height="26" rx="13" fill="#dde9f7" stroke="#1d5fa8"/>
+<text x="212" y="334" text-anchor="middle" font-size="12" font-weight="700" fill="#1d5fa8">INSERT</text>
+<text x="278" y="334" font-size="12" fill="#1b2733">new row, gamma-cli, trunk</text>
+<text x="640" y="334" font-size="12" fill="#5b6b7a">Brand-new repo, still current</text>
+<rect x="30" y="370" width="900" height="2" fill="#ffffff"/>
+<text x="40" y="378" font-size="12" fill="#1b2733">The diff sent to the MERGE is exactly c1, c2 and c6. Everything else is left alone.</text>
+</svg>
