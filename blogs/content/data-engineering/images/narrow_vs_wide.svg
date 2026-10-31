@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="360" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  </defs>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Narrow vs wide: does a row have to leave its partition?</text>
+
+  <!-- narrow panel -->
+  <rect x="20" y="60" width="410" height="290" rx="12" fill="#f5f8fc" stroke="#3a78c2" stroke-width="2"/>
+  <text x="225" y="88" text-anchor="middle" font-size="16" font-weight="700" fill="#173d6b">Narrow (no shuffle)</text>
+  <g fill="#ffffff" stroke="#3a78c2">
+    <rect x="60" y="115" width="90" height="36" rx="6"/>
+    <rect x="60" y="175" width="90" height="36" rx="6"/>
+    <rect x="60" y="235" width="90" height="36" rx="6"/>
+    <rect x="300" y="115" width="90" height="36" rx="6"/>
+    <rect x="300" y="175" width="90" height="36" rx="6"/>
+    <rect x="300" y="235" width="90" height="36" rx="6"/>
+  </g>
+  <g font-size="13" text-anchor="middle" fill="#1b2733">
+    <text x="105" y="138">partition 0</text><text x="105" y="198">partition 1</text><text x="105" y="258">partition 2</text>
+    <text x="345" y="138">partition 0</text><text x="345" y="198">partition 1</text><text x="345" y="258">partition 2</text>
+  </g>
+  <g stroke="#5b6b7a" stroke-width="2" marker-end="url(#a)">
+    <line x1="150" y1="133" x2="298" y2="133"/>
+    <line x1="150" y1="193" x2="298" y2="193"/>
+    <line x1="150" y1="253" x2="298" y2="253"/>
+  </g>
+  <g font-size="13" text-anchor="middle" fill="#1b2733">
+    <text x="225" y="300">select, withColumn, filter, lower, to_timestamp</text>
+    <text x="225" y="320">Each partition is handled alone</text>
+  </g>
+
+  <!-- wide panel -->
+  <rect x="470" y="60" width="410" height="290" rx="12" fill="#fdf5ec" stroke="#d9822b" stroke-width="2"/>
+  <text x="675" y="88" text-anchor="middle" font-size="16" font-weight="700" fill="#7a3f00">Wide (shuffle)</text>
+  <g fill="#ffffff" stroke="#d9822b">
+    <rect x="510" y="115" width="90" height="36" rx="6"/>
+    <rect x="510" y="175" width="90" height="36" rx="6"/>
+    <rect x="510" y="235" width="90" height="36" rx="6"/>
+    <rect x="750" y="115" width="90" height="36" rx="6"/>
+    <rect x="750" y="175" width="90" height="36" rx="6"/>
+    <rect x="750" y="235" width="90" height="36" rx="6"/>
+  </g>
+  <g font-size="13" text-anchor="middle" fill="#1b2733">
+    <text x="555" y="138">partition 0</text><text x="555" y="198">partition 1</text><text x="555" y="258">partition 2</text>
+    <text x="795" y="138">partition 0</text><text x="795" y="198">partition 1</text><text x="795" y="258">partition 2</text>
+  </g>
+  <g stroke="#5b6b7a" stroke-width="1.6" marker-end="url(#a)">
+    <line x1="600" y1="133" x2="748" y2="133"/>
+    <line x1="600" y1="133" x2="748" y2="193"/>
+    <line x1="600" y1="133" x2="748" y2="253"/>
+    <line x1="600" y1="193" x2="748" y2="133"/>
+    <line x1="600" y1="193" x2="748" y2="193"/>
+    <line x1="600" y1="193" x2="748" y2="253"/>
+    <line x1="600" y1="253" x2="748" y2="133"/>
+    <line x1="600" y1="253" x2="748" y2="193"/>
+    <line x1="600" y1="253" x2="748" y2="253"/>
+  </g>
+  <g font-size="13" text-anchor="middle" fill="#1b2733">
+    <text x="675" y="300">groupBy, join, Window.partitionBy, orderBy, distinct</text>
+    <text x="675" y="320">Rows with the same key must meet</text>
+  </g>
+</svg>

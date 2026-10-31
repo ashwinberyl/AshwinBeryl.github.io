@@ -724,6 +724,20 @@
             "lakehouse",
             "first-principles"
           ]
+        },
+        {
+          "name": "Reading the Spark Plan",
+          "type": "file",
+          "path": "data-engineering/19-reading-the-spark-plan.md",
+          "date": "2026-10-31",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "performance",
+            "explain",
+            "spark-ui",
+            "shuffle"
+          ]
         }
       ]
     }
