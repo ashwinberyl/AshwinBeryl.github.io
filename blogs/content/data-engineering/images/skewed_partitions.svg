@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="360" fill="#ffffff"/>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The stage ends when the busiest key's task ends</text>
+  <text x="450" y="56" text-anchor="middle" font-size="14" fill="#5b6b7a">Rows per actor_login in the nine-event sample (each key lands in exactly one partition)</text>
+
+  <g font-size="15" text-anchor="end" fill="#1b2733">
+    <text x="150" y="108">dave</text>
+    <text x="150" y="168">jim</text>
+    <text x="150" y="228">null</text>
+  </g>
+  <rect x="170" y="85" width="500" height="34" rx="5" fill="#c0452b"/>
+  <rect x="170" y="145" width="300" height="34" rx="5" fill="#3a78c2"/>
+  <rect x="170" y="205" width="100" height="34" rx="5" fill="#3a78c2"/>
+  <g font-size="15" fill="#1b2733" font-weight="700">
+    <text x="682" y="108">5 rows</text>
+    <text x="482" y="168">3 rows</text>
+    <text x="282" y="228">1 row</text>
+  </g>
+  <line x1="670" y1="72" x2="670" y2="252" stroke="#8a2a14" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="670" y="272" text-anchor="middle" font-size="14" font-weight="700" fill="#8a2a14">stage finishes here</text>
+
+  <text x="450" y="315" text-anchor="middle" font-size="14" fill="#1b2733">Same shape at one million events: dave has 599,741 rows, the median actor has 2,013</text>
+  <text x="450" y="337" text-anchor="middle" font-size="14" fill="#1b2733">Other tasks finish early and wait for the one that has dave in it</text>
+</svg>

@@ -738,6 +738,20 @@
             "spark-ui",
             "shuffle"
           ]
+        },
+        {
+          "name": "Joins and Skew",
+          "type": "file",
+          "path": "data-engineering/20-joins-and-skew.md",
+          "date": "2026-11-01",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "performance",
+            "joins",
+            "skew",
+            "salting"
+          ]
         }
       ]
     }
