@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello — Ashwin Kalaichandran</title>
+    <meta name="description" content="Find Ashwin Kalaichandran on LinkedIn, read his blog, or learn more about him.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hello — Ashwin Kalaichandran">
+    <meta property="og:description" content="LinkedIn, blog and about me, all in one place.">
+    <meta property="og:url" content="https://ashwinberyl.github.io/hello/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8f8f8;
+            --surface: #ffffff;
+            --border: #e0e0e0;
+            --border-hover: #c8c8c8;
+            --text: #1a1a1a;
+            --text-muted: #555;
+            --accent: #5a4fe6;
+            --accent-2: #00a884;
+            --gradient: linear-gradient(135deg, #5a4fe6, #00a884);
+            --shadow: 0 6px 24px rgba(20, 20, 40, 0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0a0a0a;
+                --surface: #161616;
+                --border: #222222;
+                --border-hover: #3a3a3a;
+                --text: #ededed;
+                --text-muted: #8a8a8a;
+                --accent: #6c63ff;
+                --accent-2: #00d4aa;
+                --gradient: linear-gradient(135deg, #6c63ff, #00d4aa);
+                --shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 16px;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            width: 100%;
+            max-width: 440px;
+            text-align: center;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 84px;
+            height: 84px;
+            border-radius: 22px;
+            background: var(--gradient);
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 32px;
+            letter-spacing: -1px;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            margin-top: 6px;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .links {
+            list-style: none;
+            margin-top: 32px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 18px;
+            text-align: left;
+            text-decoration: none;
+            color: var(--text);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .link:hover,
+        .link:focus-visible {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+            outline: none;
+        }
+
+        .icon {
+            flex: none;
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            background: var(--gradient);
+            color: #fff;
+        }
+
+        .icon svg { width: 20px; height: 20px; }
+
+        .label { display: block; font-weight: 600; font-size: 1rem; }
+        .sub { display: block; color: var(--text-muted); font-size: 0.85rem; }
+
+        .arrow { margin-left: auto; color: var(--text-muted); font-size: 1.1rem; }
+
+        footer {
+            margin-top: 32px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .link { transition: none; }
+            .link:hover, .link:focus-visible { transform: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="logo" aria-hidden="true">AK.</div>
+        <h1>Ashwin Kalaichandran</h1>
+        <p class="tagline">Data &amp; Platform Engineer</p>
+
+        <ul class="links">
+            <li>
+                <a class="link" href="https://www.linkedin.com/in/ashwinkalai/" target="_blank" rel="noopener noreferrer">
+                    <span class="icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    </span>
+                    <span>
+                        <span class="label">LinkedIn</span>
+                        <span class="sub">Connect with me</span>
+                    </span>
+                    <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+            </li>
+            <li>
+                <a class="link" href="https://ashwinberyl.github.io/blogs/">
+                    <span class="icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    </span>
+                    <span>
+                        <span class="label">Blog</span>
+                        <span class="sub">Data engineering from first principles</span>
+                    </span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                </a>
+            </li>
+            <li>
+                <a class="link" href="https://ashwinberyl.github.io">
+                    <span class="icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+                    </span>
+                    <span>
+                        <span class="label">About me</span>
+                        <span class="sub">Experience, projects and contact</span>
+                    </span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                </a>
+            </li>
+        </ul>
+
+        <footer>© 2026 Ashwin Kalaichandran</footer>
+    </main>
+</body>
+
+</html>
