@@ -752,6 +752,20 @@
             "skew",
             "salting"
           ]
+        },
+        {
+          "name": "Small Files and Partitioning",
+          "type": "file",
+          "path": "data-engineering/21-small-files-and-partitioning.md",
+          "date": "2026-11-02",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "performance",
+            "small-files",
+            "partitioning",
+            "coalesce"
+          ]
         }
       ]
     }
