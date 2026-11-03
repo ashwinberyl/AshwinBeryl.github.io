@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="900" height="300" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker></defs>
+<text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The tuning loop: one change per lap</text>
+<g stroke="#3a78c2" stroke-width="1.5" fill="#e8f1fb">
+<rect x="30" y="70" width="140" height="100" rx="8"/><rect x="205" y="70" width="140" height="100" rx="8"/><rect x="380" y="70" width="140" height="100" rx="8"/><rect x="555" y="70" width="140" height="100" rx="8"/><rect x="730" y="70" width="140" height="100" rx="8"/>
+</g>
+<g font-size="14" fill="#1b2733" text-anchor="middle">
+<text x="100" y="95" font-weight="700" fill="#173d6b">1</text><text x="100" y="117">Measure the</text><text x="100" y="137">baseline</text><text x="100" y="157">(median of runs)</text>
+<text x="275" y="95" font-weight="700" fill="#173d6b">2</text><text x="275" y="117">Find the</text><text x="275" y="137">bottleneck</text><text x="275" y="157">(plan, Spark UI)</text>
+<text x="450" y="95" font-weight="700" fill="#173d6b">3</text><text x="450" y="117">Change ONE</text><text x="450" y="137">thing, after a</text><text x="450" y="157">prediction</text>
+<text x="625" y="95" font-weight="700" fill="#173d6b">4</text><text x="625" y="117">Re-measure</text><text x="625" y="137">same data,</text><text x="625" y="157">same machine</text>
+<text x="800" y="95" font-weight="700" fill="#173d6b">5</text><text x="800" y="117">Keep it or</text><text x="800" y="137">revert it</text><text x="800" y="157">(write it down)</text>
+</g>
+<g stroke="#5b6b7a" stroke-width="2" fill="none" marker-end="url(#a)">
+<line x1="172" y1="120" x2="203" y2="120"/><line x1="347" y1="120" x2="378" y2="120"/><line x1="522" y1="120" x2="553" y2="120"/><line x1="697" y1="120" x2="728" y2="120"/>
+</g>
+<path d="M800,172 L800,225 L100,225 L100,174" stroke="#5b6b7a" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<text x="450" y="260" text-anchor="middle" font-size="14" fill="#5b6b7a">Stop when the stage you care about is no longer the bottleneck, or the gain is too small to matter.</text>
+</svg>

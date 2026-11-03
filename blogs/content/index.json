@@ -766,6 +766,20 @@
             "partitioning",
             "coalesce"
           ]
+        },
+        {
+          "name": "Measure Before You Tune",
+          "type": "file",
+          "path": "data-engineering/22-measure-before-tuning.md",
+          "date": "2026-11-03",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "performance",
+            "benchmarking",
+            "caching",
+            "aqe"
+          ]
         }
       ]
     }
