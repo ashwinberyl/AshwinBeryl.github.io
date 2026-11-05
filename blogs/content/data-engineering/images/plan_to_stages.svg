@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1000" height="380" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  </defs>
+  <text x="500" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">One Exchange in the plan = one shuffle = one stage boundary</text>
+
+  <!-- stage 1 -->
+  <rect x="20" y="60" width="660" height="190" rx="12" fill="#f5f8fc" stroke="#3a78c2" stroke-width="2"/>
+  <text x="40" y="86" font-size="15" font-weight="700" fill="#173d6b">Stage 1: runs per input partition, no data moves</text>
+  <g font-size="13" text-anchor="middle">
+    <rect x="40" y="110" width="135" height="70" rx="8" fill="#ffffff" stroke="#3a78c2"/>
+    <text x="107" y="140" font-weight="700" fill="#173d6b">FileScan json</text>
+    <text x="107" y="160" fill="#1b2733">events.jsonl</text>
+
+    <rect x="195" y="110" width="135" height="70" rx="8" fill="#ffffff" stroke="#3a78c2"/>
+    <text x="262" y="140" font-weight="700" fill="#173d6b">Filter</text>
+    <text x="262" y="160" fill="#1b2733">pushevent only</text>
+
+    <rect x="350" y="110" width="135" height="70" rx="8" fill="#ffffff" stroke="#3a78c2"/>
+    <text x="417" y="140" font-weight="700" fill="#173d6b">Project</text>
+    <text x="417" y="160" fill="#1b2733">actor.login</text>
+
+    <rect x="505" y="110" width="155" height="70" rx="8" fill="#ffffff" stroke="#3a78c2"/>
+    <text x="582" y="140" font-weight="700" fill="#173d6b">HashAggregate</text>
+    <text x="582" y="160" fill="#1b2733">partial_count(1)</text>
+  </g>
+  <g stroke="#5b6b7a" stroke-width="2" fill="none" marker-end="url(#a)">
+    <line x1="175" y1="145" x2="193" y2="145"/>
+    <line x1="330" y1="145" x2="348" y2="145"/>
+    <line x1="485" y1="145" x2="503" y2="145"/>
+  </g>
+  <text x="350" y="222" text-anchor="middle" font-size="13" fill="#1b2733">6 push events in, 3 partial rows out: dave 3, jim 2, null 1</text>
+
+  <!-- exchange -->
+  <line x1="680" y1="145" x2="708" y2="145" stroke="#5b6b7a" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="710" y="60" width="100" height="190" rx="12" fill="#fdecd8" stroke="#d9822b" stroke-width="2"/>
+  <g text-anchor="middle" font-size="13" fill="#7a3f00">
+    <text x="760" y="130" font-weight="700" font-size="15">Exchange</text>
+    <text x="760" y="152">hash by</text>
+    <text x="760" y="170">actor_login</text>
+    <text x="760" y="200" font-weight="700">SHUFFLE</text>
+  </g>
+
+  <!-- stage 2 -->
+  <line x1="810" y1="145" x2="838" y2="145" stroke="#5b6b7a" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="840" y="60" width="140" height="190" rx="12" fill="#eaf6f0" stroke="#2f9e72" stroke-width="2"/>
+  <text x="910" y="86" text-anchor="middle" font-size="15" font-weight="700" fill="#14583d">Stage 2</text>
+  <g font-size="13" text-anchor="middle">
+    <rect x="852" y="110" width="116" height="70" rx="8" fill="#ffffff" stroke="#2f9e72"/>
+    <text x="910" y="140" font-weight="700" fill="#14583d">HashAggregate</text>
+    <text x="910" y="160" fill="#1b2733">count(1)</text>
+  </g>
+
+  <!-- tasks row -->
+  <g font-size="13" fill="#1b2733">
+    <text x="40" y="290" font-weight="700">Tasks, stage 1:</text>
+    <text x="40" y="312">one per input partition. One small file = one partition = one task.</text>
+    <text x="40" y="342" font-weight="700">Tasks, stage 2:</text>
+    <text x="40" y="364">one per shuffle partition: 200 by default, but only 3 hold any rows (AQE can merge the empty ones).</text>
+  </g>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="400" fill="#ffffff"/>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+</defs>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Each source row takes one of three paths</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Batch 2 repo_diff merged into repo_dim</text>
+
+<text x="30" y="88" font-size="12" font-weight="700" fill="#1d5fa8">SOURCE ROW</text>
+<text x="330" y="88" font-size="12" font-weight="700" fill="#1d5fa8">ON t.change_id = s.change_id</text>
+<text x="650" y="88" font-size="12" font-weight="700" fill="#1d5fa8">ACTION</text>
+
+<rect x="30" y="102" width="220" height="56" rx="8" fill="#dde9f7" stroke="#1d5fa8"/>
+<text x="46" y="126" font-size="14" font-weight="700" fill="#1b2733">c1 · repo 101</text>
+<text x="46" y="146" font-size="12" fill="#5b6b7a">valid_to 10:00 (was 11:00)</text>
+
+<rect x="30" y="182" width="220" height="56" rx="8" fill="#dde9f7" stroke="#1d5fa8"/>
+<text x="46" y="206" font-size="14" font-weight="700" fill="#1b2733">c2 · repo 101</text>
+<text x="46" y="226" font-size="12" fill="#5b6b7a">late change, 10:00 to 11:00</text>
+
+<rect x="30" y="262" width="220" height="56" rx="8" fill="#dde9f7" stroke="#1d5fa8"/>
+<text x="46" y="286" font-size="14" font-weight="700" fill="#1b2733">c6 · repo 303</text>
+<text x="46" y="306" font-size="12" fill="#5b6b7a">new repo, current</text>
+
+<rect x="330" y="102" width="250" height="56" rx="8" fill="#ffffff" stroke="#5b6b7a"/>
+<text x="345" y="126" font-size="13" font-weight="700" fill="#1b2733">Twin found in repo_dim</text>
+<text x="345" y="146" font-size="12" fill="#5b6b7a">WHEN MATCHED</text>
+
+<rect x="330" y="182" width="250" height="56" rx="8" fill="#ffffff" stroke="#5b6b7a"/>
+<text x="345" y="206" font-size="13" font-weight="700" fill="#1b2733">No twin</text>
+<text x="345" y="226" font-size="12" fill="#5b6b7a">WHEN NOT MATCHED</text>
+
+<rect x="330" y="262" width="250" height="56" rx="8" fill="#ffffff" stroke="#5b6b7a"/>
+<text x="345" y="286" font-size="13" font-weight="700" fill="#1b2733">No twin</text>
+<text x="345" y="306" font-size="12" fill="#5b6b7a">WHEN NOT MATCHED</text>
+
+<rect x="650" y="102" width="280" height="56" rx="8" fill="#fbeed6" stroke="#8f5300"/>
+<text x="666" y="126" font-size="13" font-weight="700" fill="#8f5300">UPDATE</text>
+<text x="666" y="146" font-size="12" fill="#1b2733">valid_to, is_current only</text>
+
+<rect x="650" y="182" width="280" height="56" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.5"/>
+<text x="666" y="206" font-size="13" font-weight="700" fill="#1d5fa8">INSERT</text>
+<text x="666" y="226" font-size="12" fill="#1b2733">new row, all columns</text>
+
+<rect x="650" y="262" width="280" height="56" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.5"/>
+<text x="666" y="286" font-size="13" font-weight="700" fill="#1d5fa8">INSERT</text>
+<text x="666" y="306" font-size="12" fill="#1b2733">new row, all columns</text>
+
+<path d="M250 130 H326" stroke="#5b6b7a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<path d="M250 210 H326" stroke="#5b6b7a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<path d="M250 290 H326" stroke="#5b6b7a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<path d="M580 130 H646" stroke="#5b6b7a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<path d="M580 210 H646" stroke="#5b6b7a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<path d="M580 290 H646" stroke="#5b6b7a" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+
+<text x="480" y="356" text-anchor="middle" font-size="13" fill="#1b2733">c3 (repo 101) and c4 (repo 202) are not in the source, so MERGE never sees them.</text>
+<text x="480" y="376" text-anchor="middle" font-size="13" fill="#5b6b7a">They keep exactly the bytes they had before.</text>
+</svg>

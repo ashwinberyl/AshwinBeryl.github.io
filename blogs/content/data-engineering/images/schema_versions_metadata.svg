@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="440" fill="#ffffff"/>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d5fa8"/></marker>
+</defs>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Each snapshot remembers the schema it was written with</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Three metadata.json versions. The ALTER TABLE only produced the middle one.</text>
+
+<rect x="30" y="80" width="280" height="150" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="46" y="104" font-size="12" font-weight="700" fill="#5b6b7a">AFTER BATCH 1</text>
+<text x="46" y="130" font-size="13" fill="#1b2733">schemas: 0 (6 columns)</text>
+<text x="46" y="154" font-size="13" fill="#1b2733">current schema: 0</text>
+<text x="46" y="184" font-size="13" fill="#1b2733">snapshot S1 → schema 0</text>
+
+<rect x="340" y="80" width="280" height="150" rx="8" fill="#fbeed6" stroke="#8f5300" stroke-width="1.6"/>
+<text x="356" y="104" font-size="12" font-weight="700" fill="#8f5300">AFTER ALTER TABLE ADD COLUMN</text>
+<text x="356" y="130" font-size="13" fill="#1b2733">schemas: 0, 1 (7 columns)</text>
+<text x="356" y="154" font-size="13" fill="#1b2733">current schema: 1</text>
+<text x="356" y="184" font-size="13" fill="#1b2733">snapshot S1 → schema 0</text>
+<text x="356" y="210" font-size="12" font-weight="700" fill="#8f5300">no new snapshot</text>
+
+<rect x="650" y="80" width="280" height="150" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.6"/>
+<text x="666" y="104" font-size="12" font-weight="700" fill="#1d5fa8">AFTER BATCH 2 · CURRENT</text>
+<text x="666" y="130" font-size="13" fill="#1b2733">schemas: 0, 1</text>
+<text x="666" y="154" font-size="13" fill="#1b2733">current schema: 1</text>
+<text x="666" y="184" font-size="13" fill="#1b2733">snapshot S1 → schema 0</text>
+<text x="666" y="208" font-size="13" fill="#1b2733">snapshot S2 → schema 1</text>
+
+<path d="M314 155 H336" stroke="#5b6b7a" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
+<path d="M624 155 H646" stroke="#5b6b7a" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
+
+<text x="30" y="276" font-size="13" font-weight="700" fill="#1b2733">Data files on disk</text>
+<rect x="30" y="288" width="590" height="56" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="46" y="312" font-size="13" fill="#1b2733">file written by batch 1 (6 columns)</text>
+<text x="46" y="332" font-size="12" fill="#5b6b7a">untouched by every step above</text>
+<rect x="650" y="288" width="280" height="56" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.4"/>
+<text x="666" y="312" font-size="13" fill="#1b2733">file(s) from batch 2</text>
+<text x="666" y="332" font-size="12" fill="#5b6b7a">written with 7 columns</text>
+
+<path d="M170 232 V284" stroke="#1d5fa8" stroke-width="1.4" fill="none" marker-end="url(#ab)"/>
+<path d="M790 232 V284" stroke="#1d5fa8" stroke-width="1.4" fill="none" marker-end="url(#ab)"/>
+
+<text x="480" y="384" text-anchor="middle" font-size="13" fill="#1b2733">Reading S1 uses schema 0, so you get 6 columns. Reading the live table uses schema 1, so you get 7.</text>
+<text x="480" y="408" text-anchor="middle" font-size="13" fill="#5b6b7a">The old file serves both readers. Only the schema applied on top of it differs.</text>
+</svg>

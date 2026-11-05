@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="330" fill="#ffffff"/>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+</defs>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The maintenance order: compact, expire, sweep</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Each step only frees what the step before it made unreachable.</text>
+
+<rect x="40" y="86" width="260" height="130" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.6"/>
+<text x="56" y="112" font-size="12" font-weight="700" fill="#1d5fa8">1 · rewrite_data_files</text>
+<text x="56" y="136" font-size="13" fill="#1b2733">Few big files replace</text>
+<text x="56" y="156" font-size="13" fill="#1b2733">many small ones.</text>
+<text x="56" y="184" font-size="12" fill="#5b6b7a">Disk use goes UP: old files</text>
+<text x="56" y="202" font-size="12" fill="#5b6b7a">are still pinned by history.</text>
+
+<rect x="350" y="86" width="260" height="130" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="366" y="112" font-size="12" font-weight="700" fill="#5b6b7a">2 · expire_snapshots</text>
+<text x="366" y="136" font-size="13" fill="#1b2733">Old snapshots are forgotten,</text>
+<text x="366" y="156" font-size="13" fill="#1b2733">their exclusive files deleted.</text>
+<text x="366" y="184" font-size="12" fill="#8f5300">Time travel to them is gone.</text>
+<text x="366" y="202" font-size="12" fill="#5b6b7a">Disk use drops here.</text>
+
+<rect x="660" y="86" width="260" height="130" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="676" y="112" font-size="12" font-weight="700" fill="#5b6b7a">3 · remove_orphan_files</text>
+<text x="676" y="136" font-size="13" fill="#1b2733">Files no metadata mentions</text>
+<text x="676" y="156" font-size="13" fill="#1b2733">(crashed writes) are deleted.</text>
+<text x="676" y="184" font-size="12" fill="#8f5300">Keep an older_than margin.</text>
+<text x="676" y="202" font-size="12" fill="#5b6b7a">Dry-run it first.</text>
+
+<path d="M304 151 H344" stroke="#5b6b7a" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+<path d="M614 151 H654" stroke="#5b6b7a" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+
+<rect x="40" y="244" width="880" height="50" rx="8" fill="#fbeed6" stroke="#8f5300" stroke-width="1.2"/>
+<text x="56" y="266" font-size="13" font-weight="700" fill="#8f5300">Why this order?</text>
+<text x="56" y="284" font-size="12" fill="#1b2733">Expire after compacting, so the replaced files can go in the same pass. Sweep last: it judges by file age, so keep a margin.</text>
+</svg>

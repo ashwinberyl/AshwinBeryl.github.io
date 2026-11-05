@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="430" fill="#ffffff"/>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+</defs>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Readers match columns by ID, so an old file just has no ID 7</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Nothing in the old Parquet file changed. The table's schema grew a column.</text>
+
+<text x="40" y="94" font-size="13" font-weight="700" fill="#1b2733">Old data file (written at S1)</text>
+<text x="340" y="94" font-size="13" font-weight="700" fill="#1b2733">Table schema now</text>
+<text x="640" y="94" font-size="13" font-weight="700" fill="#1b2733">What a reader returns</text>
+
+<!-- panel 1: old file -->
+<rect x="40" y="106" width="270" height="244" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="56" y="134" font-size="13" fill="#1b2733">id 1 · event_id</text>
+<text x="56" y="168" font-size="13" fill="#1b2733">id 2 · event_type</text>
+<text x="56" y="202" font-size="13" fill="#1b2733">id 3 · created_ts</text>
+<text x="56" y="236" font-size="13" fill="#1b2733">id 4 · event_date</text>
+<text x="56" y="270" font-size="13" fill="#1b2733">id 5 · repo_id</text>
+<text x="56" y="304" font-size="13" fill="#1b2733">id 6 · actor_login</text>
+<text x="56" y="336" font-size="12" fill="#5b6b7a">6 columns stored, 5 rows</text>
+
+<!-- panel 2: schema -->
+<rect x="340" y="106" width="270" height="276" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="356" y="134" font-size="13" fill="#1b2733">id 1 · event_id</text>
+<text x="356" y="168" font-size="13" fill="#1b2733">id 2 · event_type</text>
+<text x="356" y="202" font-size="13" fill="#1b2733">id 3 · created_ts</text>
+<text x="356" y="236" font-size="13" fill="#1b2733">id 4 · event_date</text>
+<text x="356" y="270" font-size="13" fill="#1b2733">id 5 · repo_id</text>
+<text x="356" y="304" font-size="13" fill="#1b2733">id 6 · actor_login</text>
+<rect x="348" y="318" width="254" height="54" rx="6" fill="#fbeed6" stroke="#8f5300" stroke-width="1.4"/>
+<text x="360" y="340" font-size="13" font-weight="700" fill="#8f5300">id 7 · actor_id BIGINT</text>
+<text x="360" y="361" font-size="12" fill="#8f5300">NEW: a fresh ID, never reused</text>
+
+<!-- panel 3: result -->
+<rect x="640" y="106" width="280" height="276" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.6"/>
+<text x="656" y="134" font-size="13" fill="#1b2733">id 1: read from file</text>
+<text x="656" y="168" font-size="13" fill="#1b2733">id 2: read from file</text>
+<text x="656" y="202" font-size="13" fill="#1b2733">id 3: read from file</text>
+<text x="656" y="236" font-size="13" fill="#1b2733">id 4: read from file</text>
+<text x="656" y="270" font-size="13" fill="#1b2733">id 5: read from file</text>
+<text x="656" y="304" font-size="13" fill="#1b2733">id 6: read from file</text>
+<rect x="648" y="318" width="264" height="54" rx="6" fill="#ffffff" stroke="#8f5300" stroke-width="1.4"/>
+<text x="660" y="340" font-size="13" font-weight="700" fill="#8f5300">id 7: not in file → NULL</text>
+<text x="660" y="361" font-size="12" fill="#5b6b7a">no error, no rewrite</text>
+
+<path d="M314 228 H336" stroke="#5b6b7a" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
+<path d="M614 228 H636" stroke="#5b6b7a" stroke-width="1.4" fill="none" marker-end="url(#ar)"/>
+
+<text x="480" y="412" text-anchor="middle" font-size="13" fill="#5b6b7a">The reader lines up the file and the schema by ID, and fills every ID the file lacks with NULL.</text>
+</svg>

@@ -616,6 +616,170 @@
             "table-formats",
             "acid"
           ]
+        },
+        {
+          "name": "Catalogs and Hidden Partitioning",
+          "type": "file",
+          "path": "data-engineering/11-catalogs-and-hidden-partitioning.md",
+          "date": "2026-10-23",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "catalog",
+            "partitioning"
+          ]
+        },
+        {
+          "name": "Idempotent Loads",
+          "type": "file",
+          "path": "data-engineering/12-idempotent-loads.md",
+          "date": "2026-10-24",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "idempotency",
+            "lakehouse"
+          ]
+        },
+        {
+          "name": "MERGE INTO in Depth",
+          "type": "file",
+          "path": "data-engineering/13-merge-into-in-depth.md",
+          "date": "2026-10-25",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "merge",
+            "lakehouse"
+          ]
+        },
+        {
+          "name": "Incremental SCD Type 2",
+          "type": "file",
+          "path": "data-engineering/14-incremental-scd2.md",
+          "date": "2026-10-26",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "scd2",
+            "merge",
+            "lakehouse"
+          ]
+        },
+        {
+          "name": "Snapshots and Time Travel",
+          "type": "file",
+          "path": "data-engineering/15-snapshots-and-time-travel.md",
+          "date": "2026-10-27",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "snapshots",
+            "time-travel",
+            "lakehouse"
+          ]
+        },
+        {
+          "name": "Schema Evolution",
+          "type": "file",
+          "path": "data-engineering/16-schema-evolution.md",
+          "date": "2026-10-28",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "schema-evolution",
+            "lakehouse"
+          ]
+        },
+        {
+          "name": "Compaction and Maintenance",
+          "type": "file",
+          "path": "data-engineering/17-compaction-and-maintenance.md",
+          "date": "2026-10-29",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "compaction",
+            "maintenance",
+            "lakehouse"
+          ]
+        },
+        {
+          "name": "Capstone: The Daily Run",
+          "type": "file",
+          "path": "data-engineering/18-capstone-daily-run.md",
+          "date": "2026-10-30",
+          "tags": [
+            "data-engineering",
+            "apache-iceberg",
+            "pyspark",
+            "capstone",
+            "lakehouse",
+            "first-principles"
+          ]
+        },
+        {
+          "name": "Reading the Spark Plan",
+          "type": "file",
+          "path": "data-engineering/19-reading-the-spark-plan.md",
+          "date": "2026-10-31",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "performance",
+            "explain",
+            "spark-ui",
+            "shuffle"
+          ]
+        },
+        {
+          "name": "Joins and Skew",
+          "type": "file",
+          "path": "data-engineering/20-joins-and-skew.md",
+          "date": "2026-11-01",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "performance",
+            "joins",
+            "skew",
+            "salting"
+          ]
+        },
+        {
+          "name": "Small Files and Partitioning",
+          "type": "file",
+          "path": "data-engineering/21-small-files-and-partitioning.md",
+          "date": "2026-11-02",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "performance",
+            "small-files",
+            "partitioning",
+            "coalesce"
+          ]
+        },
+        {
+          "name": "Measure Before You Tune",
+          "type": "file",
+          "path": "data-engineering/22-measure-before-tuning.md",
+          "date": "2026-11-03",
+          "tags": [
+            "data-engineering",
+            "pyspark",
+            "performance",
+            "benchmarking",
+            "caching",
+            "aqe"
+          ]
         }
       ]
     }

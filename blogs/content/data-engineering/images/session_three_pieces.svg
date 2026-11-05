@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="330" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">What init_spark_session adds to plain Spark</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">Three pieces. Skip one and a different thing breaks.</text>
+
+<rect x="24" y="76" width="296" height="230" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="42" y="102" font-size="12" font-weight="700" fill="#5b6b7a">PIECE 1 · THE LIBRARY</text>
+<text x="42" y="128" font-size="15" font-weight="700" fill="#1b2733">spark.jars.packages</text>
+<text x="42" y="152" font-size="12" fill="#1b2733">iceberg-spark-runtime</text>
+<text x="42" y="170" font-size="12" fill="#1b2733">built for your Spark + Scala</text>
+<rect x="42" y="196" width="260" height="92" rx="6" fill="#ffffff" stroke="#b9c6d3"/>
+<text x="54" y="218" font-size="12" font-weight="700" fill="#8f5300">If missing</text>
+<text x="54" y="238" font-size="12" fill="#1b2733">ClassNotFoundException for</text>
+<text x="54" y="256" font-size="12" fill="#1b2733">the SparkCatalog class the</text>
+<text x="54" y="274" font-size="12" fill="#1b2733">moment you touch the catalog</text>
+
+<rect x="332" y="76" width="296" height="230" rx="8" fill="#f5f7f9" stroke="#b9c6d3"/>
+<text x="350" y="102" font-size="12" font-weight="700" fill="#5b6b7a">PIECE 2 · THE SQL EXTENSIONS</text>
+<text x="350" y="128" font-size="15" font-weight="700" fill="#1b2733">spark.sql.extensions</text>
+<text x="350" y="152" font-size="12" fill="#1b2733">teaches Spark's parser</text>
+<text x="350" y="170" font-size="12" fill="#1b2733">MERGE INTO, CALL, partition DDL</text>
+<rect x="350" y="196" width="260" height="92" rx="6" fill="#ffffff" stroke="#b9c6d3"/>
+<text x="362" y="218" font-size="12" font-weight="700" fill="#8f5300">If missing</text>
+<text x="362" y="238" font-size="12" fill="#1b2733">Reads and inserts still work,</text>
+<text x="362" y="256" font-size="12" fill="#1b2733">so setup looks fine. MERGE and</text>
+<text x="362" y="274" font-size="12" fill="#1b2733">CALL fail later, far from the cause</text>
+
+<rect x="640" y="76" width="296" height="230" rx="8" fill="#dde9f7" stroke="#1d5fa8" stroke-width="1.6"/>
+<text x="658" y="102" font-size="12" font-weight="700" fill="#1d5fa8">PIECE 3 · THE CATALOG</text>
+<text x="658" y="128" font-size="15" font-weight="700" fill="#1b2733">spark.sql.catalog.local.*</text>
+<text x="658" y="152" font-size="12" fill="#1b2733">name = local, type = hadoop,</text>
+<text x="658" y="170" font-size="12" fill="#1b2733">warehouse = warehouse/</text>
+<rect x="658" y="196" width="260" height="92" rx="6" fill="#ffffff" stroke="#8fb3de"/>
+<text x="670" y="218" font-size="12" font-weight="700" fill="#8f5300">If missing</text>
+<text x="670" y="238" font-size="12" fill="#1b2733">local.reposphere.events means</text>
+<text x="670" y="256" font-size="12" fill="#1b2733">nothing: Spark cannot find a</text>
+<text x="670" y="274" font-size="12" fill="#1b2733">catalog called local</text>
+</svg>
