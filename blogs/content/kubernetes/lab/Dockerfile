@@ -1,0 +1,9 @@
+FROM python:3.12-slim
+ARG VERSION=v1
+ENV VERSION=$VERSION \
+    PYTHONDONTWRITEBYTECODE=1
+WORKDIR /app
+COPY app.py .
+EXPOSE 8080
+USER 10001
+CMD ["python", "-u", "app.py"]

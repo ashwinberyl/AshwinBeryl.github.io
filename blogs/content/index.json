@@ -923,6 +923,190 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Kubernetes",
+      "type": "folder",
+      "children": [
+        {
+          "name": "Kubernetes from First Principles",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Why Kubernetes Exists",
+              "type": "file",
+              "path": "kubernetes/01-why-kubernetes-exists.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "orchestration",
+                "containers",
+                "kind",
+                "beginner"
+              ]
+            },
+            {
+              "name": "Containers: The Shipping Container",
+              "type": "file",
+              "path": "kubernetes/02-containers-the-shipping-container.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "containers",
+                "docker",
+                "namespaces",
+                "cgroups",
+                "images"
+              ]
+            },
+            {
+              "name": "The Harbour Master's Office",
+              "type": "file",
+              "path": "kubernetes/03-the-harbour-masters-office.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "control-plane",
+                "api-server",
+                "etcd",
+                "scheduler",
+                "reconcile-loop"
+              ]
+            },
+            {
+              "name": "Pods",
+              "type": "file",
+              "path": "kubernetes/04-pods.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "pods",
+                "sidecar",
+                "debugging",
+                "kubectl"
+              ]
+            },
+            {
+              "name": "Deployments and ReplicaSets",
+              "type": "file",
+              "path": "kubernetes/05-deployments-and-replicasets.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "deployments",
+                "replicasets",
+                "self-healing",
+                "labels"
+              ]
+            },
+            {
+              "name": "Rolling Updates and Rollbacks",
+              "type": "file",
+              "path": "kubernetes/06-rolling-updates-and-rollbacks.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "rolling-update",
+                "rollback",
+                "maxsurge",
+                "deployments"
+              ]
+            },
+            {
+              "name": "Services",
+              "type": "file",
+              "path": "kubernetes/07-services.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "services",
+                "clusterip",
+                "nodeport",
+                "dns",
+                "endpoints"
+              ]
+            },
+            {
+              "name": "Ingress",
+              "type": "file",
+              "path": "kubernetes/08-ingress.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "ingress",
+                "ingress-controller",
+                "routing",
+                "nginx"
+              ]
+            },
+            {
+              "name": "Config and Secrets",
+              "type": "file",
+              "path": "kubernetes/09-config-and-secrets.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "configmap",
+                "secrets",
+                "configuration",
+                "base64"
+              ]
+            },
+            {
+              "name": "Storage",
+              "type": "file",
+              "path": "kubernetes/10-storage.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "storage",
+                "persistentvolume",
+                "pvc",
+                "statefulset"
+              ]
+            },
+            {
+              "name": "Scheduling, Resources and Probes",
+              "type": "file",
+              "path": "kubernetes/11-scheduling-resources-and-probes.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "scheduler",
+                "requests-limits",
+                "oomkilled",
+                "probes",
+                "hpa"
+              ]
+            },
+            {
+              "name": "Security and Capstone",
+              "type": "file",
+              "path": "kubernetes/12-security-and-capstone.md",
+              "date": "2026-11-06",
+              "tags": [
+                "kubernetes",
+                "first-principles",
+                "namespaces",
+                "rbac",
+                "security-context",
+                "capstone"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
