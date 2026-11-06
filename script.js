@@ -135,6 +135,7 @@ function initTerminalAnimation() {
         '',
         '$ cat role.txt',
         'Senior Data Platform Engineer',
+        'Platform Eng | DevSecOps | Data',
         '8 years | Bengaluru, IN',
         '',
         '$ aws glue get-tables --database gold_layer',
