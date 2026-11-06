@@ -488,297 +488,303 @@
       "type": "folder",
       "children": [
         {
-          "name": "What Data Engineering Actually Is",
-          "type": "file",
-          "path": "data-engineering/01-what-is-data-engineering.md",
-          "date": "2026-10-10",
-          "tags": [
-            "data-engineering",
-            "first-principles",
-            "facts",
-            "dimensions",
-            "beginner"
-          ]
-        },
-        {
-          "name": "Spark from First Principles",
-          "type": "file",
-          "path": "data-engineering/02-spark-from-first-principles.md",
-          "date": "2026-10-11",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "dataframes",
-            "lazy-evaluation",
-            "null"
-          ]
-        },
-        {
-          "name": "Reading JSON Lines & Schemas",
-          "type": "file",
-          "path": "data-engineering/03-reading-json-lines-and-schemas.md",
-          "date": "2026-10-11",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "json-lines",
-            "schema",
-            "structtype"
-          ]
-        },
-        {
-          "name": "Flattening & Timestamps",
-          "type": "file",
-          "path": "data-engineering/04-flattening-and-timestamps.md",
-          "date": "2026-10-12",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "flattening",
-            "timestamps",
-            "time-zones"
-          ]
-        },
-        {
-          "name": "Window Functions",
-          "type": "file",
-          "path": "data-engineering/05-window-functions.md",
-          "date": "2026-10-13",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "window-functions",
-            "lag-lead",
-            "ranking"
-          ]
-        },
-        {
-          "name": "SCD Type 2",
-          "type": "file",
-          "path": "data-engineering/06-scd-type-2.md",
-          "date": "2026-10-17",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "scd-type-2",
-            "dimensions",
-            "window-functions"
-          ]
-        },
-        {
-          "name": "Sessionization: Gaps & Islands",
-          "type": "file",
-          "path": "data-engineering/07-sessionization-gaps-and-islands.md",
-          "date": "2026-10-17",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "sessionization",
-            "gaps-and-islands",
-            "window-functions"
-          ]
-        },
-        {
-          "name": "Point-in-Time Joins",
-          "type": "file",
-          "path": "data-engineering/08-point-in-time-joins.md",
-          "date": "2026-10-20",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "joins",
-            "point-in-time",
-            "scd-type-2"
-          ]
-        },
-        {
-          "name": "Aggregates and the Full Pipeline",
-          "type": "file",
-          "path": "data-engineering/09-aggregates-and-full-pipeline.md",
-          "date": "2026-10-21",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "aggregates",
-            "groupby",
-            "window-functions"
-          ]
-        },
-        {
-          "name": "Why Table Formats? Apache Iceberg",
-          "type": "file",
-          "path": "data-engineering/10-why-table-formats-iceberg.md",
-          "date": "2026-10-22",
-          "tags": [
-            "data-engineering",
-            "apache-iceberg",
-            "lakehouse",
-            "table-formats",
-            "acid"
-          ]
-        },
-        {
-          "name": "Catalogs and Hidden Partitioning",
-          "type": "file",
-          "path": "data-engineering/11-catalogs-and-hidden-partitioning.md",
-          "date": "2026-10-23",
-          "tags": [
-            "data-engineering",
-            "apache-iceberg",
-            "pyspark",
-            "catalog",
-            "partitioning"
-          ]
-        },
-        {
-          "name": "Idempotent Loads",
-          "type": "file",
-          "path": "data-engineering/12-idempotent-loads.md",
-          "date": "2026-10-24",
-          "tags": [
-            "data-engineering",
-            "apache-iceberg",
-            "pyspark",
-            "idempotency",
-            "lakehouse"
-          ]
-        },
-        {
-          "name": "MERGE INTO in Depth",
-          "type": "file",
-          "path": "data-engineering/13-merge-into-in-depth.md",
-          "date": "2026-10-25",
-          "tags": [
-            "data-engineering",
-            "apache-iceberg",
-            "pyspark",
-            "merge",
-            "lakehouse"
-          ]
-        },
-        {
-          "name": "Incremental SCD Type 2",
-          "type": "file",
-          "path": "data-engineering/14-incremental-scd2.md",
-          "date": "2026-10-26",
-          "tags": [
-            "data-engineering",
-            "apache-iceberg",
-            "pyspark",
-            "scd2",
-            "merge",
-            "lakehouse"
-          ]
-        },
-        {
-          "name": "Snapshots and Time Travel",
-          "type": "file",
-          "path": "data-engineering/15-snapshots-and-time-travel.md",
-          "date": "2026-10-27",
-          "tags": [
-            "data-engineering",
-            "apache-iceberg",
-            "pyspark",
-            "snapshots",
-            "time-travel",
-            "lakehouse"
-          ]
-        },
-        {
-          "name": "Schema Evolution",
-          "type": "file",
-          "path": "data-engineering/16-schema-evolution.md",
-          "date": "2026-10-28",
-          "tags": [
-            "data-engineering",
-            "apache-iceberg",
-            "pyspark",
-            "schema-evolution",
-            "lakehouse"
-          ]
-        },
-        {
-          "name": "Compaction and Maintenance",
-          "type": "file",
-          "path": "data-engineering/17-compaction-and-maintenance.md",
-          "date": "2026-10-29",
-          "tags": [
-            "data-engineering",
-            "apache-iceberg",
-            "pyspark",
-            "compaction",
-            "maintenance",
-            "lakehouse"
-          ]
-        },
-        {
-          "name": "Capstone: The Daily Run",
-          "type": "file",
-          "path": "data-engineering/18-capstone-daily-run.md",
-          "date": "2026-10-30",
-          "tags": [
-            "data-engineering",
-            "apache-iceberg",
-            "pyspark",
-            "capstone",
-            "lakehouse",
-            "first-principles"
-          ]
-        },
-        {
-          "name": "Reading the Spark Plan",
-          "type": "file",
-          "path": "data-engineering/19-reading-the-spark-plan.md",
-          "date": "2026-10-31",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "performance",
-            "explain",
-            "spark-ui",
-            "shuffle"
-          ]
-        },
-        {
-          "name": "Joins and Skew",
-          "type": "file",
-          "path": "data-engineering/20-joins-and-skew.md",
-          "date": "2026-11-01",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "performance",
-            "joins",
-            "skew",
-            "salting"
-          ]
-        },
-        {
-          "name": "Small Files and Partitioning",
-          "type": "file",
-          "path": "data-engineering/21-small-files-and-partitioning.md",
-          "date": "2026-11-02",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "performance",
-            "small-files",
-            "partitioning",
-            "coalesce"
-          ]
-        },
-        {
-          "name": "Measure Before You Tune",
-          "type": "file",
-          "path": "data-engineering/22-measure-before-tuning.md",
-          "date": "2026-11-03",
-          "tags": [
-            "data-engineering",
-            "pyspark",
-            "performance",
-            "benchmarking",
-            "caching",
-            "aqe"
+          "name": "Principles, PySpark and Iceberg",
+          "type": "folder",
+          "children": [
+            {
+              "name": "What Data Engineering Actually Is",
+              "type": "file",
+              "path": "data-engineering/01-what-is-data-engineering.md",
+              "date": "2026-10-10",
+              "tags": [
+                "data-engineering",
+                "first-principles",
+                "facts",
+                "dimensions",
+                "beginner"
+              ]
+            },
+            {
+              "name": "Spark from First Principles",
+              "type": "file",
+              "path": "data-engineering/02-spark-from-first-principles.md",
+              "date": "2026-10-11",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "dataframes",
+                "lazy-evaluation",
+                "null"
+              ]
+            },
+            {
+              "name": "Reading JSON Lines & Schemas",
+              "type": "file",
+              "path": "data-engineering/03-reading-json-lines-and-schemas.md",
+              "date": "2026-10-11",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "json-lines",
+                "schema",
+                "structtype"
+              ]
+            },
+            {
+              "name": "Flattening & Timestamps",
+              "type": "file",
+              "path": "data-engineering/04-flattening-and-timestamps.md",
+              "date": "2026-10-12",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "flattening",
+                "timestamps",
+                "time-zones"
+              ]
+            },
+            {
+              "name": "Window Functions",
+              "type": "file",
+              "path": "data-engineering/05-window-functions.md",
+              "date": "2026-10-13",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "window-functions",
+                "lag-lead",
+                "ranking"
+              ]
+            },
+            {
+              "name": "SCD Type 2",
+              "type": "file",
+              "path": "data-engineering/06-scd-type-2.md",
+              "date": "2026-10-17",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "scd-type-2",
+                "dimensions",
+                "window-functions"
+              ]
+            },
+            {
+              "name": "Sessionization: Gaps & Islands",
+              "type": "file",
+              "path": "data-engineering/07-sessionization-gaps-and-islands.md",
+              "date": "2026-10-17",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "sessionization",
+                "gaps-and-islands",
+                "window-functions"
+              ]
+            },
+            {
+              "name": "Point-in-Time Joins",
+              "type": "file",
+              "path": "data-engineering/08-point-in-time-joins.md",
+              "date": "2026-10-20",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "joins",
+                "point-in-time",
+                "scd-type-2"
+              ]
+            },
+            {
+              "name": "Aggregates and the Full Pipeline",
+              "type": "file",
+              "path": "data-engineering/09-aggregates-and-full-pipeline.md",
+              "date": "2026-10-21",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "aggregates",
+                "groupby",
+                "window-functions"
+              ]
+            },
+            {
+              "name": "Why Table Formats? Apache Iceberg",
+              "type": "file",
+              "path": "data-engineering/10-why-table-formats-iceberg.md",
+              "date": "2026-10-22",
+              "tags": [
+                "data-engineering",
+                "apache-iceberg",
+                "lakehouse",
+                "table-formats",
+                "acid"
+              ]
+            },
+            {
+              "name": "Catalogs and Hidden Partitioning",
+              "type": "file",
+              "path": "data-engineering/11-catalogs-and-hidden-partitioning.md",
+              "date": "2026-10-23",
+              "tags": [
+                "data-engineering",
+                "apache-iceberg",
+                "pyspark",
+                "catalog",
+                "partitioning"
+              ]
+            },
+            {
+              "name": "Idempotent Loads",
+              "type": "file",
+              "path": "data-engineering/12-idempotent-loads.md",
+              "date": "2026-10-24",
+              "tags": [
+                "data-engineering",
+                "apache-iceberg",
+                "pyspark",
+                "idempotency",
+                "lakehouse"
+              ]
+            },
+            {
+              "name": "MERGE INTO in Depth",
+              "type": "file",
+              "path": "data-engineering/13-merge-into-in-depth.md",
+              "date": "2026-10-25",
+              "tags": [
+                "data-engineering",
+                "apache-iceberg",
+                "pyspark",
+                "merge",
+                "lakehouse"
+              ]
+            },
+            {
+              "name": "Incremental SCD Type 2",
+              "type": "file",
+              "path": "data-engineering/14-incremental-scd2.md",
+              "date": "2026-10-26",
+              "tags": [
+                "data-engineering",
+                "apache-iceberg",
+                "pyspark",
+                "scd2",
+                "merge",
+                "lakehouse"
+              ]
+            },
+            {
+              "name": "Snapshots and Time Travel",
+              "type": "file",
+              "path": "data-engineering/15-snapshots-and-time-travel.md",
+              "date": "2026-10-27",
+              "tags": [
+                "data-engineering",
+                "apache-iceberg",
+                "pyspark",
+                "snapshots",
+                "time-travel",
+                "lakehouse"
+              ]
+            },
+            {
+              "name": "Schema Evolution",
+              "type": "file",
+              "path": "data-engineering/16-schema-evolution.md",
+              "date": "2026-10-28",
+              "tags": [
+                "data-engineering",
+                "apache-iceberg",
+                "pyspark",
+                "schema-evolution",
+                "lakehouse"
+              ]
+            },
+            {
+              "name": "Compaction and Maintenance",
+              "type": "file",
+              "path": "data-engineering/17-compaction-and-maintenance.md",
+              "date": "2026-10-29",
+              "tags": [
+                "data-engineering",
+                "apache-iceberg",
+                "pyspark",
+                "compaction",
+                "maintenance",
+                "lakehouse"
+              ]
+            },
+            {
+              "name": "Capstone: The Daily Run",
+              "type": "file",
+              "path": "data-engineering/18-capstone-daily-run.md",
+              "date": "2026-10-30",
+              "tags": [
+                "data-engineering",
+                "apache-iceberg",
+                "pyspark",
+                "capstone",
+                "lakehouse",
+                "first-principles"
+              ]
+            },
+            {
+              "name": "Reading the Spark Plan",
+              "type": "file",
+              "path": "data-engineering/19-reading-the-spark-plan.md",
+              "date": "2026-10-31",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "performance",
+                "explain",
+                "spark-ui",
+                "shuffle"
+              ]
+            },
+            {
+              "name": "Joins and Skew",
+              "type": "file",
+              "path": "data-engineering/20-joins-and-skew.md",
+              "date": "2026-11-01",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "performance",
+                "joins",
+                "skew",
+                "salting"
+              ]
+            },
+            {
+              "name": "Small Files and Partitioning",
+              "type": "file",
+              "path": "data-engineering/21-small-files-and-partitioning.md",
+              "date": "2026-11-02",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "performance",
+                "small-files",
+                "partitioning",
+                "coalesce"
+              ]
+            },
+            {
+              "name": "Measure Before You Tune",
+              "type": "file",
+              "path": "data-engineering/22-measure-before-tuning.md",
+              "date": "2026-11-03",
+              "tags": [
+                "data-engineering",
+                "pyspark",
+                "performance",
+                "benchmarking",
+                "caching",
+                "aqe"
+              ]
+            }
           ]
         },
         {
