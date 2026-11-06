@@ -1055,7 +1055,12 @@ footer {
     }
 
     #hero h1 {
-        font-size: 2.5rem;
+        font-size: min(9vw, 3rem);
+        letter-spacing: -1px;
+    }
+
+    #hero h1 .line {
+        white-space: nowrap;
     }
 
     .metrics-grid {
