@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Deployment → ReplicaSet → Pods: the standing order, the counter, the work">
+  <rect width="900" height="360" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Deployment → ReplicaSet → Pods: the standing order, the counter, the work</text>
+  <rect x="30" y="80" width="200" height="105" rx="10" fill="#fdecd8" stroke="#d9822b" stroke-width="1.5"/>
+  <text x="130.0" y="106" text-anchor="middle" font-size="15" font-weight="700" fill="#7a3f00">Deployment</text>
+  <text x="130.0" y="130" text-anchor="middle" font-size="13.5" fill="#1b2733">replicas: 3</text>
+  <text x="130.0" y="150" text-anchor="middle" font-size="13.5" fill="#1b2733">owns updates + rollbacks</text>
+  <text x="130.0" y="173" text-anchor="middle" font-size="12" font-style="italic" fill="#7a3f00">the standing order</text>
+  <rect x="290" y="80" width="200" height="105" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="390.0" y="106" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">ReplicaSet</text>
+  <text x="390.0" y="130" text-anchor="middle" font-size="13.5" fill="#1b2733">"count pods labelled</text>
+  <text x="390.0" y="150" text-anchor="middle" font-size="13.5" fill="#1b2733">app=web, keep exactly 3"</text>
+  <text x="390.0" y="173" text-anchor="middle" font-size="12" font-style="italic" fill="#173d6b">the clerk with a tally counter</text>
+  <line x1="230" y1="132" x2="290" y2="132" stroke="#5b6b7a" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="490" y1="132" x2="545" y2="132" stroke="#5b6b7a" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="550" y="100" width="90" height="65" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="595.0" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#124d38">pod 1</text>
+  <text x="595.0" y="150" text-anchor="middle" font-size="13.5" fill="#1b2733">app=web</text>
+  <rect x="650" y="100" width="90" height="65" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="695.0" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#124d38">pod 2</text>
+  <text x="695.0" y="150" text-anchor="middle" font-size="13.5" fill="#1b2733">app=web</text>
+  <rect x="750" y="100" width="90" height="65" rx="10" fill="#fde3e3" stroke="#c24a4a" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="795" y="127" text-anchor="middle" font-size="14" font-weight="700" fill="#7a1f1f">pod 3</text>
+  <path d="M786,138 L804,156 M804,138 L786,156" stroke="#c24a4a" stroke-width="4" stroke-linecap="round"/>
+  <text x="795" y="195" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7a1f1f">pod 3 dies</text>
+  <line x1="490" y1="175" x2="550" y2="255" stroke="#2f9e72" stroke-width="2" marker-end="url(#g)"/>
+  <text x="470.0" y="227.0" text-anchor="middle" font-size="12" fill="#2f9e72">2 found, 3 wanted</text>
+  <rect x="550" y="245" width="120" height="65" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="610.0" y="271" text-anchor="middle" font-size="14" font-weight="700" fill="#124d38">new pod</text>
+  <text x="610.0" y="295" text-anchor="middle" font-size="13.5" fill="#1b2733">created</text>
+  <text x="450" y="340" text-anchor="middle" font-size="12.5" font-style="italic" fill="#5b6b7a">Pods are mortal. The order is not: the ReplicaSet recreates whatever goes missing.</text>
+</svg>
