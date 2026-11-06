@@ -155,7 +155,7 @@ and then `ImagePullBackOff`. Kubernetes tries, fails, and waits longer between e
 kubectl describe pod broken
 ```
 
-Scroll to the **Events** section at the bottom. You'll see a failure to pull `port-app:v99` (not found). **`describe` and its Events section are your first stop for any pod problem.**
+Scroll to the **Events** section at the bottom. You'll see a failure to pull `port-app:v99` (the image doesn't exist, or you aren't allowed to pull it, which Kubernetes can't tell apart). **`describe` and its Events section are your first stop for any pod problem.**
 
 Fix it: delete and recreate with the right tag.
 

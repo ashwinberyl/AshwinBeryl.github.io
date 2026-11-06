@@ -27,7 +27,7 @@ This trips up almost everyone, so read it twice:
 | **Ingress** (resource) | A *rule set* you write: "paths and hosts → Services" | The written gate instructions |
 | **Ingress controller** | A *running program* that reads those rules and does the routing | The guard who follows the instructions |
 
-**Kubernetes ships the first, but not the second.** If you create an Ingress and no controller is installed, nothing happens. The rules sit there and no guard reads them. Popular controllers: ingress-nginx, Traefik, HAProxy, and cloud-provided ones.
+**Kubernetes ships the first, but not the second.** If you create an Ingress and no controller is installed, nothing happens. The rules sit there and no guard reads them. Examples include Traefik, HAProxy, Contour, and the ones cloud providers supply. (ingress-nginx was the most common, but it has been retired; see the status note in the lab.)
 
 The controller itself is just a pod (a reverse proxy like nginx) that **watches the API server** for Ingress resources and reconfigures itself, the reconcile loop again.
 
@@ -74,28 +74,29 @@ Rules can also match on **host** (`host: shop.example.com`), and can terminate *
 
 ## Lab: Build the Gate 🛠️
 
-Remember the `extraPortMappings` in the cluster config from Post 01? Your laptop's port **8080** forwards to port 80 on the control-plane node. We'll put the gate there.
-
 ### 1. Install the ingress controller
 
-kind documents an install tuned for its clusters:
+> **Status note: please read.** The controller used here, **ingress-nginx, was retired by the Kubernetes project in March 2026**. It gets no more releases and no security fixes, although existing installs keep working and the install files remain available ([announcement](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/), [later statement](https://kubernetes.io/blog/2026/01/29/ingress-nginx-statement/)). We use it here only because it is the most widely documented controller and this cluster is a throwaway on your laptop. **Don't run it in production.** Use a maintained controller, or move to the **Gateway API**, the successor to Ingress. Everything this post teaches (rules versus controller, how paths route to Services) applies to every controller.
+
+We pin the install to a specific release, so it can't change underneath you:
 
 ```bash
-kubectl apply -f https://kind.sigs.k8s.io/examples/ingress/deploy-ingress-nginx.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.15.1/deploy/static/provider/kind/deploy.yaml
 kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \
   --selector=app.kubernetes.io/component=controller \
-  --timeout=120s
+  --timeout=180s
 ```
 
-(This pulls from the internet, so it needs a moment. If the URL ever moves, check kind's [Ingress guide](https://kind.sigs.k8s.io/docs/user/ingress/).) Look at what you installed:
+(This pulls images from the internet, so it takes a moment.) Look at what you installed:
 
 ```bash
 kubectl get pods -n ingress-nginx
 kubectl get ingressclass
+kubectl get service -n ingress-nginx
 ```
 
-One controller pod, and an `nginx` IngressClass.
+One controller pod and an `nginx` IngressClass. The controller's Service is type `LoadBalancer`, and its `EXTERNAL-IP` stays `<pending>`: kind has no cloud to hand out an address. In a real cluster that address is where visitors would arrive. On your laptop we'll tunnel to it instead.
 
 ### 2. Two apps, two greetings
 
@@ -218,6 +219,14 @@ kubectl describe ingress port-gate
 
 ### 4. Drive through the gate
 
+Open a tunnel from your laptop to the controller and **leave it running in its own terminal**:
+
+```bash
+kubectl -n ingress-nginx port-forward service/ingress-nginx-controller 8080:80
+```
+
+(This is our stand-in for the public address a real cluster would have. It works the same on Linux, Mac and Windows, and wherever the controller pod happened to be scheduled.) Now, in another terminal:
+
 ```bash
 curl localhost:8080/cargo
 curl localhost:8080/passengers
@@ -252,7 +261,7 @@ The backend list grows to four pod IPs without you touching the Ingress. The con
 ### 7. Look under the hood (optional)
 
 ```bash
-kubectl exec -n ingress-nginx deploy/ingress-nginx-controller -- grep -m3 "cargo" /etc/nginx/nginx.conf
+kubectl exec -n ingress-nginx deploy/ingress-nginx-controller -- cat /etc/nginx/nginx.conf | grep -m3 cargo
 ```
 
 The controller turned your 15 lines of YAML into real nginx configuration. Clean up if you like:

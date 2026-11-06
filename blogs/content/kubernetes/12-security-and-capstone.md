@@ -187,7 +187,7 @@ Everything from the series, in one namespace. We'll open a small port called **h
 
 (To be upfront: our one sample image doesn't call across tiers. The *structure*, with separate Deployments, Services, storage and config, is what a real two-tier app looks like. The app inside is the part you'd swap.)
 
-Make sure the ingress controller from Post 08 is still running, then work through these steps.
+Make sure the ingress controller from Post 08 is still installed, and that its tunnel is open in a spare terminal (`kubectl -n ingress-nginx port-forward service/ingress-nginx-controller 8080:80`). Then work through these steps. (As noted in Post 08, ingress-nginx is retired; it's fine for this throwaway lab, but not for real systems.)
 
 ### 1. Namespace, config and secret
 
@@ -542,6 +542,7 @@ Look at what the port now does, and which post taught each part:
 - **Observe it**: metrics (Prometheus), logs and traces. You can't fix what you can't see.
 - **Run it for real**: managed clusters (EKS, GKE, AKS), cluster upgrades, node autoscaling, backups.
 - **Extend it**: Custom Resources and Operators: teaching the port to manage new kinds of cargo.
+- **Modernise the gate**: the Gateway API, the successor to Ingress and the migration path the Kubernetes project recommends now that ingress-nginx is retired.
 - **Harden it more**: NetworkPolicies, Pod Security Standards, image scanning, secret managers.
 
 Every one of those is the same idea you learned in Post 03, applied once more: **declare what you want, and let a loop make it true.**

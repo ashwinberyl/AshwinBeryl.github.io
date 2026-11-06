@@ -113,10 +113,11 @@ The `pod=` value is the container's hostname, which is just its short ID. Rememb
 ### 4. Look at the blinders
 
 ```bash
-docker exec port-test ps aux
+docker exec port-test sh -c 'ls /proc | grep -E "^[0-9]+$"'
+docker exec port-test cat /proc/1/cmdline | tr '\0' ' '; echo
 ```
 
-You'll see only one or two processes: the container thinks it's alone on the machine. That's the PID **namespace** at work. Compare with the host:
+The first command lists the process IDs the container can see: just a handful of low numbers. The second shows that **PID 1 is your app** (`python -u app.py`). Inside its own world, the app thinks it was the first process on the machine and that nothing else exists. That's the PID **namespace** at work. (We use `/proc` because the slim Python image doesn't ship the `ps` tool.) Compare with the host:
 
 ```bash
 ps aux | grep "app.py" | head -3

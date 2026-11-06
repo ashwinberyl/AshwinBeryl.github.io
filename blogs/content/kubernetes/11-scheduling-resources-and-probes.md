@@ -86,12 +86,13 @@ readinessProbe:
     path: /healthz
     port: 8080
   periodSeconds: 3
+  failureThreshold: 1      # one miss → stop sending traffic
 livenessProbe:
   httpGet:
     path: /healthz
     port: 8080
   periodSeconds: 5
-  failureThreshold: 2      # two misses in a row → restart
+  failureThreshold: 3      # three misses in a row → restart
 ```
 
 ![Requests, limits and the three probes in one picture](content/kubernetes/images/11-resources-and-probes.svg)
@@ -223,12 +224,13 @@ spec:
               path: /healthz
               port: 8080
             periodSeconds: 3
+            failureThreshold: 1
           livenessProbe:
             httpGet:
               path: /healthz
               port: 8080
             periodSeconds: 5
-            failureThreshold: 2
+            failureThreshold: 3
 ```
 
 ```bash
@@ -258,8 +260,8 @@ kubectl get pods -l app=limited --watch
 
 What you'll see, in order:
 
-1. Within a few seconds the broken pod's `READY` becomes **`0/1`**: the **readiness** probe fails (`/healthz` returns 500). It's pulled out of the Service's endpoints, so **no traffic goes to it**, yet it isn't restarted.
-2. After two failed **liveness** checks (about 10 seconds), the container is **killed and restarted**. `RESTARTS` goes to 1, and it comes back healthy (the app's "broken" flag lived in memory and is gone).
+1. Within about 3 seconds the broken pod's `READY` becomes **`0/1`**: the **readiness** probe fails (`/healthz` returns 500). It's pulled out of the Service's endpoints, so **no traffic goes to it**, yet it isn't restarted.
+2. After three failed **liveness** checks (about 15 seconds), the container is **killed and restarted**. `RESTARTS` goes to 1, it comes back healthy (the app's "broken" flag lived in memory and is gone), and `READY` returns to `1/1`.
 
 Confirm the story in the Events:
 

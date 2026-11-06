@@ -102,23 +102,13 @@ kind version
 
 ### 2. Describe the port
 
-Create `kind-port.yaml`. It asks for one control-plane node and two worker nodes, and opens a door from your laptop's port 8080 into the cluster. We'll use that door in Post 08.
+Create `kind-port.yaml`. It asks for one control-plane node and two worker nodes.
 
 ```yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
   - role: control-plane
-    kubeadmConfigPatches:
-      - |
-        kind: InitConfiguration
-        nodeRegistration:
-          kubeletExtraArgs:
-            node-labels: "ingress-ready=true"
-    extraPortMappings:
-      - containerPort: 80
-        hostPort: 8080
-        protocol: TCP
   - role: worker
   - role: worker
 ```
