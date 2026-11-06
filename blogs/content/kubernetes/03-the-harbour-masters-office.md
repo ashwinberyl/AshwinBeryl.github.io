@@ -36,6 +36,8 @@ And on **every node** there's a crane operator:
 
 Notice the design: **nobody talks to anybody directly.** The scheduler doesn't call the kubelet. The kubelet doesn't call the scheduler. Everyone reads from and writes to the **API server**, which keeps the ledger. It's a bulletin board, not a phone tree.
 
+![Control plane components all communicate through the API server](content/kubernetes/images/03-control-plane.svg)
+
 ---
 
 ## The Reconcile Loop: The One Idea ♻️

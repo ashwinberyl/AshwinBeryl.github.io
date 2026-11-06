@@ -46,6 +46,8 @@ Kubernetes keeps a live list of the ready pods matching the selector, stored as 
 
 > **Key insight:** A Service isn't a process. There's no little proxy server sitting there. It's a *rule* on every node. That's why it's fast and why it keeps working even if individual pods vanish.
 
+![A Service gives a stable address in front of changing pods](content/kubernetes/images/07-service.svg)
+
 ---
 
 ## Four Types of Address 🏷️

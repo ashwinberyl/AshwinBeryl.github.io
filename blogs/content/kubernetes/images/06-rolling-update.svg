@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Rolling update: replace pods one at a time, never below 3 ready">
+  <rect width="900" height="400" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Rolling update: replace pods one at a time, never below 3 ready</text>
+  <text x="30" y="89" text-anchor="start" font-size="13.5" font-weight="700" fill="#1b2733">1  start</text>
+  <rect x="330" y="68" width="70" height="34" rx="17.0" fill="#eef1f4" stroke="#8a97a3"/>
+  <text x="365.0" y="89.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2b3945">v1</text>
+  <rect x="415" y="68" width="70" height="34" rx="17.0" fill="#eef1f4" stroke="#8a97a3"/>
+  <text x="450.0" y="89.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2b3945">v1</text>
+  <rect x="500" y="68" width="70" height="34" rx="17.0" fill="#eef1f4" stroke="#8a97a3"/>
+  <text x="535.0" y="89.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2b3945">v1</text>
+  <text x="690" y="90" text-anchor="start" font-size="12.5" fill="#5b6b7a">3 ready</text>
+  <text x="30" y="151" text-anchor="start" font-size="13.5" font-weight="700" fill="#1b2733">2  add one new pod</text>
+  <rect x="330" y="130" width="70" height="34" rx="17.0" fill="#eef1f4" stroke="#8a97a3"/>
+  <text x="365.0" y="151.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2b3945">v1</text>
+  <rect x="415" y="130" width="70" height="34" rx="17.0" fill="#eef1f4" stroke="#8a97a3"/>
+  <text x="450.0" y="151.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2b3945">v1</text>
+  <rect x="500" y="130" width="70" height="34" rx="17.0" fill="#eef1f4" stroke="#8a97a3"/>
+  <text x="535.0" y="151.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2b3945">v1</text>
+  <rect x="585" y="130" width="70" height="34" rx="17.0" fill="#dff3ea" stroke="#2f9e72" stroke-dasharray="5 3"/>
+  <text x="620.0" y="151.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#124d38">v2</text>
+  <text x="690" y="152" text-anchor="start" font-size="12.5" fill="#5b6b7a">3 ready + 1 starting</text>
+  <text x="30" y="213" text-anchor="start" font-size="13.5" font-weight="700" fill="#1b2733">3  new is ready, remove one old</text>
+  <rect x="330" y="192" width="70" height="34" rx="17.0" fill="#eef1f4" stroke="#8a97a3"/>
+  <text x="365.0" y="213.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2b3945">v1</text>
+  <rect x="415" y="192" width="70" height="34" rx="17.0" fill="#eef1f4" stroke="#8a97a3"/>
+  <text x="450.0" y="213.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2b3945">v1</text>
+  <rect x="500" y="192" width="70" height="34" rx="17.0" fill="#dff3ea" stroke="#2f9e72"/>
+  <text x="535.0" y="213.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#124d38">v2</text>
+  <text x="690" y="214" text-anchor="start" font-size="12.5" fill="#5b6b7a">3 ready</text>
+  <text x="30" y="275" text-anchor="start" font-size="13.5" font-weight="700" fill="#1b2733">4  repeat until done</text>
+  <rect x="330" y="254" width="70" height="34" rx="17.0" fill="#dff3ea" stroke="#2f9e72"/>
+  <text x="365.0" y="275.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#124d38">v2</text>
+  <rect x="415" y="254" width="70" height="34" rx="17.0" fill="#dff3ea" stroke="#2f9e72"/>
+  <text x="450.0" y="275.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#124d38">v2</text>
+  <rect x="500" y="254" width="70" height="34" rx="17.0" fill="#dff3ea" stroke="#2f9e72"/>
+  <text x="535.0" y="275.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#124d38">v2</text>
+  <text x="690" y="276" text-anchor="start" font-size="12.5" fill="#5b6b7a">3 ready, all new</text>
+  <rect x="330" y="318" width="70" height="28" rx="14.0" fill="#eef1f4" stroke="#8a97a3"/>
+  <text x="365.0" y="336.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2b3945">v1</text>
+  <text x="410" y="337" text-anchor="start" font-size="12.5" fill="#1b2733">old ReplicaSet (kept at 0 pods)</text>
+  <rect x="330" y="352" width="70" height="28" rx="14.0" fill="#dff3ea" stroke="#2f9e72"/>
+  <text x="365.0" y="370.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#124d38">v2</text>
+  <text x="410" y="371" text-anchor="start" font-size="12.5" fill="#1b2733">new ReplicaSet (scaled up step by step)</text>
+  <text x="30" y="337" text-anchor="start" font-size="13" font-weight="700" fill="#124d38">Rollback = scale the old</text>
+  <text x="30" y="357" text-anchor="start" font-size="13" font-weight="700" fill="#124d38">ReplicaSet back up.</text>
+</svg>

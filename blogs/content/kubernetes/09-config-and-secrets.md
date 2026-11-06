@@ -24,6 +24,8 @@ Kubernetes separates the two:
 | **Customs paperwork** | **ConfigMap** | Non-sensitive settings |
 | **Locked cargo** | **Secret** | Sensitive values: passwords, tokens, keys |
 
+![ConfigMaps and Secrets reach a pod as environment variables and files](content/kubernetes/images/09-config-and-secrets.svg)
+
 ---
 
 ## ConfigMap: The Paperwork 📄

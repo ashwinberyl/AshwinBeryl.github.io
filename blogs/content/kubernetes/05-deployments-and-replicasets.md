@@ -32,6 +32,8 @@ Deployment   →   ReplicaSet   →   Pods
 
 You almost never create a ReplicaSet yourself. You create a Deployment, and it creates the ReplicaSet, which creates the pods. Why the extra layer? Because the Deployment needs *two* counters during an update (one for the old version, one for the new). That's Post 06.
 
+![A Deployment owns a ReplicaSet, which keeps exactly N pods alive](content/kubernetes/images/05-deployment-layers.svg)
+
 ---
 
 ## Labels: How the Clerk Finds Its Containers 🏷️

@@ -72,6 +72,8 @@ Most apps run fine with these. If something breaks, you learn precisely what it 
 
 **NetworkPolicies** do the same job for networking: "only the gate may talk to the ledger." They need a network plugin that enforces them. kind's default one doesn't, so we'll leave them as a concept here, but keep them on your list for real clusters.
 
+![RBAC lets a ServiceAccount do only what its Role lists](content/kubernetes/images/12-namespaces-and-rbac.svg)
+
 ---
 
 ## Lab Part 1: Terminals and Badges 🛠️

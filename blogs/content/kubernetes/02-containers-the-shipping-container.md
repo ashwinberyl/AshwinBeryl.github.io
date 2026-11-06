@@ -28,6 +28,8 @@ Namespaces hide things: other processes, the host's network, the host's file sys
 
 > **Key insight:** Because containers share the host's kernel, they start in milliseconds and cost almost nothing, but they're also less isolated than VMs. Remember this in Post 12 when we talk security.
 
+![A container is an ordinary process limited by namespaces and cgroups on a shared kernel](content/kubernetes/images/02-container-anatomy.svg)
+
 ---
 
 ## Images: The Packing List 📋

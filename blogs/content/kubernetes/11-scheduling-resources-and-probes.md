@@ -94,6 +94,8 @@ livenessProbe:
   failureThreshold: 2      # two misses in a row → restart
 ```
 
+![Requests, limits and the three probes in one picture](content/kubernetes/images/11-resources-and-probes.svg)
+
 ---
 
 ## Lab: Overload It, Starve It, Heal It 🛠️

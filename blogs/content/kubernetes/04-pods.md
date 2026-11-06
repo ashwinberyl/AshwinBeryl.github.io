@@ -38,6 +38,8 @@ Most pods hold **one** container. A second container is called a **sidecar**, an
 
 > **A pod is mortal.** It gets an IP when it starts and loses it when it dies. A replacement pod gets a *different* IP. Remember this: it's why Services exist (Post 07).
 
+![A pod holds containers that share one network and one lifecycle](content/kubernetes/images/04-pod-anatomy.svg)
+
 ---
 
 ## The Pod Manifest, Line by Line 📜

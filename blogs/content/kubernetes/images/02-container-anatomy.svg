@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="A container is a normal process with blinders and a budget">
+  <rect width="900" height="340" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">A container is a normal process with blinders and a budget</text>
+  <rect x="30" y="70" width="190" height="120" rx="10" fill="#fdecd8" stroke="#d9822b" stroke-width="1.5"/>
+  <text x="125.0" y="96" text-anchor="middle" font-size="15" font-weight="700" fill="#7a3f00">Image</text>
+  <text x="125.0" y="120" text-anchor="middle" font-size="13.5" fill="#1b2733">sealed, read-only</text>
+  <text x="125.0" y="140" text-anchor="middle" font-size="13.5" fill="#1b2733">template: app + libs</text>
+  <text x="125.0" y="178" text-anchor="middle" font-size="12" font-style="italic" fill="#7a3f00">the packing list</text>
+  <line x1="220" y1="130" x2="300" y2="130" stroke="#5b6b7a" stroke-width="2" marker-end="url(#a)"/>
+  <text x="260.0" y="122.0" text-anchor="middle" font-size="12" fill="#1b2733">run</text>
+  <rect x="300" y="60" width="570" height="150" rx="12" fill="#ffffff" stroke="#3a78c2" stroke-width="2" stroke-dasharray="7 4"/>
+  <text x="585" y="84" text-anchor="middle" font-size="14.5" font-weight="700" fill="#173d6b">Container = one ordinary process on the host</text>
+  <rect x="320" y="100" width="255" height="95" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="447.5" y="126" text-anchor="middle" font-size="14.5" font-weight="700" fill="#173d6b">Namespaces</text>
+  <text x="447.5" y="150" text-anchor="middle" font-size="13.5" fill="#1b2733">limit what it can SEE:</text>
+  <text x="447.5" y="170" text-anchor="middle" font-size="13.5" fill="#1b2733">own processes, network, files</text>
+  <rect x="595" y="100" width="255" height="95" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="722.5" y="126" text-anchor="middle" font-size="14.5" font-weight="700" fill="#173d6b">cgroups</text>
+  <text x="722.5" y="150" text-anchor="middle" font-size="13.5" fill="#1b2733">limit what it can USE:</text>
+  <text x="722.5" y="170" text-anchor="middle" font-size="13.5" fill="#1b2733">CPU time and memory</text>
+  <rect x="30" y="245" width="840" height="56" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="450" y="279" text-anchor="middle" font-size="14.5" font-weight="700" fill="#2b3945">Shared host kernel: every container on the machine runs on this one kernel</text>
+  <line x1="585" y1="210" x2="585" y2="245" stroke="#5b6b7a" stroke-width="2" marker-end="url(#a)"/>
+  <text x="450" y="325" text-anchor="middle" font-size="12.5" font-style="italic" fill="#5b6b7a">Starts in milliseconds because nothing boots, but isolation is lighter than a VM.</text>
+</svg>

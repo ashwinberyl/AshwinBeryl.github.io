@@ -39,6 +39,8 @@ With 3 replicas and the defaults, Kubernetes rounds `maxSurge` up (to 1) and `ma
 
 > **Key insight:** A rolling update only protects you if Kubernetes can tell whether the new pod is **ready**. Without a readiness check, "started" counts as "ready", so a pod that boots but is broken still receives traffic. In this post a *failure to start* will stop the rollout. In Post 11 we add readiness probes to catch *broken-but-running* pods.
 
+![A rolling update replaces pods one at a time while capacity stays at three](content/kubernetes/images/06-rolling-update.svg)
+
 ---
 
 ## Never Reuse a Tag 🏷️

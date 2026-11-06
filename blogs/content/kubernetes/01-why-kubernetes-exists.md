@@ -53,6 +53,8 @@ Kubernetes then works continuously to make reality match that order. This is the
 
 You'll hear this called **declarative** configuration (you declare the outcome) versus **imperative** (you issue commands). A shell script says "start a process." A Kubernetes manifest says "there should be three of these."
 
+![Kubernetes compares desired state with actual state and closes the gap](content/kubernetes/images/01-desired-vs-actual.svg)
+
 ---
 
 ## The Port Map 🗺️

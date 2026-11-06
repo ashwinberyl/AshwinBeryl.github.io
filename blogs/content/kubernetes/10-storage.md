@@ -19,6 +19,8 @@ In Kubernetes, the warehouse is a **volume**.
 
 Before the fix, let's see the failure. Our app has a `/visit` endpoint that appends a line to `/data/visits.log` and returns the line count. Without a volume, `/data` doesn't even exist. So we'll start with the simplest volume.
 
+![A claimed volume keeps data after the pod that wrote it is gone](content/kubernetes/images/10-storage.svg)
+
 ---
 
 ## Three Kinds of Warehouse 🏭

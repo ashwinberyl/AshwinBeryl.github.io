@@ -36,6 +36,8 @@ Browser ──► gate (controller pod) ──► Service ──► Pods
               reads Ingress rules
 ```
 
+![An ingress controller routes URL paths to Services](content/kubernetes/images/08-ingress.svg)
+
 ---
 
 ## An Ingress, Line by Line 📜
