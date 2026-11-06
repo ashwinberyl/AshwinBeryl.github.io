@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="330" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Read the exception class before the message</text>
+<rect x="290" y="52" width="380" height="42" rx="8" fill="#fff4dc" stroke="#d98e04"/>
+<text x="480" y="79" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">An Iceberg read or write failed</text>
+
+<line x1="480" y1="94" x2="480" y2="112" stroke="#5b6b7a" stroke-width="2"/>
+<line x1="135" y1="112" x2="825" y2="112" stroke="#5b6b7a" stroke-width="2"/>
+<line x1="135" y1="112" x2="135" y2="132" stroke="#5b6b7a" stroke-width="2"/>
+<line x1="365" y1="112" x2="365" y2="132" stroke="#5b6b7a" stroke-width="2"/>
+<line x1="595" y1="112" x2="595" y2="132" stroke="#5b6b7a" stroke-width="2"/>
+<line x1="825" y1="112" x2="825" y2="132" stroke="#5b6b7a" stroke-width="2"/>
+
+<rect x="30" y="132" width="210" height="170" rx="10" fill="#dbeaf8" stroke="#1d5fa8"/>
+<text x="135" y="160" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2733">CommitFailedException</text>
+<text x="135" y="188" text-anchor="middle" font-size="12" fill="#1b2733">The pointer moved and</text>
+<text x="135" y="206" text-anchor="middle" font-size="12" fill="#1b2733">the retries ran out</text>
+<rect x="45" y="250" width="180" height="34" rx="17" fill="#d8f0e4" stroke="#2f9e72"/>
+<text x="135" y="272" text-anchor="middle" font-size="12" font-weight="700" fill="#14583d">Table fine: re-run</text>
+
+<rect x="260" y="132" width="210" height="170" rx="10" fill="#dbeaf8" stroke="#1d5fa8"/>
+<text x="365" y="160" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2733">ValidationException</text>
+<text x="365" y="188" text-anchor="middle" font-size="12" fill="#1b2733">A real conflict with</text>
+<text x="365" y="206" text-anchor="middle" font-size="12" fill="#1b2733">another writer's change</text>
+<rect x="275" y="250" width="180" height="34" rx="17" fill="#d8f0e4" stroke="#2f9e72"/>
+<text x="365" y="272" text-anchor="middle" font-size="12" font-weight="700" fill="#14583d">Table fine: re-run</text>
+
+<rect x="490" y="132" width="210" height="170" rx="10" fill="#dbeaf8" stroke="#1d5fa8"/>
+<text x="595" y="154" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2733">NotFoundException</text>
+<text x="595" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2733">FileNotFoundException</text>
+<text x="595" y="198" text-anchor="middle" font-size="12" fill="#1b2733">Metadata points at a</text>
+<text x="595" y="216" text-anchor="middle" font-size="12" fill="#1b2733">file that is missing</text>
+<rect x="505" y="250" width="180" height="34" rx="17" fill="#fbe1de" stroke="#c0392b"/>
+<text x="595" y="272" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">Maybe broken: triage</text>
+
+<rect x="720" y="132" width="210" height="170" rx="10" fill="#dbeaf8" stroke="#1d5fa8"/>
+<text x="825" y="160" text-anchor="middle" font-size="13" font-weight="700" fill="#1b2733">Cannot find snapshot</text>
+<text x="825" y="188" text-anchor="middle" font-size="12" fill="#1b2733">Time travel to an</text>
+<text x="825" y="206" text-anchor="middle" font-size="12" fill="#1b2733">expired snapshot</text>
+<rect x="735" y="250" width="180" height="34" rx="17" fill="#d8f0e4" stroke="#2f9e72"/>
+<text x="825" y="272" text-anchor="middle" font-size="12" font-weight="700" fill="#14583d">Fine: pick another</text>
+</svg>

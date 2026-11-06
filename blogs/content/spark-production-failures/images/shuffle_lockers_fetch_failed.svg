@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c4441d"/></marker>
+  </defs>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Why the reader fails when the writer dies</text>
+  <text x="450" y="56" text-anchor="middle" font-size="13.5" fill="#5b6b7a">Shuffle output lives on the local disk of the executor that wrote it</text>
+
+  <text x="170" y="92" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">Stage 1 (map): write</text>
+  <text x="730" y="92" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">Stage 2 (reduce): read</text>
+
+  <rect x="50" y="104" width="240" height="74" rx="10" fill="#f1faf6" stroke="#2f9e72" stroke-width="2"/>
+  <text x="170" y="132" text-anchor="middle" font-size="14" font-weight="700" fill="#14583d">Executor 1</text>
+  <text x="170" y="154" text-anchor="middle" font-size="12.5" fill="#14583d">shuffle files on local disk</text>
+
+  <rect x="50" y="198" width="240" height="74" rx="10" fill="#fde0d6" stroke="#c4441d" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="170" y="226" text-anchor="middle" font-size="14" font-weight="700" fill="#8a2a0e">Executor 2  (LOST)</text>
+  <text x="170" y="248" text-anchor="middle" font-size="12.5" fill="#8a2a0e">its shuffle files are gone</text>
+
+  <rect x="50" y="292" width="240" height="74" rx="10" fill="#f1faf6" stroke="#2f9e72" stroke-width="2"/>
+  <text x="170" y="320" text-anchor="middle" font-size="14" font-weight="700" fill="#14583d">Executor 3</text>
+  <text x="170" y="342" text-anchor="middle" font-size="12.5" fill="#14583d">shuffle files on local disk</text>
+
+  <rect x="610" y="140" width="240" height="74" rx="10" fill="#eef4fb" stroke="#3b78c2" stroke-width="2"/>
+  <text x="730" y="168" text-anchor="middle" font-size="14" font-weight="700" fill="#1d4a80">Reduce task A</text>
+  <text x="730" y="190" text-anchor="middle" font-size="12.5" fill="#1d4a80">fetches its slice from all three</text>
+
+  <rect x="610" y="250" width="240" height="74" rx="10" fill="#eef4fb" stroke="#3b78c2" stroke-width="2"/>
+  <text x="730" y="278" text-anchor="middle" font-size="14" font-weight="700" fill="#1d4a80">Reduce task B</text>
+  <text x="730" y="300" text-anchor="middle" font-size="12.5" fill="#1d4a80">fetches its slice from all three</text>
+
+  <g stroke="#5b6b7a" stroke-width="1.8" fill="none">
+    <path d="M292 141 L608 170" marker-end="url(#g)"/>
+    <path d="M292 329 L608 290" marker-end="url(#g)"/>
+    <path d="M292 160 L608 270" marker-end="url(#g)"/>
+    <path d="M292 310 L608 190" marker-end="url(#g)"/>
+  </g>
+  <g stroke="#c4441d" stroke-width="2.4" fill="none" stroke-dasharray="7 5">
+    <path d="M292 228 L608 175" marker-end="url(#r)"/>
+    <path d="M292 250 L608 285" marker-end="url(#r)"/>
+  </g>
+  <text x="450" y="236" text-anchor="middle" font-size="13" font-weight="700" fill="#c4441d">fetch fails</text>
+
+  <rect x="90" y="384" width="720" height="32" rx="8" fill="#fff7ef" stroke="#d9822b"/>
+  <text x="450" y="405" text-anchor="middle" font-size="13.5" fill="#7a3f00">The exception is raised in the reader. The cause is on the executor that held the data.</text>
+</svg>

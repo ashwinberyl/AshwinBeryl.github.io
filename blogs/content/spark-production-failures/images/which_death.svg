@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="420" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  </defs>
+  <text x="450" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Which kind of memory death was it?</text>
+
+  <rect x="290" y="50" width="320" height="56" rx="10" fill="#f4f6f8" stroke="#5b6b7a"/>
+  <text x="450" y="74" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">Task failed or executor lost</text>
+  <text x="450" y="94" text-anchor="middle" font-size="12" fill="#5b6b7a">Open that executor's log</text>
+
+  <g stroke="#5b6b7a" stroke-width="2" fill="none">
+    <path d="M400 106 L230 160" marker-end="url(#a)"/>
+    <path d="M500 106 L670 160" marker-end="url(#a)"/>
+  </g>
+
+  <rect x="50" y="162" width="360" height="62" rx="10" fill="#ffffff" stroke="#3a78c2" stroke-width="2"/>
+  <text x="230" y="186" text-anchor="middle" font-size="13" font-weight="700" fill="#173d6b">Do you see OutOfMemoryError</text>
+  <text x="230" y="206" text-anchor="middle" font-size="13" fill="#1b2733">in the stack trace?</text>
+
+  <rect x="490" y="162" width="360" height="62" rx="10" fill="#ffffff" stroke="#d9822b" stroke-width="2"/>
+  <text x="670" y="186" text-anchor="middle" font-size="13" font-weight="700" fill="#7a3f00">Do you see "Container killed",</text>
+  <text x="670" y="206" text-anchor="middle" font-size="13" fill="#1b2733">exit code 137, or OOMKilled?</text>
+
+  <g stroke="#5b6b7a" stroke-width="2" fill="none">
+    <path d="M230 224 V262" marker-end="url(#a)"/>
+    <path d="M670 224 V262" marker-end="url(#a)"/>
+  </g>
+
+  <rect x="50" y="264" width="360" height="140" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="2"/>
+  <text x="230" y="290" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Heap OOM</text>
+  <text x="230" y="314" text-anchor="middle" font-size="13" fill="#1b2733">1. Shrink the biggest partition</text>
+  <text x="230" y="334" text-anchor="middle" font-size="13" fill="#1b2733">2. Stop building giant rows</text>
+  <text x="230" y="354" text-anchor="middle" font-size="13" fill="#1b2733">3. Fewer cores per executor</text>
+  <text x="230" y="374" text-anchor="middle" font-size="13" fill="#1b2733">4. Raise spark.executor.memory</text>
+
+  <rect x="490" y="264" width="360" height="140" rx="10" fill="#fdecd8" stroke="#d9822b" stroke-width="2"/>
+  <text x="670" y="290" text-anchor="middle" font-size="15" font-weight="700" fill="#7a3f00">Container over its limit</text>
+  <text x="670" y="314" text-anchor="middle" font-size="13" fill="#1b2733">1. Check Python and UDF memory</text>
+  <text x="670" y="334" text-anchor="middle" font-size="13" fill="#1b2733">2. Shrink the biggest partition</text>
+  <text x="670" y="354" text-anchor="middle" font-size="13" fill="#1b2733">3. Raise spark.executor.memoryOverhead</text>
+  <text x="670" y="374" text-anchor="middle" font-size="13" fill="#1b2733">4. Fewer cores per executor</text>
+</svg>

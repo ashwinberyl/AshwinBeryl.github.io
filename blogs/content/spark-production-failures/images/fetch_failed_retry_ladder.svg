@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="300" fill="#ffffff"/>
+  <defs>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  </defs>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">What Spark does after a FetchFailedException</text>
+  <text x="450" y="56" text-anchor="middle" font-size="13.5" fill="#5b6b7a">A stage retry, not a task retry. It can repeat a few times, then the job is aborted.</text>
+
+  <g font-size="13" font-weight="700" text-anchor="middle">
+    <rect x="15" y="90" width="150" height="100" rx="10" fill="#fde0d6" stroke="#c4441d" stroke-width="2"/>
+    <text x="90" y="125" fill="#8a2a0e">1. Reduce task</text>
+    <text x="90" y="145" fill="#8a2a0e">cannot fetch a</text>
+    <text x="90" y="165" fill="#8a2a0e">shuffle block</text>
+
+    <rect x="195" y="90" width="150" height="100" rx="10" fill="#fff7ef" stroke="#d9822b" stroke-width="2"/>
+    <text x="270" y="125" fill="#7a3f00">2. Driver marks</text>
+    <text x="270" y="145" fill="#7a3f00">that map output</text>
+    <text x="270" y="165" fill="#7a3f00">as lost</text>
+
+    <rect x="375" y="90" width="150" height="100" rx="10" fill="#eef4fb" stroke="#3b78c2" stroke-width="2"/>
+    <text x="450" y="125" fill="#1d4a80">3. Map stage</text>
+    <text x="450" y="145" fill="#1d4a80">reruns only the</text>
+    <text x="450" y="165" fill="#1d4a80">missing pieces</text>
+
+    <rect x="555" y="90" width="150" height="100" rx="10" fill="#eef4fb" stroke="#3b78c2" stroke-width="2"/>
+    <text x="630" y="125" fill="#1d4a80">4. Reduce stage</text>
+    <text x="630" y="145" fill="#1d4a80">retries, shown as</text>
+    <text x="630" y="165" fill="#1d4a80">"(retry 1)" in UI</text>
+
+    <rect x="735" y="90" width="150" height="100" rx="10" fill="#f1faf6" stroke="#2f9e72" stroke-width="2"/>
+    <text x="810" y="125" fill="#14583d">5. Success, or</text>
+    <text x="810" y="145" fill="#14583d">after too many</text>
+    <text x="810" y="165" fill="#14583d">attempts: abort</text>
+  </g>
+  <g stroke="#5b6b7a" stroke-width="2" fill="none">
+    <path d="M166 140 L193 140" marker-end="url(#g)"/>
+    <path d="M346 140 L373 140" marker-end="url(#g)"/>
+    <path d="M526 140 L553 140" marker-end="url(#g)"/>
+    <path d="M706 140 L733 140" marker-end="url(#g)"/>
+  </g>
+  <rect x="60" y="222" width="780" height="50" rx="8" fill="#f4f6f8" stroke="#c9d2da"/>
+  <text x="450" y="244" text-anchor="middle" font-size="13" fill="#1b2733">The limit is spark.stage.maxConsecutiveAttempts (default 4).</text>
+  <text x="450" y="263" text-anchor="middle" font-size="13" fill="#1b2733">FetchFailed does not count against spark.task.maxFailures.</text>
+</svg>

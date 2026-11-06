@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="360" fill="#ffffff"/>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">What an explicit schema does when the producer changes</text>
+  <text x="450" y="56" text-anchor="middle" font-size="13.5" fill="#5b6b7a">It stops crashes. It does not tell you the data got worse.</text>
+
+  <g font-size="13" text-anchor="middle">
+    <rect x="20" y="78" width="270" height="36" fill="#1b2733"/>
+    <text x="155" y="101" font-weight="700" fill="#ffffff">Producer change</text>
+    <rect x="290" y="78" width="300" height="36" fill="#1b2733"/>
+    <text x="440" y="101" font-weight="700" fill="#ffffff">What read_events does</text>
+    <rect x="590" y="78" width="290" height="36" fill="#1b2733"/>
+    <text x="735" y="101" font-weight="700" fill="#ffffff">How you notice</text>
+
+    <rect x="20" y="114" width="270" height="48" fill="#f4f6f8" stroke="#c9d2da"/>
+    <text x="155" y="143" fill="#1b2733">New field added (payload)</text>
+    <rect x="290" y="114" width="300" height="48" fill="#f4f6f8" stroke="#c9d2da"/>
+    <text x="440" y="143" fill="#1b2733">Ignored: not in the contract</text>
+    <rect x="590" y="114" width="290" height="48" fill="#f4f6f8" stroke="#c9d2da"/>
+    <text x="735" y="143" fill="#1b2733">Compare file keys to schema</text>
+
+    <rect x="20" y="162" width="270" height="48" fill="#ffffff" stroke="#c9d2da"/>
+    <text x="155" y="191" fill="#1b2733">Field removed (no login)</text>
+    <rect x="290" y="162" width="300" height="48" fill="#ffffff" stroke="#c9d2da"/>
+    <text x="440" y="191" fill="#1b2733">Column exists, all null</text>
+    <rect x="590" y="162" width="290" height="48" fill="#ffffff" stroke="#c9d2da"/>
+    <text x="735" y="191" fill="#1b2733">Null-rate check jumps to 1.0</text>
+
+    <rect x="20" y="210" width="270" height="48" fill="#f4f6f8" stroke="#c9d2da"/>
+    <text x="155" y="239" fill="#1b2733">Field renamed (login to username)</text>
+    <rect x="290" y="210" width="300" height="48" fill="#f4f6f8" stroke="#c9d2da"/>
+    <text x="440" y="239" fill="#1b2733">Old name all null, new one ignored</text>
+    <rect x="590" y="210" width="290" height="48" fill="#f4f6f8" stroke="#c9d2da"/>
+    <text x="735" y="239" fill="#1b2733">Null-rate check, key comparison</text>
+
+    <rect x="20" y="258" width="270" height="48" fill="#ffffff" stroke="#c9d2da"/>
+    <text x="155" y="287" fill="#1b2733">Type changed ("id" now text)</text>
+    <rect x="290" y="258" width="300" height="48" fill="#ffffff" stroke="#c9d2da"/>
+    <text x="440" y="287" fill="#1b2733">Depends on version: test it</text>
+    <rect x="590" y="258" width="290" height="48" fill="#ffffff" stroke="#c9d2da"/>
+    <text x="735" y="287" fill="#1b2733">Corrupt-record count, cast checks</text>
+  </g>
+  <text x="450" y="336" text-anchor="middle" font-size="13" fill="#5b6b7a">Every row of this table is a quiet failure unless you add a check.</text>
+</svg>

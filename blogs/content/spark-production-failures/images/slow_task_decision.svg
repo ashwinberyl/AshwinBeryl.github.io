@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="470" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  </defs>
+  <text x="450" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Why is this one task so slow? Read the stage summary metrics</text>
+
+  <rect x="270" y="48" width="360" height="52" rx="10" fill="#f4f6f8" stroke="#5b6b7a"/>
+  <text x="450" y="70" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">Max duration far above the median?</text>
+  <text x="450" y="88" text-anchor="middle" font-size="12" fill="#5b6b7a">Stages tab, summary metrics for tasks</text>
+
+  <path d="M450 100 V132" stroke="#5b6b7a" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <rect x="240" y="134" width="420" height="52" rx="10" fill="#ffffff" stroke="#3a78c2" stroke-width="2"/>
+  <text x="450" y="156" text-anchor="middle" font-size="14" font-weight="700" fill="#173d6b">Did that task also read far more data?</text>
+  <text x="450" y="174" text-anchor="middle" font-size="12" fill="#5b6b7a">Compare Input Size or Shuffle Read Size, max vs median</text>
+
+  <g stroke="#5b6b7a" stroke-width="2" fill="none">
+    <path d="M300 186 L150 232" marker-end="url(#a)"/>
+    <path d="M600 186 L750 232" marker-end="url(#a)"/>
+  </g>
+  <text x="195" y="206" font-size="13" font-weight="700" fill="#2f7d4f">Yes</text>
+  <text x="690" y="206" font-size="13" font-weight="700" fill="#b25b00">No</text>
+
+  <rect x="30" y="234" width="400" height="52" rx="10" fill="#ffffff" stroke="#3a78c2" stroke-width="2"/>
+  <text x="230" y="256" text-anchor="middle" font-size="14" font-weight="700" fill="#173d6b">Which stage is it?</text>
+  <text x="230" y="274" text-anchor="middle" font-size="12" fill="#5b6b7a">Reading files, or after an Exchange?</text>
+
+  <rect x="470" y="234" width="400" height="52" rx="10" fill="#ffffff" stroke="#d9822b" stroke-width="2"/>
+  <text x="670" y="256" text-anchor="middle" font-size="14" font-weight="700" fill="#7a3f00">Is GC Time or Spill high on it?</text>
+  <text x="670" y="274" text-anchor="middle" font-size="12" fill="#5b6b7a">Same stage, same summary table</text>
+
+  <g stroke="#5b6b7a" stroke-width="2" fill="none">
+    <path d="M130 286 L100 328" marker-end="url(#a)"/>
+    <path d="M330 286 L360 328" marker-end="url(#a)"/>
+    <path d="M570 286 L540 328" marker-end="url(#a)"/>
+    <path d="M770 286 L800 328" marker-end="url(#a)"/>
+  </g>
+  <text x="62" y="312" font-size="11" fill="#5b6b7a">reading</text>
+  <text x="352" y="312" font-size="11" fill="#5b6b7a">after Exchange</text>
+  <text x="490" y="312" font-size="11" fill="#5b6b7a">yes</text>
+  <text x="800" y="312" font-size="11" fill="#5b6b7a">no</text>
+
+  <rect x="20" y="330" width="210" height="120" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="2"/>
+  <text x="125" y="354" text-anchor="middle" font-size="14" font-weight="700" fill="#173d6b">Big input file</text>
+  <text x="125" y="376" text-anchor="middle" font-size="12" fill="#1b2733">One unsplittable file,</text>
+  <text x="125" y="394" text-anchor="middle" font-size="12" fill="#1b2733">for example a big .json.gz</text>
+  <text x="125" y="418" text-anchor="middle" font-size="12" fill="#1b2733">Fix: split the files upstream</text>
+
+  <rect x="240" y="330" width="220" height="120" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="2"/>
+  <text x="350" y="354" text-anchor="middle" font-size="14" font-weight="700" fill="#173d6b">Hot key (skew)</text>
+  <text x="350" y="376" text-anchor="middle" font-size="12" fill="#1b2733">One key owns the partition</text>
+  <text x="350" y="400" text-anchor="middle" font-size="12" fill="#1b2733">Fix: AQE, broadcast,</text>
+  <text x="350" y="418" text-anchor="middle" font-size="12" fill="#1b2733">or salt the key</text>
+
+  <rect x="470" y="330" width="210" height="120" rx="10" fill="#fdecd8" stroke="#d9822b" stroke-width="2"/>
+  <text x="575" y="354" text-anchor="middle" font-size="14" font-weight="700" fill="#7a3f00">Memory pressure</text>
+  <text x="575" y="376" text-anchor="middle" font-size="12" fill="#1b2733">Heap thrashing or spilling</text>
+  <text x="575" y="400" text-anchor="middle" font-size="12" fill="#1b2733">Fix: see Post 03</text>
+
+  <rect x="690" y="330" width="190" height="120" rx="10" fill="#fdecd8" stroke="#d9822b" stroke-width="2"/>
+  <text x="785" y="354" text-anchor="middle" font-size="14" font-weight="700" fill="#7a3f00">Slow environment</text>
+  <text x="785" y="376" text-anchor="middle" font-size="12" fill="#1b2733">Bad node, slow disk,</text>
+  <text x="785" y="394" text-anchor="middle" font-size="12" fill="#1b2733">per-row external call</text>
+  <text x="785" y="418" text-anchor="middle" font-size="12" fill="#1b2733">Fix: speculation, exclusion</text>
+</svg>

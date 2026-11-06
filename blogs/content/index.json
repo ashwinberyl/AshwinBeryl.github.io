@@ -782,6 +782,141 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Spark in Production",
+      "type": "folder",
+      "children": [
+        {
+          "name": "The Debugging Loop",
+          "type": "file",
+          "path": "spark-production-failures/01-the-debugging-loop.md",
+          "date": "2026-11-06",
+          "tags": [
+            "spark",
+            "pyspark",
+            "debugging",
+            "troubleshooting",
+            "production",
+            "spark-ui",
+            "first-principles"
+          ]
+        },
+        {
+          "name": "Driver OOM",
+          "type": "file",
+          "path": "spark-production-failures/02-driver-oom-collect-and-broadcast.md",
+          "date": "2026-11-06",
+          "tags": [
+            "spark",
+            "pyspark",
+            "debugging",
+            "driver",
+            "out-of-memory",
+            "collect",
+            "broadcast",
+            "production"
+          ]
+        },
+        {
+          "name": "Executor OOM vs Container Killed",
+          "type": "file",
+          "path": "spark-production-failures/03-executor-oom-and-container-killed.md",
+          "date": "2026-11-06",
+          "tags": [
+            "spark-production",
+            "pyspark",
+            "troubleshooting",
+            "memory",
+            "executor-oom",
+            "memory-overhead",
+            "yarn",
+            "kubernetes",
+            "first-principles"
+          ]
+        },
+        {
+          "name": "The Straggler",
+          "type": "file",
+          "path": "spark-production-failures/04-the-straggler-skew-stuck-stage.md",
+          "date": "2026-11-06",
+          "tags": [
+            "spark-production",
+            "pyspark",
+            "troubleshooting",
+            "skew",
+            "stuck-stage",
+            "aqe",
+            "salting",
+            "speculation",
+            "spark-ui",
+            "first-principles"
+          ]
+        },
+        {
+          "name": "FetchFailed & Shuffle Errors",
+          "type": "file",
+          "path": "spark-production-failures/05-fetch-failed-and-shuffle-errors.md",
+          "date": "2026-11-06",
+          "tags": [
+            "spark",
+            "production",
+            "troubleshooting",
+            "shuffle",
+            "fetch-failed",
+            "executors",
+            "spot-instances",
+            "first-principles"
+          ]
+        },
+        {
+          "name": "Bad Data & Schema Drift",
+          "type": "file",
+          "path": "spark-production-failures/06-bad-data-and-schema-drift.md",
+          "date": "2026-11-06",
+          "tags": [
+            "spark",
+            "production",
+            "troubleshooting",
+            "json",
+            "schema-drift",
+            "corrupt-records",
+            "data-quality",
+            "first-principles"
+          ]
+        },
+        {
+          "name": "Silent Wrong Answers",
+          "type": "file",
+          "path": "spark-production-failures/07-silent-wrong-answers.md",
+          "date": "2026-11-06",
+          "tags": [
+            "spark",
+            "pyspark",
+            "debugging",
+            "data-quality",
+            "joins",
+            "null",
+            "timezone",
+            "production-failures"
+          ]
+        },
+        {
+          "name": "Iceberg Commit Conflicts and Missing Files",
+          "type": "file",
+          "path": "spark-production-failures/08-iceberg-commit-conflicts-and-missing-files.md",
+          "date": "2026-11-06",
+          "tags": [
+            "spark",
+            "apache-iceberg",
+            "debugging",
+            "concurrency",
+            "maintenance",
+            "lakehouse",
+            "production-failures"
+          ]
+        }
+      ]
     }
   ]
 }

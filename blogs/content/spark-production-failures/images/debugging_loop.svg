@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="330" fill="#ffffff"/>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker></defs>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The debugging loop: five steps, always in this order</text>
+  <g font-size="14">
+    <rect x="20" y="60" width="150" height="110" rx="10" fill="#fdecd8" stroke="#d9822b"/>
+    <text x="95" y="86" text-anchor="middle" font-weight="700" fill="#7a3f00">1. Read</text>
+    <text x="95" y="110" text-anchor="middle" font-size="13" fill="#3b2a1a">the error, top-down</text>
+    <text x="95" y="130" text-anchor="middle" font-size="13" fill="#3b2a1a">last "Caused by"</text>
+    <text x="95" y="150" text-anchor="middle" font-size="13" fill="#3b2a1a">is the root cause</text>
+
+    <rect x="200" y="60" width="150" height="110" rx="10" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="275" y="86" text-anchor="middle" font-weight="700" fill="#173d6b">2. Locate</text>
+    <text x="275" y="110" text-anchor="middle" font-size="13" fill="#1b2733">driver or executor?</text>
+    <text x="275" y="130" text-anchor="middle" font-size="13" fill="#1b2733">which stage, which</text>
+    <text x="275" y="150" text-anchor="middle" font-size="13" fill="#1b2733">task?</text>
+
+    <rect x="380" y="60" width="150" height="110" rx="10" fill="#e6f4ea" stroke="#3f9b5f"/>
+    <text x="455" y="86" text-anchor="middle" font-weight="700" fill="#1d5a33">3. Hypothesise</text>
+    <text x="455" y="110" text-anchor="middle" font-size="13" fill="#1b2733">one cause, written</text>
+    <text x="455" y="130" text-anchor="middle" font-size="13" fill="#1b2733">down, that predicts</text>
+    <text x="455" y="150" text-anchor="middle" font-size="13" fill="#1b2733">what you will see</text>
+
+    <rect x="560" y="60" width="150" height="110" rx="10" fill="#f3e8fa" stroke="#8a4fb3"/>
+    <text x="635" y="86" text-anchor="middle" font-weight="700" fill="#4e2a6b">4. Reproduce</text>
+    <text x="635" y="110" text-anchor="middle" font-size="13" fill="#1b2733">on a tiny slice,</text>
+    <text x="635" y="130" text-anchor="middle" font-size="13" fill="#1b2733">change exactly</text>
+    <text x="635" y="150" text-anchor="middle" font-size="13" fill="#1b2733">one thing</text>
+
+    <rect x="740" y="60" width="140" height="110" rx="10" fill="#fdecec" stroke="#c0453d"/>
+    <text x="810" y="86" text-anchor="middle" font-weight="700" fill="#7a1f1a">5. Verify</text>
+    <text x="810" y="110" text-anchor="middle" font-size="13" fill="#1b2733">same output as the</text>
+    <text x="810" y="130" text-anchor="middle" font-size="13" fill="#1b2733">answer key, then</text>
+    <text x="810" y="150" text-anchor="middle" font-size="13" fill="#1b2733">on the full data</text>
+  </g>
+  <g stroke="#5b6b7a" stroke-width="2" fill="none">
+    <path d="M170 115 H198" marker-end="url(#a)"/>
+    <path d="M350 115 H378" marker-end="url(#a)"/>
+    <path d="M530 115 H558" marker-end="url(#a)"/>
+    <path d="M710 115 H738" marker-end="url(#a)"/>
+    <path d="M810 170 V232 H470 H455 V172" stroke-dasharray="6 4" marker-end="url(#a)"/>
+  </g>
+  <text x="800" y="250" text-anchor="end" font-size="13" fill="#5b6b7a">still wrong? the hypothesis was wrong: back to step 3</text>
+  <rect x="150" y="262" width="600" height="44" rx="8" fill="#f4f6f8" stroke="#c7d0d8"/>
+  <text x="450" y="289" text-anchor="middle" font-size="14" fill="#1b2733">Never skip to "try bigger memory". That is a guess, not a hypothesis.</text>
+</svg>
