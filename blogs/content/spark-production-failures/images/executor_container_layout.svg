@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">One executor = heap + overhead, and the cluster weighs both</text>
+
+  <rect x="30" y="50" width="840" height="270" rx="12" fill="#f4f6f8" stroke="#5b6b7a" stroke-width="2"/>
+  <text x="50" y="76" font-size="15" font-weight="700" fill="#1b2733">Container (what YARN or Kubernetes enforces)</text>
+
+  <rect x="50" y="92" width="530" height="210" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="2"/>
+  <text x="70" y="116" font-size="15" font-weight="700" fill="#173d6b">JVM heap</text>
+  <text x="145" y="116" font-size="13" fill="#173d6b">(spark.executor.memory)</text>
+
+  <rect x="70" y="132" width="250" height="100" rx="8" fill="#ffffff" stroke="#3a78c2"/>
+  <text x="195" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">Execution + storage</text>
+  <text x="195" y="180" text-anchor="middle" font-size="12" fill="#5b6b7a">shuffles, sorts, joins, cache</text>
+  <text x="195" y="198" text-anchor="middle" font-size="12" fill="#5b6b7a">share spark.memory.fraction</text>
+  <text x="195" y="216" text-anchor="middle" font-size="12" fill="#5b6b7a">(default 0.6 of the usable heap)</text>
+
+  <rect x="335" y="132" width="225" height="100" rx="8" fill="#ffffff" stroke="#3a78c2"/>
+  <text x="447" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">User memory</text>
+  <text x="447" y="180" text-anchor="middle" font-size="12" fill="#5b6b7a">your objects, UDF data,</text>
+  <text x="447" y="198" text-anchor="middle" font-size="12" fill="#5b6b7a">collect_list rows</text>
+
+  <rect x="70" y="244" width="490" height="40" rx="8" fill="#ffffff" stroke="#3a78c2"/>
+  <text x="315" y="269" text-anchor="middle" font-size="12" fill="#5b6b7a">Reserved (about 300 MB) - Spark keeps it for itself</text>
+
+  <rect x="600" y="92" width="250" height="210" rx="10" fill="#fdecd8" stroke="#d9822b" stroke-width="2"/>
+  <text x="725" y="116" text-anchor="middle" font-size="15" font-weight="700" fill="#7a3f00">Overhead</text>
+  <text x="725" y="136" text-anchor="middle" font-size="12" fill="#7a3f00">(spark.executor.memoryOverhead)</text>
+  <rect x="615" y="150" width="220" height="40" rx="6" fill="#ffffff" stroke="#d9822b"/>
+  <text x="725" y="175" text-anchor="middle" font-size="12" fill="#3b2a1a">Python worker processes</text>
+  <rect x="615" y="198" width="220" height="40" rx="6" fill="#ffffff" stroke="#d9822b"/>
+  <text x="725" y="223" text-anchor="middle" font-size="12" fill="#3b2a1a">Thread stacks, native libraries</text>
+  <rect x="615" y="246" width="220" height="40" rx="6" fill="#ffffff" stroke="#d9822b"/>
+  <text x="725" y="271" text-anchor="middle" font-size="12" fill="#3b2a1a">Network and shuffle buffers</text>
+
+  <rect x="50" y="338" width="530" height="70" rx="8" fill="#e3edf9" stroke="#3a78c2"/>
+  <text x="315" y="362" text-anchor="middle" font-size="14" font-weight="700" fill="#173d6b">Heap is full</text>
+  <text x="315" y="382" text-anchor="middle" font-size="13" fill="#1b2733">The JVM itself throws java.lang.OutOfMemoryError</text>
+  <text x="315" y="399" text-anchor="middle" font-size="12" fill="#5b6b7a">You get a stack trace in the executor log</text>
+
+  <rect x="600" y="338" width="250" height="70" rx="8" fill="#fdecd8" stroke="#d9822b"/>
+  <text x="725" y="362" text-anchor="middle" font-size="14" font-weight="700" fill="#7a3f00">Total over the limit</text>
+  <text x="725" y="382" text-anchor="middle" font-size="13" fill="#1b2733">The cluster kills the process</text>
+  <text x="725" y="399" text-anchor="middle" font-size="12" fill="#5b6b7a">No Java error. Exit code 137.</text>
+</svg>

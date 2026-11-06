@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="360" fill="#ffffff"/>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker></defs>
+  <text x="450" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Three ways the driver's one heap fills up</text>
+
+  <g font-size="14">
+    <rect x="20" y="52" width="270" height="270" rx="10" fill="#f8fafc" stroke="#c7d0d8"/>
+    <text x="155" y="78" text-anchor="middle" font-weight="700" fill="#1b2733">1. collect() / toPandas()</text>
+    <rect x="45" y="96" width="220" height="40" rx="6" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="155" y="121" text-anchor="middle" font-size="13" fill="#173d6b">Executors: all result rows</text>
+    <path d="M155 136 V176" stroke="#5b6b7a" stroke-width="2" marker-end="url(#a)"/>
+    <text x="165" y="162" font-size="12" fill="#5b6b7a">every row</text>
+    <rect x="45" y="180" width="220" height="60" rx="6" fill="#fdecd8" stroke="#d9822b"/>
+    <text x="155" y="206" text-anchor="middle" font-weight="700" fill="#7a3f00">Driver heap</text>
+    <text x="155" y="226" text-anchor="middle" font-size="13" fill="#3b2a1a">holds the whole result</text>
+    <text x="155" y="270" text-anchor="middle" font-size="13" fill="#1b2733">Fix: aggregate, limit,</text>
+    <text x="155" y="290" text-anchor="middle" font-size="13" fill="#1b2733">or write to storage</text>
+
+    <rect x="315" y="52" width="270" height="270" rx="10" fill="#f8fafc" stroke="#c7d0d8"/>
+    <text x="450" y="78" text-anchor="middle" font-weight="700" fill="#1b2733">2. Oversized broadcast</text>
+    <rect x="340" y="96" width="220" height="40" rx="6" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="450" y="121" text-anchor="middle" font-size="13" fill="#173d6b">"Small" side of a join</text>
+    <path d="M450 136 V176" stroke="#5b6b7a" stroke-width="2" marker-end="url(#a)"/>
+    <text x="460" y="162" font-size="12" fill="#5b6b7a">pulled in first</text>
+    <rect x="340" y="180" width="220" height="60" rx="6" fill="#fdecd8" stroke="#d9822b"/>
+    <text x="450" y="206" text-anchor="middle" font-weight="700" fill="#7a3f00">Driver heap</text>
+    <text x="450" y="226" text-anchor="middle" font-size="13" fill="#3b2a1a">then sent to every executor</text>
+    <text x="450" y="270" text-anchor="middle" font-size="13" fill="#1b2733">Fix: stop forcing the hint,</text>
+    <text x="450" y="290" text-anchor="middle" font-size="13" fill="#1b2733">lower the threshold</text>
+
+    <rect x="610" y="52" width="270" height="270" rx="10" fill="#f8fafc" stroke="#c7d0d8"/>
+    <text x="745" y="78" text-anchor="middle" font-weight="700" fill="#1b2733">3. Too many files to list</text>
+    <rect x="635" y="96" width="220" height="40" rx="6" fill="#e3edf9" stroke="#3a78c2"/>
+    <text x="745" y="121" text-anchor="middle" font-size="13" fill="#173d6b">Millions of tiny files</text>
+    <path d="M745 136 V176" stroke="#5b6b7a" stroke-width="2" marker-end="url(#a)"/>
+    <text x="755" y="162" font-size="12" fill="#5b6b7a">one entry each</text>
+    <rect x="635" y="180" width="220" height="60" rx="6" fill="#fdecd8" stroke="#d9822b"/>
+    <text x="745" y="206" text-anchor="middle" font-weight="700" fill="#7a3f00">Driver heap</text>
+    <text x="745" y="226" text-anchor="middle" font-size="13" fill="#3b2a1a">holds the file listing</text>
+    <text x="745" y="270" text-anchor="middle" font-size="13" fill="#1b2733">Fix: compact files,</text>
+    <text x="745" y="290" text-anchor="middle" font-size="13" fill="#1b2733">partition sensibly</text>
+  </g>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" font-family="DejaVu Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="960" height="360" fill="#ffffff"/>
+<text x="480" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Join fan-out: every left row is copied once per match</text>
+<text x="480" y="54" text-anchor="middle" font-size="13" fill="#5b6b7a">flat.join(repo_changes, "repo_id", "left"): the key is not unique on the right</text>
+
+<text x="140" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#5b6b7a">EVENTS (left)</text>
+<text x="400" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#5b6b7a">MATCHES (right)</text>
+<text x="640" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#5b6b7a">ROWS OUT</text>
+
+<!-- band 101 -->
+<rect x="30" y="104" width="220" height="62" rx="8" fill="#dbeaf8" stroke="#1d5fa8"/>
+<text x="140" y="129" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">repo 101: 4 events</text>
+<text x="140" y="151" text-anchor="middle" font-size="12" fill="#1b2733">e01  e03  e04  e09</text>
+<text x="285" y="143" text-anchor="middle" font-size="22" font-weight="700" fill="#5b6b7a">×</text>
+<rect x="320" y="104" width="160" height="62" rx="8" fill="#dbeaf8" stroke="#1d5fa8"/>
+<text x="400" y="129" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">3 changes</text>
+<text x="400" y="151" text-anchor="middle" font-size="12" fill="#1b2733">c1  c2  c3</text>
+<text x="515" y="143" text-anchor="middle" font-size="22" font-weight="700" fill="#5b6b7a">=</text>
+<rect x="550" y="104" width="180" height="62" rx="8" fill="#fbe1de" stroke="#c0392b"/>
+<text x="640" y="142" text-anchor="middle" font-size="20" font-weight="700" fill="#c0392b">12 rows</text>
+
+<!-- band 202 -->
+<rect x="30" y="180" width="220" height="62" rx="8" fill="#dbeaf8" stroke="#1d5fa8"/>
+<text x="140" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">repo 202: 4 events</text>
+<text x="140" y="227" text-anchor="middle" font-size="12" fill="#1b2733">e02  e05  e06  e07</text>
+<text x="285" y="219" text-anchor="middle" font-size="22" font-weight="700" fill="#5b6b7a">×</text>
+<rect x="320" y="180" width="160" height="62" rx="8" fill="#dbeaf8" stroke="#1d5fa8"/>
+<text x="400" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">2 changes</text>
+<text x="400" y="227" text-anchor="middle" font-size="12" fill="#1b2733">c4  c5</text>
+<text x="515" y="219" text-anchor="middle" font-size="22" font-weight="700" fill="#5b6b7a">=</text>
+<rect x="550" y="180" width="180" height="62" rx="8" fill="#fbe1de" stroke="#c0392b"/>
+<text x="640" y="218" text-anchor="middle" font-size="20" font-weight="700" fill="#c0392b">8 rows</text>
+
+<!-- band 999 -->
+<rect x="30" y="256" width="220" height="62" rx="8" fill="#dbeaf8" stroke="#1d5fa8"/>
+<text x="140" y="281" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">repo 999: 1 event</text>
+<text x="140" y="303" text-anchor="middle" font-size="12" fill="#1b2733">e08</text>
+<text x="285" y="295" text-anchor="middle" font-size="22" font-weight="700" fill="#5b6b7a">×</text>
+<rect x="320" y="256" width="160" height="62" rx="8" fill="#f5f7f9" stroke="#9aa8b4"/>
+<text x="400" y="281" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">0 changes</text>
+<text x="400" y="303" text-anchor="middle" font-size="12" fill="#5b6b7a">left join keeps e08</text>
+<text x="515" y="295" text-anchor="middle" font-size="22" font-weight="700" fill="#5b6b7a">=</text>
+<rect x="550" y="256" width="180" height="62" rx="8" fill="#f5f7f9" stroke="#9aa8b4"/>
+<text x="640" y="294" text-anchor="middle" font-size="20" font-weight="700" fill="#1b2733">1 row</text>
+
+<!-- total -->
+<rect x="765" y="104" width="170" height="214" rx="10" fill="#fff4dc" stroke="#d98e04" stroke-width="1.5"/>
+<text x="850" y="150" text-anchor="middle" font-size="14" font-weight="700" fill="#1b2733">9 rows in</text>
+<text x="850" y="176" text-anchor="middle" font-size="22" font-weight="700" fill="#5b6b7a">↓</text>
+<text x="850" y="212" text-anchor="middle" font-size="26" font-weight="700" fill="#c0392b">21 out</text>
+<text x="850" y="248" text-anchor="middle" font-size="12" fill="#1b2733">12 + 8 + 1</text>
+<text x="850" y="286" text-anchor="middle" font-size="12" fill="#5b6b7a">no error raised</text>
+</svg>

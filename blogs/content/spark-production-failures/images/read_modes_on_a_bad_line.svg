@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="470" fill="#ffffff"/>
+  <text x="450" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">One truncated line, four reader behaviours</text>
+  <text x="450" y="56" text-anchor="middle" font-size="13.5" fill="#5b6b7a">events_bad.jsonl = the 9 RepoSphere events + a cut-off line e10</text>
+
+  <rect x="110" y="72" width="680" height="34" rx="6" fill="#111916"/>
+  <text x="450" y="94" text-anchor="middle" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" fill="#dbe5e0">{"event_id":"e10", ... ,"actor":{"id":1,"login":"dave"      ← no closing braces</text>
+
+  <g text-anchor="middle">
+    <rect x="20" y="132" width="205" height="300" rx="10" fill="#fde0d6" stroke="#c4441d" stroke-width="2"/>
+    <text x="122" y="160" font-size="14" font-weight="700" fill="#8a2a0e">PERMISSIVE</text>
+    <text x="122" y="180" font-size="12.5" fill="#8a2a0e">no corrupt column</text>
+    <text x="122" y="222" font-size="30" font-weight="700" fill="#8a2a0e">10 rows</text>
+    <text x="122" y="256" font-size="12.5" fill="#8a2a0e">e10 becomes a row</text>
+    <text x="122" y="276" font-size="12.5" fill="#8a2a0e">of all nulls.</text>
+    <text x="122" y="312" font-size="12.5" font-weight="700" fill="#8a2a0e">Null logins: 2, not 1</text>
+    <text x="122" y="332" font-size="12.5" font-weight="700" fill="#8a2a0e">Nobody is told.</text>
+    <text x="122" y="406" font-size="13" font-weight="700" fill="#8a2a0e">SILENT</text>
+
+    <rect x="240" y="132" width="205" height="300" rx="10" fill="#f1faf6" stroke="#2f9e72" stroke-width="2"/>
+    <text x="342" y="160" font-size="14" font-weight="700" fill="#14583d">PERMISSIVE</text>
+    <text x="342" y="180" font-size="12.5" fill="#14583d">+ _corrupt_record column</text>
+    <text x="342" y="222" font-size="30" font-weight="700" fill="#14583d">10 rows</text>
+    <text x="342" y="256" font-size="12.5" fill="#14583d">e10 keeps its raw text</text>
+    <text x="342" y="276" font-size="12.5" fill="#14583d">in _corrupt_record.</text>
+    <text x="342" y="312" font-size="12.5" font-weight="700" fill="#14583d">Split good from bad,</text>
+    <text x="342" y="332" font-size="12.5" font-weight="700" fill="#14583d">quarantine the bad.</text>
+    <text x="342" y="406" font-size="13" font-weight="700" fill="#14583d">VISIBLE</text>
+
+    <rect x="460" y="132" width="205" height="300" rx="10" fill="#fff7ef" stroke="#d9822b" stroke-width="2"/>
+    <text x="562" y="160" font-size="14" font-weight="700" fill="#7a3f00">DROPMALFORMED</text>
+    <text x="562" y="180" font-size="12.5" fill="#7a3f00">bad lines are discarded</text>
+    <text x="562" y="222" font-size="30" font-weight="700" fill="#7a3f00">9 rows</text>
+    <text x="562" y="256" font-size="12.5" fill="#7a3f00">e10 vanishes without</text>
+    <text x="562" y="276" font-size="12.5" fill="#7a3f00">a trace.</text>
+    <text x="562" y="312" font-size="12.5" font-weight="700" fill="#7a3f00">Output looks clean,</text>
+    <text x="562" y="332" font-size="12.5" font-weight="700" fill="#7a3f00">but data was lost.</text>
+    <text x="562" y="406" font-size="13" font-weight="700" fill="#7a3f00">SILENT</text>
+
+    <rect x="680" y="132" width="205" height="300" rx="10" fill="#eef4fb" stroke="#3b78c2" stroke-width="2"/>
+    <text x="782" y="160" font-size="14" font-weight="700" fill="#1d4a80">FAILFAST</text>
+    <text x="782" y="180" font-size="12.5" fill="#1d4a80">first bad line stops the job</text>
+    <text x="782" y="222" font-size="30" font-weight="700" fill="#1d4a80">error</text>
+    <text x="782" y="256" font-size="12.5" fill="#1d4a80">SparkException when</text>
+    <text x="782" y="276" font-size="12.5" fill="#1d4a80">an action runs.</text>
+    <text x="782" y="312" font-size="12.5" font-weight="700" fill="#1d4a80">Safe, but one bad line</text>
+    <text x="782" y="332" font-size="12.5" font-weight="700" fill="#1d4a80">blocks the whole day.</text>
+    <text x="782" y="406" font-size="13" font-weight="700" fill="#1d4a80">LOUD</text>
+  </g>
+</svg>
