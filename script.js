@@ -144,8 +144,8 @@ function initTerminalAnimation() {
         'code_coverage      890K       Iceberg',
         'vuln_metrics       340K       Iceberg',
         '',
-        '$ echo $STATUS',
-        'Ready for new challenges ✓',
+        '$ ./collaborate --status',
+        'Open. Let\'s build together ✓',
     ];
 
     let lineIndex = 0;
