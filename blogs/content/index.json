@@ -1107,6 +1107,384 @@
           ]
         }
       ]
+    },
+    {
+      "name": "AWS",
+      "type": "folder",
+      "children": [
+        {
+          "name": "Foundations: Account, Region and the Platform Map",
+          "type": "file",
+          "path": "aws/01-foundations-and-the-platform-map.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "foundations",
+            "account-setup",
+            "regions",
+            "budgets",
+            "cloudshell",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "IAM in Depth",
+          "type": "file",
+          "path": "aws/02-iam-in-depth.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "iam",
+            "policies",
+            "roles",
+            "sts",
+            "least-privilege",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Identity Center, SAML, OAuth and OIDC",
+          "type": "file",
+          "path": "aws/03-identity-center-and-auth-protocols.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "iam-identity-center",
+            "sso",
+            "saml",
+            "oauth",
+            "oidc",
+            "federation",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "VPC: Subnets, NAT and Endpoints",
+          "type": "file",
+          "path": "aws/04-vpc.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "vpc",
+            "networking",
+            "subnets",
+            "nat-gateway",
+            "vpc-endpoints",
+            "route-tables",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "KMS and Secrets Manager",
+          "type": "file",
+          "path": "aws/05-kms-and-secrets-manager.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "kms",
+            "secrets-manager",
+            "encryption",
+            "envelope-encryption",
+            "vpc-endpoints",
+            "cloudshell",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "S3",
+          "type": "file",
+          "path": "aws/06-s3.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "s3",
+            "storage",
+            "encryption",
+            "versioning",
+            "lifecycle",
+            "bucket-policy",
+            "kms",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Security Groups and EFS",
+          "type": "file",
+          "path": "aws/07-security-groups-and-efs.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "security-groups",
+            "nacl",
+            "efs",
+            "nfs",
+            "networking",
+            "kms",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "RDS and DynamoDB",
+          "type": "file",
+          "path": "aws/08-rds-and-dynamodb.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "rds",
+            "postgresql",
+            "dynamodb",
+            "databases",
+            "secrets-manager",
+            "kms",
+            "gsi",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Linux and Docker Fundamentals",
+          "type": "file",
+          "path": "aws/09-linux-and-docker.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "linux",
+            "amazon-linux",
+            "docker",
+            "containers",
+            "dockerfile",
+            "boto3",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "EC2",
+          "type": "file",
+          "path": "aws/10-ec2.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "ec2",
+            "ebs",
+            "ssm",
+            "session-manager",
+            "imds",
+            "instance-profile",
+            "efs",
+            "user-data",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "ECR and ECS",
+          "type": "file",
+          "path": "aws/11-ecr-and-ecs.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "ecr",
+            "ecs",
+            "fargate",
+            "alb",
+            "task-role",
+            "containers",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "EKS",
+          "type": "file",
+          "path": "aws/12-eks.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "eks",
+            "kubernetes",
+            "pod-identity",
+            "access-entries",
+            "managed-node-group",
+            "kubectl",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Lambda",
+          "type": "file",
+          "path": "aws/13-lambda.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "lambda",
+            "serverless",
+            "s3-events",
+            "dynamodb",
+            "idempotency",
+            "execution-role",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "SQS, SNS and EventBridge",
+          "type": "file",
+          "path": "aws/14-sqs-sns-and-eventbridge.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "sqs",
+            "sns",
+            "eventbridge",
+            "dead-letter-queue",
+            "fan-out",
+            "event-driven",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Git and Webhooks",
+          "type": "file",
+          "path": "aws/15-git-and-webhooks.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "git",
+            "github",
+            "gitlab",
+            "webhooks",
+            "hmac",
+            "lambda-function-url",
+            "secrets-manager",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "CloudFormation and Terraform",
+          "type": "file",
+          "path": "aws/16-cloudformation-and-terraform.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "cloudformation",
+            "terraform",
+            "iac",
+            "change-sets",
+            "drift",
+            "state",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Service Catalog",
+          "type": "file",
+          "path": "aws/17-service-catalog.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "service-catalog",
+            "governance",
+            "launch-constraint",
+            "portfolio",
+            "cloudformation",
+            "least-privilege",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "CodeBuild and CodePipeline",
+          "type": "file",
+          "path": "aws/18-codebuild-and-codepipeline.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "codebuild",
+            "codepipeline",
+            "ci-cd",
+            "buildspec",
+            "ecr",
+            "ecs",
+            "codeconnections",
+            "approvals",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "ML Environments and SageMaker Studio",
+          "type": "file",
+          "path": "aws/19-ml-environments-and-sagemaker-studio.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "sagemaker",
+            "studio",
+            "conda",
+            "python",
+            "ecr",
+            "processing-jobs",
+            "containers",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "SageMaker Training and Endpoints",
+          "type": "file",
+          "path": "aws/20-sagemaker-training-and-endpoints.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "sagemaker",
+            "training",
+            "endpoints",
+            "byoc",
+            "inference",
+            "model-artifact",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "CloudWatch, Agent and Alarms",
+          "type": "file",
+          "path": "aws/21-cloudwatch-agent-and-alarms.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "cloudwatch",
+            "alarms",
+            "metrics",
+            "logs",
+            "metric-filters",
+            "cloudwatch-agent",
+            "dashboards",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Cost Explorer and Budgets",
+          "type": "file",
+          "path": "aws/22-cost-explorer-and-budgets.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "cost-explorer",
+            "budgets",
+            "cost-allocation-tags",
+            "anomaly-detection",
+            "finops",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Capstone: One Request, Every Layer",
+          "type": "file",
+          "path": "aws/23-capstone.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "capstone",
+            "troubleshooting",
+            "architecture",
+            "teardown",
+            "intermediate"
+          ]
+        }
+      ]
     }
   ]
 }

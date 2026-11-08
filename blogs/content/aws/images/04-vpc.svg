@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="A two-AZ VPC with public and private subnets, an internet gateway, a NAT gateway and gateway endpoints">
+  <rect width="900" height="540" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The Platform Lab VPC</text>
+  <rect x="375" y="44" width="150" height="34" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="450.0" y="66.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Internet</text>
+  <rect x="20" y="92" width="860" height="430" rx="14" fill="none" stroke="#3a78c2" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="34" y="112" text-anchor="start" font-size="13" font-weight="700" fill="#173d6b">VPC plat-vpc  10.20.0.0/16</text>
+  <rect x="375" y="100" width="150" height="34" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="450.0" y="122.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">Internet gateway</text>
+  <line x1="450" y1="78" x2="450" y2="100" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="40" y="150" width="395" height="280" rx="14" fill="none" stroke="#8a97a3" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="54" y="170" text-anchor="start" font-size="13" font-weight="700" fill="#2b3945">us-east-1a</text>
+  <rect x="465" y="150" width="395" height="280" rx="14" fill="none" stroke="#8a97a3" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="479" y="170" text-anchor="start" font-size="13" font-weight="700" fill="#2b3945">us-east-1b</text>
+  <rect x="55" y="182" width="365" height="90" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="237.5" y="212.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">plat-public-a  10.20.0.0/24</text>
+  <text x="237.5" y="236.0" text-anchor="middle" font-size="13" fill="#1b2733">NAT gateway plat-nat-a</text>
+  <text x="237.5" y="256.0" text-anchor="middle" font-size="13" fill="#1b2733">route 0.0.0.0/0 → IGW</text>
+  <rect x="480" y="182" width="365" height="90" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="662.5" y="212.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">plat-public-b  10.20.1.0/24</text>
+  <text x="662.5" y="236.0" text-anchor="middle" font-size="13" fill="#1b2733">load balancers later</text>
+  <text x="662.5" y="256.0" text-anchor="middle" font-size="13" fill="#1b2733">route 0.0.0.0/0 → IGW</text>
+  <rect x="55" y="310" width="365" height="90" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="237.5" y="340.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">plat-private-a  10.20.10.0/24</text>
+  <text x="237.5" y="364.0" text-anchor="middle" font-size="13" fill="#1b2733">workloads, databases</text>
+  <text x="237.5" y="384.0" text-anchor="middle" font-size="13" fill="#1b2733">route 0.0.0.0/0 → NAT</text>
+  <rect x="480" y="310" width="365" height="90" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="662.5" y="340.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">plat-private-b  10.20.11.0/24</text>
+  <text x="662.5" y="364.0" text-anchor="middle" font-size="13" fill="#1b2733">workloads, databases</text>
+  <text x="662.5" y="384.0" text-anchor="middle" font-size="13" fill="#1b2733">route 0.0.0.0/0 → NAT</text>
+  <line x1="380" y1="134" x2="300" y2="182" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="520" y1="134" x2="600" y2="182" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="237" y1="272" x2="237" y2="310" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <text x="295.0" y="295.0" text-anchor="middle" font-size="12" fill="#1b2733">outbound only</text>
+  <line x1="662" y1="272" x2="662" y2="310" stroke="#5b6b7a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#m-gray)"/>
+  <rect x="250" y="452" width="400" height="56" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="450.0" y="475.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Gateway endpoints: S3 + DynamoDB</text>
+  <text x="450.0" y="499.0" text-anchor="middle" font-size="13" fill="#1b2733">route-table entries, no hourly cost</text>
+  <line x1="237" y1="400" x2="330" y2="452" stroke="#2f9e72" stroke-width="2" marker-end="url(#m-green)"/>
+  <line x1="662" y1="400" x2="570" y2="452" stroke="#2f9e72" stroke-width="2" marker-end="url(#m-green)"/>
+</svg>

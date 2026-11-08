@@ -1,0 +1,28 @@
+version: 0.2
+
+env:
+  variables:
+    IMAGE_REPO: plat/api
+
+phases:
+  pre_build:
+    commands:
+      - echo "Checking the code compiles"
+      - python3 -m py_compile app/app.py
+      - ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+      - REGISTRY=$ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c1-7)
+      - aws ecr get-login-password | docker login --username AWS --password-stdin $REGISTRY
+  build:
+    commands:
+      - echo "Building $REGISTRY/$IMAGE_REPO:$TAG"
+      - docker build --platform linux/amd64 -t $REGISTRY/$IMAGE_REPO:$TAG app/
+  post_build:
+    commands:
+      - docker push $REGISTRY/$IMAGE_REPO:$TAG
+      - printf '[{"name":"api","imageUri":"%s"}]' "$REGISTRY/$IMAGE_REPO:$TAG" > imagedefinitions.json
+      - cat imagedefinitions.json
+
+artifacts:
+  files:
+    - imagedefinitions.json

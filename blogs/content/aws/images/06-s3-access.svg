@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Jim can read and write; plat-demo-reader is allowed by S3 but denied by KMS">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The platform bucket, and the S3-yes, KMS-no failure</text>
+  <rect x="30" y="70" width="190" height="80" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="125.0" y="105.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Jim  (PlatformAdmin)</text>
+  <text x="125.0" y="129.0" text-anchor="middle" font-size="13" fill="#1b2733">S3 ✓   KMS ✓</text>
+  <rect x="30" y="250" width="190" height="90" rx="10" fill="#fbe9e9" stroke="#c24a4a" stroke-width="1.5"/>
+  <text x="125.0" y="280.0" text-anchor="middle" font-size="15" font-weight="700" fill="#7a1f1f">plat-demo-reader</text>
+  <text x="125.0" y="304.0" text-anchor="middle" font-size="13" fill="#1b2733">s3:GetObject ✓</text>
+  <text x="125.0" y="324.0" text-anchor="middle" font-size="13" fill="#1b2733">kms:Decrypt ✗</text>
+  <rect x="340" y="130" width="230" height="140" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="455.0" y="175.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">S3 bucket</text>
+  <text x="455.0" y="199.0" text-anchor="middle" font-size="13" fill="#1b2733">plat-data-&lt;acct&gt;-us-east-1</text>
+  <text x="455.0" y="219.0" text-anchor="middle" font-size="13" fill="#1b2733">raw/  processed/  models/</text>
+  <text x="455.0" y="239.0" text-anchor="middle" font-size="13" fill="#1b2733">versioned · TLS only · SSE-KMS</text>
+  <rect x="700" y="130" width="180" height="140" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="790.0" y="175.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">KMS key</text>
+  <text x="790.0" y="199.0" text-anchor="middle" font-size="13" fill="#1b2733">alias/plat-data</text>
+  <text x="790.0" y="219.0" text-anchor="middle" font-size="13" fill="#1b2733">key policy + IAM</text>
+  <text x="790.0" y="239.0" text-anchor="middle" font-size="13" fill="#1b2733">decides who decrypts</text>
+  <line x1="220" y1="110" x2="340" y2="160" stroke="#2f9e72" stroke-width="2" marker-end="url(#m-green)"/>
+  <text x="280.0" y="129.0" text-anchor="middle" font-size="12" fill="#1b2733">PutObject</text>
+  <line x1="220" y1="295" x2="340" y2="245" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <text x="280.0" y="284.0" text-anchor="middle" font-size="12" fill="#1b2733">GetObject</text>
+  <line x1="570" y1="175" x2="700" y2="175" stroke="#2f9e72" stroke-width="2" marker-end="url(#m-green)"/>
+  <text x="635.0" y="167.0" text-anchor="middle" font-size="12" fill="#1b2733">GenerateDataKey</text>
+  <line x1="700" y1="235" x2="570" y2="235" stroke="#c24a4a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#m-red)"/>
+  <text x="635.0" y="253.0" text-anchor="middle" font-size="12" fill="#1b2733">Decrypt for the caller</text>
+  <text x="450" y="395" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">S3 asks KMS to decrypt on the caller's behalf, so the caller needs both permissions.</text>
+</svg>

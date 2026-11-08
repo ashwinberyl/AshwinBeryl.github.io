@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Jim signs in to IAM Identity Center and receives a role session in the account">
+  <rect width="900" height="350" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">How a sign-in becomes a role session</text>
+  <rect x="30" y="105" width="140" height="90" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="100.0" y="135.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Jim</text>
+  <text x="100.0" y="159.0" text-anchor="middle" font-size="13" fill="#1b2733">browser or</text>
+  <text x="100.0" y="179.0" text-anchor="middle" font-size="13" fill="#1b2733">aws sso login</text>
+  <rect x="270" y="70" width="250" height="160" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="395.0" y="115.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">IAM Identity Center</text>
+  <text x="395.0" y="139.0" text-anchor="middle" font-size="13" fill="#1b2733">user: jim  (MFA)</text>
+  <text x="395.0" y="159.0" text-anchor="middle" font-size="13" fill="#1b2733">group: platform-admins</text>
+  <text x="395.0" y="179.0" text-anchor="middle" font-size="13" fill="#1b2733">permission set:</text>
+  <text x="395.0" y="199.0" text-anchor="middle" font-size="13" fill="#1b2733">PlatformAdmin</text>
+  <rect x="640" y="70" width="235" height="160" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="757.5" y="115.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">AWS account</text>
+  <text x="757.5" y="139.0" text-anchor="middle" font-size="13" fill="#1b2733">role created from the set:</text>
+  <text x="757.5" y="159.0" text-anchor="middle" font-size="13" fill="#1b2733">AWSReservedSSO_</text>
+  <text x="757.5" y="179.0" text-anchor="middle" font-size="13" fill="#1b2733">PlatformAdmin_&lt;hash&gt;</text>
+  <text x="757.5" y="199.0" text-anchor="middle" font-size="13" fill="#1b2733">temporary credentials</text>
+  <line x1="170" y1="150" x2="270" y2="150" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <text x="220.0" y="140.0" text-anchor="middle" font-size="12" fill="#1b2733">1 sign in</text>
+  <line x1="520" y1="150" x2="640" y2="150" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <text x="580.0" y="140.0" text-anchor="middle" font-size="12" fill="#1b2733">2 assume role</text>
+  <rect x="270" y="270" width="250" height="52" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="395.0" y="301.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">External IdP (optional)</text>
+  <line x1="395" y1="270" x2="395" y2="230" stroke="#5b6b7a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#m-gray)"/>
+  <text x="447.0" y="272.0" text-anchor="middle" font-size="12" fill="#1b2733">SAML + SCIM</text>
+  <text x="100" y="222" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">CLI uses an OAuth 2.0 flow</text>
+  <text x="100" y="240" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">and caches the token</text>
+  <text x="757" y="258" text-anchor="middle" font-size="12.5" font-style="italic" fill="#124d38">Session length is set by the permission set</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="The same S3 bucket defined in CloudFormation and in Terraform, with previews and where each tool keeps its record">
+  <rect width="900" height="440" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">One definition, two engines</text>
+  <rect x="20" y="56" width="410" height="290" rx="14" fill="none" stroke="#c98a1a" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="34" y="76" text-anchor="start" font-size="13" font-weight="700" fill="#6b4a07">CloudFormation</text>
+  <rect x="40" y="90" width="370" height="52" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="225.0" y="111.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">bucket.yaml</text>
+  <text x="225.0" y="135.0" text-anchor="middle" font-size="13" fill="#1b2733">parameters, resources, outputs</text>
+  <rect x="40" y="170" width="370" height="52" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="225.0" y="191.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Change set</text>
+  <text x="225.0" y="215.0" text-anchor="middle" font-size="13" fill="#1b2733">preview: read the Replacement column</text>
+  <rect x="40" y="250" width="370" height="76" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="225.0" y="273.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">Stack plat-bucket-demo</text>
+  <text x="225.0" y="297.0" text-anchor="middle" font-size="13" fill="#1b2733">the record of what exists lives in AWS</text>
+  <text x="225.0" y="317.0" text-anchor="middle" font-size="13" fill="#1b2733">automatic rollback on failed updates</text>
+  <line x1="225" y1="142" x2="225" y2="170" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="225" y1="222" x2="225" y2="250" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="470" y="56" width="410" height="290" rx="14" fill="none" stroke="#7a55b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="484" y="76" text-anchor="start" font-size="13" font-weight="700" fill="#3f2a6b">Terraform</text>
+  <rect x="490" y="90" width="370" height="52" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="675.0" y="111.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">main.tf</text>
+  <text x="675.0" y="135.0" text-anchor="middle" font-size="13" fill="#1b2733">variables, resources, outputs</text>
+  <rect x="490" y="170" width="370" height="52" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="675.0" y="191.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">terraform plan</text>
+  <text x="675.0" y="215.0" text-anchor="middle" font-size="13" fill="#1b2733">preview: look for forces replacement</text>
+  <rect x="490" y="250" width="370" height="76" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="675.0" y="273.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">apply, with remote state</text>
+  <text x="675.0" y="297.0" text-anchor="middle" font-size="13" fill="#1b2733">state in S3 (plat-tfstate), lock file</text>
+  <text x="675.0" y="317.0" text-anchor="middle" font-size="13" fill="#1b2733">no automatic rollback</text>
+  <line x1="675" y1="142" x2="675" y2="170" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="675" y1="222" x2="675" y2="250" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="300" y="372" width="300" height="52" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="450.0" y="403.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Private, versioned, KMS-encrypted bucket</text>
+  <line x1="225" y1="326" x2="380" y2="372" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="675" y1="326" x2="520" y2="372" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+</svg>

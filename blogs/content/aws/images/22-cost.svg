@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Tagged platform resources produce billing data which feeds Cost Explorer, Budgets and anomaly detection, which notify SNS">
+  <rect width="900" height="420" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Where cost data comes from and who gets told</text>
+  <rect x="20" y="150" width="190" height="90" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="115.0" y="180.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Platform resources</text>
+  <text x="115.0" y="204.0" text-anchor="middle" font-size="13" fill="#1b2733">tag project = plat</text>
+  <text x="115.0" y="224.0" text-anchor="middle" font-size="13" fill="#1b2733">(activate the tag)</text>
+  <rect x="270" y="150" width="190" height="90" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="365.0" y="180.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">Billing data</text>
+  <text x="365.0" y="204.0" text-anchor="middle" font-size="13" fill="#1b2733">several updates a day</text>
+  <text x="365.0" y="224.0" text-anchor="middle" font-size="13" fill="#1b2733">tags count from activation</text>
+  <line x1="210" y1="195" x2="270" y2="195" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="540" y="70" width="180" height="56" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="630.0" y="93.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Cost Explorer</text>
+  <text x="630.0" y="117.0" text-anchor="middle" font-size="13" fill="#1b2733">reports, forecast</text>
+  <rect x="540" y="160" width="180" height="56" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="630.0" y="183.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Budgets</text>
+  <text x="630.0" y="207.0" text-anchor="middle" font-size="13" fill="#1b2733">actual + forecast</text>
+  <rect x="540" y="250" width="180" height="56" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="630.0" y="273.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Anomaly Detection</text>
+  <text x="630.0" y="297.0" text-anchor="middle" font-size="13" fill="#1b2733">unusual spend</text>
+  <line x1="460" y1="195" x2="540" y2="98" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="460" y1="195" x2="540" y2="188" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="460" y1="195" x2="540" y2="278" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="760" y="160" width="120" height="56" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="820.0" y="183.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">plat-alerts</text>
+  <text x="820.0" y="207.0" text-anchor="middle" font-size="13" fill="#1b2733">SNS, email</text>
+  <line x1="720" y1="188" x2="760" y2="188" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="720" y1="278" x2="790" y2="216" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="270" y="340" width="410" height="50" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="475.0" y="360.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">pause-platform.sh</text>
+  <text x="475.0" y="384.0" text-anchor="middle" font-size="13" fill="#1b2733">scale to 0, stop RDS and EC2, delete endpoint, list what still bills</text>
+</svg>

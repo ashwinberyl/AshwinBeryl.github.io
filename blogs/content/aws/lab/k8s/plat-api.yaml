@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plat-api
+  namespace: plat
+  labels: { app: plat-api }
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: plat-api }
+  template:
+    metadata:
+      labels: { app: plat-api }
+    spec:
+      serviceAccountName: plat-api
+      containers:
+        - name: api
+          image: 123456789012.dkr.ecr.us-east-1.amazonaws.com/plat/api:1.0.1
+          ports:
+            - containerPort: 8080
+          env:
+            - { name: APP_VERSION, value: "1.0.1-eks" }
+            - { name: DATA_BUCKET, value: "plat-data-123456789012-us-east-1" }
+            - { name: JOBS_TABLE,  value: "plat-jobs" }
+            - { name: DB_HOST,     value: "plat-meta.xxxxxxxx.us-east-1.rds.amazonaws.com" }
+            - { name: DB_NAME,     value: "platmeta" }
+            - { name: DB_SECRET_ARN, value: "arn:aws:secretsmanager:us-east-1:123456789012:secret:rds!db-xxxx" }
+          readinessProbe:
+            httpGet: { path: /health, port: 8080 }
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: { path: /health, port: 8080 }
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { memory: 256Mi }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: plat-api
+  namespace: plat
+spec:
+  selector: { app: plat-api }
+  ports:
+    - port: 80
+      targetPort: 8080
