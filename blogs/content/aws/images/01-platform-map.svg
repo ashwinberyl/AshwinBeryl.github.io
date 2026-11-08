@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 515" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Seven layers of the platform, from identity and network at the bottom to observability at the top">
+  <rect width="900" height="515" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The Platform Lab, layer by layer</text>
+  <rect x="24" y="52" width="190" height="50" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="119.0" y="82.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">Observability</text>
+  <rect x="24" y="52" width="6" height="50" rx="3" fill="#1b2733" opacity="0.35"/>
+  <rect x="232" y="52" width="155" height="50" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="309.5" y="82.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">CloudWatch</text>
+  <rect x="397" y="52" width="155" height="50" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="474.5" y="82.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">Alarms + Agent</text>
+  <rect x="562" y="52" width="155" height="50" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="639.5" y="82.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">Cost Explorer</text>
+  <rect x="727" y="52" width="155" height="50" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="804.5" y="82.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">Budgets</text>
+  <rect x="24" y="114" width="190" height="50" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="119.0" y="144.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">CI/CD &amp; IaC</text>
+  <rect x="24" y="114" width="6" height="50" rx="3" fill="#1b2733" opacity="0.35"/>
+  <rect x="232" y="114" width="155" height="50" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="309.5" y="144.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">Git + webhooks</text>
+  <rect x="397" y="114" width="155" height="50" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="474.5" y="144.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">CodeBuild</text>
+  <rect x="562" y="114" width="155" height="50" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="639.5" y="144.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">CodePipeline</text>
+  <rect x="727" y="114" width="155" height="50" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="804.5" y="144.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">CFN + Terraform</text>
+  <rect x="24" y="176" width="190" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="119.0" y="206.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Machine learning</text>
+  <rect x="24" y="176" width="6" height="50" rx="3" fill="#1b2733" opacity="0.35"/>
+  <rect x="232" y="176" width="155" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="309.5" y="206.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">SageMaker Studio</text>
+  <rect x="397" y="176" width="155" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="474.5" y="206.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Processing</text>
+  <rect x="562" y="176" width="155" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="639.5" y="206.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Training</text>
+  <rect x="727" y="176" width="155" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="804.5" y="206.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Endpoint</text>
+  <rect x="24" y="238" width="190" height="50" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="119.0" y="268.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Serverless &amp; events</text>
+  <rect x="24" y="238" width="6" height="50" rx="3" fill="#1b2733" opacity="0.35"/>
+  <rect x="232" y="238" width="155" height="50" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="309.5" y="268.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">SNS</text>
+  <rect x="397" y="238" width="155" height="50" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="474.5" y="268.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">SQS</text>
+  <rect x="562" y="238" width="155" height="50" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="639.5" y="268.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Lambda</text>
+  <rect x="727" y="238" width="155" height="50" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="804.5" y="268.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">EventBridge</text>
+  <rect x="24" y="300" width="190" height="50" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="119.0" y="330.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Compute</text>
+  <rect x="24" y="300" width="6" height="50" rx="3" fill="#1b2733" opacity="0.35"/>
+  <rect x="232" y="300" width="155" height="50" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="309.5" y="330.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">EC2</text>
+  <rect x="397" y="300" width="155" height="50" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="474.5" y="330.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">ECR</text>
+  <rect x="562" y="300" width="155" height="50" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="639.5" y="330.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">ECS (Fargate)</text>
+  <rect x="727" y="300" width="155" height="50" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="804.5" y="330.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">EKS</text>
+  <rect x="24" y="362" width="190" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="119.0" y="392.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Data</text>
+  <rect x="24" y="362" width="6" height="50" rx="3" fill="#1b2733" opacity="0.35"/>
+  <rect x="232" y="362" width="155" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="309.5" y="392.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">S3 data lake</text>
+  <rect x="397" y="362" width="155" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="474.5" y="392.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">RDS Postgres</text>
+  <rect x="562" y="362" width="155" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="639.5" y="392.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">DynamoDB</text>
+  <rect x="727" y="362" width="155" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="804.5" y="392.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">EFS</text>
+  <rect x="24" y="424" width="190" height="50" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="119.0" y="454.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Identity &amp; network</text>
+  <rect x="24" y="424" width="6" height="50" rx="3" fill="#1b2733" opacity="0.35"/>
+  <rect x="232" y="424" width="155" height="50" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="309.5" y="454.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">IAM + Identity Center</text>
+  <rect x="397" y="424" width="155" height="50" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="474.5" y="454.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">VPC + endpoints</text>
+  <rect x="562" y="424" width="155" height="50" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="639.5" y="454.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">KMS + Secrets</text>
+  <rect x="727" y="424" width="155" height="50" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="804.5" y="454.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Security groups</text>
+  <text x="450" y="500" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">Each layer only depends on the layers beneath it. Posts 01 to 23 build from the bottom up.</text>
+</svg>

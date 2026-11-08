@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="A git push to GitHub sends a signed webhook to a Lambda function URL which verifies the signature using a secret and logs the event">
+  <rect width="900" height="340" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">From git push to a verified event</text>
+  <rect x="20" y="100" width="100" height="80" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="70.0" y="135.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Jim</text>
+  <text x="70.0" y="159.0" text-anchor="middle" font-size="13" fill="#1b2733">git push</text>
+  <rect x="190" y="100" width="140" height="80" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="260.0" y="125.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">GitHub</text>
+  <text x="260.0" y="149.0" text-anchor="middle" font-size="13" fill="#1b2733">plat-platform</text>
+  <text x="260.0" y="169.0" text-anchor="middle" font-size="13" fill="#1b2733">main protected</text>
+  <rect x="450" y="100" width="190" height="80" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="545.0" y="125.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">plat-webhook-echo</text>
+  <text x="545.0" y="149.0" text-anchor="middle" font-size="13" fill="#1b2733">function URL</text>
+  <text x="545.0" y="169.0" text-anchor="middle" font-size="13" fill="#1b2733">HMAC check</text>
+  <rect x="760" y="100" width="120" height="80" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="820.0" y="135.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">CloudWatch</text>
+  <text x="820.0" y="159.0" text-anchor="middle" font-size="13" fill="#1b2733">Logs</text>
+  <line x1="120" y1="140" x2="190" y2="140" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="330" y1="140" x2="450" y2="140" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <text x="390.0" y="128.0" text-anchor="middle" font-size="12" fill="#1b2733">POST + signature</text>
+  <line x1="640" y1="140" x2="760" y2="140" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <text x="700.0" y="128.0" text-anchor="middle" font-size="12" fill="#1b2733">event JSON</text>
+  <rect x="450" y="235" width="190" height="66" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="545.0" y="263.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">Secrets Manager</text>
+  <text x="545.0" y="287.0" text-anchor="middle" font-size="13" fill="#1b2733">plat/github-webhook</text>
+  <line x1="545" y1="235" x2="545" y2="180" stroke="#7a55b8" stroke-width="2" marker-end="url(#m-purple)"/>
+  <text x="575.0" y="207.5" text-anchor="middle" font-size="12" fill="#1b2733">secret</text>
+  <text x="240" y="215" text-anchor="middle" font-size="12.5" font-style="italic" fill="#7a1f1f">bad signature: 401, logged as rejected</text>
+  <text x="240" y="235" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">Recent Deliveries lets you redeliver</text>
+</svg>

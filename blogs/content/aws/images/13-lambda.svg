@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="plat-ingest invoked by S3 events or SQS polling, using an execution role to read S3 and write DynamoDB">
+  <rect width="900" height="420" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Lambda: who invokes it, and what it can reach</text>
+  <rect x="20" y="70" width="150" height="60" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="95.0" y="95.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">S3 event</text>
+  <text x="95.0" y="119.0" text-anchor="middle" font-size="13" fill="#1b2733">asynchronous</text>
+  <rect x="20" y="160" width="150" height="60" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="95.0" y="185.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">SQS queue</text>
+  <text x="95.0" y="209.0" text-anchor="middle" font-size="13" fill="#1b2733">polled in batches</text>
+  <rect x="20" y="250" width="150" height="60" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="95.0" y="275.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Console test</text>
+  <text x="95.0" y="299.0" text-anchor="middle" font-size="13" fill="#1b2733">synchronous</text>
+  <rect x="260" y="90" width="240" height="190" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="380.0" y="160.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">plat-ingest</text>
+  <text x="380.0" y="184.0" text-anchor="middle" font-size="13" fill="#1b2733">Python 3.12 · 256 MB · 30 s</text>
+  <text x="380.0" y="204.0" text-anchor="middle" font-size="13" fill="#1b2733">env: JOBS_TABLE</text>
+  <text x="380.0" y="224.0" text-anchor="middle" font-size="13" fill="#1b2733">idempotent: conditional write</text>
+  <line x1="170" y1="100" x2="260" y2="190" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="170" y1="190" x2="260" y2="190" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="170" y1="280" x2="260" y2="190" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="620" y="70" width="260" height="60" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="750.0" y="95.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">S3 raw/ (GetObject)</text>
+  <text x="750.0" y="119.0" text-anchor="middle" font-size="13" fill="#1b2733">decrypt via KMS</text>
+  <rect x="620" y="160" width="260" height="60" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="750.0" y="185.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">DynamoDB plat-jobs</text>
+  <text x="750.0" y="209.0" text-anchor="middle" font-size="13" fill="#1b2733">PutItem, only if absent</text>
+  <rect x="620" y="250" width="260" height="60" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="750.0" y="275.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">CloudWatch Logs</text>
+  <text x="750.0" y="299.0" text-anchor="middle" font-size="13" fill="#1b2733">/aws/lambda/plat-ingest</text>
+  <line x1="500" y1="190" x2="620" y2="100" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="500" y1="190" x2="620" y2="190" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="500" y1="190" x2="620" y2="280" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="200" y="335" width="250" height="62" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="325.0" y="361.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">Resource policy</text>
+  <text x="325.0" y="385.0" text-anchor="middle" font-size="13" fill="#1b2733">who may invoke the function</text>
+  <rect x="470" y="335" width="250" height="62" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="595.0" y="361.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">Execution role</text>
+  <text x="595.0" y="385.0" text-anchor="middle" font-size="13" fill="#1b2733">what the function may do</text>
+  <line x1="325" y1="335" x2="325" y2="280" stroke="#c98a1a" stroke-width="2" marker-end="url(#m-amber)"/>
+  <line x1="595" y1="335" x2="440" y2="280" stroke="#7a55b8" stroke-width="2" marker-end="url(#m-purple)"/>
+</svg>

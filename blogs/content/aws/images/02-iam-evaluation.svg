@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Request evaluation: explicit deny, organization guardrails, limits, then a grant">
+  <rect width="900" height="340" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">How AWS decides a request</text>
+  <rect x="20" y="90" width="100" height="90" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="70.0" y="110.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Request</text>
+  <text x="70.0" y="134.0" text-anchor="middle" font-size="13" fill="#1b2733">principal +</text>
+  <text x="70.0" y="154.0" text-anchor="middle" font-size="13" fill="#1b2733">action +</text>
+  <text x="70.0" y="174.0" text-anchor="middle" font-size="13" fill="#1b2733">resource</text>
+  <rect x="145" y="90" width="130" height="90" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="210.0" y="120.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">1  Explicit Deny?</text>
+  <text x="210.0" y="144.0" text-anchor="middle" font-size="13" fill="#1b2733">any policy says</text>
+  <text x="210.0" y="164.0" text-anchor="middle" font-size="13" fill="#1b2733">Deny</text>
+  <rect x="300" y="90" width="130" height="90" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="365.0" y="120.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">2  Org guardrails</text>
+  <text x="365.0" y="144.0" text-anchor="middle" font-size="13" fill="#1b2733">SCP / RCP</text>
+  <text x="365.0" y="164.0" text-anchor="middle" font-size="13" fill="#1b2733">allow it?</text>
+  <rect x="455" y="90" width="130" height="90" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="520.0" y="120.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">3  Limits</text>
+  <text x="520.0" y="144.0" text-anchor="middle" font-size="13" fill="#1b2733">boundary and</text>
+  <text x="520.0" y="164.0" text-anchor="middle" font-size="13" fill="#1b2733">session allow?</text>
+  <rect x="610" y="90" width="130" height="90" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="675.0" y="120.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">4  A grant exists?</text>
+  <text x="675.0" y="144.0" text-anchor="middle" font-size="13" fill="#1b2733">identity or resource</text>
+  <text x="675.0" y="164.0" text-anchor="middle" font-size="13" fill="#1b2733">policy allows?</text>
+  <rect x="765" y="90" width="115" height="90" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="822.5" y="120.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">ALLOW</text>
+  <text x="822.5" y="144.0" text-anchor="middle" font-size="13" fill="#1b2733">request</text>
+  <text x="822.5" y="164.0" text-anchor="middle" font-size="13" fill="#1b2733">succeeds</text>
+  <line x1="120" y1="135" x2="145" y2="135" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="275" y1="135" x2="300" y2="135" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <text x="287.5" y="125.0" text-anchor="middle" font-size="12" fill="#1b2733">no</text>
+  <line x1="430" y1="135" x2="455" y2="135" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <text x="442.5" y="125.0" text-anchor="middle" font-size="12" fill="#1b2733">yes</text>
+  <line x1="585" y1="135" x2="610" y2="135" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <text x="597.5" y="125.0" text-anchor="middle" font-size="12" fill="#1b2733">yes</text>
+  <line x1="740" y1="135" x2="765" y2="135" stroke="#2f9e72" stroke-width="2" marker-end="url(#m-green)"/>
+  <text x="752.5" y="125.0" text-anchor="middle" font-size="12" fill="#1b2733">yes</text>
+  <rect x="200" y="245" width="500" height="50" rx="10" fill="#fbe9e9" stroke="#c24a4a" stroke-width="1.5"/>
+  <text x="450.0" y="275.0" text-anchor="middle" font-size="15" font-weight="700" fill="#7a1f1f">DENY (explicit or implicit)</text>
+  <line x1="210" y1="180" x2="210" y2="245" stroke="#c24a4a" stroke-width="2" marker-end="url(#m-red)"/>
+  <text x="210.0" y="224.5" text-anchor="middle" font-size="12" fill="#1b2733">Deny found</text>
+  <line x1="365" y1="180" x2="365" y2="245" stroke="#c24a4a" stroke-width="2" marker-end="url(#m-red)"/>
+  <text x="365.0" y="224.5" text-anchor="middle" font-size="12" fill="#1b2733">not allowed</text>
+  <line x1="520" y1="180" x2="520" y2="245" stroke="#c24a4a" stroke-width="2" marker-end="url(#m-red)"/>
+  <text x="520.0" y="224.5" text-anchor="middle" font-size="12" fill="#1b2733">not allowed</text>
+  <line x1="675" y1="180" x2="675" y2="245" stroke="#c24a4a" stroke-width="2" marker-end="url(#m-red)"/>
+  <text x="675.0" y="224.5" text-anchor="middle" font-size="12" fill="#1b2733">nothing allows</text>
+  <text x="450" y="322" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">Same account: identity OR resource policy is enough.  Cross-account: both must allow.</text>
+</svg>

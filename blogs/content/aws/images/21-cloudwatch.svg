@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="AWS service metrics, the CloudWatch agent and application logs feed CloudWatch, alarms notify an SNS topic, and a dashboard shows the state">
+  <rect width="900" height="400" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Metrics, logs, alarms and where each signal comes from</text>
+  <rect x="20" y="70" width="200" height="60" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="120.0" y="95.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">AWS service metrics</text>
+  <text x="120.0" y="119.0" text-anchor="middle" font-size="13" fill="#1b2733">SQS, Lambda, ALB, ECS</text>
+  <rect x="20" y="150" width="200" height="60" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="120.0" y="175.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">CloudWatch agent</text>
+  <text x="120.0" y="199.0" text-anchor="middle" font-size="13" fill="#1b2733">plat-ec2: memory, disk</text>
+  <rect x="20" y="230" width="200" height="60" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="120.0" y="255.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Application logs</text>
+  <text x="120.0" y="279.0" text-anchor="middle" font-size="13" fill="#1b2733">/ecs/plat-api (JSON)</text>
+  <rect x="270" y="56" width="300" height="260" rx="14" fill="none" stroke="#3a78c2" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="284" y="76" text-anchor="start" font-size="13" font-weight="700" fill="#173d6b">CloudWatch</text>
+  <rect x="290" y="90" width="260" height="60" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="420.0" y="115.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Metrics</text>
+  <text x="420.0" y="139.0" text-anchor="middle" font-size="13" fill="#1b2733">AWS/*, CWAgent, Plat</text>
+  <rect x="290" y="170" width="260" height="60" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="420.0" y="195.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Log groups</text>
+  <text x="420.0" y="219.0" text-anchor="middle" font-size="13" fill="#1b2733">metric filter: Plat/ApiErrors</text>
+  <rect x="290" y="250" width="260" height="50" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="420.0" y="270.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Logs Insights</text>
+  <text x="420.0" y="294.0" text-anchor="middle" font-size="13" fill="#1b2733">ad hoc queries</text>
+  <line x1="220" y1="100" x2="290" y2="120" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="220" y1="180" x2="290" y2="130" stroke="#2f9e72" stroke-width="2" marker-end="url(#m-green)"/>
+  <line x1="220" y1="260" x2="290" y2="200" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="420" y1="170" x2="420" y2="150" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="630" y="70" width="250" height="60" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="755.0" y="95.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">Alarms</text>
+  <text x="755.0" y="119.0" text-anchor="middle" font-size="13" fill="#1b2733">OK · ALARM · INSUFFICIENT_DATA</text>
+  <line x1="550" y1="120" x2="630" y2="100" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="630" y="160" width="250" height="56" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="755.0" y="183.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">SNS plat-alerts</text>
+  <text x="755.0" y="207.0" text-anchor="middle" font-size="13" fill="#1b2733">email</text>
+  <line x1="755" y1="130" x2="755" y2="160" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="630" y="246" width="250" height="56" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="755.0" y="269.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Dashboard plat-overview</text>
+  <text x="755.0" y="293.0" text-anchor="middle" font-size="13" fill="#1b2733">for people</text>
+  <line x1="550" y1="275" x2="630" y2="275" stroke="#5b6b7a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#m-gray)"/>
+  <text x="450" y="360" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">Alarms watch metrics. Metric filters turn log lines into metrics.</text>
+</svg>

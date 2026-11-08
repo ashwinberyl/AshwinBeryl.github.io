@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Docker image layers, and which layers rebuild after editing app.py versus requirements.txt">
+  <rect width="900" height="400" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Layers and the build cache</text>
+  <text x="525" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#173d6b">Edit app.py</text>
+  <text x="765" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#173d6b">Edit requirements.txt</text>
+  <rect x="30" y="80" width="340" height="46" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="200.0" y="108.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">FROM python:3.12-slim</text>
+  <rect x="420" y="80" width="210" height="46" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="525.0" y="108.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">cached</text>
+  <rect x="660" y="80" width="210" height="46" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="765.0" y="108.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">cached</text>
+  <rect x="30" y="138" width="340" height="46" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="200.0" y="166.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">COPY requirements.txt</text>
+  <rect x="420" y="138" width="210" height="46" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="525.0" y="166.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">cached</text>
+  <rect x="660" y="138" width="210" height="46" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="765.0" y="166.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">rebuilt</text>
+  <rect x="30" y="196" width="340" height="46" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="200.0" y="224.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">RUN pip install</text>
+  <rect x="420" y="196" width="210" height="46" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="525.0" y="224.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">cached</text>
+  <rect x="660" y="196" width="210" height="46" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="765.0" y="224.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">rebuilt</text>
+  <rect x="30" y="254" width="340" height="46" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="200.0" y="282.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">COPY app.py</text>
+  <rect x="420" y="254" width="210" height="46" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="525.0" y="282.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">rebuilt</text>
+  <rect x="660" y="254" width="210" height="46" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="765.0" y="282.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">rebuilt</text>
+  <rect x="30" y="312" width="340" height="46" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="200.0" y="340.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">USER · HEALTHCHECK · CMD</text>
+  <rect x="420" y="312" width="210" height="46" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="525.0" y="340.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">rebuilt</text>
+  <rect x="660" y="312" width="210" height="46" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="765.0" y="340.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">rebuilt</text>
+  <text x="450" y="385" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">A changed layer invalidates every layer after it. Put slow, rarely-changing steps first.</text>
+</svg>
