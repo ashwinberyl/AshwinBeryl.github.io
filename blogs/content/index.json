@@ -1485,6 +1485,127 @@
           ]
         }
       ]
+    },
+    {
+      "name": "AWS on Terraform",
+      "type": "folder",
+      "children": [
+        {
+          "name": "How Terraform Works, and the Bootstrap",
+          "type": "file",
+          "path": "aws-terraform/01-how-terraform-works-and-the-bootstrap.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "terraform",
+            "iac",
+            "state",
+            "s3-backend",
+            "oidc",
+            "github-actions",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "The Terraform Language You Actually Need",
+          "type": "file",
+          "path": "aws-terraform/02-the-terraform-language.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "terraform",
+            "hcl",
+            "variables",
+            "for-each",
+            "count",
+            "dynamic-blocks",
+            "lifecycle",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Identity as Code: IAM and Identity Center",
+          "type": "file",
+          "path": "aws-terraform/03-identity-as-code.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "terraform",
+            "iam",
+            "identity-center",
+            "sso",
+            "permission-sets",
+            "iam-policy-document",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "The Network as Code: A VPC Module",
+          "type": "file",
+          "path": "aws-terraform/04-the-network-as-code.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "terraform",
+            "vpc",
+            "networking",
+            "modules",
+            "nat-gateway",
+            "vpc-endpoints",
+            "for-each",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Security as Code: KMS, Secrets and Security Groups",
+          "type": "file",
+          "path": "aws-terraform/05-security-as-code.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "terraform",
+            "kms",
+            "secrets-manager",
+            "security-groups",
+            "remote-state",
+            "vpc-endpoints",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Modules: One Bucket Definition, Many Buckets",
+          "type": "file",
+          "path": "aws-terraform/06-modules.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "terraform",
+            "modules",
+            "s3",
+            "dynamic-blocks",
+            "moved-blocks",
+            "refactoring",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "The Data Stack: S3, DynamoDB, RDS and EFS",
+          "type": "file",
+          "path": "aws-terraform/07-the-data-stack.md",
+          "date": "2026-11-08",
+          "tags": [
+            "aws",
+            "terraform",
+            "s3",
+            "dynamodb",
+            "rds",
+            "efs",
+            "kms",
+            "snapshots",
+            "intermediate"
+          ]
+        }
+      ]
     }
   ]
 }

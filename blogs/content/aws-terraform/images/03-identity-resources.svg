@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Users join groups, groups are assigned permission sets in an account, and Identity Center creates a role there">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Identity Center resources and what AWS creates from them</text>
+  <rect x="30" y="70" width="230" height="70" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="145.0" y="100.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">aws_identitystore_user</text>
+  <text x="145.0" y="124.0" text-anchor="middle" font-size="13" fill="#1b2733">jim, dave</text>
+  <rect x="30" y="190" width="230" height="70" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="145.0" y="210.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">aws_identitystore_group</text>
+  <text x="145.0" y="234.0" text-anchor="middle" font-size="13" fill="#1b2733">platform-admins</text>
+  <text x="145.0" y="254.0" text-anchor="middle" font-size="13" fill="#1b2733">data-scientists</text>
+  <rect x="30" y="310" width="230" height="70" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="145.0" y="330.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">aws_ssoadmin_permission_set</text>
+  <text x="145.0" y="354.0" text-anchor="middle" font-size="13" fill="#1b2733">PlatformAdmin (PT4H)</text>
+  <text x="145.0" y="374.0" text-anchor="middle" font-size="13" fill="#1b2733">DataScientist (PT1H)</text>
+  <rect x="300" y="190" width="310" height="90" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="455.0" y="230.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">aws_ssoadmin_account_assignment</text>
+  <text x="455.0" y="254.0" text-anchor="middle" font-size="13" fill="#1b2733">group + permission set + account</text>
+  <rect x="700" y="190" width="180" height="90" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="790.0" y="220.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">IAM role</text>
+  <text x="790.0" y="244.0" text-anchor="middle" font-size="13" fill="#1b2733">AWSReservedSSO_</text>
+  <text x="790.0" y="264.0" text-anchor="middle" font-size="13" fill="#1b2733">PlatformAdmin_&lt;hash&gt;</text>
+  <line x1="145" y1="140" x2="145" y2="190" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <text x="185.0" y="165.0" text-anchor="middle" font-size="12" fill="#1b2733">membership</text>
+  <line x1="260" y1="225" x2="300" y2="225" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <line x1="260" y1="345" x2="420" y2="280" stroke="#7a55b8" stroke-width="2" marker-end="url(#m-purple)"/>
+  <line x1="610" y1="235" x2="700" y2="235" stroke="#2f9e72" stroke-width="2" marker-end="url(#m-green)"/>
+  <text x="655.0" y="225.0" text-anchor="middle" font-size="12" fill="#1b2733">creates</text>
+  <text x="790" y="310" text-anchor="middle" font-size="12.5" font-style="italic" fill="#124d38">Created by Identity Center,</text>
+  <text x="790" y="328" text-anchor="middle" font-size="12.5" font-style="italic" fill="#124d38">not Terraform. Sign-ins use it.</text>
+</svg>
