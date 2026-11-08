@@ -172,12 +172,19 @@ Optional but wise: **Lifecycle rules, Create rule**: *image count more than 10, 
       "Effect": "Allow",
       "Action": "secretsmanager:GetSecretValue",
       "Resource": "arn:aws:secretsmanager:us-east-1:123456789012:secret:rds!db-*"
+    },
+    {
+      "Sid": "DecryptDbSecret",
+      "Effect": "Allow",
+      "Action": "kms:Decrypt",
+      "Resource": "arn:aws:kms:us-east-1:123456789012:key/<your-key-id>",
+      "Condition": { "StringEquals": { "kms:ViaService": "secretsmanager.us-east-1.amazonaws.com" } }
     }
   ]
 }
 ```
 
-Notice the application can **read** only. The ingestion path will get write access in its own role in Post 13.
+The secret was encrypted with the `plat-data` key in Post 08, so reading it needs **two** permissions: `GetSecretValue` on the secret and `kms:Decrypt` on the key (here only when the call comes through Secrets Manager). Notice the application can **read** only. The ingestion path will get write access in its own role in Post 13.
 
 ### 3. Open the app port to the load balancer
 

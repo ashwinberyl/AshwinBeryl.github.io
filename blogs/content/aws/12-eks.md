@@ -127,7 +127,7 @@ Name it **`plat-eks-node-role`**.
 }
 ```
 
-Skip managed policies. Name it **`plat-eks-pod-role`**, then add the **same inline policy `plat-api-access`** you used for `plat-ecs-task-role` in Post 11 (S3 read, KMS via S3, DynamoDB read, secret read). Copy the JSON from that role.
+Skip managed policies. Name it **`plat-eks-pod-role`**, then add the **same inline policy `plat-api-access`** you used for `plat-ecs-task-role` in Post 11 (S3 read, KMS via S3, DynamoDB read, secret read, and KMS decrypt via Secrets Manager). Copy the JSON from that role.
 
 ### 2. Tag the public subnets
 
