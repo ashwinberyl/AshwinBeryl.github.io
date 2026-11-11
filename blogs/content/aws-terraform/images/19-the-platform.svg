@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Bootstrap, then stacks 10 to 95; amber boxes contain hourly-billed switches">
+  <rect width="900" height="520" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The whole platform: thirteen state files in apply order</text>
+  <rect x="25" y="60" width="205" height="70" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="127.5" y="90.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">bootstrap</text>
+  <text x="127.5" y="114.0" text-anchor="middle" font-size="13" fill="#1b2733">state bucket, CI roles</text>
+  <rect x="243" y="60" width="205" height="70" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="345.5" y="90.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">10-identity</text>
+  <text x="345.5" y="114.0" text-anchor="middle" font-size="13" fill="#1b2733">groups, users, roles</text>
+  <rect x="461" y="60" width="205" height="70" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="563.5" y="90.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">20-network</text>
+  <text x="563.5" y="114.0" text-anchor="middle" font-size="13" fill="#1b2733">VPC, NAT switch</text>
+  <rect x="679" y="60" width="205" height="70" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="781.5" y="90.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">30-security</text>
+  <text x="781.5" y="114.0" text-anchor="middle" font-size="13" fill="#1b2733">key, secret, SGs</text>
+  <rect x="25" y="165" width="205" height="70" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="127.5" y="195.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">40-data</text>
+  <text x="127.5" y="219.0" text-anchor="middle" font-size="13" fill="#1b2733">S3, DynamoDB, EFS, RDS switch</text>
+  <rect x="243" y="165" width="205" height="70" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="345.5" y="195.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">50-ec2</text>
+  <text x="345.5" y="219.0" text-anchor="middle" font-size="13" fill="#1b2733">instance, SSM endpoints</text>
+  <rect x="461" y="165" width="205" height="70" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="563.5" y="195.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">52-ecs</text>
+  <text x="563.5" y="219.0" text-anchor="middle" font-size="13" fill="#1b2733">ECR, ALB + service switch</text>
+  <rect x="679" y="165" width="205" height="70" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="781.5" y="195.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">55-eks</text>
+  <text x="781.5" y="219.0" text-anchor="middle" font-size="13" fill="#1b2733">cluster switch</text>
+  <rect x="25" y="270" width="205" height="70" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="127.5" y="300.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">60-events</text>
+  <text x="127.5" y="324.0" text-anchor="middle" font-size="13" fill="#1b2733">SQS, Lambda, EventBridge, SNS</text>
+  <rect x="243" y="270" width="205" height="70" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="345.5" y="300.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">70-ml</text>
+  <text x="345.5" y="324.0" text-anchor="middle" font-size="13" fill="#1b2733">Studio, endpoint switch</text>
+  <rect x="461" y="270" width="205" height="70" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="563.5" y="300.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">80-delivery</text>
+  <text x="563.5" y="324.0" text-anchor="middle" font-size="13" fill="#1b2733">pipeline, CodeBuild</text>
+  <rect x="679" y="270" width="205" height="70" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="781.5" y="300.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">90-observe</text>
+  <text x="781.5" y="324.0" text-anchor="middle" font-size="13" fill="#1b2733">alarms, dashboard</text>
+  <rect x="25" y="375" width="205" height="70" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="127.5" y="405.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">95-cost</text>
+  <text x="127.5" y="429.0" text-anchor="middle" font-size="13" fill="#1b2733">budgets, anomaly, tags</text>
+  <text x="450" y="485" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">Apply top to bottom, left to right. Destroy in reverse. Green = free or cents; amber = contains a switch that bills by the hour.</text>
+</svg>

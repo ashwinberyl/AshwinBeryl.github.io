@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="The cluster role and node role, the Pod Identity agent, and how a pod receives the plat-eks-pod-role credentials">
+  <rect width="900" height="470" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">EKS: control plane, nodes and Pod Identity</text>
+  <rect x="30" y="60" width="220" height="80" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="140.0" y="85.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Control plane plat-eks</text>
+  <text x="140.0" y="109.0" text-anchor="middle" font-size="13" fill="#1b2733">role plat-eks-cluster-role</text>
+  <text x="140.0" y="129.0" text-anchor="middle" font-size="13" fill="#1b2733">authentication mode API</text>
+  <rect x="30" y="200" width="220" height="70" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="140.0" y="220.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Access entry</text>
+  <text x="140.0" y="244.0" text-anchor="middle" font-size="13" fill="#1b2733">creator = cluster admin</text>
+  <text x="140.0" y="264.0" text-anchor="middle" font-size="13" fill="#1b2733">add others as entries</text>
+  <rect x="320" y="50" width="550" height="320" rx="14" fill="none" stroke="#2f9e72" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="334" y="70" text-anchor="start" font-size="13" font-weight="700" fill="#124d38">Private subnets: node group plat-nodes (t3.medium)</text>
+  <rect x="340" y="90" width="200" height="90" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="440.0" y="120.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Pod plat-api</text>
+  <text x="440.0" y="144.0" text-anchor="middle" font-size="13" fill="#1b2733">service account plat-api</text>
+  <text x="440.0" y="164.0" text-anchor="middle" font-size="13" fill="#1b2733">default namespace</text>
+  <rect x="570" y="90" width="280" height="90" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="710.0" y="120.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">eks-pod-identity-agent</text>
+  <text x="710.0" y="144.0" text-anchor="middle" font-size="13" fill="#1b2733">add-on, runs on every node</text>
+  <text x="710.0" y="164.0" text-anchor="middle" font-size="13" fill="#1b2733">hands out role credentials</text>
+  <rect x="340" y="240" width="200" height="90" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="440.0" y="270.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">plat-eks-node-role</text>
+  <text x="440.0" y="294.0" text-anchor="middle" font-size="13" fill="#1b2733">WorkerNode, CNI,</text>
+  <text x="440.0" y="314.0" text-anchor="middle" font-size="13" fill="#1b2733">ECR read-only</text>
+  <rect x="570" y="240" width="280" height="90" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="710.0" y="270.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">plat-eks-pod-role</text>
+  <text x="710.0" y="294.0" text-anchor="middle" font-size="13" fill="#1b2733">S3, DynamoDB, KMS, secret</text>
+  <text x="710.0" y="314.0" text-anchor="middle" font-size="13" fill="#1b2733">trust pods.eks.amazonaws.com</text>
+  <line x1="250" y1="100" x2="320" y2="120" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <line x1="540" y1="135" x2="570" y2="135" stroke="#7a55b8" stroke-width="2" marker-end="url(#m-purple)"/>
+  <text x="555.0" y="127.0" text-anchor="middle" font-size="12" fill="#1b2733">asks</text>
+  <line x1="710" y1="180" x2="710" y2="240" stroke="#c98a1a" stroke-width="2" marker-end="url(#m-amber)"/>
+  <text x="746.0" y="210.0" text-anchor="middle" font-size="12" fill="#1b2733">assumes</text>
+  <text x="450" y="410" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">The association binds namespace default + service account plat-api to the role. No annotations on the account.</text>
+</svg>

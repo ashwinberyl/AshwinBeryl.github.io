@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Seven checks ordered from cheapest to most expensive, each catching a different kind of mistake">
+  <rect width="900" height="450" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Quality gates, from your editor to the running account</text>
+  <rect x="20" y="60" width="200" height="76" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="120.0" y="93.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">1 fmt + validate</text>
+  <text x="120.0" y="117.0" text-anchor="middle" font-size="13" fill="#1b2733">syntax, types, references</text>
+  <rect x="240" y="60" width="200" height="76" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="340.0" y="93.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">2 tflint</text>
+  <text x="340.0" y="117.0" text-anchor="middle" font-size="13" fill="#1b2733">unused, deprecated, versions</text>
+  <line x1="220" y1="98" x2="240" y2="98" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="460" y="60" width="200" height="76" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="560.0" y="93.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">3 trivy config</text>
+  <text x="560.0" y="117.0" text-anchor="middle" font-size="13" fill="#1b2733">insecure settings</text>
+  <line x1="440" y1="98" x2="460" y2="98" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="680" y="60" width="200" height="76" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="780.0" y="93.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">4 terraform test</text>
+  <text x="780.0" y="117.0" text-anchor="middle" font-size="13" fill="#1b2733">module behaviour, mocked</text>
+  <line x1="660" y1="98" x2="680" y2="98" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="20" y="170" width="200" height="76" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="120.0" y="203.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">5 validation / precondition</text>
+  <text x="120.0" y="227.0" text-anchor="middle" font-size="13" fill="#1b2733">bad inputs at plan time</text>
+  <rect x="240" y="170" width="200" height="76" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="340.0" y="203.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">6 plan in CI</text>
+  <text x="340.0" y="227.0" text-anchor="middle" font-size="13" fill="#1b2733">what would change</text>
+  <line x1="220" y1="208" x2="240" y2="208" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="460" y="170" width="200" height="76" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="560.0" y="203.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">7 check blocks</text>
+  <text x="560.0" y="227.0" text-anchor="middle" font-size="13" fill="#1b2733">the world after apply</text>
+  <line x1="440" y1="208" x2="460" y2="208" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <rect x="20" y="290" width="420" height="80" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="230.0" y="315.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Cheap and local (1 to 5)</text>
+  <text x="230.0" y="339.0" text-anchor="middle" font-size="13" fill="#1b2733">Run on every save or commit with pre-commit.</text>
+  <text x="230.0" y="359.0" text-anchor="middle" font-size="13" fill="#1b2733">No AWS account, no credentials.</text>
+  <rect x="470" y="290" width="410" height="80" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="675.0" y="315.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">Needs credentials (6 and 7)</text>
+  <text x="675.0" y="339.0" text-anchor="middle" font-size="13" fill="#1b2733">Plan and check blocks read real accounts.</text>
+  <text x="675.0" y="359.0" text-anchor="middle" font-size="13" fill="#1b2733">Run in CI with the plan role (Post 18).</text>
+  <text x="450" y="410" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">A gate that fails late is expensive. Push each mistake to the earliest gate that can see it.</text>
+</svg>

@@ -584,7 +584,7 @@ It lives in **Secrets Manager**, encrypted with the `plat-data` key, created and
 
 The foundation is done: identity, network, security and data, all as code. From here the platform runs things, and the first thing we need is a machine inside the VPC to test it all from.
 
-👉 **Post 08: EC2 and Session Manager** (next batch): a private instance you reach with no SSH and no open port, which finally lets us test EFS, RDS and the endpoints from inside the VPC.
+👉 [Post 08: EC2 and Session Manager: A Private Instance, Reached Without SSH](content/aws-terraform/08-ec2-and-session-manager.md): an instance you reach with no SSH and no open port, which finally lets us test EFS, RDS and the endpoints from inside the VPC.
 
 ---
 

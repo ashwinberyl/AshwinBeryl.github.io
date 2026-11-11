@@ -1604,6 +1604,208 @@
             "snapshots",
             "intermediate"
           ]
+        },
+        {
+          "name": "EC2 and Session Manager: A Private Instance, Reached Without SSH",
+          "type": "file",
+          "path": "aws-terraform/08-ec2-and-session-manager.md",
+          "date": "2026-11-09",
+          "tags": [
+            "aws",
+            "terraform",
+            "ec2",
+            "ssm",
+            "iam",
+            "imds",
+            "efs",
+            "cloudwatch-agent",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Containers on ECS: ECR, Fargate and an Application Load Balancer",
+          "type": "file",
+          "path": "aws-terraform/09-ecs-fargate-and-the-alb.md",
+          "date": "2026-11-09",
+          "tags": [
+            "aws",
+            "terraform",
+            "ecr",
+            "ecs",
+            "fargate",
+            "alb",
+            "iam",
+            "security-groups",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Kubernetes on EKS: Cluster, Nodes, Access Entries and Pod Identity",
+          "type": "file",
+          "path": "aws-terraform/10-eks-as-code.md",
+          "date": "2026-11-10",
+          "tags": [
+            "aws",
+            "terraform",
+            "eks",
+            "kubernetes",
+            "pod-identity",
+            "iam",
+            "access-entries",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Events as Code: S3, SQS, Lambda, EventBridge and SNS",
+          "type": "file",
+          "path": "aws-terraform/11-events-as-code.md",
+          "date": "2026-11-10",
+          "tags": [
+            "aws",
+            "terraform",
+            "s3",
+            "sqs",
+            "lambda",
+            "eventbridge",
+            "sns",
+            "dead-letter-queue",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Delivery as Code: GitHub, CodeBuild and CodePipeline",
+          "type": "file",
+          "path": "aws-terraform/12-delivery-as-code.md",
+          "date": "2026-11-10",
+          "tags": [
+            "aws",
+            "terraform",
+            "codepipeline",
+            "codebuild",
+            "codestar-connections",
+            "ecr",
+            "ecs",
+            "iam-passrole",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "SageMaker as Code: Studio, Models and an Endpoint on a Switch",
+          "type": "file",
+          "path": "aws-terraform/13-sagemaker-as-code.md",
+          "date": "2026-11-11",
+          "tags": [
+            "aws",
+            "terraform",
+            "sagemaker",
+            "studio",
+            "endpoint",
+            "machine-learning",
+            "cost",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Observability as Code: Dashboards, Alarms and Log Metrics",
+          "type": "file",
+          "path": "aws-terraform/14-observability-as-code.md",
+          "date": "2026-11-11",
+          "tags": [
+            "aws",
+            "terraform",
+            "cloudwatch",
+            "alarms",
+            "dashboards",
+            "metric-filters",
+            "container-insights",
+            "sns",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Cost as Code: Budgets, Anomaly Detection and Tags",
+          "type": "file",
+          "path": "aws-terraform/15-cost-as-code.md",
+          "date": "2026-11-11",
+          "tags": [
+            "aws",
+            "terraform",
+            "budgets",
+            "cost-explorer",
+            "cost-allocation-tags",
+            "anomaly-detection",
+            "default-tags",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "State in Depth: import, moved, removed and Recovery",
+          "type": "file",
+          "path": "aws-terraform/16-state-in-depth.md",
+          "date": "2026-11-11",
+          "tags": [
+            "aws",
+            "terraform",
+            "state",
+            "import",
+            "moved",
+            "removed",
+            "s3",
+            "locking",
+            "terraform-remote-state",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "Quality Gates: terraform test, tflint, trivy and check blocks",
+          "type": "file",
+          "path": "aws-terraform/17-quality-gates.md",
+          "date": "2026-11-11",
+          "tags": [
+            "aws",
+            "terraform",
+            "testing",
+            "tflint",
+            "trivy",
+            "pre-commit",
+            "validation",
+            "preconditions",
+            "check-blocks",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "The Terraform Pipeline: Plan on Pull Request, Apply on Merge",
+          "type": "file",
+          "path": "aws-terraform/18-terraform-pipeline.md",
+          "date": "2026-11-11",
+          "tags": [
+            "aws",
+            "terraform",
+            "github-actions",
+            "oidc",
+            "ci-cd",
+            "drift",
+            "least-privilege",
+            "environments",
+            "intermediate"
+          ]
+        },
+        {
+          "name": "The Capstone: Bring It Up, Check It, Break It, Tear It Down",
+          "type": "file",
+          "path": "aws-terraform/19-the-capstone.md",
+          "date": "2026-11-11",
+          "tags": [
+            "aws",
+            "terraform",
+            "capstone",
+            "verification",
+            "failure-drills",
+            "cost",
+            "teardown",
+            "intermediate"
+          ]
         }
       ]
     }

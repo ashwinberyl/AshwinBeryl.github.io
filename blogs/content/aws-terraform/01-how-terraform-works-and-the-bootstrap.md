@@ -95,8 +95,8 @@ Bootstrap also creates the **GitHub OIDC trust** used by CI. Instead of storing 
 
 | Role | Trust condition (`sub`) | Permissions |
 |---|---|---|
-| `plat-tf-plan` | `repo:ashwinberyl/plat-platform-terraform:pull_request` | `ReadOnlyAccess` plus the state-bucket rights above |
-| `plat-tf-apply` | `repo:ashwinberyl/plat-platform-terraform:ref:refs/heads/main` | `AdministratorAccess` (narrowed in Post 18) |
+| `plat-tf-plan` | `repo:ashwinberyl/plat-platform-terraform:pull_request` or `...:ref:refs/heads/main` (the nightly drift check) | `ReadOnlyAccess` plus the state-bucket rights above |
+| `plat-tf-apply` | `repo:ashwinberyl/plat-platform-terraform:environment:production` | `AdministratorAccess` (narrowed in Post 18) |
 
 A pull request from anyone can only ever get the read-only role. Only code that has been merged to `main` can get the powerful one.
 
@@ -129,7 +129,7 @@ A pull request from anyone can only ever get the read-only role. Only code that 
 | "I need a DynamoDB table for S3 locking." | Not since 1.10: `use_lockfile = true`. Old guides are out of date, and `dynamodb_table` is deprecated. |
 | "`plan` is read-only so it needs no write access." | With lockfile locking it writes (and deletes) the `.tflock` object. A role that cannot write there fails at plan. |
 | "I can put the bucket name in a variable inside the `backend` block." | **Backend blocks cannot use variables or locals.** They are read before anything is evaluated. That is why ours is empty (`backend "s3" {}`) and `scripts/tf.sh` supplies the values with `-backend-config`. |
-| "`terraform apply` saves a plan, so what I review is what runs." | Only if you run `plan -out=tfplan` and then `apply tfplan`. A bare `apply` re-plans first, and the world may have changed since you looked. CI uses saved plans (Post 18). |
+| "`terraform apply` saves a plan, so what I review is what runs." | Only if you run `plan -out=tfplan` and then `apply tfplan`. A bare `apply` re-plans first, and the world may have changed since you looked. CI applies only after a reviewed plan and an approval (Post 18). |
 | "One OIDC provider per repo." | One per **URL per account**. `token.actions.githubusercontent.com` exists once, and every repository shares it. If another project already created it, creating it again fails, which is why `create_oidc_provider` is a variable. |
 | "The `aud` check is enough to secure the role." | Without a `sub` condition **any GitHub repository** can assume the role. Always pin `sub`. |
 | "`prevent_destroy` makes the bucket undeletable." | It only blocks plans that would destroy it. Remove the line and the bucket can go. It protects against accidents, not against intent. |
@@ -260,7 +260,7 @@ data "aws_iam_policy_document" "apply_trust" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["${local.github_sub_prefix}:ref:refs/heads/main"]
+      values   = ["${local.github_sub_prefix}:environment:production"]
     }
   }
 }
@@ -307,7 +307,7 @@ aws iam list-open-id-connect-providers
 aws iam get-role --role-name plat-tf-apply --query Role.AssumeRolePolicyDocument.Statement[0].Condition
 ```
 
-You should see `"Status": "Enabled"`, all four public-access settings `true`, `"SSEAlgorithm": "AES256"`, the GitHub provider ARN, and a `StringEquals` condition whose `sub` is `repo:ashwinberyl/plat-platform-terraform:ref:refs/heads/main`.
+You should see `"Status": "Enabled"`, all four public-access settings `true`, `"SSEAlgorithm": "AES256"`, the GitHub provider ARN, and a `StringEquals` condition whose `sub` is `repo:ashwinberyl/plat-platform-terraform:environment:production`.
 
 ### 5. Move bootstrap's state into the bucket
 
@@ -327,7 +327,7 @@ scripts/tf.sh bootstrap migrate
 #   scripts/tf.sh 20-network plan
 #   scripts/tf.sh 20-network apply -var enable_nat=true
 #   scripts/tf.sh bootstrap migrate        # one-time: move local state into S3
-# <stack> is "bootstrap" or a directory name under stacks/.
+# <stack> is "bootstrap", a directory name under stacks/, or labs/<name> for a lab that uses remote state.
 set -euo pipefail
 
 STACK="${1:?usage: tf.sh <stack> <command> [args...]}"
@@ -341,6 +341,8 @@ BUCKET="${TF_STATE_BUCKET:-plat-tfstate-${ACCOUNT}-${REGION}}"
 
 if [ "$STACK" = "bootstrap" ]; then
   DIR="$ROOT/bootstrap"
+elif [[ "$STACK" == labs/* ]]; then
+  DIR="$ROOT/$STACK"
 else
   DIR="$ROOT/stacks/$STACK"
 fi
@@ -469,7 +471,7 @@ Committing `.terraform.lock.hcl` pins the exact provider build, so CI and your l
 | S3 bucket | `plat-tfstate-<account>-<region>` | Versioned, encrypted, private, `prevent_destroy` |
 | OIDC provider | `token.actions.githubusercontent.com` | One per account |
 | IAM role | `plat-tf-plan` | Pull requests, read-only |
-| IAM role | `plat-tf-apply` | `main` branch only |
+| IAM role | `plat-tf-apply` | `production` environment only (limited to `main`) |
 | State objects | `bootstrap/terraform.tfstate` | Moved here in step 5 |
 
 ### Cleanup 🧹
@@ -512,7 +514,7 @@ The first run writes `terraform.tfstate.tflock` with a conditional write (`If-No
 <details>
 <summary>Show answer</summary>
 
-The `sub` claim identifies *which workflow context* is asking. A pull request, which can be opened from a branch with unreviewed code, may only assume the **read-only** plan role. Only a workflow running on `refs/heads/main`, after review and merge, can assume the **apply** role. Without the `sub` condition, any repository on GitHub could assume either role.
+The `sub` claim identifies *which workflow context* is asking. A pull request, which can be opened from a branch with unreviewed code, may only assume the **read-only** plan role. Only a job that runs in the **`production` environment** can assume the **apply** role, and that environment (Post 18) is limited to `main` and requires a reviewer's approval. When a job declares an environment, GitHub puts the environment name in `sub` instead of the branch, which is why the trust names `environment:production` and not `refs/heads/main`. Without the `sub` condition, any repository on GitHub could assume either role.
 
 </details>
 
