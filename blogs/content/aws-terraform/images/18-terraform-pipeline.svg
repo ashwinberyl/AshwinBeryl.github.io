@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Pull requests plan with a read-only role, merges apply after approval with the apply role, a schedule plans nightly to find drift">
+  <rect width="900" height="480" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Three workflows, two roles, one approval</text>
+  <rect x="20" y="60" width="170" height="70" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="105.0" y="80.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Pull request</text>
+  <text x="105.0" y="104.0" text-anchor="middle" font-size="13" fill="#1b2733">changes under stacks/</text>
+  <text x="105.0" y="124.0" text-anchor="middle" font-size="13" fill="#1b2733">or modules/</text>
+  <rect x="240" y="60" width="210" height="70" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="345.0" y="80.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">plan.yml</text>
+  <text x="345.0" y="104.0" text-anchor="middle" font-size="13" fill="#1b2733">changed stacks, one at a time</text>
+  <text x="345.0" y="124.0" text-anchor="middle" font-size="13" fill="#1b2733">comment with the plan</text>
+  <rect x="500" y="60" width="190" height="70" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="595.0" y="80.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">plat-tf-plan</text>
+  <text x="595.0" y="104.0" text-anchor="middle" font-size="13" fill="#1b2733">ReadOnlyAccess + state</text>
+  <text x="595.0" y="124.0" text-anchor="middle" font-size="13" fill="#1b2733">sub: pull_request or main</text>
+  <rect x="20" y="190" width="170" height="70" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="105.0" y="230.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Merge to main</text>
+  <rect x="240" y="190" width="210" height="70" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="345.0" y="210.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">apply.yml</text>
+  <text x="345.0" y="234.0" text-anchor="middle" font-size="13" fill="#1b2733">environment: production</text>
+  <text x="345.0" y="254.0" text-anchor="middle" font-size="13" fill="#1b2733">reviewer approves</text>
+  <rect x="500" y="190" width="190" height="70" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="595.0" y="210.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">plat-tf-apply</text>
+  <text x="595.0" y="234.0" text-anchor="middle" font-size="13" fill="#1b2733">sub: environment:production</text>
+  <text x="595.0" y="254.0" text-anchor="middle" font-size="13" fill="#1b2733">admin, or scoped</text>
+  <rect x="20" y="320" width="170" height="70" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="105.0" y="350.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">Every morning</text>
+  <text x="105.0" y="374.0" text-anchor="middle" font-size="13" fill="#1b2733">cron, or run by hand</text>
+  <rect x="240" y="320" width="210" height="70" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="345.0" y="340.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">drift.yml</text>
+  <text x="345.0" y="364.0" text-anchor="middle" font-size="13" fill="#1b2733">plan every stack</text>
+  <text x="345.0" y="384.0" text-anchor="middle" font-size="13" fill="#1b2733">exit code 2 = drift</text>
+  <rect x="500" y="320" width="190" height="70" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="595.0" y="350.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">GitHub issue</text>
+  <text x="595.0" y="374.0" text-anchor="middle" font-size="13" fill="#1b2733">Drift in &lt;stack&gt;</text>
+  <rect x="740" y="60" width="140" height="330" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="810.0" y="210.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">AWS account</text>
+  <text x="810.0" y="234.0" text-anchor="middle" font-size="13" fill="#1b2733">state bucket</text>
+  <text x="810.0" y="254.0" text-anchor="middle" font-size="13" fill="#1b2733">13 stacks</text>
+  <line x1="190" y1="95" x2="240" y2="95" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="450" y1="95" x2="500" y2="95" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="190" y1="225" x2="240" y2="225" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="450" y1="225" x2="500" y2="225" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="190" y1="355" x2="240" y2="355" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="450" y1="355" x2="500" y2="355" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="690" y1="95" x2="740" y2="95" stroke="#2f9e72" stroke-width="2" marker-end="url(#m-green)"/>
+  <line x1="690" y1="225" x2="740" y2="225" stroke="#c98a1a" stroke-width="2" marker-end="url(#m-amber)"/>
+  <text x="450" y="440" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">No AWS keys are stored in GitHub. Each job exchanges its OIDC token for short-lived credentials.</text>
+</svg>

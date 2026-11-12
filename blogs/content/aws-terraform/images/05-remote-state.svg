@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Stacks 10 and 20 publish outputs to their state objects in S3, and 30-security reads them with terraform_remote_state">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">How 30-security reads the other stacks</text>
+  <rect x="30" y="70" width="200" height="70" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="130.0" y="100.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">10-identity</text>
+  <text x="130.0" y="124.0" text-anchor="middle" font-size="13" fill="#1b2733">output demo_reader_role_name</text>
+  <rect x="30" y="190" width="200" height="70" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="130.0" y="220.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">20-network</text>
+  <text x="130.0" y="244.0" text-anchor="middle" font-size="13" fill="#1b2733">output vpc_id, subnet ids</text>
+  <rect x="290" y="55" width="300" height="230" rx="14" fill="none" stroke="#c98a1a" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="304" y="75" text-anchor="start" font-size="13" font-weight="700" fill="#6b4a07">S3 state bucket</text>
+  <rect x="310" y="80" width="260" height="60" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="440.0" y="105.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">10-identity/terraform.tfstate</text>
+  <text x="440.0" y="129.0" text-anchor="middle" font-size="13" fill="#1b2733">outputs: demo_reader_role_name, …</text>
+  <rect x="310" y="160" width="260" height="60" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="440.0" y="185.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">20-network/terraform.tfstate</text>
+  <text x="440.0" y="209.0" text-anchor="middle" font-size="13" fill="#1b2733">outputs: vpc_id, private_subnet_ids, …</text>
+  <rect x="660" y="130" width="210" height="100" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="765.0" y="165.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">30-security</text>
+  <text x="765.0" y="189.0" text-anchor="middle" font-size="13" fill="#1b2733">data "terraform_remote_state"</text>
+  <text x="765.0" y="209.0" text-anchor="middle" font-size="13" fill="#1b2733">reads outputs only</text>
+  <line x1="230" y1="105" x2="310" y2="110" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <text x="270.0" y="99.5" text-anchor="middle" font-size="12" fill="#1b2733">writes</text>
+  <line x1="230" y1="225" x2="310" y2="190" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <text x="270.0" y="221.5" text-anchor="middle" font-size="12" fill="#1b2733">writes</text>
+  <line x1="570" y1="110" x2="660" y2="170" stroke="#2f9e72" stroke-width="2" marker-end="url(#m-green)"/>
+  <text x="615.0" y="128.0" text-anchor="middle" font-size="12" fill="#1b2733">reads</text>
+  <line x1="570" y1="190" x2="660" y2="200" stroke="#2f9e72" stroke-width="2" marker-end="url(#m-green)"/>
+  <text x="450" y="340" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">Apply order matters: a stack can only read outputs the upstream stack has already applied.</text>
+  <text x="450" y="362" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">Only root-module outputs are visible. Everything else in the other stack stays private.</text>
+</svg>

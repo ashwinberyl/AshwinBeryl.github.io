@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 505" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="S3, DynamoDB, RDS and EFS encrypted with the plat-data key, with RDS and EFS reachable only from plat-app-sg">
+  <rect width="900" height="505" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">The data stack: four stores, one key, two fences</text>
+  <rect x="330" y="60" width="240" height="56" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="450.0" y="83.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">KMS alias/plat-data</text>
+  <text x="450.0" y="107.0" text-anchor="middle" font-size="13" fill="#1b2733">from 30-security</text>
+  <rect x="30" y="170" width="200" height="90" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="130.0" y="200.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">S3 data lake</text>
+  <text x="130.0" y="224.0" text-anchor="middle" font-size="13" fill="#1b2733">module s3-bucket</text>
+  <text x="130.0" y="244.0" text-anchor="middle" font-size="13" fill="#1b2733">raw/ processed/ models/</text>
+  <line x1="450" y1="116" x2="130" y2="170" stroke="#c98a1a" stroke-width="2" marker-end="url(#m-amber)"/>
+  <rect x="245" y="170" width="200" height="90" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="345.0" y="200.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">DynamoDB plat-jobs</text>
+  <text x="345.0" y="224.0" text-anchor="middle" font-size="13" fill="#1b2733">GSI status-created_idx</text>
+  <text x="345.0" y="244.0" text-anchor="middle" font-size="13" fill="#1b2733">TTL expires_at, PITR</text>
+  <line x1="450" y1="116" x2="345" y2="170" stroke="#c98a1a" stroke-width="2" marker-end="url(#m-amber)"/>
+  <rect x="460" y="170" width="200" height="90" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="560.0" y="200.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">RDS plat-meta</text>
+  <text x="560.0" y="224.0" text-anchor="middle" font-size="13" fill="#1b2733">PostgreSQL, enable_rds</text>
+  <text x="560.0" y="244.0" text-anchor="middle" font-size="13" fill="#1b2733">managed password</text>
+  <line x1="450" y1="116" x2="560" y2="170" stroke="#c98a1a" stroke-width="2" marker-end="url(#m-amber)"/>
+  <rect x="675" y="170" width="200" height="90" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="775.0" y="200.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">EFS plat-efs</text>
+  <text x="775.0" y="224.0" text-anchor="middle" font-size="13" fill="#1b2733">mount target per AZ</text>
+  <text x="775.0" y="244.0" text-anchor="middle" font-size="13" fill="#1b2733">access point plat-ml-ap</text>
+  <line x1="450" y1="116" x2="775" y2="170" stroke="#c98a1a" stroke-width="2" marker-end="url(#m-amber)"/>
+  <rect x="30" y="345" width="200" height="110" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="130.0" y="395.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">plat-app-sg</text>
+  <text x="130.0" y="419.0" text-anchor="middle" font-size="13" fill="#1b2733">clients</text>
+  <rect x="460" y="340" width="200" height="56" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="560.0" y="363.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">plat-rds-sg</text>
+  <text x="560.0" y="387.0" text-anchor="middle" font-size="13" fill="#1b2733">5432 from plat-app-sg</text>
+  <rect x="675" y="410" width="200" height="56" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="775.0" y="433.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">plat-efs-sg</text>
+  <text x="775.0" y="457.0" text-anchor="middle" font-size="13" fill="#1b2733">2049 from plat-app-sg</text>
+  <line x1="230" y1="368" x2="460" y2="368" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <text x="345.0" y="360.0" text-anchor="middle" font-size="12" fill="#1b2733">5432</text>
+  <line x1="230" y1="438" x2="675" y2="438" stroke="#7a55b8" stroke-width="2" marker-end="url(#m-purple)"/>
+  <text x="452.5" y="430.0" text-anchor="middle" font-size="12" fill="#1b2733">2049</text>
+  <line x1="560" y1="340" x2="560" y2="260" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <line x1="775" y1="410" x2="775" y2="260" stroke="#7a55b8" stroke-width="2" marker-end="url(#m-purple)"/>
+  <text x="450" y="492" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">Both RDS and EFS are in the private subnets. Nothing else may connect.</text>
+</svg>

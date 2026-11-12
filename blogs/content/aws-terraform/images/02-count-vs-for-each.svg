@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Removing the first element shifts every count index but removes only one for_each instance">
+  <rect width="900" height="400" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">count addresses by position, for_each by key</text>
+  <rect x="30" y="60" width="400" height="300" rx="14" fill="none" stroke="#c24a4a" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="44" y="80" text-anchor="start" font-size="13" font-weight="700" fill="#7a1f1f">count = length(var.names)</text>
+  <rect x="470" y="60" width="400" height="300" rx="14" fill="none" stroke="#2f9e72" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="484" y="80" text-anchor="start" font-size="13" font-weight="700" fill="#124d38">for_each = toset(var.names)</text>
+  <rect x="60" y="90" width="150" height="50" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="135.0" y="110.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">[0]</text>
+  <text x="135.0" y="134.0" text-anchor="middle" font-size="13" fill="#1b2733">alpha</text>
+  <rect x="60" y="160" width="150" height="50" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="135.0" y="180.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">[1]</text>
+  <text x="135.0" y="204.0" text-anchor="middle" font-size="13" fill="#1b2733">bravo</text>
+  <rect x="60" y="230" width="150" height="50" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="135.0" y="250.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">[2]</text>
+  <text x="135.0" y="274.0" text-anchor="middle" font-size="13" fill="#1b2733">charlie</text>
+  <rect x="250" y="90" width="150" height="50" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="325.0" y="110.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">[0]</text>
+  <text x="325.0" y="134.0" text-anchor="middle" font-size="13" fill="#1b2733">bravo</text>
+  <rect x="250" y="160" width="150" height="50" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="325.0" y="180.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">[1]</text>
+  <text x="325.0" y="204.0" text-anchor="middle" font-size="13" fill="#1b2733">charlie</text>
+  <line x1="210" y1="115" x2="250" y2="115" stroke="#c24a4a" stroke-width="2" marker-end="url(#m-red)"/>
+  <text x="230.0" y="109.0" text-anchor="middle" font-size="12" fill="#1b2733">replace</text>
+  <line x1="210" y1="185" x2="250" y2="185" stroke="#c24a4a" stroke-width="2" marker-end="url(#m-red)"/>
+  <text x="230.0" y="179.0" text-anchor="middle" font-size="12" fill="#1b2733">replace</text>
+  <text x="230" y="335" text-anchor="middle" font-size="12.5" font-style="italic" fill="#7a1f1f">2 replaced, 1 destroyed (positions moved)</text>
+  <rect x="500" y="90" width="160" height="50" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="580.0" y="120.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">["alpha"]</text>
+  <rect x="500" y="160" width="160" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="580.0" y="190.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">["bravo"]</text>
+  <rect x="500" y="230" width="160" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="580.0" y="260.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">["charlie"]</text>
+  <rect x="700" y="160" width="150" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="775.0" y="180.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">["bravo"]</text>
+  <text x="775.0" y="204.0" text-anchor="middle" font-size="13" fill="#1b2733">unchanged</text>
+  <rect x="700" y="230" width="150" height="50" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="775.0" y="250.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">["charlie"]</text>
+  <text x="775.0" y="274.0" text-anchor="middle" font-size="13" fill="#1b2733">unchanged</text>
+  <text x="670" y="335" text-anchor="middle" font-size="12.5" font-style="italic" fill="#124d38">only ["alpha"] is destroyed</text>
+</svg>

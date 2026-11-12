@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Three module calls each get the same secure bucket resources with different inputs">
+  <rect width="900" height="450" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">One bucket definition, many callers</text>
+  <rect x="30" y="70" width="220" height="80" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="140.0" y="95.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">logs</text>
+  <text x="140.0" y="119.0" text-anchor="middle" font-size="13" fill="#1b2733">labs/06-modules</text>
+  <text x="140.0" y="139.0" text-anchor="middle" font-size="13" fill="#1b2733">prefixes + lifecycle rule</text>
+  <rect x="30" y="170" width="220" height="80" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="140.0" y="195.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">scratch["one"]</text>
+  <text x="140.0" y="219.0" text-anchor="middle" font-size="13" fill="#1b2733">labs/06-modules</text>
+  <text x="140.0" y="239.0" text-anchor="middle" font-size="13" fill="#1b2733">versioning = false</text>
+  <rect x="30" y="270" width="220" height="80" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="140.0" y="295.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">data_bucket</text>
+  <text x="140.0" y="319.0" text-anchor="middle" font-size="13" fill="#1b2733">stacks/40-data</text>
+  <text x="140.0" y="339.0" text-anchor="middle" font-size="13" fill="#1b2733">KMS key + 2 lifecycle rules</text>
+  <rect x="330" y="55" width="540" height="330" rx="14" fill="none" stroke="#2f9e72" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="344" y="75" text-anchor="start" font-size="13" font-weight="700" fill="#124d38">modules/s3-bucket</text>
+  <rect x="350" y="85" width="240" height="56" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="470.0" y="118.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">aws_s3_bucket</text>
+  <rect x="605" y="85" width="240" height="56" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="725.0" y="118.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">public access block</text>
+  <rect x="350" y="157" width="240" height="56" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="470.0" y="190.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">ownership controls</text>
+  <rect x="605" y="157" width="240" height="56" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="725.0" y="190.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">versioning (optional)</text>
+  <rect x="350" y="229" width="240" height="56" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="470.0" y="262.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">default encryption</text>
+  <rect x="605" y="229" width="240" height="56" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="725.0" y="262.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">bucket policy: deny non-TLS</text>
+  <rect x="350" y="301" width="240" height="56" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="470.0" y="334.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">lifecycle rules (dynamic)</text>
+  <rect x="605" y="301" width="240" height="56" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="725.0" y="334.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">prefix objects (for_each)</text>
+  <line x1="250" y1="105" x2="350" y2="115" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <line x1="250" y1="205" x2="350" y2="205" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <line x1="250" y1="305" x2="350" y2="290" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <text x="600" y="415" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">Green = always created. Amber = created only when the caller asks for it.</text>
+</svg>

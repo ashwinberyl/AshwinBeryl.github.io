@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Metrics from Lambda, SQS, the load balancer, Container Insights and the CloudWatch agent feed alarms and the dashboard; a log line becomes a metric">
+  <rect width="900" height="470" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">Observability: metrics, a log filter, alarms and one dashboard</text>
+  <rect x="20" y="55" width="200" height="56" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="120.0" y="78.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">Lambda</text>
+  <text x="120.0" y="102.0" text-anchor="middle" font-size="13" fill="#1b2733">Errors, Invocations</text>
+  <rect x="20" y="125" width="200" height="56" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="120.0" y="148.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">SQS DLQ</text>
+  <text x="120.0" y="172.0" text-anchor="middle" font-size="13" fill="#1b2733">MessagesVisible</text>
+  <rect x="20" y="195" width="200" height="56" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="120.0" y="218.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">ALB</text>
+  <text x="120.0" y="242.0" text-anchor="middle" font-size="13" fill="#1b2733">5xx, HealthyHostCount</text>
+  <rect x="20" y="265" width="200" height="56" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="120.0" y="288.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">ECS Insights</text>
+  <text x="120.0" y="312.0" text-anchor="middle" font-size="13" fill="#1b2733">RunningTaskCount</text>
+  <rect x="20" y="335" width="200" height="56" rx="10" fill="#eef1f4" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="120.0" y="358.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3945">CloudWatch agent</text>
+  <text x="120.0" y="382.0" text-anchor="middle" font-size="13" fill="#1b2733">CWAgent disk, mem</text>
+  <rect x="300" y="55" width="220" height="56" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="410.0" y="78.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">Log metric filter</text>
+  <text x="410.0" y="102.0" text-anchor="middle" font-size="13" fill="#1b2733">"failed" -&gt; Plat/IngestFailures</text>
+  <rect x="320" y="160" width="200" height="150" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="420.0" y="200.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">Alarms (5)</text>
+  <text x="420.0" y="224.0" text-anchor="middle" font-size="13" fill="#1b2733">3 always, 2 with the service</text>
+  <text x="420.0" y="244.0" text-anchor="middle" font-size="13" fill="#1b2733">api-errors, running-tasks,</text>
+  <text x="420.0" y="264.0" text-anchor="middle" font-size="13" fill="#1b2733">ingest-errors, dlq-not-empty,</text>
+  <text x="420.0" y="284.0" text-anchor="middle" font-size="13" fill="#1b2733">ec2-data-disk-high</text>
+  <rect x="600" y="160" width="270" height="56" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="735.0" y="183.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">SNS plat-alerts</text>
+  <text x="735.0" y="207.0" text-anchor="middle" font-size="13" fill="#1b2733">email subscription</text>
+  <rect x="600" y="280" width="270" height="90" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="735.0" y="310.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Dashboard plat-overview</text>
+  <text x="735.0" y="334.0" text-anchor="middle" font-size="13" fill="#1b2733">2 widgets always</text>
+  <text x="735.0" y="354.0" text-anchor="middle" font-size="13" fill="#1b2733">+3 with service, +1 with instance</text>
+  <line x1="220" y1="83" x2="300" y2="83" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="220" y1="153" x2="320" y2="180" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="220" y1="223" x2="320" y2="212" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="220" y1="293" x2="320" y2="244" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="220" y1="363" x2="320" y2="276" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <line x1="520" y1="188" x2="600" y2="188" stroke="#c98a1a" stroke-width="2" marker-end="url(#m-amber)"/>
+  <line x1="520" y1="290" x2="600" y2="320" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <text x="450" y="440" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">Alarms and dashboard widgets for switched-off components are not created: they would sit in INSUFFICIENT_DATA forever.</text>
+</svg>

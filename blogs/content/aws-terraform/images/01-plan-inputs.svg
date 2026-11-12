@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-label="Configuration, state and the real account feed a plan, which apply executes and writes back to state">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+    <marker id="m-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e72"/></marker>
+    <marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c24a4a"/></marker>
+    <marker id="m-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a78c2"/></marker>
+    <marker id="m-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c98a1a"/></marker>
+    <marker id="m-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7a55b8"/></marker>
+  </defs>
+  <text x="450.0" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#1b2733">What terraform plan compares</text>
+  <rect x="30" y="70" width="230" height="90" rx="10" fill="#e3edf9" stroke="#3a78c2" stroke-width="1.5"/>
+  <text x="145.0" y="100.0" text-anchor="middle" font-size="15" font-weight="700" fill="#173d6b">Configuration</text>
+  <text x="145.0" y="124.0" text-anchor="middle" font-size="13" fill="#1b2733">*.tf files in git</text>
+  <text x="145.0" y="144.0" text-anchor="middle" font-size="13" fill="#1b2733">what you want</text>
+  <rect x="30" y="190" width="230" height="90" rx="10" fill="#fdf3dc" stroke="#c98a1a" stroke-width="1.5"/>
+  <text x="145.0" y="220.0" text-anchor="middle" font-size="15" font-weight="700" fill="#6b4a07">State</text>
+  <text x="145.0" y="244.0" text-anchor="middle" font-size="13" fill="#1b2733">s3://plat-tfstate-…</text>
+  <text x="145.0" y="264.0" text-anchor="middle" font-size="13" fill="#1b2733">what Terraform recorded</text>
+  <rect x="30" y="310" width="230" height="90" rx="10" fill="#dff3ea" stroke="#2f9e72" stroke-width="1.5"/>
+  <text x="145.0" y="340.0" text-anchor="middle" font-size="15" font-weight="700" fill="#124d38">Real AWS</text>
+  <text x="145.0" y="364.0" text-anchor="middle" font-size="13" fill="#1b2733">read by the provider</text>
+  <text x="145.0" y="384.0" text-anchor="middle" font-size="13" fill="#1b2733">what exists now</text>
+  <rect x="360" y="150" width="190" height="140" rx="10" fill="#efe8f8" stroke="#7a55b8" stroke-width="1.5"/>
+  <text x="455.0" y="185.0" text-anchor="middle" font-size="15" font-weight="700" fill="#3f2a6b">terraform plan</text>
+  <text x="455.0" y="209.0" text-anchor="middle" font-size="13" fill="#1b2733">refresh, compare,</text>
+  <text x="455.0" y="229.0" text-anchor="middle" font-size="13" fill="#1b2733">build the graph</text>
+  <text x="455.0" y="249.0" text-anchor="middle" font-size="13" fill="#1b2733">Plan: N to add,</text>
+  <text x="455.0" y="269.0" text-anchor="middle" font-size="13" fill="#1b2733">M to change, K to destroy</text>
+  <rect x="650" y="150" width="220" height="140" rx="10" fill="#fbe9e9" stroke="#c24a4a" stroke-width="1.5"/>
+  <text x="760.0" y="195.0" text-anchor="middle" font-size="15" font-weight="700" fill="#7a1f1f">terraform apply</text>
+  <text x="760.0" y="219.0" text-anchor="middle" font-size="13" fill="#1b2733">create / update / delete</text>
+  <text x="760.0" y="239.0" text-anchor="middle" font-size="13" fill="#1b2733">in dependency order</text>
+  <text x="760.0" y="259.0" text-anchor="middle" font-size="13" fill="#1b2733">then write state</text>
+  <line x1="260" y1="115" x2="360" y2="190" stroke="#3a78c2" stroke-width="2" marker-end="url(#m-blue)"/>
+  <line x1="260" y1="235" x2="360" y2="220" stroke="#c98a1a" stroke-width="2" marker-end="url(#m-amber)"/>
+  <line x1="260" y1="355" x2="360" y2="255" stroke="#2f9e72" stroke-width="2" marker-end="url(#m-green)"/>
+  <line x1="550" y1="220" x2="650" y2="220" stroke="#5b6b7a" stroke-width="2" marker-end="url(#m-gray)"/>
+  <text x="600.0" y="212.0" text-anchor="middle" font-size="12" fill="#1b2733">you approve</text>
+  <line x1="760" y1="290" x2="760" y2="385" stroke="#c24a4a" stroke-width="2" marker-end="url(#m-red)"/>
+  <line x1="760" y1="385" x2="260" y2="385" stroke="#c24a4a" stroke-width="2" marker-end="url(#m-red)"/>
+  <text x="510.0" y="375.0" text-anchor="middle" font-size="12" fill="#1b2733">API calls change AWS, then state is updated</text>
+  <text x="450" y="415" text-anchor="middle" font-size="12.5" font-style="italic" fill="#2b3945">A lock file next to the state (terraform.tfstate.tflock) stops two runs from writing at once.</text>
+</svg>
