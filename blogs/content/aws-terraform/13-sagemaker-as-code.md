@@ -2,7 +2,7 @@
 title: "SageMaker as Code: Studio, Models and an Endpoint on a Switch"
 date: 2026-11-11
 tags: [aws, terraform, sagemaker, studio, endpoint, machine-learning, cost, intermediate]
-description: Post 13 of the AWS on Terraform series. A Studio domain with user profiles built from a set, one execution role, the security group that talks only to itself, and a real-time endpoint behind a double condition, with create_before_destroy and name_prefix so models can be replaced without downtime.
+description: Post 13 of the AWS on Terraform series. A Studio domain with user profiles built from a set, one execution role, the security group that talks only to itself, and a real-time endpoint behind a double condition, with create_before_destroy and unique names so models can be replaced without downtime.
 ---
 
 # Machine Learning Without the Clicks 🤖
@@ -190,7 +190,8 @@ resource "aws_sagemaker_user_profile" "this" {
 resource "aws_sagemaker_model" "churn" {
   count = local.endpoint
 
-  name_prefix        = "plat-churn-"
+  # aws_sagemaker_model has no name_prefix; a hash of the inputs gives a new name per version.
+  name               = "plat-churn-${substr(md5("${var.inference_image}${var.model_data_url}"), 0, 8)}"
   execution_role_arn = aws_iam_role.sagemaker.arn
 
   primary_container {
@@ -228,7 +229,7 @@ resource "aws_sagemaker_endpoint" "churn" {
 }
 ```
 
-Three resources with a chain of references: the model points at an artifact, the configuration at the model, the endpoint at the configuration. The endpoint resource is stable (`name = "plat-churn"`), while the model and configuration use **`name_prefix`**, so each gets a unique generated name.
+Three resources with a chain of references: the model points at an artifact, the configuration at the model, the endpoint at the configuration. The endpoint resource is stable (`name = "plat-churn"`), while the configuration uses **`name_prefix`** for a generated name. The model resource has no `name_prefix` argument, so its name carries a short hash of the image and artifact URL: a new artifact means a new name.
 
 That choice and `create_before_destroy` work together. When `model_data_url` changes, Terraform must replace the model. SageMaker names are immutable and unique, so a replacement can't reuse the old name. With a prefix it creates a new model and a new configuration **first**, points the endpoint at the new configuration (an in-place update that SageMaker performs without downtime), and only then deletes the old ones.
 
@@ -244,7 +245,7 @@ That choice and `create_before_destroy` work together. When `model_data_url` cha
 | "VpcOnly Studio just works in a private subnet." | It needs a NAT, or endpoints for SageMaker API, runtime, S3 and more. |
 | "`AmazonSageMakerFullAccess` can read any bucket." | Only buckets whose name contains `sagemaker`. Ours needs the inline policy. |
 | "A model is a running thing." | It's a **definition**: image plus artifact. The endpoint is the running part and the only part that bills. |
-| "Changing `model_data_url` updates the endpoint in place." | It replaces model and config; the endpoint is then updated to the new config. Names must be new, hence `name_prefix`. |
+| "Changing `model_data_url` updates the endpoint in place." | It replaces model and config; the endpoint is then updated to the new config. Names must be new, hence the hash in the model name and `name_prefix` on the configuration. |
 | "An endpoint that fails to start shows an error immediately." | Terraform waits about ten minutes first, then reports the failure reason. |
 | "Training should be a Terraform resource." | A training job is one-shot and has no lifecycle to manage. Pipelines or the CLI run it. |
 | "A deleted endpoint leaves nothing behind." | The model and configuration remain until deleted separately. Terraform removes them here. |
@@ -486,12 +487,12 @@ A switch alone could create an endpoint with no model, which fails after a long 
 
 </details>
 
-**Q3.** Why do the model and configuration use `name_prefix` and `create_before_destroy`?
+**Q3.** Why do the model and configuration get generated names (a hash and `name_prefix`) and `create_before_destroy`?
 
 <details>
 <summary>Show answer</summary>
 
-SageMaker resource names are unique and immutable. A replacement therefore needs a **new** name, which a prefix generates, and it must exist **before** the old one is removed so the endpoint always has something to point at.
+SageMaker resource names are unique and immutable. A replacement therefore needs a **new** name, which a prefix or an input hash generates, and it must exist **before** the old one is removed so the endpoint always has something to point at.
 
 </details>
 
