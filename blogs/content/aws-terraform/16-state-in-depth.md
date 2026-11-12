@@ -58,6 +58,11 @@ provider "aws" {
     }
   }
 }
+
+output "bucket_name" {
+  description = "Echoes the hand-made bucket name that import.tf.example adopts."
+  value       = var.bucket_name
+}
 ```
 
 A variable for the bucket's name, and a provider with the same `default_tags` as every stack (this will matter when we import). The backend is declared empty in `versions.tf` and filled in by `scripts/tf.sh`, exactly as in the real stacks:

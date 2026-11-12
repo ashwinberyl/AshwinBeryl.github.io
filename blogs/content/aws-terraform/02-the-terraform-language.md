@@ -356,6 +356,17 @@ output "by_count_addresses" {
 output "by_key_addresses" {
   value = [for k, r in terraform_data.by_key : "terraform_data.by_key[\"${k}\"]"]
 }
+
+output "locals_preview" {
+  description = "Everything the locals compute, so `terraform plan` shows it and tflint sees them used."
+  value       = {
+    public_cidrs  = local.public_cidrs
+    by_cidr       = local.by_cidr
+    subnet_names  = local.subnet_names
+    private_count = local.private_count
+    tags          = local.tags
+  }
+}
 ```
 
 ### 1. Initialise
